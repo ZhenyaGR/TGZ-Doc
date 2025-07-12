@@ -1,4 +1,4 @@
-# SimpleVK Documentation
+# SimpleTG Documentation
 
 [![Documentation](https://img.shields.io/badge/Documentation-Online-brightgreen)](https://simplevk.scripthub.ru)
 [![GitHub Issues](https://img.shields.io/github/issues/digitalstars/simplevk-doc)](https://github.com/digitalstars/simplevk-doc/issues)
