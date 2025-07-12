@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "SimpleVK"
-  text: "Фреймворк для создания ботов ВК"   
-  tagline: "Главное - просто!"
+  name: "TGZ"
+  text: "Библиотека для создания ботов в Telegram"   
+  tagline: "Главное - Z!"
   image:
 #    src: /logo.png
     alt: SimpleVK
@@ -18,7 +18,7 @@ hero:
       link: /install/examples
     - theme: alt
       text: "GitHub ↗"
-      link: "https://github.com/digitalstars/simpleVK-php"
+      link: "https://github.com/zhenyagr/tgz/"
 
 features:
   - title: 🌟 Простота и скорость
