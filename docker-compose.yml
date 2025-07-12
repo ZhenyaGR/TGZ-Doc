@@ -1,0 +1,21 @@
+services:
+  vuepress-dev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    container_name: vuepress-dev
+    ports:
+      - "8080:8080"
+    develop:
+      watch:
+        - action: sync
+          path: ./docs
+          target: /app/docs
+          ignore:
+            - node_modules/
+            - .vuepress/dist/
+            - .vuepress/.temp/
+            - .vuepress/.cache/
+        - action: rebuild
+          path: ./package.json
+    command: pnpm run docs:dev
