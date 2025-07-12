@@ -72,13 +72,9 @@ export default defineConfig({
         skipToContentLabel: 'Перейти к содержимому',
 
         logo: '/logo.png',
-        nav: [
-            // { text: 'Home', link: '/' },
-            {text: 'Чат разработчиков', link: 'https://vk.me/join/AJQ1dzQRUQxtfd7zSm4STOmt'}
-        ],
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/digitalstars/simpleVK-php'}
+            {icon: 'github', link: 'https://github.com/zhenyagr/tgz'},
         ],
 
         search: {
@@ -107,19 +103,11 @@ export default defineConfig({
                 text: 'Начало работы',
                 collapsed: false,
                 items: [
-                    {text: 'Почему SimpleVK?', link: '/install/who_simplevk'},
+                    {text: 'Почему TGZ?', link: '/install/who_simplevk'},
                     {text: 'Установка', link: '/install/requirements'},
                     {text: 'Как пользоваться сайтом', link: '/install/site_helper'},
                     {text: 'Подключение', link: '/install/install'},
                     {text: 'Примеры ботов', link: '/install/examples'},
-                ]
-            },
-            {
-                text: 'ООП-конструктор ботов',
-                collapsed: false,
-                items: [
-                    {text: 'Использование', link: '/constructor/how_to_use'},
-                    {text: 'Понимание внедрения зависимостей (DI)', link: '/constructor/dependency_injection'},
                 ]
             },
             {
@@ -137,12 +125,5 @@ export default defineConfig({
             message: 'Опубликовано под лицензией MIT.',
             copyright: '© 2017 – настоящее время, Кирилл Миновский, Антон Колобов'
         },
-        // locales: {
-        //   '/': {
-        //     lastUpdatedText: 'Последнее обновление',
-        //     next: 'Следующая',
-        //     prev: 'Предыдущая',
-        //   },
-        // },
     }
 })
