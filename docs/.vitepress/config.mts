@@ -4,8 +4,8 @@ import {defineConfig} from 'vitepress'
 
 export default defineConfig({
     lang: 'ru-RU',
-    title: "SimpleVK-PHP",
-    description: "Документация библиотеки SimpleVK-PHP",
+    title: "Telegram-Z",
+    description: "Документация библиотеки TGZ",
     base: "/TGZ-Doc/",
     cleanUrls: true,
     // srcDir: './docs',
@@ -103,7 +103,7 @@ export default defineConfig({
                 text: 'Начало работы',
                 collapsed: false,
                 items: [
-                    {text: 'Почему TGZ?', link: '/install/who_simplevk'},
+                    {text: 'Почему TGZ?', link: '/install/who_tgz'},
                     {text: 'Установка', link: '/install/requirements'},
                     {text: 'Как пользоваться сайтом', link: '/install/site_helper'},
                     {text: 'Подключение', link: '/install/install'},
