@@ -6,7 +6,7 @@ export default defineConfig({
     lang: 'ru-RU',
     title: "SimpleVK-PHP",
     description: "Документация библиотеки SimpleVK-PHP",
-    base: "/",
+    base: "/TGZ-Doc/",
     cleanUrls: true,
     // srcDir: './docs',
     appearance: 'dark',
