@@ -20,11 +20,10 @@ title: Создание и настройка бота
 
 <figure>
   <img 
-    src="/create_bot.png" 
-    alt="Описание изображения" 
+    src="/create_bot.png"
     class="img-medium"
   >
-  <figcaption>Подпись к изображению.</figcaption>
+  <figcaption>Создание бота в @BotFather</figcaption>
 </figure>
 
 ---
