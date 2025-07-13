@@ -19,7 +19,10 @@ title: Создание и настройка бота
     ```
    
 <figure>
-  <img src="/create_bot.png" alt="Скриншот из @BotFather">
+  <img src="/create_bot.png" 
+      alt="Скриншот из @BotFather"
+    width="500"
+>
   <figcaption>Создание бота в @BotFather</figcaption>
 </figure>
 
