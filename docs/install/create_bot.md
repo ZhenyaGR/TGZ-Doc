@@ -102,13 +102,13 @@ Telegram отправляет запросы к вашему серверу, а 
     help - Получить справку по работе с ботом
     ```
 
-<figure>
+<.figure>
   <img 
     src="/bot_commands_menu.png"
     class="img-medium"
   >
   <figcaption>Пример меню команд, которое увидит пользователь</figcaption>
-</figure>
+<./figure>
 
 ### 3.3 Настройки приватности и групп
 
