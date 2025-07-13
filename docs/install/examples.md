@@ -5,10 +5,10 @@ title: Примеры ботов
 > Бот отвечает на любое сообщение
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\SimpleVK as vk;
-$vk = vk::create(ТОКЕН, '5.120')->setConfirm(STR); //STR - строка подтверждения сервера
-$vk->reply('Привет, ~!fn~');
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = new TGZ (ТОКЕН);
+$tg->reply('Привет, ~!fn~');
 ```
 
 

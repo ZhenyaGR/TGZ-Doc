@@ -106,6 +106,7 @@ export default defineConfig({
                     {text: 'Почему TGZ?', link: '/install/who_tgz'},
                     {text: 'Установка', link: '/install/requirements'},
                     {text: 'Подключение', link: '/install/install'},
+                    {text: 'Создание бота в TG', link: '/install/create_bot'},
                     {text: 'Примеры ботов', link: '/install/examples'},
                 ]
             },
