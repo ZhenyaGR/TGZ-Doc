@@ -18,10 +18,10 @@ title: Создание и настройка бота
     123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
     ```
    
-###### <figure>
-######   <img src="/create_bot.png" alt="Скриншот из @BotFather">
-######   <figcaption>Создание бота в @BotFather</figcaption>
-###### </figure>
+<figure>
+  <img src="/create_bot.png" alt="Скриншот из @BotFather">
+  <figcaption>Создание бота в @BotFather</figcaption>
+</figure>
 
 ---
 
