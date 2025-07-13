@@ -1,7 +1,10 @@
 # Системные требования и установка
 ## Требования
 * PHP: `8.0-8.4+`  
-* **Обязательные** модули PHP: `mbstring` и `curl`
+**Обязательные** модули PHP: 
+* `mbstring` 
+* `curl`
+* `json` (обычно включен по умолчанию)
 
 ## Установка в Linux:
 
@@ -11,7 +14,7 @@
 
 ```bash
 sudo apt update
-sudo apt install php8.3 php8.3-mbstring php8.3-curl
+sudo apt install php8.3 php8.3-mbstring php8.3-curl php8.3-json
 ```
 
 ### Пакетный менеджер dnf/yum (CentOS, RHEL, Fedora)
@@ -20,10 +23,10 @@ sudo apt install php8.3 php8.3-mbstring php8.3-curl
 
 ```bash
 # Для Fedora (dnf)
-sudo dnf install php php-mbstring php-curl
+sudo dnf install php php-mbstring php-curl php-json
 
 # Для CentOS/RHEL (может потребоваться репозиторий Remi)
-sudo yum install php php-mbstring php-curl
+sudo yum install php php-mbstring php-curl php-json
 ```
 
 ### Пакетный менеджер pacman (Arch Linux, Manjaro)
@@ -37,15 +40,16 @@ sudo pacman -S php
 # После установки откройте файл /etc/php/php.ini и раскомментируйте строки:
 # extension=curl
 # extension=mbstring
+# extension=json
 ```
 
-## Установка `PHP`,`mbstring`,`curl` в Windows 10: 
+## Установка `PHP`,`mbstring` и `curl` в Windows: 
 `mbstring` уже установлен в windows.  
 Для установки php используйте эту [статью](https://prognote.ru/web-dev/beck-end/how-to-install-php-on-windows/)  
 Для установки curl скачайте его [отсюда](https://curl.haxx.se/windows/) и распакуйте на диск C:
 
 ## Включение PHP модулей в php.ini
-После установки PHP и модулей, найдите файл php.ini в папке с установленным php и раскомментируйте следующие строки( убрать `;`):  
+После установки PHP и модулей, найдите файл php.ini в папке с установленным php и раскомментируйте следующие строки (убрать `;`):  
 `extension=curl`
 `extension=mbstring`
 
@@ -53,23 +57,9 @@ sudo pacman -S php
 То необходимо еще настроить php.ini внутри apache, чтобы бот мог нормально работать с callback.  
 Также, необходимо перезагружать apache после настройки PHP следующей командой:
 ```
-sudo service apache2 restart
+sudo systemctl restart apache2
 ```
 
-## Диагностика
-Чтобы убедится, что вы установили все правильно, и ваш сервер готов к работе с SimpleVK, необходимо создать и запустить следующий скрипт:
-```php
-<?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-\DigitalStars\SimpleVK\Diagnostics::run();
-```
-> Если вы делаете longpoll бота, то запускайте диагностику через консоль  
-> Если вы делаете callback бота, то запускайте диагностику через браузер
-
-### Примерный вывод диагностики:
-<p align="left">
-  <img src="http://images.vfl.ru/ii/1608248228/eea9ef11/32696142.jpg"/>
-</p>
 
 ## Заметка о работе библиотеки на бесплатных хостингах
 Библиотека может стабильно функционировать только в том случае, если на хостинге используется веб-сервер `nginx` или `apache`, а также хостинг не запрещает отправлять кастомные `header` изнутри `PHP` (Иначе библиотека не сможет закрывать соединение с ВК до окончания выполнения скрипта, и высок шанс, что ВК не сможет получить ответ от скрипта вовремя, и начнет слать события заново).
