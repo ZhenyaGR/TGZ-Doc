@@ -55,7 +55,7 @@ sudo pacman -S php
 ## Если на сервере есть Apache
 То необходимо еще настроить php.ini внутри apache, чтобы бот мог нормально работать с callback.  
 Также, необходимо перезагружать apache после настройки PHP следующей командой:
-```
+```bash
 sudo systemctl restart apache2
 ```
 
