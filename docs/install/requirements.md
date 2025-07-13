@@ -1,17 +1,44 @@
 # Системные требования и установка
 ## Требования
 * PHP: `8.0-8.4+`  
-* **Обязательные** модули PHP: `mbstring`, `curl`, `json`
-* Рекомендуемые модули PHP: `redis`, `pcntl`, `posix`, `ffi`  
-— `redis` - Для игнорирования дублирующихся событий VK API  
-— `pcntl + posix` - Многопоточная обработка событий через LongPoll  
-— `ffi` - Авто-ускорение фреймворка с помощью встроенных `С` модулей  
+* **Обязательные** модули PHP: `mbstring` и `curl`
 
-## Установка на Debian/Ubuntu
-Для установки PHP и необходимых модулей выполните команду (замените 8.4 на вашу версию PHP, если требуется):
+## Установка в Linux:
+
+Для установки PHP и необходимых модулей выполните команду, соответствующую вашему дистрибутиву Linux. При необходимости замените версию PHP (например, `8.3`) на нужную вам.
+
+### Пакетный менеджер apt (Debian, Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install php8.3 php8.3-mbstring php8.3-curl
 ```
-sudo apt-get install php8.0 php8.0-mbstring php8.0-curl php8.0-openssl
-``` 
+
+### Пакетный менеджер dnf/yum (CentOS, RHEL, Fedora)
+
+Для этих систем часто требуется подключение дополнительного репозитория, такого как Remi, для установки свежих версий PHP.
+
+```bash
+# Для Fedora (dnf)
+sudo dnf install php php-mbstring php-curl
+
+# Для CentOS/RHEL (может потребоваться репозиторий Remi)
+sudo yum install php php-mbstring php-curl
+```
+
+### Пакетный менеджер pacman (Arch Linux, Manjaro)
+
+В Arch Linux модули обычно являются частью основного пакета `php`, и их нужно раскомментировать в конфигурационном файле.
+
+```bash
+# Установка самого PHP
+sudo pacman -S php
+
+# После установки откройте файл /etc/php/php.ini и раскомментируйте строки:
+# extension=curl
+# extension=mbstring
+```
+
 ## Установка `PHP`,`mbstring`,`curl` в Windows 10: 
 `mbstring` уже установлен в windows.  
 Для установки php используйте эту [статью](https://prognote.ru/web-dev/beck-end/how-to-install-php-on-windows/)  
@@ -19,9 +46,8 @@ sudo apt-get install php8.0 php8.0-mbstring php8.0-curl php8.0-openssl
 
 ## Включение PHP модулей в php.ini
 После установки PHP и модулей, найдите файл php.ini в папке с установленным php и раскомментируйте следующие строки( убрать `;`):  
-`extension=curl`  
-`extension=mbstring`  
-`extension=openssl`  
+`extension=curl`
+`extension=mbstring`
 
 ## Если на сервере есть Apache
 То необходимо еще настроить php.ini внутри apache, чтобы бот мог нормально работать с callback.  
