@@ -17,7 +17,7 @@ title: Создание и настройка бота
     ```
     Пример: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
     ```
-![Скриншот из @BotFather](/docs/images/create_bot.png)
+![Скриншот из @BotFather](/home/runner/work/TGZ-Doc/TGZ-Doc/docs/images/create_bot.png)
 ---
 
 # 2. Подключение бота к серверу
