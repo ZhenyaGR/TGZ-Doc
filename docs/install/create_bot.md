@@ -17,13 +17,14 @@ title: Создание и настройка бота
     ```bash
     123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
     ```
-   
+
 <figure>
-  <img src="/create_bot.png" 
-      alt="Скриншот из @BotFather"
-    width="500"
->
-  <figcaption>Создание бота в @BotFather</figcaption>
+  <img 
+    src="/create_bot.png" 
+    alt="Описание изображения" 
+    class="img-medium"
+  >
+  <figcaption>Подпись к изображению.</figcaption>
 </figure>
 
 ---
