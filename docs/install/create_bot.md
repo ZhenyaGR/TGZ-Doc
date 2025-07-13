@@ -6,21 +6,23 @@ title: Создание и настройка бота
 1. Откройте Telegram и найдите бота **[@BotFather](https://t.me/BotFather)**.
 2. Отправьте команду `/newbot`.
 3. Укажите **имя бота** (отображается в интерфейсе, может быть любым):
-   ```
-   Пример: TGZ Bot
+   ```bash
+   TGZ Bot
    ```
 4. Задайте **username бота** (должен заканчиваться на `bot` или `_bot`):
-   ```
-   Пример: TGZBot или TGZ_bot
+   ```bash
+   TGZ_lib_Bot
    ```
 5. После успешного создания вы получите **токен доступа**
+    ```bash
+    123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
     ```
-    Пример: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
-    ```
-<figure>
-  <img src="/create_bot.png" alt="Скриншот из @BotFather">
-  <figcaption>Создание бота в @BotFather</figcaption>
-</figure>
+   
+###### <figure>
+######   <img src="/create_bot.png" alt="Скриншот из @BotFather">
+######   <figcaption>Создание бота в @BotFather</figcaption>
+###### </figure>
+
 ---
 
 # 2. Подключение бота к серверу
