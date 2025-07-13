@@ -4,11 +4,11 @@ layout: home
 
 hero:
   name: "TGZ"
-  text: "Библиотека для создания ботов в Telegram"   
+  text: "Библиотека для создания ботов Telegram"   
   tagline: "Главное - Z!"
-  image:
+#  image:
 #    src: /logo.png
-    alt: TGZ
+#    alt: TGZ
   actions:
     - theme: brand
       text: Начало работы

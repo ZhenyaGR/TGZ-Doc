@@ -114,7 +114,7 @@ export default defineConfig({
                 text: 'Классы',
                 collapsed: false,
                 items: [
-                    {text: 'SimpleVK', link: '/classes/simplevk'},
+                    {text: 'TGZ', link: '/classes/tgz'},
                     {text: 'Message', link: '/classes/message'},
                     {text: 'Bot', link: '/classes/bot'},
                 ]
@@ -123,7 +123,6 @@ export default defineConfig({
 
         footer: {
             message: 'Опубликовано под лицензией MIT.',
-            copyright: '© 2017 – настоящее время, Кирилл Миновский, Антон Колобов'
         },
     }
 })
