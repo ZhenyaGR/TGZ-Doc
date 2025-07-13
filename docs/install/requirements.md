@@ -49,9 +49,9 @@ sudo pacman -S php
 
 ## Включение PHP модулей в php.ini
 После установки PHP и модулей, найдите файл php.ini в папке с установленным php и раскомментируйте следующие строки (убрать `;`):  
-`extension=curl`
-`extension=mbstring`
-`extension=json`
+`extension=curl
+extension=mbstring
+extension=json`
 
 ## Если на сервере есть Apache
 То необходимо еще настроить php.ini внутри apache, чтобы бот мог нормально работать с callback.  
