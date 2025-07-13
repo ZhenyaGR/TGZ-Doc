@@ -105,7 +105,6 @@ export default defineConfig({
                 items: [
                     {text: 'Почему TGZ?', link: '/install/who_tgz'},
                     {text: 'Установка', link: '/install/requirements'},
-                    {text: 'Как пользоваться сайтом', link: '/install/site_helper'},
                     {text: 'Подключение', link: '/install/install'},
                     {text: 'Примеры ботов', link: '/install/examples'},
                 ]
