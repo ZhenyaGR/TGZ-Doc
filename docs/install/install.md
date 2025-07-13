@@ -4,35 +4,30 @@ title: Подключение
 
 # Подключение
 ## Используя composer
-1\. Установка в *Unix
+1. Установка библиотеки
+```bash
+composer require zhenyagr/tgz:dev-main
 ```
-composer require digitalstars/simplevk:dev-testing
-```
-1\. Установка в Windows
-> В Windows нет 2х модулей, из-за которых не работает многопоточность. Поэтому ставим с игнорированием зависимостей
-```
-composer require digitalstars/simplevk:dev-testing --ignore-platform-reqs
-```
-2\. Подключить `autoload.php` напрямую внутри бота
+2. Подключить `autoload.php` напрямую внутри бота
 ```php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 ```
 ## Вручную
-1. Скачать последний релиз c [github](https://github.com/digitalstars/simplevk/tree/testing)
+1. Скачать последний релиз c [github](https://github.com/ZhenyaGR/TGZ)
 2. Подключить `autoload.php`.
-> Вот так будет происходить подключение, если ваш бот находится в той же папке, что и папка `simplevk-testing`
+> Вот так будет происходить подключение, если ваш бот находится в той же папке, что и папка `tgz`
 ```php
-require_once "simplevk-testing/autoload.php";
+require_once "tgz/autoload.php";
 ```
 
 ## Подключение классов  
 Через конструкцию `use` подключите те классы, методы которых вы будете использовать.
 ```php
-use DigitalStars\SimpleVK\Auth;
-use DigitalStars\SimpleVK\Message;
-use DigitalStars\SimpleVK\SimpleVK;
-use DigitalStars\SimpleVK\Auth;
-use DigitalStars\SimpleVK\LongPoll;
-use DigitalStars\SimpleVK\Streaming;
-use DigitalStars\SimpleVK\Bot;
+use ZhenyaGR\TGZ\TGZ
+use ZhenyaGR\TGZ\LongPoll
+use ZhenyaGR\TGZ\PollBuilder
+use ZhenyaGR\TGZ\Message
+use ZhenyaGR\TGZ\Bot
+use ZhenyaGR\TGZ\ErrorHandler
+use ZhenyaGR\TGZ\Inline
 ```
