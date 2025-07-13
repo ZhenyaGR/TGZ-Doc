@@ -1,4 +1,19 @@
 :root {
     --vp-home-hero-name-color: #0fc800;
     --vp-home-hero-action-color: #0fc800;
+    --vp-c-text-2: grey;
+}
+
+.img-medium {
+    width: 70%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+figcaption {
+    text-align: center; /* 1. Выравнивает текст по центру */
+    font-size: 0.9em;   /* Делает шрифт чуть меньше основного текста */
+    margin-top: 0.5em;  /* Добавляет небольшой отступ сверху, от картинки */
+    color: var(--vp-c-text-2); /* 2. Делает текст серым, используя переменную темы VitePress */
 }
