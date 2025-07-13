@@ -8,7 +8,7 @@ hero:
   tagline: "Главное - Z!"
   image:
 #    src: /logo.png
-    alt: SimpleVK
+    alt: TGZ
   actions:
     - theme: brand
       text: Начало работы
