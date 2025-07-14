@@ -84,7 +84,7 @@ $bot->onCommand('img', '!картинка')
     ->img('cat.jpg')
     ->text('Вот твой кот');
     
-$tg->listen(function () use ($tg) {
+$tg->listen(function () use ($bot) {
     $bot->run(); // Запускаем обработку события
 });
 ```
@@ -131,13 +131,18 @@ $bot->run();
 ## Бот с обработкой Кнопок на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\{Bot, SimpleVK as vk};
-$vk = vk::create(ТОКЕН, '5.120');
-$vk->setUserLogError(ID); //ID - это id vk, кому бот будет отправлять все ошибки, возникшие в скрипте
-$bot = Bot::create($vk);
-$bot->redirect('other', 'first'); //если пришла неизвестная кнопка/текст, то выполняем first
-$bot->cmd('first')->kbd([['fish', 'cat']])->text('Выберите животное:'); //срабатывает при нажатии кнопки Начать
+require_once 'tgz/autoload.php';
+
+use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
+
+$tg = new TGZ(ТОКЕН);
+$bot = new Bot($tg); // Создаем экземпляр бота
+
+$bot->onDefault()->func(function () use ($bot) {
+    $bot->run('first');
+});
+$bot->onBotCommand('first', '/start')->kbd([['fish', 'cat']])->text('Выберите животное:'); 
 $bot->btn('fish', 'Рыбка')->text('Вы выбрали Рыбку!')->img('fish.jpg');
 $bot->btn('cat', 'Котик')->text('Вы выбрали Котика!')->img('cat.jpg');
 $bot->run();
