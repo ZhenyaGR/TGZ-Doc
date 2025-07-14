@@ -19,7 +19,7 @@ hero:
     - theme: alt
       text: "GitHub ↗"
       link: "https://github.com/zhenyagr/tgz/"
-
+ 
 features:
 
   - title: 📝 Понимай с первого взгляда
