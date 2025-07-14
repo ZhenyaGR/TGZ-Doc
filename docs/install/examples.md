@@ -24,8 +24,7 @@ $tg = new TGZ(ТОКЕН);
 
 $tg->setUserLogError(ID); // ID - это chat_id, кому бот будет отправлять все ошибки, возникшие в скрипте
 // Можно указать id пользователя или чата
-
-$tg->initVars(type: $type); // Инициализация переменных из события
+$tg->initType($type); // Инициализация переменных из события
 
 if ($type === 'text' || $type === 'bot_command') {
     $tg->copyMsg();
@@ -39,11 +38,10 @@ require_once 'tgz/autoload.php';
 use ZhenyaGR\TGZ\LongPoll;
 
 $tg = new LongPoll(ТОКЕН);
-
 $tg->setUserLogError(ID);
 
 $tg->listen(function () use ($tg) {
-    $tg->initVars(type: $type);
+    $tg->initType($type);
     
     if ($type === 'text' || $type === 'bot_command') {
         $tg->copyMsg();
