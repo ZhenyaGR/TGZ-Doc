@@ -7,71 +7,87 @@ title: Примеры ботов
 <?php
 require_once 'tgz/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
-$tg = new TGZ (ТОКЕН);
-$tg->reply('Привет, ~!fn~');
+
+$tg = new TGZ(ТОКЕН);
+
+$tg->reply('Привет, Мир!');
 ```
 
 
-## Простой Callback
+## Простой Callback – (Эхо-бот)
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\SimpleVK as vk;
-$vk = vk::create(ТОКЕН, '5.120')->setConfirm(STR); //STR - строка подтверждения сервера
-$vk->setUserLogError(ID); //ID - это id vk, кому бот будет отправлять все ошибки, возникние в скрипте
-$data = $vk->initVars($peer_id, $user_id, $type, $message); //инициализация переменных из события
-if($type == 'message_new') {
-    if($message == 'Привет') {
-        $vk->reply('Привет, ~!fn~');
-    }
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+
+$tg = new TGZ(ТОКЕН);
+
+$tg->setUserLogError(ID); // ID - это chat_id, кому бот будет отправлять все ошибки, возникшие в скрипте
+// Можно указать id пользователя или чата
+
+$tg->initVars(type: $type); // Инициализация переменных из события
+
+if ($type === 'text' || $type === 'bot_command') {
+    $tg->copyMsg();
 }
 ```
 
 
-## Простой LongPoll / User LongPoll
-> Если указать токен группы - будет LongPoll.  
-> Если указать токен пользователя - User LongPoll.  
-> А еще можно указать логин и пароль от аккаунта:  
-> `new LongPoll(ЛОГИН, ПАРОЛЬ, '5.120');`  
-> Но советую создать токен вот по этому [гайду](https://vkhost.github.io/)
+## Простой LongPoll – (Эхо-бот)
 ```php
-<?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\LongPoll;
-$vk = LongPoll::create(ТОКЕН, '5.120');
-$vk->setUserLogError(ID); //ID - это id vk, кому бот будет отправлять все ошибки, возникние в скрипте
-$vk->listen(function () use ($vk) {
-    $data = $vk->initVars($peer_id, $user_id, $type, $message); //инициализация переменных из события
-    if($type == 'message_new') {
-        if($message == 'Привет') {
-            $vk->reply('Привет, ~!fn~');
-        }
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\LongPoll;
+
+$tg = new LongPoll(ТОКЕН);
+
+$tg->setUserLogError(ID);
+
+$tg->listen(function () use ($tg) {
+    $tg->initVars(type: $type);
+    
+    if ($type === 'text' || $type === 'bot_command') {
+        $tg->copyMsg();
     }
 });
 ```
 
 
-## Минимальный Бот на конструкторе (Callback)
+## Бот на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\Bot;
-$bot = Bot::create(ТОКЕН, '5.120');
-$bot->cmd('img', '!картинка')->img('cat.jpg')->text('Вот твой кот');
-$bot->run(); //запускаем обработку события
+require_once 'tgz/autoload.php';
+
+use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
+
+$tg = new TGZ(ТОКЕН);
+$bot = new Bot($tg); // Создаем экземпляр бота
+
+$bot->onCommand('img', '!картинка')
+    ->img('cat.jpg')
+    ->text('Вот твой кот');
+    
+$bot->run(); // Запускаем обработку события
 ```
 
 
-## Минимальный Бот на конструкторе (LongPoll)
+## Бот на конструкторе (LongPoll)
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\{Bot, LongPoll};
-$vk = LongPoll::create(ТОКЕН, '5.120');
-$bot = Bot::create($vk);
-$bot->cmd('img', '!картинка')->img('cat.jpg')->text('Вот твой кот');
-$vk->listen(function () use ($bot) {
-    $bot->run(); //запускаем обработку события
+require_once 'tgz/autoload.php';
+
+use ZhenyaGR\TGZ\LongPoll;
+use ZhenyaGR\TGZ\Bot;
+
+$tg = new LongPoll(ТОКЕН);
+$bot = new Bot($tg); // Создаем экземпляр бота
+
+$bot->onCommand('img', '!картинка')
+    ->img('cat.jpg')
+    ->text('Вот твой кот');
+    
+$tg->listen(function () use ($tg) {
+    $bot->run(); // Запускаем обработку события
 });
 ```
 
@@ -79,21 +95,37 @@ $vk->listen(function () use ($bot) {
 ## Бот с обработкой Команд на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__.'/vendor/digitalstars/simplevk/autoload.php';
-use DigitalStars\SimpleVK\{Bot, SimpleVK as vk};
-$vk = vk::create(ТОКЕН, '5.120');
-$vk->setUserLogError(ID); //ID - это id vk, кому бот будет отправлять все ошибки, возникшие в скрипте
-$bot = Bot::create($vk);
-//отправит картинку с текстом
-$bot->cmd('img', '!картинка')->img('cat.jpg')->text('Вот твой кот');
-//обработка команды с параметрами
-$bot->cmd('sum', '!посчитай %n + %n')->func(function ($msg, $params) {
-    $msg->text($params[0] + $params[1]);
+require_once 'tgz/autoload.php';
+
+use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
+
+$tg = new TGZ(ТОКЕН);
+$bot = new Bot($tg); // Создаем экземпляр бота
+
+// Обработка команды бота
+$bot->onBotCommand('img', '/img')->img('cat.jpg');
+
+// Обработка команды с параметрами
+$bot->onCommand('sum', '!посчитай %n + %n')->func(function ($number1, $number2) {
+    $tg->msg($number1 + $number2)->send();
 });
-//обработка команды по регулярке
-$bot->preg_cmd('more_word', "!\!напиши (.*)!")->func(function ($msg, $params) {
-    $msg->text("Ваше предложение: $params[1]");
+
+// Обработка полного совпадения текста
+$bot->onText('help', "помощь")->func(function () {
+    $tg->msg("Никто тебе не поможет")->send();
 });
+
+// Обработка команды по регулярному выражению
+$bot->onTextPreg('more_word', "!\!напиши (.*)!")->func(function ($match) {
+    $tg->msg("Ваше предложение: " . $match[0])->send();
+});
+
+// Обработка неизвестного текста
+$bot->onDefault()->func(function () {
+    $tg->msg("Я не понимаю твоего текста")->send();
+});
+
 $bot->run();
 ```
 
