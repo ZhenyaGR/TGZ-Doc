@@ -116,7 +116,9 @@ export default defineConfig({
                 items: [
                     {text: 'TGZ', link: '/classes/tgz'},
                     {text: 'Message', link: '/classes/message'},
+                    {text: 'Poll', link: '/classes/poll'},
                     {text: 'Bot', link: '/classes/bot'},
+
                 ]
             }
         ],
