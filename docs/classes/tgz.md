@@ -38,7 +38,7 @@ $tg = TGZ::create(ТОКЕН);
 
 ### Возвращает
 Массив с данными пришедшего события
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -74,7 +74,7 @@ $tg->initVars(type: $type);
 |1  | **chat_id** | `int`      |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -92,7 +92,7 @@ $tg->initChatID($chat_id);
 |1  |**user_id\***  | `int`          |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -111,7 +111,7 @@ $tg->initUserID($user_id);
 |1  |**text**  | `string`          |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -129,7 +129,7 @@ $tg->initText($text);
 |1  | **msg_id** | `int`\|`string` |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -148,7 +148,7 @@ $tg->initMsgID($msg_id);
 |1  | **type** | `string` |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -166,7 +166,7 @@ $tg->initType($type);
 |1  |   **query_id**   | `string` |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -183,12 +183,91 @@ $tg->initQuery($query_id);
 |1  |  **callback_data**   | `string` |
 ### Возвращает
 `$this` - экземпляр класса, который вызвал этот метод
-### Примеры использования
+### Пример использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->initCallbackData($callback_data);
+```
+
+## defaultParseMode
+Метод устанавливает режим разметки для каждого сообщения по умолчанию
+### Параметры метода
+|#  |      Название      |   Тип    |        Возможные значения        |
+|:-:|:------------------:|:--------:|:--------------------------------:|
+|1  |   **parse_mode**   | `string` | `HTML`, `Markdown`, `MarkdownV2` |
+### Возвращает
+`$this` - экземпляр класса, который вызвал этот метод
+### Пример использования
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = TGZ::create(ТОКЕН);
+$tg->defaultParseMode('MarkdownV2');
+```
+
+## delMsg
+Метод удаляет одно или несколько сообщений
+### Параметры метода
+| # |  Название   |              Тип              |
+|:-:|:-----------:|:-----------------------------:|
+| 1 | **msg_ids** |    `int`\|`array`\|`null`     |
+| 2 | **chat_id** |    `int`\|`array`\|`null`     |
+### Возвращает
+`$this` - экземпляр класса, который вызвал этот метод
+### Пример использования
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = TGZ::create(ТОКЕН);
+$tg->initMsgID($msg_id);
+$tg->delMsg($msg_id);
+```
+
+## сopyMsg
+Метод копирует одно или несколько сообщений
+### Параметры метода
+| # |     Название     |                Тип                 |
+|:-:|:----------------:|:----------------------------------:|
+| 1 |   **msg_ids**    |     `int`\|`array`\|`null`         |
+| 2 |   **chat_id**    |  `int`\|`string`\|`array`\|`null`  |
+| 3 | **from_chat_id** |  `int`\|`string`\|`array`\|`null`  |
+### Возвращает
+`$this` - экземпляр класса, который вызвал этот метод
+### Пример использования
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = TGZ::create(ТОКЕН);
+$tg->initMsgID($msg_id);
+$tg->copyMsg($msg_id);
+```
+
+(string $url, int $chat_id, $type
+
+## getFileID
+Метод сначала загружает файл на сервер Telegram, а затем возвращает ID файла, для последующей быстрой отправки
+### Параметры метода
+|#  | Название |   Тип    |                                            Описание                                            |
+|:-:|:--------:|:--------:|:----------------------------------------------------------------------------------------------:|
+|1  |   **url**   | `string` |                                         Ссылка на файл                                         |
+|2  | **chat_id** |  `int`   |                                            ID чата                                             |
+|3  |   **type**   | `string` | Тип файла: `document`, `audio`, `photo`, `animation`, `video`, `video_note`, `voice`, `sticker` |
+### Возвращает
+`$file_id` - ID файла
+### Пример использования
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = TGZ::create(ТОКЕН);
+$tg->initChatID($chat_id);
+$file_id = $tg->getFileID('example.com/image.jpg', $chat_id, 'photo');
+echo $file_id;
 ```
 
