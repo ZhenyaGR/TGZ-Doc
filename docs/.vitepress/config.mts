@@ -132,6 +132,7 @@ export default defineConfig({
                             {text: 'reply', link: '/classes/tgzMethods/reply'},
                             {text: 'buttons', link: '/classes/tgzMethods/buttons'},
                             {text: 'answers', link: '/classes/tgzMethods/answers'},
+                            {text: 'errors', link: '/classes/tgzMethods/errors'},
                         ]
                     },
                     {text: 'Message', link: '/classes/message'},
