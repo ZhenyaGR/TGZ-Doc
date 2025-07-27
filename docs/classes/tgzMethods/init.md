@@ -20,7 +20,7 @@ sidebarDepth: 0
 
 ### Возвращает
 Массив с данными пришедшего события
-### Пример использования
+### Примеры использования
 ```php
 <?php
 require_once 'tgz/autoload.php';
@@ -30,12 +30,54 @@ $tg = TGZ::create(ТОКЕН);
 // В $update хранится событие, которое пришло от Телеграма
 $update = $tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_id, $is_bot, $is_command);
 
-if ($type === 'text') { // проверяем тип события
+if ($type === 'text') { // Проверяем тип события
     $tg->reply("Твой user_id - " . $user_id);
 }
 ```
+
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+
+$tg = TGZ::create(ТОКЕН);
+
+// В $update хранится событие, которое пришло от Телеграма.
+// Все переменные (chat_id, user_id и т.д.) будут заполнены по ссылке.
+$update = $tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_id, $is_bot, $is_command);
+
+if ($type === 'text') {
+    $tg->reply("Привет, " . ($is_bot ? "другой бот!" : "пользователь!") . " Твой ID: " . $user_id . ", текст: " . $text);
+
+} elseif ($type === 'bot_command') {
+    $tg->reply("Вы отправили команду: " . $text);
+
+} elseif ($type === 'callback_query') {
+    $tg->answerCallbackQuery($query_id, ['text' => 'Получены данные: ' . $callback_data]);
+    $tg->reply('Вы выбрали: ' . $callback_data);
+
+} elseif ($type === 'inline_query') {
+    // В этом случае text будет содержать запрос пользователя
+    $results = [
+        $tg->inline('article')
+            ->id('inline_response_1')
+            ->title('Ответ на inline-запрос')
+            ->description('Ваш запрос: ' . $text)
+            ->text('Вы ввели: ' . $text)
+            ->create()
+    ];
+    $tg->answerInlineQuery($query_id, $results);
+
+} else {
+    $tg->reply("Получено событие типа: " . ($type ?: 'неизвестный'));
+}
+```
+
 ### Дополнительные возможности и их разбор
 * Вы можете менять названия переменных
+```php
+$tg->initVars($chatID, $user, $message, $eventType);
+```
 * Вы можете использовать не все переменные, а только несколько первых:
 ```php
 $tg->initVars($chat_id, $user_id, $text, $type);
@@ -65,6 +107,7 @@ use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->initChatID($chat_id);
 ```
+
 
 ## initUserID
 Метод принимает переменную по ссылке и записывает в неё идентификатор пользователя из пришедшего события, если поле есть. Если нет, то записывает `null`
@@ -103,6 +146,7 @@ $tg = TGZ::create(ТОКЕН);
 $tg->initText($text);
 ```
 
+
 ## initMsgID
 Метод принимает переменную по ссылке и записывает в неё идентификатор сообщения из пришедшего события, если поле есть. Если нет, то записывает `null`
 ### Параметры метода
@@ -140,6 +184,7 @@ $tg = TGZ::create(ТОКЕН);
 $tg->initType($type);
 ```
 
+
 ## initQuery
 Метод принимает переменную по ссылке и записывает в неё идентификатор запроса из пришедшего события, если поле есть. Если нет, то записывает `null`
 ### Параметры метода
@@ -156,6 +201,7 @@ use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->initQuery($query_id);
 ```
+
 
 ## initCallbackData
 Метод принимает переменную по ссылке и записывает в неё сообщение в Callback из пришедшего события, если поле есть. Если нет, то записывает `null`
