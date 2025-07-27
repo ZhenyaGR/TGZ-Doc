@@ -119,8 +119,14 @@ export default defineConfig({
                         link: '/classes/tgz',
                         collapsed: true,
                         items: [
-                            {text: 'init', link: '/classes/tgz/tgzMethods/init'},
-                            {text: 'defaultParseMode', link: '/classes/tgz/tgzMethods/defaultParseMode'},
+                            {text: 'init', link: '/classes/tgzMethods/init'},
+                            {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
+                            {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
+                            {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
+                            {text: 'getFileID', link: '/classes/tgzMethods/getFileID'},
+                            {text: 'reply', link: '/classes/tgzMethods/reply'},
+                            {text: 'buttons', link: '/classes/tgzMethods/buttons'},
+                            {text: 'answers', link: '/classes/tgzMethods/answers'},
                         ]
                     },
                     {text: 'Message', link: '/classes/message'},
