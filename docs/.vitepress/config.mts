@@ -119,8 +119,8 @@ export default defineConfig({
                         link: '/classes/tgz',
                         collapsed: true,
                         items: [
-                            {text: 'init', link: '/classes/tgz/tgzMethods/init.md'},
-                            {text: 'defaultParseMode', link: '/classes/tgz/tgzMethods/defaultParseMode.md'},
+                            {text: 'init', link: '/classes/tgz/tgzMethods/init'},
+                            {text: 'defaultParseMode', link: '/classes/tgz/tgzMethods/defaultParseMode'},
                         ]
                     },
                     {text: 'Message', link: '/classes/message'},
