@@ -122,6 +122,7 @@ export default defineConfig({
                             {text: 'msg', link: '/classes/tgzMethods/msg'},
                             {text: 'poll', link: '/classes/tgzMethods/poll'},
                             {text: 'inline', link: '/classes/tgzMethods/inline'},
+                            {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
                             {text: 'init', link: '/classes/tgzMethods/init'},
                             {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
                             {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
