@@ -239,7 +239,7 @@ $tg->poll('regular')
 | 1 | **type** | `string` | Тип Inline-запроса: `article`, `photo`, `gif`, `video`, `audio`, `voice`, `document` |
 ### Возвращает
 `Inline` - экземпляр класса Inline
-### Пример использования
+### Пример использования 
 ```php
 <?php
 require_once 'tgz/autoload.php';
