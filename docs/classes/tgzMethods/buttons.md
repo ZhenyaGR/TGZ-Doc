@@ -4,6 +4,27 @@ sidebarDepth: 0
 ---
 
 
+## buttonText
+Метод возвращает массив с текстовой кнопкой
+### Параметры метода
+| # |    Название    |   Тип    |
+|:-:|:--------------:|:--------:|
+| 1 | **buttonText** | `string` |
+### Возвращает
+`array` - массив с текстовой кнопкой
+### Пример использования
+```php
+<?php
+require_once 'tgz/autoload.php';
+use ZhenyaGR\TGZ\TGZ;
+$tg = TGZ::create(ТОКЕН);
+$kbd = [[$tg->buttonText('Нажми меня')]];
+$tg->msg('Текстовая кнопка')
+    ->kbd($kbd)
+    ->send();
+```
+
+
 ## buttonCallback
 Метод возвращает массив с callback-кнопкой
 ### Параметры метода
