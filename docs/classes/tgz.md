@@ -208,7 +208,7 @@ use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->msg("Привет")->send();
 ```
-#### Подробнее про класс Message [здесь](docs/classes/message.md)
+#### Подробнее про класс Message [здесь](/classes/message.md)
 
 ## poll
 Метод создает объект класса Poll для конструктора опросов
@@ -229,7 +229,7 @@ $tg->poll('regular')
     ->addAnswers('Ответ 1', 'Ответ 2', 'Ответ 3')
     ->send();
 ```
-#### Подробнее про класс Poll [здесь](docs/classes/poll.md)
+#### Подробнее про класс Poll [здесь](/classes/poll.md)
 
 ## inline
 Метод создает объект класса Inline для конструктора Inline-запросов
@@ -254,7 +254,7 @@ $inline_result = [
         ->create(),
 ];
 ```
-#### Подробнее про класс Inline [здесь](docs/classes/inline.md)
+#### Подробнее про класс Inline [здесь](/classes/inline.md)
 
 ## defaultParseMode
 Метод устанавливает режим разметки для каждого сообщения по умолчанию
