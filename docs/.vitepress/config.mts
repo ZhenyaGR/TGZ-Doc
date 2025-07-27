@@ -16,7 +16,7 @@ export default defineConfig({
         // Основной скрипт Яндекс.Метрики
         [
             'script',
-            { type: 'text/javascript' },
+            {type: 'text/javascript'},
             `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
       m[i].l=1*new Date();
       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -39,14 +39,14 @@ export default defineConfig({
     ],
 
     // head: [
-        // ['meta', { name: 'robots', content: 'index, follow' }], // Разрешаем индексацию
-        // ['meta', { name: 'keywords', content: 'ключевые слова, seo, vuepress' }], // Ключевые слова
-        // ['meta', { name: 'author', content: 'Твоё Имя' }], // Автор страницы
-        // ['meta', { property: 'og:title', content: 'Название сайта' }], // Open Graph для соцсетей
-        // ['meta', { property: 'og:description', content: 'Описание сайта' }],
-        // ['meta', { property: 'og:type', content: 'website' }],
-        // ['meta', { property: 'og:image', content: '/images/preview.jpg' }], // Картинка для соцсетей
-        // ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    // ['meta', { name: 'robots', content: 'index, follow' }], // Разрешаем индексацию
+    // ['meta', { name: 'keywords', content: 'ключевые слова, seo, vuepress' }], // Ключевые слова
+    // ['meta', { name: 'author', content: 'Твоё Имя' }], // Автор страницы
+    // ['meta', { property: 'og:title', content: 'Название сайта' }], // Open Graph для соцсетей
+    // ['meta', { property: 'og:description', content: 'Описание сайта' }],
+    // ['meta', { property: 'og:type', content: 'website' }],
+    // ['meta', { property: 'og:image', content: '/images/preview.jpg' }], // Картинка для соцсетей
+    // ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     // ],
 
     themeConfig: {
@@ -55,7 +55,7 @@ export default defineConfig({
             pattern: 'https://github.com/digitalstars/simplevk-doc/edit/master/docs/:path',
             text: 'Редактировать страницу'
         },
-        outline: { label: 'Содержание страницы' },
+        outline: {label: 'Содержание страницы'},
         docFooter: {
             prev: 'Предыдущая страница',
             next: 'Следующая страница'
@@ -114,7 +114,14 @@ export default defineConfig({
                 text: 'Классы',
                 collapsed: false,
                 items: [
-                    {text: 'TGZ', link: '/classes/tgz'},
+                    {
+                        text: 'TGZ',
+                        link: '/classes/tgz',
+                        items: [
+                            {text: 'init', link: '/classes/tgz/tgzMethods/init.md'},
+                            {text: 'defaultParseMode', link: '/classes/tgz/tgzMethods/defaultParseMode.md'},
+                        ]
+                    },
                     {text: 'Message', link: '/classes/message'},
                     {text: 'Poll', link: '/classes/poll'},
                     {text: 'Inline', link: '/classes/inline'},
