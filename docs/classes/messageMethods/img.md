@@ -45,6 +45,19 @@ if ($type === 'bot_command') {
                 ->img($img_path)
                 ->send();
             break;
+
+        case '/imgArray':
+            $tg->msg('Отправка сообщения с массивов фотографий')
+                ->img([$img_url1, $img_url2])
+                ->send();
+            break;
+
+        case '/imgLot':
+            $tg->msg('Отправка сообщения с массивов фотографий')
+                ->img($img_url1)
+                ->img($img_url2)
+                ->send();
+            break;
     }
 }
 ```
