@@ -39,7 +39,7 @@ if ($type === 'bot_command') {
 ```
 
 ## Примеры разметок
----
+
 ### **MarkdownV2**
 ```markdown
 *Жирный*  
