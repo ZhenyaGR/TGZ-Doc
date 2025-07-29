@@ -33,8 +33,7 @@ if ($type === 'bot_command') {
             sleep(3);
             $send->send();
             break;
-            
-            
+
         case '/img':
             $send = $tg->msg('Отправка изображения с помощью sendChatAction')
                 ->action('upload_photo');
@@ -48,3 +47,4 @@ if ($type === 'bot_command') {
 
 ### Пример вывода
 ![Пример 'typing'](/messageAction.png)
+![Пример 'upload_photo'](/messageAction2.png)
