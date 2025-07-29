@@ -1,4 +1,4 @@
-_---
+---
 title: Message
 sidebarDepth: 0
 ---
