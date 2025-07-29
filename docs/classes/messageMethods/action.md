@@ -37,4 +37,5 @@ if ($type === 'bot_command') {
 }
 ```
 
+### Пример вывода
 ![Пример 'typing'](/messageAction.png)
