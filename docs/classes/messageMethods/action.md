@@ -30,7 +30,8 @@ if ($type === 'bot_command') {
             $send = $tg->msg('Отображение действий бота с помощью sendChatAction')
                 ->action('typing');
                 // Пока бот не отправит сообщение, будет отображаться "Печатает..."
-            sleep(3);
+            sleep(3); // Крайне не рекомендуется использовать sleep в проекте
+            // Здесь используется только для примера
             $send->send();
             break;
 
@@ -46,5 +47,7 @@ if ($type === 'bot_command') {
 ```
 
 ### Пример вывода
+typing
 ![Пример 'typing'](/messageAction.png)
+upload_photo
 ![Пример 'upload_photo'](/messageAction2.png)
