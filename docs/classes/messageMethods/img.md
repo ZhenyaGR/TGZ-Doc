@@ -23,10 +23,10 @@ $tg->initText($text)
 
 if ($type === 'bot_command') {
 
-    $img_url = "https://12-kanal.ru/upload/iblock/62a/zb1mq2841smduhwwuv3jwjfv9eooyc50/fotograf3.jpg";
+    $img_url = "https://example.com/img.jpg";
     $img_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
-    $img_path = "img/fotograf.jpg";
-
+    $img_path = "media/img.jpg";
+    
     switch ($text) {
         case '/imgUrl':
             $tg->msg("Отправка сообщения с фото по ссылке")

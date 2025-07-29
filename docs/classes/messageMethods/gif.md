@@ -24,9 +24,9 @@ $tg->initText($text)
 
 if ($type === 'bot_command') {
 
-    $gif_url = "https://12-kanal.ru/upload/iblock/62a/zb1mq2841smduhwwuv3jwjfv9eooyc50/fotograf3.jpg";
+    $gif_url = "https://example.com/gif.gif";
     $gif_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
-    $gif_path = "img/fotograf.jpg";
+    $gif_path = "media/gif.gif";
 
     switch ($text) {
         case '/gifUrl':
