@@ -15,7 +15,8 @@ sidebarDepth: 0
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $kbd = [[$tg->buttonText('Нажми меня')]];
@@ -37,7 +38,8 @@ $tg->msg('Текстовая кнопка')
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $kbd = [[$tg->buttonCallback('Нажми меня', 'callback_data')]];
@@ -58,7 +60,8 @@ $tg->msg('Callback-кнопка')
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $kbd = [[$tg->buttonUrl('Нажми меня', 'https://google.com')]];

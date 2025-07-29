@@ -23,7 +23,8 @@ sidebarDepth: 0
 ### Примеры использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -37,7 +38,8 @@ if ($type === 'text') { // Проверяем тип события
 
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -101,7 +103,8 @@ $tg->initVars(type: $type);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -120,7 +123,8 @@ $tg->initChatID($chat_id);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -139,7 +143,8 @@ $tg->initUserID($user_id);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -158,7 +163,8 @@ $tg->initText($text);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -177,7 +183,8 @@ $tg->initMsgID($msg_id);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -196,7 +203,8 @@ $tg->initType($type);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->initQuery($query_id);
@@ -214,7 +222,8 @@ $tg->initQuery($query_id);
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 $tg = TGZ::create(ТОКЕН);
 $tg->initCallbackData($callback_data);

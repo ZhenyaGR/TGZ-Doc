@@ -6,24 +6,25 @@ sidebarDepth: 0
 ## kbd
 Метод управляет клавиатурой и inline-кнопками в сообщении
 ### Параметры метода
-| # |         Название         |   Тип    |                                 Описание                                  |
-|:-:|:------------------------:|:--------:|:-------------------------------------------------------------------------:|
-| 1 |       **buttons**        | `array`  |                        Принимает объект клавиатуры                        |
-| 2 |        **inline**        |  `bool`  | Принимает значения: `true`, `false`. Описывает, являются ли кнопки inline |
-| 3 |  **one_time_keyboard**   |  `bool`  |  Принимает значения: `true`, `false`. Сворачивает клавиатуру при нажатии  |
-| 4 |   **resize_keyboard**    |  `bool`  |  Принимает значения: `true`, `false`. Меняет размер кнопок в клавиатуре   |
-| 5 |   **remove_keyboard**    |  `bool`  |          Принимает значения: `true`, `false`. Удаляет клавиатуру          |
+| # |         Название         |   Тип    |                        Описание                         |
+|:-:|:------------------------:|:--------:|:-------------------------------------------------------:|
+| 1 |       **buttons**        | `array`  |               Принимает объект клавиатуры               |
+| 2 |        **inline**        |  `bool`  |          Являются ли кнопки inline? true/false          |
+| 3 |  **one_time_keyboard**   |  `bool`  |       Свернуть клавиатуру при нажатии? true/false       |
+| 4 |   **resize_keyboard**    |  `bool`  |      Менять размер кнопок в клавиатуре? true/false      |
+| 5 |   **remove_keyboard**    |  `bool`  | Принимает значения: `true`, `false`. Удаляет клавиатуру |
 ### Возвращает
 `Message` - экземпляр класса Message, содержащий информацию о сообщении
 ### Пример использования
 
 ```php
-    <?php    
-require 'TGZ/autoload.php'; 
+<?php    
+require_once __DIR__ . 'vendor/autoload.php'; 
+
 use ZhenyaGR\TGZ\TGZ as tg; 
 
 $tg = tg::create(BOT_TOKEN);
-$tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_id);
+$tg->initVars(type: $type, text: $text, callback_data: $callback_data, query_id: $query_id);
 
 if ($type === 'text' || $type === 'bot_command') {
     switch ($text) {
@@ -93,3 +94,21 @@ if ($type === 'text' || $type === 'bot_command') {
     }
 }
 ```
+
+### Формат клавиатуры
+
+Клавиатура - массив из массивов, которые содержат кнопки 
+```php
+$kbd = [
+    ['button1', 'button2'],             // Кнопки в первом ряду
+    ['button3'],                        // Кнопки во втором ряду
+    ['button4', 'button5', 'button6']   // Кнопки в третьем ряду
+];
+```
+
+### Вспомогательные методы
+- [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
+- [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
+- [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку
+- `answerCallbackQuery` - отправляет уведомление о нажатии callback-кнопки
+  

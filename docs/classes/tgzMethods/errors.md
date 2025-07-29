@@ -21,7 +21,8 @@ sidebarDepth: 0
 #### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -56,7 +57,8 @@ error_log("[$type] Ошибка: " . $message);
 #### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН)->setUserLogError(123456789);
@@ -79,7 +81,8 @@ $tg->setTracePathFilter('/path/to/your/project/vendor');
 #### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);

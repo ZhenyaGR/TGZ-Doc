@@ -8,7 +8,8 @@ sidebarDepth: 0
 
 ```php
 <?php
-require_once 'tgz/autoload.php'; // 'vendor/autoload.php' при использовании composer
+require_once __DIR__ . 'vendor/autoload.php'; 
+// 'vendor/autoload.php' при использовании composer
 use ZhenyaGR\TGZ\TGZ;
 ```
 
@@ -27,7 +28,8 @@ use ZhenyaGR\TGZ\TGZ;
 ### Пример использования
 ```php
 <?php
-require_once 'tgz/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
+
 use ZhenyaGR\TGZ\TGZ;
 
 // Замените 'ТОКЕН' на фактический токен вашего бота
