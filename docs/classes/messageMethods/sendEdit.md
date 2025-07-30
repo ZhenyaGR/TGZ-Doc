@@ -27,7 +27,7 @@ if ($type === 'bot_command') {
         case '/edit':
             // Сначала отправляем сообщение
             $response = $tg->msg("Это сообщение будет изменено.")
-                           ->send();
+                            ->send();
             
             // Получаем ID отправленного сообщения
             $messageId = $response['result']['message_id'];
@@ -37,7 +37,7 @@ if ($type === 'bot_command') {
 
             // Редактируем сообщение
             $tg->msg("Сообщение было успешно изменено!")
-               ->sendEdit($messageId);
+                ->sendEdit($messageId);
             break;
             
         case '/edit_in_chat':
@@ -47,7 +47,7 @@ if ($type === 'bot_command') {
             $messageIdToEdit = 987;
 
             $tg->msg("Редактирование сообщения в другом чате.")
-               ->sendEdit($messageIdToEdit, $chatIdToEdit);
+                ->sendEdit($messageIdToEdit, $chatIdToEdit);
             break;
 }
 ```
