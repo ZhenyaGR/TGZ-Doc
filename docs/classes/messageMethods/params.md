@@ -1,0 +1,40 @@
+---
+title: Message
+sidebarDepth: 0
+---
+
+## params
+Метод задаёт дополнительные параметры сообщения. Например: `disable_notification` - отключение звука уведомления
+### Параметры метода
+| # |             Название              |      Тип      |
+|:-:|:---------------------------------:|:-------------:|
+| 1 |      **params**      | `array` |
+### Возвращает
+`Message` - экземпляр класса Message, содержащий информацию о сообщении
+### Пример использования
+```php
+<?php
+require_once __DIR__ . 'vendor/autoload.php'; 
+
+use ZhenyaGR\TGZ\TGZ;
+
+$tg = TGZ::create(BOT_TOKEN);
+$tg->initText($text)
+    ->initType($type);
+
+if ($type === 'bot_command') {    
+    switch ($text) {
+        case '/paramsNotification':
+            $tg->msg("Сообщение без звука уведомлений")
+                ->params(['disable_notification' => true])
+                ->send();
+            break;
+           
+        case '/paramsPreview':
+            $tg->msg("Сообщение без превью ссылки")
+                ->params(['disable_web_page_preview' => true]) 
+                ->send();
+            break;
+    }
+}
+```
