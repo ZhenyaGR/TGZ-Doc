@@ -31,7 +31,6 @@ if ($type === 'bot_command') {
             break;
            
         case '/textChange':
-            $msg_id = 1234;
             $send = $tg->msg("Изначальное сообщение"); 
             // Какой-то код...
             $send->text("Изменяем существующий текст")->send();
