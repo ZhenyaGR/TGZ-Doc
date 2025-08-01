@@ -156,7 +156,8 @@ export default defineConfig({
                             {text: 'params', link: '/classes/messageMethods/params'},
                             {text: 'action', link: '/classes/messageMethods/action'},
                             {text: 'send', link: '/classes/messageMethods/send'},
-                            {text: 'sendEdit', link: '/classes/messageMethods/sendEdit'},
+                            {text: 'editText', link: '/classes/messageMethods/editText'},
+                            {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
                         ]
                     },
                     {text: 'Poll', link: '/classes/poll'},

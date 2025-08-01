@@ -3,8 +3,8 @@ title: Message
 sidebarDepth: 0
 ---
 
-## sendEdit
-Метод редактирует текст сообщения
+## sendEditCaption
+Метод редактирует описание медиа
 ### Параметры метода
 | # |   Название    |      Тип      |
 |:-:|:-------------:|:-------------:|
@@ -26,8 +26,10 @@ $tg->initText($text)
 if ($type === 'bot_command') {
         case '/edit':
             // Сначала отправляем сообщение
+            // !!! У СООБЩЕНИЯ ОБЯЗАТЕЛЬНО ДОЛЖНО БЫТЬ МЕДИА
             $response = $tg->msg("Это сообщение будет изменено.")
-                            ->send();
+                ->img('https://example.com/img.jpg')
+                ->send();
             
             // Получаем ID отправленного сообщения
             $messageId = $response['result']['message_id'];
@@ -37,7 +39,7 @@ if ($type === 'bot_command') {
 
             // Редактируем сообщение
             $tg->msg("Сообщение было успешно изменено!")
-                ->sendEdit($messageId);
+                ->editСaption($messageId);
             break;
             
         case '/edit_in_chat':
@@ -47,7 +49,12 @@ if ($type === 'bot_command') {
             $messageIdToEdit = 987;
 
             $tg->msg("Редактирование сообщения в другом чате.")
-                ->sendEdit($messageIdToEdit, $chatIdToEdit);
+                ->editСaption($messageIdToEdit, $chatIdToEdit);
             break;
 }
 ```
+
+### Уточнение
+
+В случае если в сообщении не было медиа, то метод [editCaption](/classes/messageMethods/editCaption.md) не будет работать, в этом случае нужно использовать [editText](/classes/messageMethods/editText.md)
+Метод [editCaption](/classes/messageMethods/editCaption.md) работает только при условии, что в сообщении есть медиа: фото, видео и т.д
