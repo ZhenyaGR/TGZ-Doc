@@ -3,6 +3,16 @@
     --vp-home-hero-action-color: #0fc800;
     --vp-caption-text: grey;
     --vp-nav-logo-height: 40px; /* Установите желаемую высоту. Стандартно 24px */
+
+    --vp-c-brand-1: #42b883; /* Основной цвет (темный) */
+    --vp-c-brand-2: #33a06f; /* Цвет при наведении */
+    --vp-c-brand-3: #258a5c; /* Цвет при нажатии */
+
+    /* Для светлой темы можно задать такие же цвета */
+    --vp-c-brand-light: #42b883;
+    --vp-c-brand-lighter: #42d392;
+    --vp-c-brand-dark: #33a06f;
+    --vp-c-brand-darker: #258a5c;
 }
 
 .img-medium {
