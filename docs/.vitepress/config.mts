@@ -160,7 +160,24 @@ export default defineConfig({
                             {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
                         ]
                     },
-                    {text: 'Poll', link: '/classes/poll'},
+                    {
+                        text: 'Poll',
+                        link: '/classes/poll',
+                        collapsed: true,
+                        items: [
+                            {text: 'question', link: '/classes/pollMethods/question'},
+                            {text: 'addAnswers', link: '/classes/pollMethods/addAnswers'},
+                            {text: 'parseMode', link: '/classes/pollMethods/parseMode'},
+                            {text: 'isAnonymous', link: '/classes/pollMethods/isAnonymous'},
+                            {text: 'multipleAnswers', link: '/classes/pollMethods/multipleAnswers'},
+                            {text: 'openPeriod', link: '/classes/pollMethods/openPeriod'},
+                            {text: 'closeDate', link: '/classes/pollMethods/closeDate'},
+                            {text: 'close', link: '/classes/pollMethods/close'},
+                            {text: 'correctAnswer', link: '/classes/pollMethods/correctAnswer'},
+                            {text: 'explanation', link: '/classes/pollMethods/explanation'},
+                            {text: 'send', link: '/classes/pollMethods/send'},
+                        ]
+                    },
                     {text: 'Inline', link: '/classes/inline'},
                     {text: 'Bot', link: '/classes/bot'},
 
