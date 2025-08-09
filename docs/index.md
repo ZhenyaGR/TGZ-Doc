@@ -10,7 +10,7 @@ hero:
 #    src: /logo.png
 #    alt: TGZ
   actions:
-    - theme: green
+    - theme: brand
       text: Начало работы
       link: /install/who_tgz
     - theme: alt
