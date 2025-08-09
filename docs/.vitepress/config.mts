@@ -179,7 +179,27 @@ export default defineConfig({
                             {text: 'send', link: '/classes/pollMethods/send'},
                         ]
                     },
-                    {text: 'Inline', link: '/classes/inline'},
+                    {
+                        text: 'Inline',
+                        link: '/classes/inline',
+                        collapsed: true,
+                        items: [
+                            {text: 'id', link: '/classes/inlineMethods/id'},
+                            {text: 'title', link: '/classes/inlineMethods/title'},
+                            {text: 'description', link: '/classes/inlineMethods/description'},
+                            {text: 'text', link: '/classes/inlineMethods/text'},
+                            {text: 'parseMode', link: '/classes/inlineMethods/parseMode'},
+                            {text: 'fileUrl', link: '/classes/inlineMethods/fileUrl'},
+                            {text: 'fileID', link: '/classes/inlineMethods/fileID'},
+                            {text: 'mimeType', link: '/classes/inlineMethods/mimeType'},
+                            {text: 'kbd', link: '/classes/inlineMethods/kbd'},
+                            {text: 'params', link: '/classes/inlineMethods/params'},
+                            {text: 'thumb', link: '/classes/inlineMethods/thumb'},
+                            {text: 'coordinates', link: '/classes/inlineMethods/coordinates'},
+                            {text: 'address', link: '/classes/inlineMethods/address'},
+                            {text: 'create', link: '/classes/inlineMethods/create'},
+                        ]
+                    },
                     {text: 'Bot', link: '/classes/bot'},
 
                 ]
