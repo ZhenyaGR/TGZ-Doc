@@ -35,7 +35,8 @@ export default defineConfig({
             {},
             `<div><img src="https://mc.yandex.ru/watch/100539088" style="position:absolute; left:-9999px;" alt="" /></div>`
         ],
-        ['link', {rel: 'icon', href: '/TGZ2.ico'}] //withBase почему-то не работает
+
+        ['link', {rel: 'icon', href: '/TGZ3.png'}] //withBase почему-то не работает
     ],
 
     // head: [
