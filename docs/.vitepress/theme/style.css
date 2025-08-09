@@ -2,6 +2,7 @@
     --vp-home-hero-name-color: #0fc800;
     --vp-home-hero-action-color: #0fc800;
     --vp-caption-text: grey;
+    --vp-nav-logo-height: 40px; /* Установите желаемую высоту. Стандартно 24px */
 }
 
 .img-medium {
@@ -17,3 +18,5 @@ figcaption {
     margin-top: 0.5em;
     color: var(--vp-caption-text);
 }
+
+
