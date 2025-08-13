@@ -231,11 +231,9 @@ export default defineConfig({
                                     {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
                             },
-
-
                         ]
                     },
-
+                    {text: 'LongPoll', link: '/classes/longpoll'},
                 ]
             }
         ],
