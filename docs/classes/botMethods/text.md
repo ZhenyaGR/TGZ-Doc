@@ -37,7 +37,7 @@ $bot->onText('question', 'Как дела?')
 $bot->onBotCommand('menu', '/menu')
     ->text('Выберите пункт меню:')
     ->inlineKbd([
-        [['text' => 'Сайт', 'url' => 'https://example.com']]
+        [$tg->buttonUrl('Сайт''https://example.com')]
     ]);
 
 $bot->run();
