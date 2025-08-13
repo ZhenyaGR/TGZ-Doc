@@ -136,6 +136,7 @@ export default defineConfig({
                             {text: 'errors', link: '/classes/tgzMethods/errors'},
                         ]
                     },
+                    {text: 'LongPoll', link: '/classes/longpoll'},
                     {
                         text: 'Message',
                         link: '/classes/message',
@@ -233,7 +234,6 @@ export default defineConfig({
                             },
                         ]
                     },
-                    {text: 'LongPoll', link: '/classes/longpoll'},
                 ]
             }
         ],
