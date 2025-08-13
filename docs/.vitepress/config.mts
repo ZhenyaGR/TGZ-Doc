@@ -216,7 +216,7 @@ export default defineConfig({
                             {text: 'run', link: '/classes/botMethods/run'},
                             {
                                 text: 'Action',
-                                link: '/classes/Action',
+                                link: '/classes/action',
                                 collapsed: false,
                                 items: [
                                     {text: 'func', link: '/classes/actionMethods/func'},
@@ -226,6 +226,7 @@ export default defineConfig({
                                     {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
                                     {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
                                     {text: 'edit', link: '/classes/actionMethods/edit'},
+                                    {text: 'redirect', link: '/classes/actionMethods/redirect'},
                                     {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
                             },
