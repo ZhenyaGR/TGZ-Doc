@@ -212,16 +212,25 @@ export default defineConfig({
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
                             {text: 'btn', link: '/classes/botMethods/btn'},
-                            {text: 'func', link: '/classes/botMethods/func'},
-                            {text: 'text', link: '/classes/botMethods/text'},
-                            {text: 'img', link: '/classes/botMethods/img'},
-                            {text: 'kbd', link: '/classes/botMethods/kbd'},
-                            {text: 'inlineKbd', link: '/classes/botMethods/inlineKbd'},
-                            {text: 'removeKbd', link: '/classes/botMethods/removeKbd'},
-                            {text: 'edit', link: '/classes/botMethods/edit'},
-                            {text: 'query', link: '/classes/botMethods/query'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'run', link: '/classes/botMethods/run'},
+                            {
+                                text: 'Action',
+                                link: '/classes/Action',
+                                collapsed: false,
+                                items: [
+                                    {text: 'func', link: '/classes/actionMethods/func'},
+                                    {text: 'text', link: '/classes/actionMethods/text'},
+                                    {text: 'img', link: '/classes/actionMethods/img'},
+                                    {text: 'kbd', link: '/classes/actionMethods/kbd'},
+                                    {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
+                                    {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
+                                    {text: 'edit', link: '/classes/actionMethods/edit'},
+                                    {text: 'query', link: '/classes/actionMethods/query'},
+                                ]
+                            },
+
+
                         ]
                     },
 
