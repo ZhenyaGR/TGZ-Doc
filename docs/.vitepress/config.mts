@@ -200,7 +200,30 @@ export default defineConfig({
                             {text: 'create', link: '/classes/inlineMethods/create'},
                         ]
                     },
-                    {text: 'Bot', link: '/classes/bot'},
+                    {
+                        text: 'Bot',
+                        link: '/classes/bot',
+                        collapsed: true,
+                        items: [
+                            {text: 'onBotCommand', link: '/classes/botMethods/onBotCommand'},
+                            {text: 'onCommand', link: '/classes/botMethods/onCommand'},
+                            {text: 'onText', link: '/classes/botMethods/onText'},
+                            {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
+                            {text: 'onCallback', link: '/classes/botMethods/onCallback'},
+                            {text: 'onDefault', link: '/classes/botMethods/onDefault'},
+                            {text: 'btn', link: '/classes/botMethods/btn'},
+                            {text: 'func', link: '/classes/botMethods/func'},
+                            {text: 'text', link: '/classes/botMethods/text'},
+                            {text: 'img', link: '/classes/botMethods/img'},
+                            {text: 'kbd', link: '/classes/botMethods/kbd'},
+                            {text: 'inlineKbd', link: '/classes/botMethods/inlineKbd'},
+                            {text: 'removeKbd', link: '/classes/botMethods/removeKbd'},
+                            {text: 'edit', link: '/classes/botMethods/edit'},
+                            {text: 'query', link: '/classes/botMethods/query'},
+                            {text: 'redirect', link: '/classes/botMethods/redirect'},
+                            {text: 'run', link: '/classes/botMethods/run'},
+                        ]
+                    },
 
                 ]
             }
