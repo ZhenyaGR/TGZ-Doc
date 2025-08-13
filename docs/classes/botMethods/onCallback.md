@@ -34,8 +34,8 @@ $bot->onBotCommand('vote', '/vote')
     ->inlineKbd([
         [
             // Кнопка, созданная "на лету"
-            ['text' => 'Да 👍', 'callback_data' => 'vote_yes'],
-            ['text' => 'Нет 👎', 'callback_data' => 'vote_no']
+            $tg->buttonCallback('Да 👍', 'vote_yes'),
+            $tg->buttonCallback('Нет 👎', 'vote_no')
         ]
     ]);
 
