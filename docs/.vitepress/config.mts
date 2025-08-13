@@ -225,7 +225,8 @@ export default defineConfig({
                                     {text: 'kbd', link: '/classes/actionMethods/kbd'},
                                     {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
                                     {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
-                                    {text: 'edit', link: '/classes/actionMethods/edit'},
+                                    {text: 'editText', link: '/classes/actionMethods/editText'},
+                                    {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                                     {text: 'redirect', link: '/classes/actionMethods/redirect'},
                                     {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
