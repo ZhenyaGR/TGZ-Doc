@@ -130,6 +130,7 @@ export default defineConfig({
                             {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
                             {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
                             {text: 'getFileID', link: '/classes/tgzMethods/getFileID'},
+                            {text: 'sendMessage', link: '/classes/tgzMethods/sendMessage'},
                             {text: 'reply', link: '/classes/tgzMethods/reply'},
                             {text: 'buttons', link: '/classes/tgzMethods/buttons'},
                             {text: 'answers', link: '/classes/tgzMethods/answers'},
