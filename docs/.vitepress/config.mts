@@ -72,7 +72,7 @@ export default defineConfig({
         langMenuLabel: 'Изменить язык',
         skipToContentLabel: 'Перейти к содержимому',
 
-        logo: '/TGZ3.png',
+        logo: '/ico.ico',
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/zhenyagr/tgz'},
