@@ -24,6 +24,6 @@ use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН_БОТА');
 $tg->initChatID($chat_id);
-// 2. Отправляем сообщение в чат
+
 $tg->sendMessage($chat_id, 'Привет, мир!');
 ```
