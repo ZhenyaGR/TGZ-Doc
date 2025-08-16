@@ -53,7 +53,7 @@ export default defineConfig({
     themeConfig: {
 
         editLink: {
-            pattern: 'https://github.com/digitalstars/simplevk-doc/edit/master/docs/:path',
+            pattern: 'https://github.com/ZhenyaGR/TGZ-Doc/edit/main/docs/:path',
             text: 'Редактировать страницу'
         },
         outline: {label: 'Содержание страницы'},
