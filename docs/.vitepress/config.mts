@@ -219,6 +219,7 @@ export default defineConfig({
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
                             {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
+                            {text: 'middleware', link: '/classes/botMethods/middleware'},
                             {text: 'run', link: '/classes/botMethods/run'},
                             {
                                 text: 'Action',
@@ -234,6 +235,7 @@ export default defineConfig({
                                     {text: 'editText', link: '/classes/actionMethods/editText'},
                                     {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                                     {text: 'redirect', link: '/classes/actionMethods/redirect'},
+                                    {text: 'middleware', link: '/classes/actionMethods/middleware'},
                                     {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
                             },

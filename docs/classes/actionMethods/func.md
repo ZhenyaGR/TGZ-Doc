@@ -16,6 +16,7 @@ title: Action
 `Action` — экземпляр класса `Action` (Вспомогательный класс), на который можно навешивать дальнейшие действия (`text`, `func` и т.д.).
 
 ### Аргументы обработчика
+- `TGZ` - экземпляр класса.
 Ваша функция может принимать аргументы, извлеченные из сообщения пользователя:
 - Для `onBotCommand`: аргументы после команды (например, для `/start 123` аргументом будет `123`).
 - Для `onCommand`: значения, соответствующие плейсхолдерам (`%w`, `%n`, `%s`).
@@ -33,7 +34,7 @@ $bot = new Bot($tg);
 
 // Пример с onCommand и аргументами
 $bot->onCommand('ban', '!ban %w %s')
-    ->func(function(string $username, string $reason) use ($tg) {
+    ->func(function(TGZ $tg, string $username, string $reason) {
         // Здесь может быть ваша логика: запись в БД, проверка прав и т.д.
         $tg->msg("✅ Пользователь `{$username}` забанен по причине: `{$reason}`")
            ->parseMode('MarkdownV2')
@@ -42,7 +43,7 @@ $bot->onCommand('ban', '!ban %w %s')
 
 // Пример с onTextPreg для извлечения данных
 $bot->onTextPreg('order', '/заказ номер (\d+)/i')
-    ->func(function(array $matches) use ($tg) {
+    ->func(function(TGZ $tg, array $matches) {
         $orderId = $matches[1];
         // Логика поиска заказа в базе данных
         $status = "в пути"; // Пример
@@ -51,8 +52,8 @@ $bot->onTextPreg('order', '/заказ номер (\d+)/i')
 
 // Пример с onCallback, где нужна сложная логика
 $bot->btn('confirm_delete', 'Да, удалить')
-    ->func(function() use ($tg) {
-        $tg->initQueryID($query_id);
+    ->func(function(TGZ $tg) {
+        $query_id = $tg->getQueryID();
         // Логика удаления...
         $tg->msg("Запись удалена.")->editText();
         $tg->answerCallbackQuery($query_id);
