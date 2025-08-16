@@ -123,6 +123,7 @@ export default defineConfig({
                             {text: 'msg', link: '/classes/tgzMethods/msg'},
                             {text: 'poll', link: '/classes/tgzMethods/poll'},
                             {text: 'inline', link: '/classes/tgzMethods/inline'},
+                            {text: 'file', link: '/classes/tgzMethods/file'},
                             {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
                             {text: 'init', link: '/classes/tgzMethods/init'},
                             {text: 'get', link: '/classes/tgzMethods/get'},
@@ -138,6 +139,7 @@ export default defineConfig({
                         ]
                     },
                     {text: 'LongPoll', link: '/classes/longpoll'},
+                    {text: 'File', link: '/classes/file'}, /*collapsed: false,items: [{text: 'func', link: '/classes/fileMethods/func'},{text: 'text', link: '/classes/fileMethods/text'}]*/
                     {
                         text: 'Message',
                         link: '/classes/message',
@@ -202,6 +204,7 @@ export default defineConfig({
                             {text: 'create', link: '/classes/inlineMethods/create'},
                         ]
                     },
+
                     {
                         text: 'Bot',
                         link: '/classes/bot',
@@ -235,7 +238,7 @@ export default defineConfig({
                             },
                         ]
                     },
-                ]
+                   ]
             }
         ],
 
