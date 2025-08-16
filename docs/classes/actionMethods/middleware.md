@@ -14,10 +14,6 @@ title: Action
 - `TGZ $tg` - экземпляр класса TGZ.
 - `callable $next` - ссылка на следующий обработчик в цепочке.
 
-::: tip $next(TGZ $tg)
-В next() передается экземпляр класса TGZ.
-:::
-
 ### Пример использования
 ```php
 <?php
@@ -36,7 +32,7 @@ $bot->onCommand('ban', '/ban %w')
     ->middleware(function(TGZ $tg, callable $next) {
         $user_id = $tg->getUserID();
         if ($user_id === 123456) {
-            $next($tg); // !!! Важно передать TGZ в $next()        
+            $next();     
         } else {
             $tg->reply("Доступ запрещен.");
         }
