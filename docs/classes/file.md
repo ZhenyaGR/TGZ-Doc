@@ -1,5 +1,5 @@
 ---
-title: LongPoll
+title: File
 ---
 
 ## Класс `File`
