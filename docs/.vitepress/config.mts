@@ -215,6 +215,7 @@ export default defineConfig({
                             {text: 'onText', link: '/classes/botMethods/onText'},
                             {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
+                            {text: 'onSticker', link: '/classes/botMethods/onSticker'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
                             {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
