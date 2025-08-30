@@ -236,6 +236,8 @@ export default defineConfig({
                                     {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                                     {text: 'redirect', link: '/classes/actionMethods/redirect'},
                                     {text: 'middleware', link: '/classes/actionMethods/middleware'},
+                                    {text: 'access', link: '/classes/actionMethods/access'},
+                                    {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
                                     {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
                             },
