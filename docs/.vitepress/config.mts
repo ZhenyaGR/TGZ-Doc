@@ -223,6 +223,8 @@ export default defineConfig({
                             {text: 'onVoice', link: '/classes/botMethods/onVoice'},
                             {text: 'onVideoNote', link: '/classes/botMethods/onVideoNote'},
                             {text: 'onSticker', link: '/classes/botMethods/onSticker'},
+                            {text: 'onNewChatMember', link: '/classes/botMethods/onNewChatMember'},
+                            {text: 'onLeftChatMember', link: '/classes/botMethods/onLeftChatMember'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
                             {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
