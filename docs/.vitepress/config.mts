@@ -112,6 +112,14 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Использование',
+                link: '/using/main',
+                collapsed: false,
+                items: [
+
+                ]
+            },
+            {
                 text: 'Классы',
                 collapsed: false,
                 items: [
