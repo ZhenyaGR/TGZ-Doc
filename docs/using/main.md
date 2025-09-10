@@ -3,27 +3,27 @@
 
 <CardGrid>
   <Card
-    title="Getting Updates"
-    details="Currently, the framework mainly supports two different methods..."
+    title="Получение обновлений"
+    details="Библиотека поддерживает два разных принципа получения обновлений..."
     href="/guide/getting-updates"
-    icon="📄"
+    icon="📝"
   />
   <Card
-    title="Sending Requests"
-    details="The framework creates a 1:1 mapping of the methods..."
+    title="Конструктор сообщений"
+    details="Конструктор сообщений, созданный по принципу «Цепочка методов»"
     href="/guide/sending-requests"
-    icon="📄"
+    icon="✉️"
   />
   <Card
-    title="Handlers"
-    details="Concept of handlers and how to use them."
+    title="Обработчики"
+    details="Использование простых обработчиков для создания ботов"
     href="/guide/handlers"
-    icon="📄"
+    icon="🛜"
   />
   <Card
     title="Middleware"
-    details="In the framework context, any handler is like a link of chain, so ..."
+    details="Для каждого обработчика можно задать условия выполнения"
     href="/guide/middleware"
-    icon="📄"
+    icon="✅"
   />
 </CardGrid>
