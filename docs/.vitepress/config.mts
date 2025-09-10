@@ -116,7 +116,10 @@ export default defineConfig({
                 link: '/using/main',
                 collapsed: false,
                 items: [
-
+                    {text: 'Получение обновлений', link: '/using/getting-updates'},
+                    {text: 'Конструктор сообщений', link: '/using/messages'},
+                    {text: 'Обработчики', link: '/using/handlers'},
+                    {text: 'Middleware', link: '/using/middleware'},
                 ]
             },
             {
