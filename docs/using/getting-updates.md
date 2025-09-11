@@ -154,7 +154,8 @@ https://api.telegram.org/bot12345:ABC-DEF/setWebhook?url=https://mydomain.com/bo
 *   **Удалить Webhook (чтобы вернуться к режиму Long Poll):**
     `https://api.telegram.org/bot<TOKEN>/deleteWebhook`
 :::
-* 
+
+
 ## Какой способ выбрать?
 
 | Критерий              | Long Polling                                 | Webhook                                       |
