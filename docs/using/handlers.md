@@ -25,24 +25,26 @@ public function onBotCommand(string $id, array|string $command = null): Action
 
 **Параметры:**
 | Параметр | Тип | Описание |
-|---|---|---|
-| `$id` | `string` | Уникальный идентификатор маршрута. |
-| `$command`| `string`|`array` | Команда или массив команд для отслеживания (например, `'/start'`). Если не указан, используется `$id`. |
+|----------------|-----|-----|
+| `$id`          | `string` | Уникальный идентификатор маршрута. |
+| `$command` | `string`\|`array` | Команда или массив команд для отслеживания (например, `'/start'`). Если не указан, используется `$id`. |
+
+
 
 **Пример использования:**
 ```php
 // Обработка команды /start
 $bot->onBotCommand('start', '/start')->func(function (TGZ $tg) {
-    $tg->sendMessage('Привет! Я бот.');
+    $tg->reply('Привет! Я бот');
 });
 
 // Обработка команды с аргументом (реферальная ссылка)
 // Пользователь пишет: /start 12345
-$bot->onBotCommand('start_ref', '/start')->handler(function ($tg, $ref) {
+$bot->onBotCommand('start_ref', '/start')->func(function (TGZ $tg, $ref) {
     if (!empty($ref)) {
-        $tg->sendMessage("Вы пришли по реферальной ссылке: {$ref}");
+        $tg->reply("Вы пришли по реферальной ссылке: {$ref}");
     } else {
-        $tg->sendMessage('Привет! Я бот.');
+        $tg->reply('Привет! Я бот');
     }
 });
 ```
@@ -65,21 +67,21 @@ public function onCommand(string $id, array|string $command = null): Action
 | Параметр | Тип | Описание |
 |---|---|---|
 | `$id` | `string` | Уникальный идентификатор маршрута. |
-| `$command`| `string`|`array` | Шаблон команды или массив шаблонов (например, `'!ban %n %s'`). |
+| `$command`| `string`\|`array` | Шаблон команды или массив шаблонов (например, `'!ban %n %s'`). |
 
 **Пример использования:**
 ```php
 // Простая команда !ping
-$bot->onCommand('ping', '!ping')->handler(function($tg) {
-    $tg->sendMessage('pong!');
+$bot->onCommand('ping', '!ping')->func(function(TGZ $tg) {
+    $tg->reply('pong!');
 });
 
 // Команда бана с числовым ID и текстовой причиной
 // Пользователь пишет: !ban 12345678 флуд в чате
-$bot->onCommand('ban', '!ban %n %s')->handler(function($tg, $userId, $reason) {
+$bot->onCommand('ban', '!ban %n %s')->func(function(TGZ $tg, $userId, $reason) {
     // $userId будет '12345678'
     // $reason будет 'флуд в чате'
-    $tg->sendMessage("Пользователь {$userId} забанен по причине: {$reason}");
+    $tg->reply("Пользователь {$userId} забанен по причине: {$reason}");
 });
 ```
 
@@ -98,7 +100,7 @@ public function onText(string $id, array|string $text = null): Action
 | Параметр | Тип | Описание |
 |---|---|---|
 | `$id` | `string` | Уникальный идентификатор маршрута. |
-| `$text`| `string`|`array` | Текст или массив текстов для точного совпадения. |
+| `$text`| `string`\|`array` | Текст или массив текстов для точного совпадения. |
 
 **Пример использования:**
 ```php
@@ -106,9 +108,7 @@ public function onText(string $id, array|string $text = null): Action
 $bot->btn('about_btn', 'О нас');
 
 // Обрабатываем нажатие на кнопку (которое приходит как текстовое сообщение)
-$bot->onText('about', 'О нас')->send([
-    'text' => 'Мы - лучшая в мире компания!',
-]);
+$bot->onText('about', 'О нас')->text('Мы - лучшая в мире компания!');
 ```
 
 ### onTextPreg()
@@ -126,16 +126,16 @@ public function onTextPreg(string $id, array|string $pattern = null): Action
 | Параметр | Тип | Описание |
 |---|---|---|
 | `$id` | `string` | Уникальный идентификатор маршрута. |
-| `$pattern`| `string`|`array` | Регулярное выражение или их массив. |
+| `$pattern`| `string`\|`array` | Регулярное выражение или их массив. |
 
 **Пример использования:**
 ```php
 // Обработка сообщения с email
 // Пользователь пишет: Моя почта example@google.com
 $bot->onTextPreg('email', '/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/')
-    ->handler(function ($tg, $matches) {
+    ->func(function (TGZ $tg, $matches) {
         $email = $matches[0];
-        $tg->sendMessage("Спасибо! Мы получили ваш email: {$email}");
+        $tg->reply("Спасибо! Мы получили ваш email: {$email}");
     });
 ```
 
@@ -159,22 +159,17 @@ public function onCallback(string $id, string $data = null): Action
 **Пример использования:**
 ```php
 // В каком-то другом обработчике отправляем сообщение с inline-кнопкой
-$bot->onCommand('menu', '/menu')->send([
-    'text' => 'Выберите действие:',
-    'kbd' => [
-        // Создаем кнопку с callback_data 'show_profile'
-        [['text' => 'Показать профиль', 'callback_data' => 'show_profile']]
-    ],
-    'inline' => true,
+$bot->onCommand('menu', '/menu')->text('Выберите действие:')->inlineKbd([
+    [$tg->buttonCallback('Показать профиль', 'show_profile')]
 ]);
 
 // Обрабатываем нажатие на эту кнопку
 $bot->onCallback('profile', 'show_profile')->func(function (TGZ $tg) {
-    $userId = $tg->context->getUserId();
+    $userId = $tg->getUserID();
     // Отвечаем на callback, чтобы убрать "часики" на кнопке
-    $tg->answerCallbackQuery($tg->context->getQueryId(), ['text' => 'Загружаю профиль...']);
+    $tg->answerCallbackQuery($tg->getQueryID(), ['text' => 'Загружаю профиль...']);
     // Редактируем исходное сообщение
-    $tg->editMessageText($userId, $tg->context->getMessageId(), "Ваш ID: {$userId}");
+    $tg->msg("Ваш ID: {$userId}")->editText();
 });
 ```
 
@@ -198,21 +193,21 @@ $bot->onCallback('profile', 'show_profile')->func(function (TGZ $tg) {
 ```php
 // Реакция на любую фотографию
 $bot->onPhoto()->func(function (TGZ $tg) {
-    $tg->sendMessage('Какое красивое фото!');
+    $tg->reply('Какое красивое фото!');
 });
 
 // Приветствие нового участника
-$bot->onNewChatMember()->handler(function ($tg, ...$newMembers) {
+$bot->onNewChatMember()->func(function (TGZ $tg, ...$newMembers) {
     foreach ($newMembers as $member) {
         $name = $member['first_name'];
-        $tg->sendMessage("Добро пожаловать в чат, {$name}!");
+        $tg->reply("Добро пожаловать в чат, {$name}!");
     }
 });
 
 // Прощание с ушедшим участником
-$bot->onLeftChatMember()->handler(function ($tg, $leftMember) {
+$bot->onLeftChatMember()->func(function (TGZ $tg, $leftMember) {
     $name = $leftMember['first_name'];
-    $tg->sendMessage("{$name} покинул(а) нас. Очень жаль.");
+    $tg->reply("{$name} покинул(а) нас. Очень жаль.");
 });
 ```
 
@@ -234,7 +229,7 @@ public function onMessage(): Action
 **Пример использования:**
 ```php
 $bot->onMessage()->func(function (TGZ $tg) {
-    $tg->sendMessage('Я не понял вашу команду. Используйте /help для списка команд.');
+    $tg->reply('Я не понял вашу команду. Используйте /help для списка команд.');
 });
 ```
 
