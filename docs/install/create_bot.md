@@ -2,6 +2,8 @@
 title: Создание и настройка бота
 ---
 
+# Создание бота в Telegram
+
 ## 1. Создание бота через @BotFather
 1. Откройте Telegram и найдите бота **[@BotFather](https://t.me/BotFather)**.
 2. Отправьте команду `/newbot`.
