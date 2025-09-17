@@ -32,7 +32,7 @@ $bot->run();
 
 ### Аргументы обработчика
 - `TGZ $tg` - экземпляр класса TGZ.
-- `...array $users` - массивы пользователей.
+- `...array $users` - пользователи в виде DtoUser.
 
 #### Если добавлен один пользователь
 ```php
@@ -40,14 +40,15 @@ $bot->run();
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Dto\UserDto;
 
 $tg = TGZ::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // Отреагирует на зашедших/добавленных пользователей
 $bot->onNewChatMember()
-    ->func(function (TGZ $tg, $user) {
-        $tg->msg("Приветствую в чате, {$user['first_name']}")->send();
+    ->func(function (TGZ $tg, UserDto $user1) {
+        $tg->msg("Приветствую в чате, " . $user1->firstName)->send();
     });
 
 $bot->run();
@@ -59,14 +60,15 @@ $bot->run();
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Dto\UserDto;
 
 $tg = TGZ::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // Отреагирует на зашедших/добавленных пользователей
 $bot->onNewChatMember()
-    ->func(function (TGZ $tg, $user1, $user2) {
-        $tg->msg("Приветствую в чате, {$user1['first_name']} и {$user2['first_name']}")->send();
+    ->func(function (TGZ $tg, UserDto $user1, UserDto $user2) {
+        $tg->msg("Приветствую в чате, " . $user1->firstName . " и $user2->firstName")->send();
     });
 
 $bot->run();
