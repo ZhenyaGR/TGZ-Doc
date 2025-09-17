@@ -136,7 +136,7 @@ export default defineConfig({
                             {text: 'inline', link: '/classes/tgzMethods/inline'},
                             {text: 'file', link: '/classes/tgzMethods/file'},
                             {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
-                            {text: 'init', link: '/classes/tgzMethods/init'},
+                            {text: 'initVars', link: '/classes/tgzMethods/initVars'},
                             {text: 'get', link: '/classes/tgzMethods/get'},
                             {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
                             {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},

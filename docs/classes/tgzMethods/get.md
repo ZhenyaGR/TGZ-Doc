@@ -3,7 +3,9 @@ title: TGZ
 sidebarDepth: 0
 ---
 
-## getWebhookUpdate
+# TGZ
+
+## getUpdate
 Метод возвращает пришедшее от Телеграма событие, полученное через Webhook. Это основной метод, который нужно вызвать в самом начале для загрузки данных.
 
 ### Возвращает
@@ -16,10 +18,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
-$update = $tg->getWebhookUpdate();
+$update = $tg->getUpdate();
 ```
 
-## getChatID
+## getChatId
 Метод возвращает идентификатор чата из пришедшего события.
 
 ### Возвращает
@@ -32,11 +34,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
-$chat_id = $tg->getChatID();
+$chat_id = $tg->getChatId();
 
 ```
 
-## getUserID
+## getUserId
 Метод возвращает идентификатор пользователя, отправившего сообщение или совершившего действие.
 
 ### Возвращает
@@ -49,7 +51,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
-$user_id = $tg->getUserID();
+$user_id = $tg->getUserId();
 ```
 
 ## getText
@@ -68,7 +70,7 @@ $tg = TGZ::create('ВАШ_ТОКЕН');
 $text = $tg->getText();
 ```
 
-## getMsgID
+## getMsgId
 Метод возвращает идентификатор сообщения из пришедшего события.
 
 ### Возвращает
@@ -81,7 +83,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
-$message_id = $tg->getMessageID();
+$message_id = $tg->getMsgId();
 ```
 
 ## getType
@@ -100,7 +102,7 @@ $tg = TGZ::create('ВАШ_ТОКЕН');
 $type = $tg->getType();
 ```
 
-## getQueryID
+## getQueryId
 Метод возвращает идентификатор callback-запроса (нажатие на inline-кнопку) или inline-запроса.
 
 ### Возвращает
@@ -113,7 +115,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
-$query_id = $tg->getQueryID();
+$query_id = $tg->getQueryId();
 ```
 
 ## getCallbackData
