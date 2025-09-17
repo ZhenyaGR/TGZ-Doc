@@ -273,7 +273,7 @@ export default defineConfig({
                         ]
                     },
 
-                    {text: 'Dto', link: '/classes/Dto'},
+                    {text: 'DTO', link: '/classes/Dto'},
 
                 ]
             }
