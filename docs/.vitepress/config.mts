@@ -222,6 +222,8 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                             {text: 'onBotCommand', link: '/classes/botMethods/onBotCommand'},
+                            {text: 'onStart', link: '/classes/botMethods/onStart'},
+                            {text: 'onReferral', link: '/classes/botMethods/onReferral'},
                             {text: 'onCommand', link: '/classes/botMethods/onCommand'},
                             {text: 'onText', link: '/classes/botMethods/onText'},
                             {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
@@ -234,6 +236,7 @@ export default defineConfig({
                             {text: 'onVoice', link: '/classes/botMethods/onVoice'},
                             {text: 'onVideoNote', link: '/classes/botMethods/onVideoNote'},
                             {text: 'onSticker', link: '/classes/botMethods/onSticker'},
+                            {text: 'onEditedMessage', link: '/classes/botMethods/onEditedMessage'},
                             {text: 'onNewChatMember', link: '/classes/botMethods/onNewChatMember'},
                             {text: 'onLeftChatMember', link: '/classes/botMethods/onLeftChatMember'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
