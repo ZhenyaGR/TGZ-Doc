@@ -32,30 +32,20 @@ $bot = new Bot($tg);
 // Маршрут для извлечения email-адреса из текста
 // Пользователь пишет: "Моя почта my.email@example.com"
 $bot->onTextPreg('find_email', '/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/')
-    ->func(function(array $matches) use ($tg) {
-        $email = $matches[0];
+    ->func(function(TGZ $tg, $email) {
         $tg->msg("Спасибо! Я записал ваш email: {$email}")->send();
     });
 
 // Маршрут для извлечения суммы и валюты
 // Пользователь пишет: "конвертируй 100 USD"
-$bot->onTextPreg('converter', '/конвертируй (\d+) (USD|EUR|RUB)/i')
-    ->func(function(array $matches) use ($tg) {
-        // $matches[0] будет содержать всю совпавшую строку, например "конвертируй 100 USD"
-        // $matches[1] будет содержать "100"
-        // $matches[2] будет содержать "USD"
-
-        $amount = (int) $matches[1];
-        $currency = strtoupper($matches[2]);
+$bot->onTextPreg('converter', '^!конвертация\s+(\d+)\s+(RUB|EUR|USD)$')
+    ->func(function(TGZ $tg, $amount, $currency) {
 
         // ... логика конвертации ...
         $result = $amount * 90; // Пример
 
         $tg->msg("{$amount} {$currency} это примерно {$result} RUB.")->send();
     });
-
-// Если ни один маршрут не сработал
-$bot->onDefault()->text('Я вас не понял.');
 
 $bot->run();
 ```
