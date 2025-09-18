@@ -17,7 +17,7 @@ $tg = TGZ::create(ТОКЕН);
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 
-$FILE = $tg->file($img_id);
+$File = $tg->file($img_id);
 ```
 
 ## Методы класса
