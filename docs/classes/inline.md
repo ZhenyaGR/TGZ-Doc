@@ -3,8 +3,10 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## inline
-Метод `inline` является «синтаксическим сахаром», который используется для создания и экземпляра класса `Inline`. Он предназначен для создания inline-запросов.
+# **Inline**
+
+## Создание экземпляра `Inline`
+Для создания экземпляра класса используется `inline` – метод из класса _TGZ_. Этот метод является «синтаксическим сахаром»
 
 ### Параметры метода
 | # | Название |       Тип        | Описание                                                                                                               |
@@ -21,7 +23,7 @@ require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('article')
