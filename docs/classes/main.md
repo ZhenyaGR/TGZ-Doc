@@ -14,7 +14,7 @@ title: Классы
   <Card
     title="LongPoll"
     details="Получение обновлений методом LongPoll"
-    href="/TGZ-Doc/classes/lonbpoll"
+    href="/TGZ-Doc/classes/longpoll"
     icon="🛜"
   />
   <Card

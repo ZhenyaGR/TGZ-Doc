@@ -125,6 +125,7 @@ export default defineConfig({
             {
                 text: 'Классы',
                 collapsed: false,
+                link: '/classes/main',
                 items: [
                     {
                         text: 'TGZ',
@@ -276,7 +277,7 @@ export default defineConfig({
                         ]
                     },
 
-                    {text: 'DTO', link: '/classes/Dto'},
+                    {text: 'DTO', link: '/classes/dto'},
 
                 ]
             }
