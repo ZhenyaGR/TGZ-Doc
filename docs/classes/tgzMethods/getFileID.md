@@ -21,10 +21,11 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
-
 use ZhenyaGR\TGZ\TGZ;
+
 $tg = TGZ::create(ТОКЕН);
-$tg->initChatID($chat_id);
+$chat_id = $tg->getChatId();
+
 $file_id = $tg->getFileID('example.com/image.jpg', $chat_id, 'photo');
-echo $file_id;
+$tg->reply('ID файла: ' . $file_id);
 ```
