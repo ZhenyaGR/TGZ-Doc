@@ -3,24 +3,26 @@ title: Message
 sidebarDepth: 0
 ---
 
-## img
+# img
 Метод добавляет к сообщению одно или несколько изображений
-### Параметры метода
+
+## Параметры метода
 | # | Название |        Тип        |                   Описание                   |
 |:-:|:--------:|:-----------------:|:--------------------------------------------:|
 | 1 | **url**  | `string`\|`array` | Принимает ссылку, локальный путь и ID файла |
-### Возвращает
+
+## Возвращает
 `Message` - экземпляр класса Message, содержащий информацию о сообщении
-### Пример использования
+
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php'; 
-
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(BOT_TOKEN);
-$tg->initText($text)
-    ->initType($type);
+$text = $tg->getText();
+$type = $tg->getType();
 
 if ($type === 'bot_command') {
 
@@ -63,4 +65,5 @@ if ($type === 'bot_command') {
 }
 ```
 
-#### Получить ID файла можно с помощью метода [getFileID](/classes/tgzMethods/getFileID.md)
+## Вспомогательные методы
+- [`getFileID`](/classes/tgzMethods/getFileID.md) - Получить ID файла

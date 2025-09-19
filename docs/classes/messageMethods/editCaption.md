@@ -3,25 +3,32 @@ title: Message
 sidebarDepth: 0
 ---
 
-## sendEditCaption
+# sendEditCaption
 Метод редактирует описание медиа
-### Параметры метода
+
+::: warning **Важно:**
+В случае если в сообщении не было медиа, то метод [editCaption](/classes/messageMethods/editCaption.md) не будет работать, в этом случае нужно использовать [editText](/classes/messageMethods/editText.md)
+Метод [editCaption](/classes/messageMethods/editCaption.md) работает только при условии, что в сообщении есть медиа: фото, видео и т.д
+:::
+
+## Параметры метода
 | # |   Название    |      Тип      |
 |:-:|:-------------:|:-------------:|
 | 1 | **messageID** | `int`\|`null` |
 | 2 |  **chatID**   | `int`\|`null` |
-### Возвращает
+
+## Возвращает
 `array` - ответ от Телеграма, содержащий информацию о сообщении
-### Пример использования
+
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php'; 
-
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(BOT_TOKEN);
-$tg->initText($text)
-    ->initType($type);
+$text = $tg->getText();
+$type = $tg->getType();
 
 if ($type === 'bot_command') {
         case '/edit':
@@ -54,7 +61,3 @@ if ($type === 'bot_command') {
 }
 ```
 
-### Уточнение
-
-В случае если в сообщении не было медиа, то метод [editCaption](/classes/messageMethods/editCaption.md) не будет работать, в этом случае нужно использовать [editText](/classes/messageMethods/editText.md)
-Метод [editCaption](/classes/messageMethods/editCaption.md) работает только при условии, что в сообщении есть медиа: фото, видео и т.д

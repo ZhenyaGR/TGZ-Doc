@@ -3,25 +3,34 @@ title: Message
 sidebarDepth: 0
 ---
 
-## sendEditText
+# sendEditText
 Метод редактирует текст сообщения
-### Параметры метода
+
+::: warning **Важно:**
+Метод [editText](/classes/messageMethods/editText.md) работает только при условии, что в сообщении нет медиа: фото, видео и т.д.
+Если в сообщении есть медиа, то нужно использовать [editCaption](/classes/messageMethods/editCaption.md)
+:::
+
+## Параметры метода
 | # |   Название    |      Тип      |
 |:-:|:-------------:|:-------------:|
 | 1 | **messageID** | `int`\|`null` |
 | 2 |  **chatID**   | `int`\|`null` |
-### Возвращает
+
+## Возвращает
 `array` - ответ от Телеграма, содержащий информацию о сообщении
-### Пример использования
+
+
+
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php'; 
-
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(BOT_TOKEN);
-$tg->initText($text)
-    ->initType($type);
+$text = $tg->getText();
+$type = $tg->getType();
 
 if ($type === 'bot_command') {
         case '/edit':
@@ -50,6 +59,3 @@ if ($type === 'bot_command') {
             break;
 }
 ```
-### Уточнение
-Метод [editText](/classes/messageMethods/editText.md) работает только при условии, что в сообщении нет медиа: фото, видео и т.д.
-Если в сообщении есть медиа, то нужно использовать [editCaption](/classes/messageMethods/editCaption.md)

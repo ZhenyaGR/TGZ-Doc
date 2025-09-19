@@ -3,16 +3,18 @@ title: Message
 sidebarDepth: 0
 ---
 
-## voice
+# voice
 Метод отправляет голосовое сообщение
-### Параметры метода
+
+## Параметры метода
 | # | Название |       Тип        |                   Описание                   |
 |:-:|:--------:|:----------------:|:--------------------------------------------:|
 | 1 | **url**  |     `string`     | Принимает ссылку, локальный путь и ID файла |
-### Возвращает
-`Message` - экземпляр класса Message, содержащий информацию о сообщении
-### Пример использования
 
+## Возвращает
+`Message` - экземпляр класса Message, содержащий информацию о сообщении
+
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php'; 
@@ -20,10 +22,10 @@ require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(BOT_TOKEN);
-$tg->initText($text)
-    ->initType($type);
+$text = $tg->getText();
+$type = $tg->getType();
 
-if ($type === 'bot_command') {
+if ($type === 'bot_command') 
 
     $voice_url = "https://example.com/voice.mp3";
     $voice_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
@@ -51,4 +53,5 @@ if ($type === 'bot_command') {
 }
 ```
 
-#### Получить ID файла можно с помощью метода [getFileID](/classes/tgzMethods/getFileID.md)_
+## Вспомогательные методы
+- [`getFileID`](/classes/tgzMethods/getFileID.md) - Получить ID файла

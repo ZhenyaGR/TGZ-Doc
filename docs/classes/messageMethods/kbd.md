@@ -3,9 +3,10 @@ title: Message
 sidebarDepth: 0
 ---
 
-## kbd
+# kbd
 Метод управляет клавиатурой и inline-кнопками в сообщении
-### Параметры метода
+
+## Параметры метода
 | # |         Название         |   Тип    |                   Описание                    |
 |:-:|:------------------------:|:--------:|:---------------------------------------------:|
 | 1 |       **buttons**        | `array`  |          Принимает объект клавиатуры          |
@@ -13,17 +14,17 @@ sidebarDepth: 0
 | 3 |  **one_time_keyboard**   |  `bool`  |  Свернуть клавиатуру при нажатии? true/false  |
 | 4 |   **resize_keyboard**    |  `bool`  | Менять размер кнопок в клавиатуре? true/false |
 | 5 |   **remove_keyboard**    |  `bool`  |        Удалять клавиатуру? true/false         |
-### Возвращает
-`Message` - экземпляр класса Message, содержащий информацию о сообщении
-### Пример использования
 
+## Возвращает
+`Message` - экземпляр класса Message, содержащий информацию о сообщении
+
+## Пример использования
 ```php
 <?php    
 require_once __DIR__ . 'vendor/autoload.php'; 
+use ZhenyaGR\TGZ\TGZ; 
 
-use ZhenyaGR\TGZ\TGZ as tg; 
-
-$tg = tg::create(BOT_TOKEN);
+$tg = TGZ::create(BOT_TOKEN);
 $tg->initVars(type: $type, text: $text, callback_data: $callback_data, query_id: $query_id);
 
 if ($type === 'text' || $type === 'bot_command') {
@@ -95,7 +96,7 @@ if ($type === 'text' || $type === 'bot_command') {
 }
 ```
 
-### Формат клавиатуры
+## Формат клавиатуры
 
 Клавиатура - массив из массивов, которые содержат кнопки 
 ```php
@@ -106,7 +107,7 @@ $kbd = [
 ];
 ```
 
-### Вспомогательные методы
+## Вспомогательные методы
 - [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
 - [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
 - [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку

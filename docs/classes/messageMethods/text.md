@@ -3,24 +3,26 @@ title: Message
 sidebarDepth: 0
 ---
 
-## text
+# text
 Метод изменяет/задаёт текст для сообщения
-### Параметры метода
+
+## Параметры метода
 | # | Название |   Тип    |
 |:-:|:--------:|:--------:|
 | 1 | **text** | `string` |
-### Возвращает
+
+## Возвращает
 `Message` - экземпляр класса Message, содержащий информацию о сообщении
-### Пример использования
+
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php'; 
-
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(BOT_TOKEN);
-$tg->initText($text)
-    ->initType($type);
+$text = $tg->getText();
+$type = $tg->getType();
 
 if ($type === 'bot_command') {    
     switch ($text) {
