@@ -3,18 +3,18 @@ title: TGZ
 sidebarDepth: 0
 ---
 
-## file
+# file
 Метод создает объект класса `File` для работы с файлами
 
-### Параметры метода
+## Параметры метода
 | # |  Название   |   Тип    | Описание |
 |:-:|:-----------:|:--------:|:--------:|
 | 1 | **file_id** | `string` | ID файла |
 
-### Возвращает
+## Возвращает
 `File` - экземпляр класса File
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
@@ -27,4 +27,4 @@ $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 $tg->file($img_id)->save('downloads/img.jpg');
 ```
 
-#### Подробнее про класс Item [здесь](/classes/file.md)
+### Подробнее про класс File [здесь](/classes/file.md)
