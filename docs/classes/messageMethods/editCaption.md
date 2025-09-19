@@ -8,7 +8,6 @@ sidebarDepth: 0
 
 ::: warning **Важно:**
 В случае если в сообщении не было медиа, то метод [editCaption](/classes/messageMethods/editCaption.md) не будет работать, в этом случае нужно использовать [editText](/classes/messageMethods/editText.md)
-Метод [editCaption](/classes/messageMethods/editCaption.md) работает только при условии, что в сообщении есть медиа: фото, видео и т.д
 :::
 
 ## Параметры метода
