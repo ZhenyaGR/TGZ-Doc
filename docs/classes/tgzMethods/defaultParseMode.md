@@ -23,6 +23,9 @@ use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
 $tg->defaultParseMode('MarkdownV2');
+
+$tg->msg('*Привет!*')->send();
+// Текст будет автоматически преобразован в MarkdownV2
 ```
 
 ## Примеры разметок
