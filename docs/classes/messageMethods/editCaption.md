@@ -3,7 +3,7 @@ title: Message
 sidebarDepth: 0
 ---
 
-# sendEditCaption
+# editCaption
 Метод редактирует описание медиа
 
 ::: warning **Важно:**

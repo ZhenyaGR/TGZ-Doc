@@ -3,7 +3,7 @@ title: Message
 sidebarDepth: 0
 ---
 
-# sendEditText
+# editText
 Метод редактирует текст сообщения
 
 ::: warning **Важно:**
