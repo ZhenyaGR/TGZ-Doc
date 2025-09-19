@@ -3,26 +3,26 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## coordinates
-Метод `coordinates` устанавливает координаты для inline-запроса.
+# coordinates
+Метод устанавливает координаты для inline-запроса.
 
-### Параметры метода
+## Параметры метода
 | # |   Название    |   Тип   | Описание |
 |:-:|:-------------:|:-------:|:--------:|
 | 1 | **latitude**  | `float` | Долгота  |
 | 2 | **longitude** | `float` |  Широта  |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса Inline
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('location')

@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## mimeType
-Метод `mimeType` устанавливает тип ссылки на файл, который отправит бот.
+# mimeType
+Метод устанавливает тип ссылки на файл, который отправит бот.
 
-### Параметры метода
+## Параметры метода
 | # | Название |   Тип    |                                  Описание                                  |
 |:-:|:--------:|:--------:|:--------------------------------------------------------------------------:|
 | 1 | **mime** | `string` | Тип ссылки: `text/html`, `video/mp4`, `application/pdf`, `application/zip` |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('video') // Тип inline-запроса `video`

@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## thumb
-Метод `thumb` устанавливает миниатюру для inline-запроса.
+# thumb
+Метод устанавливает миниатюру для inline-запроса.
 
-### Параметры метода
+## Параметры метода
 | # | Название |   Тип    |            Описание             |
 |:-:|:--------:|:--------:|:-------------------------------:|
 | 1 | **url**  | `string` | Ссылка на изображение миниатюры |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('photo') // Тип inline-запроса `photo`

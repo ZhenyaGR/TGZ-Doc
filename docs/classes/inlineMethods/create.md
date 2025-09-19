@@ -3,20 +3,21 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## create
-Метод `create` "собирает" все данные в один inline-запрос.
+# create
+Метод "собирает" все данные в один inline-запрос.
 
-### Возвращает
+## Возвращает
 `array` - массив с inline-запросом
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
+
 $results = [
     $tg->inline('article')
         ->id('article')

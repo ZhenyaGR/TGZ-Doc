@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## description
-Метод `description` устанавливает описание для inline-запроса.
+# description
+Метод устанавливает описание для inline-запроса.
 
-### Параметры метода
+## Параметры метода
 | # |    Название     |   Тип    |        Описание         |
 |:-:|:---------------:|:--------:|:-----------------------:|
 | 1 | **description** | `string` | Описание inline-запроса |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('article')

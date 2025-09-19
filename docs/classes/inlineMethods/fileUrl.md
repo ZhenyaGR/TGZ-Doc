@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## fileUrl
-Метод `fileUrl` устанавливает URL-адрес файла, который отправит бот.
+# fileUrl
+Метод устанавливает URL-адрес файла, который отправит бот.
 
-### Параметры метода
+## Параметры метода
 | # | Название |   Тип    |    Описание     |
 |:-:|:--------:|:--------:|:---------------:|
 | 1 | **url**  | `string` | Текст сообщения |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('photo') // Тип inline-запроса `photo`

@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## parseMode
+# parseMode
 Метод устанавливает режим разметки для сообщения
 
-### Параметры метода
+## Параметры метода
 | # |    Название    |   Тип    |        Возможные значения        |
 |:-:|:--------------:|:--------:|:--------------------------------:|
 | 1 | **parse_mode** | `string` | `HTML`, `Markdown`, `MarkdownV2` |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса Inline
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('article')
@@ -62,5 +62,5 @@ __Подчёркнутый__
 <span class="tg-spoiler">Спойлер</span>
 ```
 
-### Примечание:
+## Примечание:
 Для MarkdownV2 экранируйте символы `_*[]()~>#+-=|{}.!` с помощью `\`, например: `\_некурсив\_`

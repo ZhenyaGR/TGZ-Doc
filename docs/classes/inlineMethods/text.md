@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## text
-Метод `text` устанавливает текст сообщения, которое отправит бот.
+# text
+Метод устанавливает текст сообщения, которое отправит бот.
 
-### Параметры метода
+## Параметры метода
 | # | Название |   Тип    |    Описание     |
 |:-:|:--------:|:--------:|:---------------:|
 | 1 | **text** | `string` | Текст сообщения |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $results = [
     $tg->inline('article')

@@ -3,25 +3,25 @@ title: Inline
 sidebarDepth: 0
 ---
 
-## kbd
-Метод `kbd` добавляет inline-клавиатуру к сообщению.
+# kbd
+Метод добавляет inline-клавиатуру к сообщению.
 
-### Параметры метода
+## Параметры метода
 | # |  Название   |   Тип   |              Описание              |
 |:-:|:-----------:|:-------:|:----------------------------------:|
 | 1 | **buttons** | `array` | Массив из callback- или url-кнопок |
 
-### Возвращает
+## Возвращает
 `Inline` - экземпляр класса `Inline`.
 
-### Пример использования
+## Пример использования
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create('ТОКЕН');
-$tg->initQuery($query_id);
+$query_id = $tg->getQueryId();
 
 $buttons = [
     [$tg->buttonCallback('Текст кнопки', 'callback_data')],
