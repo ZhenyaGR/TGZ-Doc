@@ -10,11 +10,9 @@ export default defineConfig({
     appearance: 'dark',
     lastUpdated: true,
 
-
     head: [
-        ['link', { rel: 'icon', href: '/ico.ico' }]
+        ['link', { rel: 'icon', href: '/logo.png' }]
     ],
-
 
     themeConfig: {
 
