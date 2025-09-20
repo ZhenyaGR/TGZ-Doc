@@ -3,7 +3,7 @@
 layout: home
  
 hero:
-  name: "TGZ"
+  name: "ZenGram"
   text: "Библиотека для создания ботов Telegram"   
   tagline: "Главное - Z!"
 #  image:
