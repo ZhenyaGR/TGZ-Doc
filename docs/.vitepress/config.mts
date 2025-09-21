@@ -244,7 +244,16 @@ export default defineConfig({
                     {text: 'DTO', link: '/classes/dto'},
 
                 ]
-            }
+            },
+            {
+                text: 'Примеры с обновлениями',
+                link: '/json/main',
+                collapsed: false,
+                items: [
+                    // {text: 'Новое сообщение', link: '/json/message'},
+                    // {text: 'Новое сообщение', link: '/json/message'},
+                ]
+            },
         ],
 
         footer: {
