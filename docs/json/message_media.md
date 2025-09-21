@@ -8,9 +8,9 @@ title: Обновления
 ## Фотография
 ```json
 {
-    "update_id": 410164509,
+    "update_id": 123,
     "message": {
-        "message_id": 1777,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -24,7 +24,7 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1734686260,
+        "date": 123,
         "photo": [
             {
                 "file_id": "AgACAgIAAyEFAASRVpKkAAIG7WdlNfnUx45k2KCuLyo4EHHcEvWHAAIJ5jEbqlwpS3IQJCLujLnXAQADAgADcwADNgQ",
