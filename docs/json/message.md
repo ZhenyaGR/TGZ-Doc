@@ -77,7 +77,40 @@ title: Обновления
             "type": "private"
         },
         "date": 1733328972,
-        "text": "\/start",
+        "text": "/start",
+        "entities": [
+            {
+                "offset": 0,
+                "length": 6,
+                "type": "bot_command"
+            }
+        ]
+    }
+}
+```
+
+## Сообщение с реферальными данными
+Если пользователь написал новое сообщение через реферальную ссылку, то в поле `text` будут содержаться дополнительные данные.
+```json
+{
+    "update_id": 181540339,
+    "message": {
+        "message_id": 6357,
+        "from": {
+          "id": USER_ID,
+          "is_bot": false,
+          "first_name": "FirstName",
+          "username": USERNAME,
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": USER_ID,
+          "first_name": "FirstName",
+          "username": USERNAME,
+          "type": "private"
+        },
+        "date": 1758123281,
+        "text": "/start game_38",
         "entities": [
             {
                 "offset": 0,
@@ -128,13 +161,13 @@ title: Обновления
     "update_id": 123,
     "message": {
         "message_id": 170,
-      "from": {
-        "id": USER_ID,
-        "is_bot": false,
-        "first_name": "FirstName",
-        "username": USERNAME,
-        "language_code": "ru"
-      },
+        "from": {
+          "id": USER_ID,
+          "is_bot": false,
+          "first_name": "FirstName",
+          "username": USERNAME,
+          "language_code": "ru"
+        },
         "chat": {
             "id": CHAT_ID,
             "title": "Title",
@@ -157,4 +190,3 @@ title: Обновления
     }
 }
 ```
-
