@@ -92,9 +92,9 @@ title: Обновления
             "language_code": "ru"
         },
         "chat": {
-              "id": CHAT_ID,
-              "title": "newTitle",
-              "type": "supergroup"
+            "id": CHAT_ID,
+            "title": "newTitle",
+            "type": "supergroup"
         },
         "date": 1733818926,
         "new_chat_title": "newTitle"

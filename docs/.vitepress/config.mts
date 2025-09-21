@@ -255,7 +255,7 @@ export default defineConfig({
                     {text: 'Голосовое и видео-сообщение', link: '/json/message_voice&videoNote'},
                     {text: 'Редактирование сообщения', link: '/json/message_edit'},
                     {text: 'Обновления с чатом', link: '/json/message_chats'},
-                    // {text: 'Новое сообщение', link: '/json/message'},
+                    {text: 'Нажатие на кнопку', link: '/json/message_button'},
                 ]
             },
         ],
