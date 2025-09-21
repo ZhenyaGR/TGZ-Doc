@@ -117,3 +117,53 @@ title: Обновления
     }
 }
 ```
+
+## Стикер
+```json
+{
+    "update_id": 806793384,
+    "message": {
+        "message_id": 4451,
+        "from": {
+            "id": USER_ID,
+            "is_bot": false,
+            "first_name": "FirstName",
+            "username": USERNAME,
+            "language_code": "ru"
+        },
+        "chat": {
+            "id": USER_ID,
+            "first_name": "FirstName",
+            "username": USERNAME,
+            "type": "private"
+        },
+        "date": 1755361310,
+        "sticker": {
+            "width": 512,
+            "height": 512,
+            "emoji": "\ud83e\uddcd",
+            "set_name": "Sabirouuu",
+            "is_animated": false,
+            "is_video": false,
+            "type": "regular",
+            "thumbnail": {
+                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy98MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
+                "file_unique_id": "AQADgmoAAmlkKUly",
+                "file_size": 6144,
+                "width": 320,
+                "height": 320
+            },
+            "thumb": {
+                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy98MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
+                "file_unique_id": "AQADgmoAAmlkKUly",
+                "file_size": 6144,
+                "width": 320,
+                "height": 320
+            },
+            "file_id": "CAACAgIAAxkBAAIRY2igsB6hRrAREo2H8vfDKwABWTuwHQACgmoAAmlkKUl6ULhTh2ESUTYE",
+            "file_unique_id": "AgADgmoAAmlkKUk",
+            "file_size": 14124
+        }
+    }
+}
+```
