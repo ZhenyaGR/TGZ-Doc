@@ -253,6 +253,7 @@ export default defineConfig({
                     {text: 'Новое сообщение', link: '/json/message'},
                     {text: 'Новое сообщение с медиа', link: '/json/message_media'},
                     {text: 'Голосовое и видео-сообщение', link: '/json/message_voice&videoNote'},
+                    {text: 'Редактирование сообщения', link: '/json/message_edit'},
                     // {text: 'Новое сообщение', link: '/json/message'},
                 ]
             },
