@@ -97,17 +97,17 @@ title: Обновления
     "message": {
         "message_id": 6357,
         "from": {
-          "id": USER_ID,
-          "is_bot": false,
-          "first_name": "FirstName",
-          "username": USERNAME,
-          "language_code": "ru"
+           "id": USER_ID,
+           "is_bot": false,
+           "first_name": "FirstName",
+           "username": USERNAME,
+           "language_code": "ru"
         },
         "chat": {
-          "id": USER_ID,
-          "first_name": "FirstName",
-          "username": USERNAME,
-          "type": "private"
+            "id": USER_ID,
+            "first_name": "FirstName",
+            "username": USERNAME,
+            "type": "private"
         },
         "date": 1758123281,
         "text": "/start game_38",
@@ -121,6 +121,51 @@ title: Обновления
     }
 }
 ```
+
+## Сообщение с ответом на другое
+```json
+{
+    "update_id": 410166401,
+    "message": {
+        "message_id": 3249,
+        "from": {
+            "id": USER_ID,
+            "is_bot": false,
+            "first_name": "FirstName",
+            "username": USERNAME,
+            "language_code": "ru"
+        },
+        "chat": {
+            "id": CHAT_ID,
+            "title": "Title",
+            "username": CHAT_USERNAME,
+            "type": "supergroup"
+        },
+        "date": 1737887206,
+        "message_thread_id": 3092,
+        "reply_to_message": {
+            "message_id": 3092,
+            "from": {
+                "id": USER_ID,
+                "is_bot": false,
+                "first_name": "FirstName",
+                "username": USERNAME,
+                "language_code": "ru"
+            },
+            "chat": {
+                "id": CHAT_ID,
+                "title": "Title",
+                "username": CHAT_USERNAME,
+                "type": "supergroup"
+            },
+            "date": 1737542941,
+            "text": "Reply text",
+        },
+        "text": "Message text"
+    }
+}
+```
+
 
 ## Сообщение с упоминанием пользователя
 Упоминание пользователя, у которого есть username, представляется в виде `@username`.
@@ -187,6 +232,40 @@ title: Обновления
                 }
             }
         ]
+    }
+}
+```
+
+## Сообщение с ссылкой
+```json
+{
+    "update_id": 410163092,
+    "message": {
+        "message_id": 82,
+        "from": {
+            "id": USER_ID,
+            "is_bot": false,
+            "first_name": "FirstName",
+            "username": USERNAME,
+            "language_code": "ru"
+        },
+        "chat": {
+             "id": CHAT_ID,
+             "title": "Title",
+             "type": "supergroup"
+        },
+        "date": 1733748023,
+        "text": "https://t.me/",
+        "entities": [
+            {
+                "offset": 0,
+                "length": 13,
+                "type": "url"
+            },
+        ],
+        "link_preview_options": {
+            "url": "https://t.me/"
+        }
     }
 }
 ```

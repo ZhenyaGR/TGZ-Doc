@@ -251,6 +251,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     {text: 'Новое сообщение', link: '/json/message'},
+                    {text: 'Новое сообщение', link: '/json/message_media'},
                     // {text: 'Новое сообщение', link: '/json/message'},
                 ]
             },
