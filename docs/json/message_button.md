@@ -20,7 +20,7 @@ title: Обновления
             "language_code": "ru"
         },
         "message": {
-            "message_id": 410,
+            "message_id": 123,
             "from": {
                 "id": BOT_ID,
                 "is_bot": true,
@@ -33,7 +33,7 @@ title: Обновления
                 "first_name": "FirstName",
                 "username": USERNAME,
             },
-            "date": 1733326044,
+            "date": 123,
             "text": "Message Text",
             "reply_markup": {
                 "inline_keyboard": [

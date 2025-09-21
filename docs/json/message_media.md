@@ -56,9 +56,9 @@ title: Обновления
 ## Документ
 ```json
 {
-    "update_id": 806793388,
+    "update_id": 123,
     "message": {
-        "message_id": 4464,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -72,12 +72,12 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1756639549,
+        "date": 123,
         "document": {
             "file_name": "app.exe",
             "mime_type": "application\/octet-stream",
-            "file_id": "BQACAgIAAxkBAAIRcGi0MT0fhujc0OH7sptjeQ3YyIq5AAK5eQACsEWgSY6DPvthrl69NgQ",
-            "file_unique_id": "AgADuXkAArBFoEk",
+            "file_id": "BQACdgIAAxkBAAIRcGi0MT0fhujc0OH7aptjeQ3YyIq5AAK5eQACsEWgSY6DPvthrl69NgQ",
+            "file_unique_id": "AhADuXkAArBFoEk",
             "file_size": 869624
         }
     }
@@ -87,9 +87,9 @@ title: Обновления
 ## Аудио
 ```json
 {
-    "update_id": 806793386,
+    "update_id": 123,
     "message": {
-        "message_id": 4458,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -103,14 +103,14 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1756639090,
+        "date": 123,
         "audio": {
             "duration": 1,
             "file_name": "359c24fc-31f2-40ed-8b5b-8bc2b7f154c9.mp3",
             "mime_type": "audio\/mpeg",
             "title": "359c24fc-31f2-40ed-8b5b-8bc2b7f154c9",
             "performer": "<unknown>",
-            "file_id": "CQACAgIAAxkBAAIRami0L3JwXDfsSXhvF0Ljm7iSbYRFAAKheQACsEWgSYkNqRrPqni0NgQ",
+            "file_id": "CQACAgIAAxkBAAIRami0L3swXDfsSXhvF0Ljm7iSbYRFAAKheQACsEWgSYkNqRrPqni0NgQ",
             "file_unique_id": "AgADoXkAArBFoEk",
             "file_size": 12525
         }
@@ -121,9 +121,9 @@ title: Обновления
 ## Стикер
 ```json
 {
-    "update_id": 806793384,
+    "update_id": 123,
     "message": {
-        "message_id": 4451,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -137,7 +137,7 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1755361310,
+        "date": 123,
         "sticker": {
             "width": 512,
             "height": 512,
@@ -147,20 +147,20 @@ title: Обновления
             "is_video": false,
             "type": "regular",
             "thumbnail": {
-                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy98MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
+                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy11MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
                 "file_unique_id": "AQADgmoAAmlkKUly",
                 "file_size": 6144,
                 "width": 320,
                 "height": 320
             },
             "thumb": {
-                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy98MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
+                "file_id": "AAMCAgADGQEAAhFjaKCwHqFGsBESjYfy11MrAAFZO7AdAAKCagACaWQpSXpQuFOHYRJRAQAHbQADNgQ",
                 "file_unique_id": "AQADgmoAAmlkKUly",
                 "file_size": 6144,
                 "width": 320,
                 "height": 320
             },
-            "file_id": "CAACAgIAAxkBAAIRY2igsB6hRrAREo2H8vfDKwABWTuwHQACgmoAAmlkKUl6ULhTh2ESUTYE",
+            "file_id": "CAACAgIAAxkBAAIRY2igsB2hRrAREo2H8vfDKwABWTuwHQACgmoAAmlkKUl6ULhTh2ESUTYE",
             "file_unique_id": "AgADgmoAAmlkKUk",
             "file_size": 14124
         }

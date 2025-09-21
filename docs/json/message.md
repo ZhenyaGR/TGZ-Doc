@@ -10,7 +10,7 @@ title: Обновления
 {
     "update_id": 123,
     "message": {
-        "message_id": 307,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -24,7 +24,7 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1733165867,
+        "date": 123,
         "text": "Message text",
     }
 }
@@ -36,7 +36,7 @@ title: Обновления
 {
     "update_id": 123,
     "message": {
-        "message_id": 154,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -50,7 +50,7 @@ title: Обновления
             "username": CHAT_USERNAME,
             "type": "supergroup"
         },
-        "date": 1758453975,
+        "date": 123,
         "text": "Message text"
     }
 }
@@ -62,7 +62,7 @@ title: Обновления
 {
     "update_id": 123,
     "message": {
-        "message_id": 433,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -76,7 +76,7 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1733328972,
+        "date": 123,
         "text": "/start",
         "entities": [
             {
@@ -93,9 +93,9 @@ title: Обновления
 Если пользователь написал новое сообщение через реферальную ссылку, то в поле `text` будут содержаться дополнительные данные.
 ```json
 {
-    "update_id": 181540339,
+    "update_id": 123,
     "message": {
-        "message_id": 6357,
+        "message_id": 123,
         "from": {
            "id": USER_ID,
            "is_bot": false,
@@ -109,7 +109,7 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1758123281,
+        "date": 123,
         "text": "/start game_38",
         "entities": [
             {
@@ -125,9 +125,9 @@ title: Обновления
 ## Сообщение с ответом на другое
 ```json
 {
-    "update_id": 410166401,
+    "update_id": 123,
     "message": {
-        "message_id": 3249,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -141,10 +141,10 @@ title: Обновления
             "username": CHAT_USERNAME,
             "type": "supergroup"
         },
-        "date": 1737887206,
-        "message_thread_id": 3092,
+        "date": 123,
+        "message_thread_id": 123,
         "reply_to_message": {
-            "message_id": 3092,
+            "message_id": 123,
             "from": {
                 "id": USER_ID,
                 "is_bot": false,
@@ -158,7 +158,7 @@ title: Обновления
                 "username": CHAT_USERNAME,
                 "type": "supergroup"
             },
-            "date": 1737542941,
+            "date": 123,
             "text": "Reply text",
         },
         "text": "Message text"
@@ -173,7 +173,7 @@ title: Обновления
 {
     "update_id": 123,
     "message": {
-        "message_id": 73,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -186,7 +186,7 @@ title: Обновления
             "title": "Title",
             "type": "supergroup"
         },
-        "date": 1733746323,
+        "date": 123,
         "text": "@telegram",
         "entities": [
             {
@@ -205,7 +205,7 @@ title: Обновления
 {
     "update_id": 123,
     "message": {
-        "message_id": 170,
+        "message_id": 123,
         "from": {
           "id": USER_ID,
           "is_bot": false,
@@ -218,7 +218,7 @@ title: Обновления
             "title": "Title",
             "type": "supergroup"
         },
-        "date": 1734548295,
+        "date": 123,
         "text": "Пользователь123",
         "entities": [
             {
@@ -239,9 +239,9 @@ title: Обновления
 ## Сообщение с ссылкой
 ```json
 {
-    "update_id": 410163092,
+    "update_id": 123,
     "message": {
-        "message_id": 82,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -254,7 +254,7 @@ title: Обновления
              "title": "Title",
              "type": "supergroup"
         },
-        "date": 1733748023,
+        "date": 123,
         "text": "https://t.me/",
         "entities": [
             {

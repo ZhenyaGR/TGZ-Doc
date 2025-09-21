@@ -8,9 +8,9 @@ title: Обновления
 ## Голосовое сообщение
 ```json
 {
-    "update_id": 115539710,
+    "update_id": 123,
     "edited_message": {
-        "message_id": 142,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -24,8 +24,8 @@ title: Обновления
             "username": USERNAME,
             "type": "private"
         },
-        "date": 1758130813,
-        "edit_date": 1758130816,
+        "date": 123,
+        "edit_date": 123,
         "text": "Edited message text"
     }
 }

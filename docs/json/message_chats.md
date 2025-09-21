@@ -8,9 +8,9 @@ title: Обновления
 ## Добавление пользователя
 ```json
 {
-    "update_id": 410163128,
+    "update_id": 123,
     "message": {
-        "message_id": 157,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -23,7 +23,7 @@ title: Обновления
              "title": "Title",
              "type": "supergroup"
         },
-        "date": 1734547965,
+        "date": 123,
         "new_chat_participant": {
             "id": NEW_USER_ID,
             "is_bot": false,
@@ -48,9 +48,9 @@ title: Обновления
 ## Исключение пользователя
 ```json
 {
-    "update_id": 410163129,
+    "update_id": 123,
     "message": {
-        "message_id": 159,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -63,7 +63,7 @@ title: Обновления
              "title": "Title",
              "type": "supergroup"
         },
-        "date": 1734548011,
+        "date": 123,
         "left_chat_participant": {
             "id": LEFT_USER_ID,
             "is_bot": false,
@@ -81,9 +81,9 @@ title: Обновления
 ## Изменение названия чата
 ```json
 {
-    "update_id": 410163113,
+    "update_id": 123,
     "message": {
-        "message_id": 109,
+        "message_id": 123,
         "from": {
             "id": USER_ID,
             "is_bot": false,
@@ -96,7 +96,7 @@ title: Обновления
             "title": "newTitle",
             "type": "supergroup"
         },
-        "date": 1733818926,
+        "date": 123,
         "new_chat_title": "newTitle"
     }
 }
