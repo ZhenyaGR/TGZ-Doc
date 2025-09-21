@@ -250,7 +250,7 @@ export default defineConfig({
                 link: '/json/main',
                 collapsed: false,
                 items: [
-                    // {text: 'Новое сообщение', link: '/json/message'},
+                    {text: 'Новое сообщение', link: '/json/message'},
                     // {text: 'Новое сообщение', link: '/json/message'},
                 ]
             },
