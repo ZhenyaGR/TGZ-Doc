@@ -20,14 +20,18 @@ export default defineConfig({
             pattern: 'https://github.com/ZhenyaGR/TGZ-Doc/edit/main/docs/:path',
             text: 'Редактировать страницу'
         },
+
         outline: {label: 'Содержание страницы'},
+
         docFooter: {
             prev: 'Предыдущая страница',
             next: 'Следующая страница'
         },
+
         lastUpdated: {
             text: 'Обновлено'
         },
+
         darkModeSwitchLabel: 'Оформление',
         lightModeSwitchTitle: 'Переключить на светлую тему',
         darkModeSwitchTitle: 'Переключить на тёмную тему',
@@ -36,7 +40,7 @@ export default defineConfig({
         langMenuLabel: 'Изменить язык',
         skipToContentLabel: 'Перейти к содержимому',
 
-        logo: '/ico.ico',
+        // logo: '/ico.ico',
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/zhenyagr/tgz'},
@@ -69,8 +73,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     {text: 'Почему TGZ?', link: '/install/who_tgz'},
-                    {text: 'Установка', link: '/install/requirements'},
-                    {text: 'Подключение', link: '/install/install'},
+                    {text: 'Установка и подключение', link: '/install/requirements'},
                     {text: 'Создание бота в TG', link: '/install/create_bot'},
                     {text: 'Примеры ботов', link: '/install/examples'},
                 ]
