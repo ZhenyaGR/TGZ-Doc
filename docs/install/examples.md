@@ -19,6 +19,7 @@ $tg->reply('Привет, Мир!');
 
 
 ## Простой Callback – (Эхо-бот)
+> Бот копирует любое сообщение
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
