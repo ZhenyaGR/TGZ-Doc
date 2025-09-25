@@ -34,9 +34,9 @@ require_once "tgz/autoload.php";
 ```php
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\PollBuilder;
+use ZhenyaGR\TGZ\Poll;
+use ZhenyaGR\TGZ\File;
 use ZhenyaGR\TGZ\Message;
 use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\ErrorHandler;
 use ZhenyaGR\TGZ\Inline;
 ```
