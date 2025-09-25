@@ -27,7 +27,7 @@ use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
 
-$tg->initType($type); // Инициализация переменных из события
+$type = $tg->getType(); // Получение типа из события
 
 if ($type === 'text' || $type === 'bot_command') {
     $tg->copyMsg();
@@ -42,11 +42,11 @@ require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;
 
-$poll = LongPoll::create($botToken , 20);
+$lp = LongPoll::create($botToken , 20);
 
-$poll->listen(function(TGZ $tg) {
+$lp->listen(function(TGZ $tg) {
     
-    $tg->initType($type);
+    $type = $tg->getType(); 
     
     if ($type === 'text' || $type === 'bot_command') {
         $tg->copyMsg();
@@ -59,7 +59,6 @@ $poll->listen(function(TGZ $tg) {
 ```php
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
-
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
@@ -80,13 +79,12 @@ $bot->run(); // Запускаем обработку события
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 
-
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\Bot;
 
-$poll = LongPoll::create(ТОКЕН);
+$lp = LongPoll::create(ТОКЕН);
   
-$poll->listen(function (TGZ $tg) use ($bot) {
+$lp->listen(function (TGZ $tg) {
     $bot = new Bot($tg); // Создаем экземпляр бота
 
     $bot->onCommand('img', '!картинка')
@@ -103,7 +101,6 @@ $poll->listen(function (TGZ $tg) use ($bot) {
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 
-
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 
@@ -114,35 +111,44 @@ $bot = new Bot($tg); // Создаем экземпляр бота
 $bot->btn('callback1', 'Кнопка 1')->query("Callback кнопка");
 
 // Обработка команды бота
-$bot->onBotCommand('img', '/img')->img('cat.jpg')->text('Изображение с кнопкой')->inlineKbd([['callback1'], [$tg->buttonCallback('callback2', 'Кнопка 2')]]);
+$bot->onBotCommand('img', '/img')
+    ->img('cat.jpg')
+    ->text('Изображение с кнопкой')
+    ->inlineKbd([
+        ['callback1'], [$tg->buttonCallback('callback2', 'Кнопка 2')]
+    ]);
 
 // Обработка команды с параметрами
-$bot->onCommand('sum', '!посчитай %n + %n')->func(function ($number1, $number2) {
-    $tg->msg($number1 + $number2)->send();
-});
+$bot->onCommand('sum', '!посчитай %n + %n')
+    ->func(function (TGZ $tg, $number1, $number2) {
+        $tg->msg($number1 + $number2)->send();
+    });
 
 // Обработка полного совпадения текста
-$bot->onText('help', "помощь")->func(function () {
+$bot->onText('help', "помощь")->func(function (TGZ $tg) {
     $tg->msg("Никто тебе не поможет")->send();
 });
 
 // Обработка команды по регулярному выражению
-$bot->onTextPreg('more_word', "!\!напиши (.*)!")->func(function ($match) {
-    $tg->msg("Ваше предложение: " . $match[0])->send();
-});
+$bot->onTextPreg('more_word', "!\!напиши (.*)!")
+    ->func(function (TGZ $tg, $match) {
+        $tg->msg("Ваше предложение: " . $match)->send();
+    });
 
 // Обработка неизвестного текста
-$bot->onDefault()->func(function () {
-    $tg->msg("Я не понимаю твоего текста")->send();
-});
+$bot->onDefault()
+    ->func(function (TGZ $tg) {
+        $tg->msg("Я не понимаю твоего текста")->send();
+    });
 
 // Обработка callback, если у кнопки нет обработки
-$bot->onCallback('callback2')->func(function () use ($tg) {
-    $tg->initQuery($query_id); 
-    $tg->answerCallbackQuery($query_id);
-
-    $tg->msg("Вы нажали на кнопку")->sendEdit();
-});
+$bot->onCallback('callback2')
+    ->func(function (TGZ $tg) {
+        $query_id = $tg->getQueryId(); 
+        $tg->answerCallbackQuery($query_id);
+    
+        $tg->msg("Вы нажали на кнопку")->editText();
+    });
 
 $bot->run();
 ```
