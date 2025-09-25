@@ -81,6 +81,7 @@ $bot->run(); // Запускаем обработку события
 require_once __DIR__ . 'vendor/autoload.php';
 
 use ZhenyaGR\TGZ\LongPoll;
+use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 
 $lp = LongPoll::create(ТОКЕН);
@@ -160,7 +161,6 @@ $bot->run();
 <?php
 require_once __DIR__ . 'vendor/autoload.php';
 
-
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 
@@ -188,9 +188,10 @@ $bot->run();
 require 'vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
 
 $tg = new TGZ('BOT_TOKEN');
-$bot = new \ZhenyaGR\TGZ\Bot($tg);
+$bot = new Bot($tg);
 
 $bot->btn('like', '👍')
     ->query('Спасибо за оценку!')
