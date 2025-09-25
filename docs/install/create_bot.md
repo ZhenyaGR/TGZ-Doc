@@ -28,7 +28,6 @@ title: Создание и настройка бота
   <figcaption>Создание бота в <a href="https://t.me/BotFather">@BotFather</a></figcaption>
 </figure>
 
----
 
 ## 2. Подключение бота к серверу
 ### 2.1 Настройка Webhook
