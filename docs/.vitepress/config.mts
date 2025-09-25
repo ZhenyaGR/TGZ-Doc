@@ -85,6 +85,7 @@ export default defineConfig({
                 items: [
                     {text: 'Получение обновлений', link: '/using/getting-updates'},
                     {text: 'Конструктор сообщений', link: '/using/messages'},
+                    {text: 'Конструктор опросов', link: '/using/poll'},
                     {text: 'Обработчики', link: '/using/handlers'},
                     {text: 'Middleware', link: '/using/middleware'},
                 ]
