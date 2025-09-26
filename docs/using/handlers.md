@@ -171,6 +171,33 @@ $bot->onCallback('profile', 'show_profile')->func(function (TGZ $tg) {
 });
 ```
 
+### onInline()
+Срабатывает на любой пришедший inline-запрос.
+
+**Сигнатура:**
+```php
+public function onInline(): Action
+```
+
+**Пример использования:**
+```php
+$results = [
+    $tg->inline('article')
+        ->id('article')
+        ->title('Команда')
+        ->description('Описание команды')
+        ->text('text')
+        ->create(),
+];
+
+$bot->onInline()
+    ->func(function(TGZ $tg) use ($results) {
+        $query_id = $tg->getQueryId();
+        $tg->answerInlineQuery($query_id, $results);
+    });
+```
+
+
 ### onStart()
 Срабатывает, когда пользователь отправляет `/start`.
 

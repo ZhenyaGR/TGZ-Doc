@@ -1,3 +1,4 @@
+// @ts-ignore
 import {defineConfig} from 'vitepress'
 
 export default defineConfig({
@@ -197,6 +198,7 @@ export default defineConfig({
                             {text: 'onText', link: '/classes/botMethods/onText'},
                             {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
+                            {text: 'onInline', link: '/classes/botMethods/onInline'},
                             {text: 'onMessage', link: '/classes/botMethods/onMessage'},
                             {text: 'onPhoto', link: '/classes/botMethods/onPhoto'},
                             {text: 'onVideo', link: '/classes/botMethods/onVideo'},
