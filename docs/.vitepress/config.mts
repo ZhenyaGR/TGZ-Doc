@@ -214,6 +214,7 @@ export default defineConfig({
                             {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
+                            {text: 'tgz', link: '/classes/botMethods/tgz'},
                             {text: 'run', link: '/classes/botMethods/run'},
                             {
                                 text: 'Action',

@@ -43,7 +43,7 @@ require_once __DIR__ . 'vendor/autoload.php';
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;
 
-$lp = LongPoll::create($botToken , 20);
+$lp = LongPoll::create($botToken, 20);
 
 $lp->listen(function(TGZ $tg) {
     
@@ -86,14 +86,14 @@ use ZhenyaGR\TGZ\Bot;
 
 $lp = LongPoll::create(ТОКЕН);
   
-$lp->listen(function (TGZ $tg) {
-    $bot = new Bot($tg); // Создаем экземпляр бота
+$bot = new Bot(); // Создаем экземпляр бота
 
-    $bot->onCommand('img', '!картинка')
-        ->img('cat.jpg')
-        ->text('Вот твой кот');
+$bot->onCommand('img', '!картинка')
+    ->img('cat.jpg')
+    ->text('Вот твой кот');
     
-    $bot->run(); // Запускаем обработку события
+$lp->listen(function (TGZ $tg) {
+    $bot->tgz($tg)->run(); // Запускаем обработку события
 });
 ```
 
