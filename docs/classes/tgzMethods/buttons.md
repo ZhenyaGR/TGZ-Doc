@@ -21,7 +21,7 @@ sidebarDepth: 0
 ### Пример использования
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -48,7 +48,7 @@ $tg->msg('Текстовая кнопка')
 ### Пример использования
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);
@@ -74,7 +74,7 @@ $tg->msg('Callback-кнопка')
 ### Пример использования
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
 $tg = TGZ::create(ТОКЕН);

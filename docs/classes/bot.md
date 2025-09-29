@@ -13,7 +13,7 @@ title: Bot
 ### Создание при использовании Webhook
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
@@ -30,7 +30,7 @@ $bot->run();
 ### Создание при использовании LongPoll
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;
@@ -56,7 +56,7 @@ $lp->listen(function(TGZ $tg) {
 
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;

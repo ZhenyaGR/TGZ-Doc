@@ -14,7 +14,7 @@ title: Bot
 ## Пример использования
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 
@@ -37,7 +37,7 @@ $bot->run();
 ### Если добавлен один пользователь
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 use ZhenyaGR\TGZ\Dto\UserDto;
@@ -57,7 +57,7 @@ $bot->run();
 ### Если добавлено несколько пользователей
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 use ZhenyaGR\TGZ\Dto\UserDto;

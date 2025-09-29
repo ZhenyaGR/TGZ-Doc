@@ -23,7 +23,7 @@ title: Action
 
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 
@@ -44,7 +44,7 @@ $bot->run();
 
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 

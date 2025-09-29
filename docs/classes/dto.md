@@ -21,7 +21,7 @@ DTO (Data Transfer Object) - простой объект, хранящий в с
 ### Пример
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 use ZhenyaGR\TGZ\Dto\UserDto; // Импортируем класс
@@ -75,7 +75,7 @@ $bot->run();
 ### Пример
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
 use ZhenyaGR\TGZ\Dto\ChatDto; // Импортируем класс

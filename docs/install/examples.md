@@ -8,7 +8,7 @@ title: Примеры ботов
 > Бот отвечает на любое сообщение
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 
@@ -22,7 +22,7 @@ $tg->reply('Привет, Мир!');
 > Бот копирует любое сообщение
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 
@@ -38,7 +38,7 @@ if ($type === 'text' || $type === 'bot_command') {
 
 ## Простой LongPoll – (Эхо-бот)
 ```php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;
@@ -59,7 +59,7 @@ $lp->listen(function(TGZ $tg) {
 ## Бот на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
@@ -78,7 +78,7 @@ $bot->run(); // Запускаем обработку события
 ## Бот на конструкторе (LongPoll)
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;
@@ -101,7 +101,7 @@ $lp->listen(function (TGZ $tg) {
 ## Бот с обработкой Команд на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
@@ -159,7 +159,7 @@ $bot->run();
 ## Бот с обработкой Кнопок на конструкторе (Callback)
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;

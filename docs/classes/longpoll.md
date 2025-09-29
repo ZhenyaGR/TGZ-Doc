@@ -16,7 +16,7 @@ title: LongPoll
 ```php
 <?php
 // Файл bot.php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use ZhenyaGR\TGZ\LongPoll;
 use ZhenyaGR\TGZ\TGZ;

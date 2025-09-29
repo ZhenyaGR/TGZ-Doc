@@ -20,7 +20,7 @@ sidebarDepth: 0
 ### Получение ID из `result`
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\File;
 
@@ -38,7 +38,7 @@ $tg->msg("ID картинки: $file_id")->send();
 ### Получение ID из `update`
 ```php
 <?php
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\File;
 
