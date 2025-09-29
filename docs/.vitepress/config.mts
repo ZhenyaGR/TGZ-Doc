@@ -12,7 +12,7 @@ export default defineConfig({
     lastUpdated: true,
 
     head: [
-        ['link', { rel: 'icon', href: '/logo.png' }]
+        ['link', {rel: 'icon', href: '/logo.png'}]
     ],
 
     themeConfig: {
@@ -120,7 +120,18 @@ export default defineConfig({
                         ]
                     },
                     {text: 'LongPoll', link: '/classes/longpoll'},
-                    {text: 'File', link: '/classes/file'}, /*collapsed: false,items: [{text: 'func', link: '/classes/fileMethods/func'},{text: 'text', link: '/classes/fileMethods/text'}]*/
+                    {
+                        text: 'File',
+                        link: '/classes/file',
+                        collapsed: true,
+                        items: [
+                            {text: 'save', link: '/classes/fileMethods/save'},
+                            {text: 'getFileSize', link: '/classes/fileMethods/getFileSize'},
+                            {text: 'getFileId', link: '/classes/fileMethods/getFileId'},
+                            {text: 'getFileInfo', link: '/classes/fileMethods/getFileInfo'},
+                            {text: 'getFilePath', link: '/classes/fileMethods/getFilePath'},
+                        ]
+                    },
                     {
                         text: 'Message',
                         link: '/classes/message',
