@@ -155,6 +155,7 @@ export default defineConfig({
                             {text: 'send', link: '/classes/messageMethods/send'},
                             {text: 'editText', link: '/classes/messageMethods/editText'},
                             {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
+                            {text: 'editMedia', link: '/classes/messageMethods/editMedia'},
                         ]
                     },
                     {
