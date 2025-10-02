@@ -138,6 +138,8 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                             {text: 'kbd', link: '/classes/messageMethods/kbd'},
+                            {text: 'inlineKbd', link: '/classes/messageMethods/inlineKbd'},
+                            {text: 'removeKbd', link: '/classes/messageMethods/removeKbd'},
                             {text: 'text', link: '/classes/messageMethods/text'},
                             {text: 'reply', link: '/classes/messageMethods/reply'},
                             {text: 'parseMode', link: '/classes/messageMethods/parseMode'},

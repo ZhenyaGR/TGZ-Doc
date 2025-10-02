@@ -3,15 +3,13 @@ title: Message
 sidebarDepth: 0
 ---
 
-# kbd
-Метод управляет клавиатурой и inline-кнопками в сообщении
+# inlineKbd
+Метод добавляет к сообщению inline-кнопки
 
 ## Параметры метода
-| # |       Название       |   Тип    |                   Описание                    |
-|:-:|:--------------------:|:--------:|:---------------------------------------------:|
-| 1 |     **buttons**      | `array`  |          Принимает объект клавиатуры          |
-| 3 |     **one_time**     |  `bool`  |  Свернуть клавиатуру при нажатии? true/false  |
-| 4 |      **resize**      |  `bool`  | Менять размер кнопок в клавиатуре? true/false |
+| # |         Название         |   Тип    |     Описание      |
+|:-:|:------------------------:|:--------:|:-----------------:|
+| 1 |       **buttons**        | `array`  | Объект клавиатуры |
 
 ## Возвращает
 `Message` - экземпляр класса Message, содержащий информацию о сообщении
@@ -27,29 +25,33 @@ $bot = new Bot($tg);
 
 // Создаем кнопку и сразу добавляем обработчик
 $bot->btn('buttonBot', 'Оценить')
+    ->query('Загружаю...')
     ->text('Оцените бота от 1 до 5');
 
-$bot->onCommand('kbd', '/kbd')
+$bot->onCommand('inlineKbd', '/inlineKbd')
     ->func(function(TGZ $tg) {
-        $tg->msg("Клавиатура:")
-            ->kbd(
+        $tg->msg("Inline-клавиатура:")
+            ->inlineKbd(
                 [
-                    [$tg->buttonText('Показать профиль')],
-                    // Стандартная текстовая кнопка
+                    [$tg->buttonCallback('Показать профиль', 'show_profile')],
+                    // Стандартная callback-кнопка
+                    
+                    [$tg->buttonUrl('Посетить сайт', 'https://example.com/')],
+                    // Кнопка с ссылкой
                     
                     ['buttonBot']
                     // Кнопка, созданная через класс Bot
-                ], one_time: true, resize: true             
+                ]               
             )
             ->send();
     });
     
 // Обрабатываем нажатие на кнопку "Показать профиль"
-$bot->onText('profile', 'Показать профиль')
+$bot->onCallback('show_profile')
+    ->query('Загружаю...')
     ->text('Ваш профиль пуст');
 
 $bot->run();
-
 ```
 
 ## Формат клавиатуры
@@ -67,5 +69,6 @@ $kbd = [
 - [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
 - [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
 - [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку
+- [`btn`](/classes/botMethods/btn.md) - создает кнопки с помощью класса Bot
 - `answerCallbackQuery` - отправляет уведомление о нажатии callback-кнопки
   
