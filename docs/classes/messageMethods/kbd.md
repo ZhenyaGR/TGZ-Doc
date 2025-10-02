@@ -67,5 +67,6 @@ $kbd = [
 - [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
 - [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
 - [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку
+- [`btn`](/classes/botMethods/btn.md) - создает кнопки с помощью класса Bot
 - `answerCallbackQuery` - отправляет уведомление о нажатии callback-кнопки
   
