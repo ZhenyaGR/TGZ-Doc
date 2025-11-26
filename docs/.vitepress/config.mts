@@ -101,23 +101,32 @@ export default defineConfig({
                         link: '/classes/tgz',
                         collapsed: true,
                         items: [
+                            // 1. Фабрики (создание других объектов) - с чего начинается код
                             {text: 'msg', link: '/classes/tgzMethods/msg'},
                             {text: 'poll', link: '/classes/tgzMethods/poll'},
                             {text: 'pagination', link: '/classes/tgzMethods/pagination'},
                             {text: 'inline', link: '/classes/tgzMethods/inline'},
                             {text: 'file', link: '/classes/tgzMethods/file'},
-                            {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
+
+                            // 2. Работа с контекстом и данными (получение инфы)
                             {text: 'initVars', link: '/classes/tgzMethods/initVars'},
-                            {text: 'get', link: '/classes/tgzMethods/get'},
-                            {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
-                            {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
-                            {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
+                            {text: 'get', link: '/classes/tgzMethods/get'}, // Группа геттеров
                             {text: 'getFileID', link: '/classes/tgzMethods/getFileID'},
+
+                            // 3. Глобальные настройки
+                            {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
+                            {text: 'errors', link: '/classes/tgzMethods/errors'},
+
+                            // 4. Простые действия (отправка/удаление без конструктора)
                             {text: 'sendMessage', link: '/classes/tgzMethods/sendMessage'},
                             {text: 'reply', link: '/classes/tgzMethods/reply'},
+                            {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
+                            {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
+                            {text: 'answers', link: '/classes/tgzMethods/answers'}, // answerCallbackQuery и т.д.
+
+                            // 5. Хелперы и низкий уровень
                             {text: 'buttons', link: '/classes/tgzMethods/buttons'},
-                            {text: 'answers', link: '/classes/tgzMethods/answers'},
-                            {text: 'errors', link: '/classes/tgzMethods/errors'},
+                            {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
                         ]
                     },
                     {text: 'LongPoll', link: '/classes/longpoll'},
@@ -126,11 +135,13 @@ export default defineConfig({
                         link: '/classes/file',
                         collapsed: true,
                         items: [
-                            {text: 'save', link: '/classes/fileMethods/save'},
-                            {text: 'getFileSize', link: '/classes/fileMethods/getFileSize'},
+                            // Сначала получение информации о файле
                             {text: 'getFileId', link: '/classes/fileMethods/getFileId'},
                             {text: 'getFileInfo', link: '/classes/fileMethods/getFileInfo'},
+                            {text: 'getFileSize', link: '/classes/fileMethods/getFileSize'},
                             {text: 'getFilePath', link: '/classes/fileMethods/getFilePath'},
+                            // В конце действие (скачивание)
+                            {text: 'save', link: '/classes/fileMethods/save'},
                         ]
                     },
                     {
@@ -138,23 +149,32 @@ export default defineConfig({
                         link: '/classes/message',
                         collapsed: true,
                         items: [
+                            // 1. Основной контент
+                            {text: 'text', link: '/classes/messageMethods/text'},
+
+                            // 2. Медиа (группируем вместе)
+                            {text: 'img', link: '/classes/messageMethods/img'},
+                            {text: 'video', link: '/classes/messageMethods/video'},
+                            {text: 'audio', link: '/classes/messageMethods/audio'},
+                            {text: 'voice', link: '/classes/messageMethods/voice'},
+                            {text: 'doc', link: '/classes/messageMethods/doc'},
+                            {text: 'gif', link: '/classes/messageMethods/gif'},
+                            {text: 'sticker', link: '/classes/messageMethods/sticker'},
+                            {text: 'dice', link: '/classes/messageMethods/dice'},
+                            {text: 'mediaPreview', link: '/classes/messageMethods/mediaPreview'},
+
+                            // 3. Клавиатуры
                             {text: 'kbd', link: '/classes/messageMethods/kbd'},
                             {text: 'inlineKbd', link: '/classes/messageMethods/inlineKbd'},
                             {text: 'removeKbd', link: '/classes/messageMethods/removeKbd'},
-                            {text: 'text', link: '/classes/messageMethods/text'},
-                            {text: 'reply', link: '/classes/messageMethods/reply'},
+
+                            // 4. Настройки сообщения
                             {text: 'parseMode', link: '/classes/messageMethods/parseMode'},
-                            {text: 'img', link: '/classes/messageMethods/img'},
-                            {text: 'video', link: '/classes/messageMethods/video'},
-                            {text: 'gif', link: '/classes/messageMethods/gif'},
-                            {text: 'voice', link: '/classes/messageMethods/voice'},
-                            {text: 'audio', link: '/classes/messageMethods/audio'},
-                            {text: 'dice', link: '/classes/messageMethods/dice'},
-                            {text: 'doc', link: '/classes/messageMethods/doc'},
-                            {text: 'sticker', link: '/classes/messageMethods/sticker'},
-                            {text: 'mediaPreview', link: '/classes/messageMethods/mediaPreview'},
+                            {text: 'reply', link: '/classes/messageMethods/reply'},
                             {text: 'params', link: '/classes/messageMethods/params'},
-                            {text: 'action', link: '/classes/messageMethods/action'},
+                            {text: 'action', link: '/classes/messageMethods/action'}, // sendChatAction
+
+                            // 5. Финальные действия (отправка/редактирование)
                             {text: 'send', link: '/classes/messageMethods/send'},
                             {text: 'editText', link: '/classes/messageMethods/editText'},
                             {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
@@ -166,16 +186,23 @@ export default defineConfig({
                         link: '/classes/poll',
                         collapsed: true,
                         items: [
+                            // 1. Контент
                             {text: 'question', link: '/classes/pollMethods/question'},
                             {text: 'addAnswers', link: '/classes/pollMethods/addAnswers'},
-                            {text: 'parseMode', link: '/classes/pollMethods/parseMode'},
+
+                            // 2. Настройки поведения
                             {text: 'isAnonymous', link: '/classes/pollMethods/isAnonymous'},
                             {text: 'multipleAnswers', link: '/classes/pollMethods/multipleAnswers'},
                             {text: 'openPeriod', link: '/classes/pollMethods/openPeriod'},
                             {text: 'closeDate', link: '/classes/pollMethods/closeDate'},
                             {text: 'close', link: '/classes/pollMethods/close'},
+                            {text: 'parseMode', link: '/classes/pollMethods/parseMode'},
+
+                            // 3. Настройки викторины (Quiz)
                             {text: 'correctAnswer', link: '/classes/pollMethods/correctAnswer'},
                             {text: 'explanation', link: '/classes/pollMethods/explanation'},
+
+                            // 4. Отправка
                             {text: 'send', link: '/classes/pollMethods/send'},
                         ]
                     },
@@ -198,25 +225,31 @@ export default defineConfig({
                         ]
                     },
 
-
                     {
                         text: 'Inline',
                         link: '/classes/inline',
                         collapsed: true,
                         items: [
+                            // 1. Обязательные мета-данные
                             {text: 'id', link: '/classes/inlineMethods/id'},
                             {text: 'title', link: '/classes/inlineMethods/title'},
                             {text: 'description', link: '/classes/inlineMethods/description'},
+
+                            // 2. Контент (Текст или файлы)
                             {text: 'text', link: '/classes/inlineMethods/text'},
-                            {text: 'parseMode', link: '/classes/inlineMethods/parseMode'},
                             {text: 'fileUrl', link: '/classes/inlineMethods/fileUrl'},
                             {text: 'fileID', link: '/classes/inlineMethods/fileID'},
                             {text: 'mimeType', link: '/classes/inlineMethods/mimeType'},
-                            {text: 'kbd', link: '/classes/inlineMethods/kbd'},
-                            {text: 'params', link: '/classes/inlineMethods/params'},
-                            {text: 'thumb', link: '/classes/inlineMethods/thumb'},
                             {text: 'coordinates', link: '/classes/inlineMethods/coordinates'},
                             {text: 'address', link: '/classes/inlineMethods/address'},
+
+                            // 3. Дополнительные настройки
+                            {text: 'thumb', link: '/classes/inlineMethods/thumb'},
+                            {text: 'kbd', link: '/classes/inlineMethods/kbd'},
+                            {text: 'parseMode', link: '/classes/inlineMethods/parseMode'},
+                            {text: 'params', link: '/classes/inlineMethods/params'},
+
+                            // 4. Сборка
                             {text: 'create', link: '/classes/inlineMethods/create'},
                         ]
                     },
@@ -226,58 +259,79 @@ export default defineConfig({
                         link: '/classes/bot',
                         collapsed: true,
                         items: [
-                            {text: 'onBotCommand', link: '/classes/botMethods/onBotCommand'},
+                            // 1. Основные команды и старт
                             {text: 'onStart', link: '/classes/botMethods/onStart'},
-                            {text: 'onReferral', link: '/classes/botMethods/onReferral'},
+                            {text: 'onBotCommand', link: '/classes/botMethods/onBotCommand'},
                             {text: 'onCommand', link: '/classes/botMethods/onCommand'},
+                            {text: 'onReferral', link: '/classes/botMethods/onReferral'},
+
+                            // 2. Текст и кнопки
                             {text: 'onText', link: '/classes/botMethods/onText'},
                             {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
+                            {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
                             {text: 'onInline', link: '/classes/botMethods/onInline'},
-                            {text: 'onMessage', link: '/classes/botMethods/onMessage'},
+                            {text: 'redirect', link: '/classes/botMethods/redirect'},
+
+                            // 3. Медиа и файлы
                             {text: 'onPhoto', link: '/classes/botMethods/onPhoto'},
                             {text: 'onVideo', link: '/classes/botMethods/onVideo'},
                             {text: 'onAudio', link: '/classes/botMethods/onAudio'},
-                            {text: 'onDocument', link: '/classes/botMethods/onDocument'},
                             {text: 'onVoice', link: '/classes/botMethods/onVoice'},
                             {text: 'onVideoNote', link: '/classes/botMethods/onVideoNote'},
+                            {text: 'onDocument', link: '/classes/botMethods/onDocument'},
                             {text: 'onSticker', link: '/classes/botMethods/onSticker'},
-                            {text: 'onEditedMessage', link: '/classes/botMethods/onEditedMessage'},
+
+                            // 4. Системные события чата
                             {text: 'onNewChatMember', link: '/classes/botMethods/onNewChatMember'},
                             {text: 'onLeftChatMember', link: '/classes/botMethods/onLeftChatMember'},
-                            {text: 'onDefault', link: '/classes/botMethods/onDefault'},
-                            {text: 'btn', link: '/classes/botMethods/btn'},
-                            {text: 'redirect', link: '/classes/botMethods/redirect'},
+                            {text: 'onEditedMessage', link: '/classes/botMethods/onEditedMessage'},
+
+                            // 5. Fallback (если ничего не подошло)
+                            {text: 'onMessage', link: '/classes/botMethods/onMessage'}, // Текстовый fallback
+                            {text: 'onDefault', link: '/classes/botMethods/onDefault'}, // Глобальный fallback
+
+                            // 6. Ядро и запуск
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
                             {text: 'tgz', link: '/classes/botMethods/tgz'},
                             {text: 'run', link: '/classes/botMethods/run'},
+
                             {
                                 text: 'Action',
                                 link: '/classes/action',
                                 collapsed: false,
                                 items: [
+                                    // 1. Логика обработки
                                     {text: 'func', link: '/classes/actionMethods/func'},
+                                    {text: 'access', link: '/classes/actionMethods/access'},
+                                    {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
+                                    {text: 'middleware', link: '/classes/actionMethods/middleware'},
+                                    {text: 'redirect', link: '/classes/actionMethods/redirect'},
+
+                                    // 2. Простой ответ
                                     {text: 'text', link: '/classes/actionMethods/text'},
                                     {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
-                                    {text: 'reply', link: '/classes/actionMethods/reply'},
+                                    {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
+
+                                    // 3. Медиа ответ
                                     {text: 'img', link: '/classes/actionMethods/img'},
-                                    {text: 'voice', link: '/classes/actionMethods/voice'},
                                     {text: 'video', link: '/classes/actionMethods/video'},
                                     {text: 'audio', link: '/classes/actionMethods/audio'},
-                                    {text: 'gif', link: '/classes/actionMethods/gif'},
+                                    {text: 'voice', link: '/classes/actionMethods/voice'},
                                     {text: 'doc', link: '/classes/actionMethods/doc'},
+                                    {text: 'gif', link: '/classes/actionMethods/gif'},
                                     {text: 'sticker', link: '/classes/actionMethods/sticker'},
-                                    {text: 'params', link: '/classes/actionMethods/params'},
+
+                                    // 4. Клавиатуры
                                     {text: 'kbd', link: '/classes/actionMethods/kbd'},
                                     {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
                                     {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
+
+                                    // 5. Дополнительно и редактирование
+                                    {text: 'reply', link: '/classes/actionMethods/reply'},
+                                    {text: 'params', link: '/classes/actionMethods/params'},
                                     {text: 'editText', link: '/classes/actionMethods/editText'},
                                     {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
-                                    {text: 'redirect', link: '/classes/actionMethods/redirect'},
-                                    {text: 'middleware', link: '/classes/actionMethods/middleware'},
-                                    {text: 'access', link: '/classes/actionMethods/access'},
-                                    {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
-                                    {text: 'query', link: '/classes/actionMethods/query'},
                                 ]
                             },
                         ]
