@@ -270,6 +270,7 @@ export default defineConfig({
                             {text: 'onTextPreg', link: '/classes/botMethods/onTextPreg'},
                             {text: 'btn', link: '/classes/botMethods/btn'},
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
+                            {text: 'onCallbackPreg', link: '/classes/botMethods/onCallbackPreg'},
                             {text: 'onInline', link: '/classes/botMethods/onInline'},
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
 
