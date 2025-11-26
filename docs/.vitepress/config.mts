@@ -178,6 +178,26 @@ export default defineConfig({
                             {text: 'send', link: '/classes/pollMethods/send'},
                         ]
                     },
+
+                    {
+                        text: 'Pagination',
+                        link: '/classes/pagination',
+                        collapsed: true,
+                        items: [
+                            {text: 'setItems', link: '/classes/paginationMethods/setItems'},
+                            {text: 'setPerPage', link: '/classes/paginationMethods/setPerPage'},
+                            {text: 'setPrefix', link: '/classes/paginationMethods/setPrefix'},
+                            {text: 'setPage', link: '/classes/paginationMethods/setPage'},
+                            {text: 'setColumns', link: '/classes/paginationMethods/setColumns'},
+                            {text: 'setNavigationLayout', link: '/classes/paginationMethods/setNavigationLayout'},
+                            {text: 'setSigns', link: '/classes/paginationMethods/setSigns'},
+                            {text: 'setSideSigns', link: '/classes/paginationMethods/setSideSigns'},
+                            {text: 'addReturnButton', link: '/classes/paginationMethods/addReturnButton'},
+                            {text: 'create', link: '/classes/paginationMethods/create'},
+                        ]
+                    },
+
+
                     {
                         text: 'Inline',
                         link: '/classes/inline',
