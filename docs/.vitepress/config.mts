@@ -103,6 +103,7 @@ export default defineConfig({
                         items: [
                             {text: 'msg', link: '/classes/tgzMethods/msg'},
                             {text: 'poll', link: '/classes/tgzMethods/poll'},
+                            {text: 'pagination', link: '/classes/tgzMethods/pagination'},
                             {text: 'inline', link: '/classes/tgzMethods/inline'},
                             {text: 'file', link: '/classes/tgzMethods/file'},
                             {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
