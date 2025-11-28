@@ -1,10 +1,9 @@
 ---
-title: Message
-sidebarDepth: 0
+title: TGZ
 ---
 
-# action
-Метод устанавливает действие, которое бот отображает в телеграм. Помогает пользователю увидеть, что бот работает, а не остановился
+# sendAction
+Метод устанавливает действие, которое бот отображает в чате. Помогает пользователю увидеть, что бот работает, а не остановился.
 
 ## Параметры метода
 | # |  Название  |   Тип    |                                                                                                   Описание                                                                                                   |
@@ -12,7 +11,7 @@ sidebarDepth: 0
 | 1 | **action** | `string` | Принимает значения: `typing`, `upload_photo`, `upload_video`, `record_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note` |
 
 ## Возвращает
-`Message` - экземпляр класса Message, содержащий информацию о сообщении
+`TGZ` - экземпляр класса TGZ
 
 ## Пример использования
 
@@ -31,20 +30,18 @@ if ($type === 'bot_command') {
     switch ($text) {
 
         case '/action':
-            $send = $tg->msg('Отображение действий бота с помощью sendChatAction')
-                ->action('typing');
-            // Пока бот не отправит сообщение, будет отображаться "Печатает..."
-            sleep(3);
-            // Крайне не рекомендуется использовать sleep в проекте. Здесь используется только для примера
-            $send->send();
+            $tg->sendAction(); // По умолчанию typing
+            $tg->msg('Отображение действий бота с помощью sendChatAction')
+                ->send();
             break;
 
         case '/img':
-            $send = $tg->msg('Отправка изображения с помощью sendChatAction')
-                ->action('upload_photo');
-            // Если фото долго загружается, пользователь будет это видеть
-            $send->img('https://example.com/img.jpg')
+            $tg->sendAction('upload_photo')  // Отправка фото
+                ->msg('Отправка изображения вместе с sendChatAction')
+                ->img('https://example.com/img.jpg')
                 ->send();
+                // Благодаря цепочке методов, можно одновременно
+                // создать сообщение и отправить действие
             break;
     }
 }

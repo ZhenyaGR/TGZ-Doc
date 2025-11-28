@@ -122,6 +122,7 @@ export default defineConfig({
                             {text: 'reply', link: '/classes/tgzMethods/reply'},
                             {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
                             {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
+                            {text: 'sendAction', link: '/classes/tgzMethods/sendAction'},
                             {text: 'answers', link: '/classes/tgzMethods/answers'}, // answerCallbackQuery и т.д.
 
                             // 5. Хелперы и низкий уровень
@@ -172,7 +173,6 @@ export default defineConfig({
                             {text: 'parseMode', link: '/classes/messageMethods/parseMode'},
                             {text: 'reply', link: '/classes/messageMethods/reply'},
                             {text: 'params', link: '/classes/messageMethods/params'},
-                            {text: 'action', link: '/classes/messageMethods/action'}, // sendChatAction
 
                             // 5. Финальные действия (отправка/редактирование)
                             {text: 'send', link: '/classes/messageMethods/send'},
