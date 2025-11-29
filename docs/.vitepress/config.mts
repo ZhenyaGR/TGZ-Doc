@@ -89,6 +89,7 @@ export default defineConfig({
                     {text: 'Конструктор опросов', link: '/using/poll'},
                     {text: 'Обработчики', link: '/using/handlers'},
                     {text: 'Middleware', link: '/using/middleware'},
+                    {text: 'Пагинация страниц', link: '/using/pagination'},
                 ]
             },
             {
