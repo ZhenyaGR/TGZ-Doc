@@ -274,7 +274,6 @@ export default defineConfig({
                             {text: 'onCallback', link: '/classes/botMethods/onCallback'},
                             {text: 'onCallbackPreg', link: '/classes/botMethods/onCallbackPreg'},
                             {text: 'onInline', link: '/classes/botMethods/onInline'},
-                            {text: 'redirect', link: '/classes/botMethods/redirect'},
 
                             // 3. Медиа и файлы
                             {text: 'onPhoto', link: '/classes/botMethods/onPhoto'},
@@ -295,6 +294,7 @@ export default defineConfig({
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'}, // Глобальный fallback
 
                             // 6. Ядро и запуск
+                            {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
                             {text: 'tgz', link: '/classes/botMethods/tgz'},
                             {text: 'run', link: '/classes/botMethods/run'},
