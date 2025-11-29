@@ -222,6 +222,7 @@ export default defineConfig({
                             {text: 'setSigns', link: '/classes/paginationMethods/setSigns'},
                             {text: 'setSideSigns', link: '/classes/paginationMethods/setSideSigns'},
                             {text: 'addReturnButton', link: '/classes/paginationMethods/addReturnButton'},
+                            {text: 'getTotalPage', link: '/classes/paginationMethods/getTotalPage'},
                             {text: 'create', link: '/classes/paginationMethods/create'},
                         ]
                     },
