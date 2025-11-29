@@ -111,7 +111,30 @@ $bot->onCallbackPreg('catalog_handler', '/^catalog_page_(\d+)$/')
            ->inlineKbd($keyboard)
            ->editText();
     });
+    
+$bot->run();
+```
 
+### Второй пример с методом onCallback
+```php
+<?php
+// ...
+// Весь предыдущий код остался таким же
+
+// Обработчик переключения страниц
+// Используем плейсхолдер %n (nomber)
+$bot->onCallback('catalog_handler', 'catalog_page_%n')
+    ->func(function(TGZ $tg, int $page) {
+        $query_id = $tg->getQueryId();
+        $tg->answerCallbackQuery($query_id);
+
+        $keyboard = getCatalogKeyboard($tg, $page);
+
+        $tg->msg("📂 Каталог товаров (Стр. $page):")
+           ->inlineKbd($keyboard)
+           ->editText();
+    });
+    
 $bot->run();
 ```
 
