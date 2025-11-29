@@ -13,7 +13,6 @@ sidebarDepth: 0
 
 ```php
 <?php
-<?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 
@@ -44,7 +43,6 @@ $tg->msg("Выберите товар (Страница 1):")
 Для создания экземпляра класса потребуется его импорт и стандартный синтаксис:
 
 ```php
-<?php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
