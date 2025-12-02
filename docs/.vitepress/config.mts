@@ -233,7 +233,6 @@ export default defineConfig({
                             {text: 'addHeaderBtn', link: '/classes/paginationMethods/addHeaderBtn'},
                             {text: 'getTotalPage', link: '/classes/paginationMethods/getTotalPage'},
                             {text: 'create', link: '/classes/paginationMethods/create'},
-                            {text: 'enum', link: '/classes/paginationMethods/enum'},
                         ]
                     },
 

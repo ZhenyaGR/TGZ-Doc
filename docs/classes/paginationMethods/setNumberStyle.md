@@ -12,7 +12,7 @@ sidebarDepth: 0
 | 1 | **style** | `PaginationNumberStyle`\|`callable` | Стиль текста на кнопках |
 
 ### PaginationNumberStyle
-PaginationNumberStyle — перечисление `(Enum)`, определяющее стиль текста на кнопках.
+PaginationNumberStyle — перечисление `(Enum)`. Содержит 2 константы, они определяют вид номерных кнопок-страниц
 
 * `PaginationNumberStyle::CLASSIC` (0) — Цифры: `1`, `2`, `3` и т.д.
 * `PaginationNumberStyle::EMOJI` (1) — Смайлики: `1️⃣`, `2️⃣`, `3️⃣` и т.д.
