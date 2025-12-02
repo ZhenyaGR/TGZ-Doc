@@ -131,7 +131,9 @@ export default defineConfig({
                             {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
                         ]
                     },
+
                     {text: 'LongPoll', link: '/classes/longpoll'},
+
                     {
                         text: 'File',
                         link: '/classes/file',
@@ -146,6 +148,7 @@ export default defineConfig({
                             {text: 'save', link: '/classes/fileMethods/save'},
                         ]
                     },
+
                     {
                         text: 'Message',
                         link: '/classes/message',
@@ -182,6 +185,7 @@ export default defineConfig({
                             {text: 'editMedia', link: '/classes/messageMethods/editMedia'},
                         ]
                     },
+
                     {
                         text: 'Poll',
                         link: '/classes/poll',
@@ -219,11 +223,17 @@ export default defineConfig({
                             {text: 'setPage', link: '/classes/paginationMethods/setPage'},
                             {text: 'setColumns', link: '/classes/paginationMethods/setColumns'},
                             {text: 'setNavigationLayout', link: '/classes/paginationMethods/setNavigationLayout'},
+                            {text: 'setMode', link: '/classes/paginationMethods/setMode'},
                             {text: 'setSigns', link: '/classes/paginationMethods/setSigns'},
                             {text: 'setSideSigns', link: '/classes/paginationMethods/setSideSigns'},
-                            {text: 'addReturnButton', link: '/classes/paginationMethods/addReturnButton'},
+                            {text: 'setMaxPageBtn', link: '/classes/paginationMethods/setMaxPageBtn'},
+                            {text: 'setNumberStyle', link: '/classes/paginationMethods/setNumberStyle'},
+                            {text: 'setActivePageFormat', link: '/classes/paginationMethods/setActivePageFormat'},
+                            {text: 'addReturnBtn', link: '/classes/paginationMethods/addReturnBtn'},
+                            {text: 'addHeaderBtn', link: '/classes/paginationMethods/addHeaderBtn'},
                             {text: 'getTotalPage', link: '/classes/paginationMethods/getTotalPage'},
                             {text: 'create', link: '/classes/paginationMethods/create'},
+                            {text: 'enum', link: '/classes/paginationMethods/enum'},
                         ]
                     },
 
