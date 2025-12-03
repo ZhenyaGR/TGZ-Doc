@@ -41,7 +41,6 @@ $bot = new Bot(); // Сразу не передаем TGZ
 // ... здесь вся логика вашего бота ...
 
 $lp->listen(function(TGZ $tg) {
-
     $bot->tgz($tg)->run();
 });
 ```

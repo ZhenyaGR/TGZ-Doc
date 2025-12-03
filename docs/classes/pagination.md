@@ -15,13 +15,14 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ТОКЕН');
 
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];
 for ($i = 1; $i <= 20; $i++) {
-    $items[] = $tg->buttonCallback("Товар $i", "item_$i");
+    $items[] = Button::cb("Товар $i", "item_$i");
 }
 
 // Создаем пагинацию
@@ -51,7 +52,7 @@ use ZhenyaGR\TGZ\Pagination;
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];
 for ($i = 1; $i <= 20; $i++) {
-    $items[] = $tg->buttonCallback("Товар $i", "item_$i");
+    $items[] = Button::cb("Товар $i", "item_$i");
 }
 
 $pag = new Pagination();

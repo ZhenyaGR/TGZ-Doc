@@ -124,10 +124,10 @@ export default defineConfig({
                             {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
                             {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
                             {text: 'sendAction', link: '/classes/tgzMethods/sendAction'},
-                            {text: 'answers', link: '/classes/tgzMethods/answers'}, // answerCallbackQuery и т.д.
+                            {text: 'answers', link: '/classes/tgzMethods/answers'},
 
                             // 5. Хелперы и низкий уровень
-                            {text: 'buttons', link: '/classes/tgzMethods/buttons'},
+                            // {text: 'buttons', link: '/classes/tgzMethods/buttons'}, Устаревшие кнопки
                             {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
                         ]
                     },

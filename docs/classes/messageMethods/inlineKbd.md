@@ -18,7 +18,9 @@ sidebarDepth: 0
 ```php
 <?php    
 require_once __DIR__ . '/vendor/autoload.php'; 
-use ZhenyaGR\TGZ\TGZ; 
+use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create(BOT_TOKEN);
 $bot = new Bot($tg);
@@ -31,18 +33,14 @@ $bot->btn('buttonBot', 'Оценить')
 $bot->onCommand('inlineKbd', '/inlineKbd')
     ->func(function(TGZ $tg) {
         $tg->msg("Inline-клавиатура:")
-            ->inlineKbd(
-                [
-                    [$tg->buttonCallback('Показать профиль', 'show_profile')],
-                    // Стандартная callback-кнопка
-                    
-                    [$tg->buttonUrl('Посетить сайт', 'https://example.com/')],
-                    // Кнопка с ссылкой
-                    
-                    ['buttonBot']
-                    // Кнопка, созданная через класс Bot
-                ]               
-            )
+            ->inlineKbd([
+                [Button::cb('Показать профиль', 'show_profile')],
+                // Стандартная callback-кнопка
+                [Button::url('Посетить сайт', 'https://example.com/')],
+                // Кнопка с ссылкой
+                ['buttonBot']
+                // Кнопка, созданная через класс Bot
+            ])
             ->send();
     });
     
@@ -55,7 +53,6 @@ $bot->run();
 ```
 
 ## Формат клавиатуры
-
 Клавиатура - массив из массивов, которые содержат кнопки 
 ```php
 $kbd = [
@@ -66,9 +63,7 @@ $kbd = [
 ```
 
 ## Вспомогательные методы
-- [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
-- [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
-- [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку
-- [`btn`](/classes/botMethods/btn.md) - создает кнопки с помощью класса Bot
-- `answerCallbackQuery` - отправляет уведомление о нажатии callback-кнопки
+- [`Класс Button`](/classes/button) - Класс для создания кнопок
+- [`btn`](/classes/botMethods/btn.md) - Создание кнопки классом Bot
+- `answerCallbackQuery` - Отправка уведомления о нажатии callback-кнопки
   

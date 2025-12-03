@@ -23,6 +23,7 @@ title: Bot
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 use ZhenyaGR\TGZ\Pagination; // Не забудьте подключить класс констант
 
 $tg = TGZ::create('ТОКЕН');
@@ -31,11 +32,10 @@ $bot = new Bot($tg);
 function getCatalogKeyboard(TGZ $tg, int $page): array {
     $items = [];
     for ($i = 1; $i <= 30; $i++) {
-        $items[] = $tg->buttonCallback("📦 Товар $i", "item_$i");
+        $items[] = Button::cb("📦 Товар $i", "item_$i");
     }
     return $tg->pagination()->setItems($items)->setPerPage(6)->setColumns(2)->setPage($page)->setPrefix('catalog_page_')->create();
 }
-
 
 // 1. Команда вызова каталога
 $bot->onBotCommand('catalog', '/catalog')

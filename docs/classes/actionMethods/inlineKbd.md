@@ -25,6 +25,7 @@ title: Action
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ТОКЕН');
 $bot = new Bot($tg);
@@ -41,7 +42,7 @@ $bot->onBotCommand('start', '/start')
         ['profile', 'settings'],
 
         // Второй ряд: одна URL-кнопка, созданная "на лету"
-        [$tg->buttonUrl('Перейти на сайт', 'https://github.com/zhenyagr/tgz')]
+        [Button::url('Перейти на сайт', 'https://github.com/zhenyagr/tgz')]
     ]);
 
 $bot->run();

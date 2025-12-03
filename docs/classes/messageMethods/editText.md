@@ -25,35 +25,35 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Bot;
 
 $tg = TGZ::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-        case '/edit':
-            // Сначала отправляем сообщение
-            $response = $tg->msg("Это сообщение будет изменено")->send();
-            
-            // Получаем ID отправленного сообщения
-            $messageId = $response['result']['message_id'];
-            
-            // Пауза для наглядности (!!! Не используйте в реальных проектах !!!)
-            sleep(3);
+$bot->onBotCommand('edit', '/edit')
+    ->func(function(TGZ $tg) {
+        // Сначала отправляем сообщение
+        $response = $tg->msg("Это сообщение будет изменено")->send();
+        // Получаем ID отправленного сообщения
+        $messageId = $response['result']['message_id'];
+        // Пауза для наглядности (!!! Не используйте в реальных проектах !!!)
+        sleep(3);
+        // Редактируем сообщение
+        $tg->msg("Сообщение было успешно изменено!")
+            ->editText($messageId);
+    });
 
-            // Редактируем сообщение
-            $tg->msg("Сообщение было успешно изменено!")
-                ->editText($messageId);
-            break;
-            
-        case '/edit_in_chat':
-            // ID чата, в котором нужно отредактировать сообщение
-            $chatIdToEdit = 123456789;
-            // ID сообщения для редактирования (предположим, мы его уже знаем)
-            $messageIdToEdit = 987;
+// 2. Обрабатываем нажатие на кнопку
+$bot->onCallback('edit_in_chat', '/edit_in_chat')
+    ->func(function(TGZ $tg) {
+        // ID чата, в котором нужно отредактировать сообщение
+        $chatIdToEdit = 123456789;
+        // ID сообщения для редактирования (предположим, мы его уже знаем)
+        $messageIdToEdit = 987;
 
-            $tg->msg("Редактирование сообщения в другом чате.")
-                ->editText($messageIdToEdit, $chatIdToEdit);
-            break;
-}
+        $tg->msg("Редактирование сообщения в другом чате.")
+            ->editText($messageIdToEdit, $chatIdToEdit);
+    });
+
+$bot->run();
 ```

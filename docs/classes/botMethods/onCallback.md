@@ -32,6 +32,7 @@ onCallback поддерживает специальные плейсхолде�
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ТОКЕН');
 $bot = new Bot($tg);
@@ -42,8 +43,8 @@ $bot->onBotCommand('vote', '/vote')
     ->inlineKbd([
         [
             // Кнопка, созданная "на лету"
-            $tg->buttonCallback('Да 👍', 'vote_yes'),
-            $tg->buttonCallback('Нет 👎', 'vote_no')
+            Button::cb('Да 👍', 'vote_yes'),
+            Button::cb('Нет 👎', 'vote_no')
         ]
     ]);
 
@@ -55,7 +56,7 @@ $bot->onCallback('handle_vote_yes', 'vote_yes')
 // Обработчик для callback_data 'vote_no'
 $bot->onCallback('handle_vote_no', 'vote_no')
     ->query('Спасибо за ваш голос!')
-    ->edit('Вы проголосовали "Нет". Жаль!');
+    ->editText('Вы проголосовали "Нет". Жаль!');
 
 $bot->run();
 ```

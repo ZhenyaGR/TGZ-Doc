@@ -27,6 +27,7 @@ title: Action
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ТОКЕН');
 $bot = new Bot($tg);
@@ -52,8 +53,8 @@ $bot->onBotCommand('start', '/start')
     ->text('Привет! Воспользуйся клавиатурой для навигации.')
     ->kbd(
         [
-            ['get_weather', 'get_news'], // Первый ряд
-            [$tg->buttonText('Скрыть клавиатуру')]            // Второй ряд
+            ['get_weather', 'get_news'],        // Первый ряд
+            [Button::text('Скрыть клавиатуру')] // Второй ряд
         ],
         resize: true,      // Кнопки будут оптимального размера
         one_time: false    // Клавиатура останется после нажатия

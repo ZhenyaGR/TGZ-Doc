@@ -19,13 +19,14 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ТОКЕН');
 $query_id = $tg->getQueryId();
 
 $buttons = [
-    [$tg->buttonCallback('Текст кнопки', 'callback_data')],
-    [$tg->buttonUrl('Текст кнопки', 'https://example.com')],
+    [Button::cb('Текст кнопки', 'callback_data')],
+    [Button::url('Текст кнопки', 'https://example.com')],
 ];
 
 $results = [

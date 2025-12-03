@@ -21,6 +21,8 @@ sidebarDepth: 0
 <?php    
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZhenyaGR\TGZ\TGZ; 
+use ZhenyaGR\TGZ\Bot; 
+use ZhenyaGR\TGZ\Button; 
 
 $tg = TGZ::create(BOT_TOKEN);
 $bot = new Bot($tg);
@@ -29,18 +31,15 @@ $bot = new Bot($tg);
 $bot->btn('buttonBot', 'Оценить')
     ->text('Оцените бота от 1 до 5');
 
-$bot->onCommand('kbd', '/kbd')
+$bot->onBotCommand('kbd', '/kbd')
     ->func(function(TGZ $tg) {
         $tg->msg("Клавиатура:")
-            ->kbd(
-                [
-                    [$tg->buttonText('Показать профиль')],
-                    // Стандартная текстовая кнопка
-                    
-                    ['buttonBot']
-                    // Кнопка, созданная через класс Bot
-                ], one_time: true, resize: true             
-            )
+            ->kbd([
+                [Button::text('Показать профиль')],
+                // Стандартная текстовая кнопка
+                ['buttonBot']
+                // Кнопка, созданная через класс Bot
+            ], one_time: true, resize: true)
             ->send();
     });
     
@@ -49,11 +48,9 @@ $bot->onText('profile', 'Показать профиль')
     ->text('Ваш профиль пуст');
 
 $bot->run();
-
 ```
 
 ## Формат клавиатуры
-
 Клавиатура - массив из массивов, которые содержат кнопки 
 ```php
 $kbd = [
@@ -64,9 +61,6 @@ $kbd = [
 ```
 
 ## Вспомогательные методы
-- [`buttonText`](/classes/tgzMethods/buttons.md) - создает текстовую кнопку
-- [`buttonUrl`](/classes/tgzMethods/buttons.md) - создает url-кнопку
-- [`buttonCallback`](/classes/tgzMethods/buttons.md) - создает callback-кнопку
-- [`btn`](/classes/botMethods/btn.md) - создает кнопки с помощью класса Bot
-- `answerCallbackQuery` - отправляет уведомление о нажатии callback-кнопки
-  
+- [`Класс Button`](/classes/button) - Класс для создания кнопок
+- [`btn`](/classes/botMethods/btn.md) - Создание кнопки классом Bot
+- `answerCallbackQuery` - Отправка уведомления о нажатии callback-кнопки

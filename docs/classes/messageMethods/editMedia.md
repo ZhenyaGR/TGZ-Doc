@@ -26,6 +26,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZhenyaGR\TGZ\TGZ;
 use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\TGZ\Button;
 
 $tg = TGZ::create('ВАШ_ТОКЕН');
 $bot = new Bot($tg);
@@ -35,7 +36,7 @@ $bot->onBotCommand('start', '/start')
     ->text("Это фото котика. Хотите увидеть собачку?")
     ->img('https://cataas.com/cat') // URL первого изображения
     ->inlineKbd([
-        [$tg->buttonCallback('Да, показать собачку!', 'show_dog')]
+        [Button::cb('Да, показать собачку!', 'show_dog')]
     ]);
 
 // 2. Обрабатываем нажатие на кнопку
