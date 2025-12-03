@@ -5,44 +5,42 @@ title: Button
 # **Button**
 Вспомогательный класс для генерации кнопок
 
-## Методы класса
-
-### text
+## text
 Обычная текстовая кнопка
 
 ```php
 Button::text('Текст кнопки');
 ```
 
-### cb
+## cb
 Inline кнопка
 
 ```php
 Button::cb('Текст кнопки', 'callbackData');
 ```
 
-### url 
+## url 
 Inline кнопка-ссылка
 
 ```php
 Button::url('Текст кнопки', 'http://button.url');
 ```
 
-### webApp
+## webApp
 Inline кнопка для WebApp
 
 ```php
 Button::webApp('Текст кнопки', 'http://app.url');
 ```
 
-### contact
+## contact
 Кнопка запроса контакта
 
 ```php
 Button::contact('Текст кнопки');
 ```
 
-### location
+## location
 Кнопка запроса геолокации
 
 ```php
