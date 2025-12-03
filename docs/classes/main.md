@@ -30,6 +30,12 @@ title: Классы
     icon="✉️"
   />
   <Card
+    title="Button"
+    details="Вспомогательный класс со статическими методами для создания кнопок"
+    href="/TGZ-Doc/classes/button"
+    icon="⏺️"
+  />
+  <Card
     title="File"
     details="Класс для работы с файлами"
     href="/TGZ-Doc/classes/file"

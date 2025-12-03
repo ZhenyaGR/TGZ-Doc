@@ -255,6 +255,8 @@ export default defineConfig({
                         ]
                     },
 
+                    {text: 'Button', link: '/classes/button'},
+
                     {
                         text: 'File',
                         link: '/classes/file',
