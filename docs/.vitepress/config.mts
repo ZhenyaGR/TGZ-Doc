@@ -135,137 +135,6 @@ export default defineConfig({
                     {text: 'LongPoll', link: '/classes/longpoll'},
 
                     {
-                        text: 'File',
-                        link: '/classes/file',
-                        collapsed: true,
-                        items: [
-                            // Сначала получение информации о файле
-                            {text: 'getFileId', link: '/classes/fileMethods/getFileId'},
-                            {text: 'getFileInfo', link: '/classes/fileMethods/getFileInfo'},
-                            {text: 'getFileSize', link: '/classes/fileMethods/getFileSize'},
-                            {text: 'getFilePath', link: '/classes/fileMethods/getFilePath'},
-                            // В конце действие (скачивание)
-                            {text: 'save', link: '/classes/fileMethods/save'},
-                        ]
-                    },
-
-                    {
-                        text: 'Message',
-                        link: '/classes/message',
-                        collapsed: true,
-                        items: [
-                            // 1. Основной контент
-                            {text: 'text', link: '/classes/messageMethods/text'},
-
-                            // 2. Медиа (группируем вместе)
-                            {text: 'img', link: '/classes/messageMethods/img'},
-                            {text: 'video', link: '/classes/messageMethods/video'},
-                            {text: 'audio', link: '/classes/messageMethods/audio'},
-                            {text: 'voice', link: '/classes/messageMethods/voice'},
-                            {text: 'doc', link: '/classes/messageMethods/doc'},
-                            {text: 'gif', link: '/classes/messageMethods/gif'},
-                            {text: 'sticker', link: '/classes/messageMethods/sticker'},
-                            {text: 'dice', link: '/classes/messageMethods/dice'},
-                            {text: 'mediaPreview', link: '/classes/messageMethods/mediaPreview'},
-
-                            // 3. Клавиатуры
-                            {text: 'kbd', link: '/classes/messageMethods/kbd'},
-                            {text: 'inlineKbd', link: '/classes/messageMethods/inlineKbd'},
-                            {text: 'removeKbd', link: '/classes/messageMethods/removeKbd'},
-
-                            // 4. Настройки сообщения
-                            {text: 'parseMode', link: '/classes/messageMethods/parseMode'},
-                            {text: 'reply', link: '/classes/messageMethods/reply'},
-                            {text: 'params', link: '/classes/messageMethods/params'},
-
-                            // 5. Финальные действия (отправка/редактирование)
-                            {text: 'send', link: '/classes/messageMethods/send'},
-                            {text: 'editText', link: '/classes/messageMethods/editText'},
-                            {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
-                            {text: 'editMedia', link: '/classes/messageMethods/editMedia'},
-                        ]
-                    },
-
-                    {
-                        text: 'Poll',
-                        link: '/classes/poll',
-                        collapsed: true,
-                        items: [
-                            // 1. Контент
-                            {text: 'question', link: '/classes/pollMethods/question'},
-                            {text: 'addAnswers', link: '/classes/pollMethods/addAnswers'},
-
-                            // 2. Настройки поведения
-                            {text: 'isAnonymous', link: '/classes/pollMethods/isAnonymous'},
-                            {text: 'multipleAnswers', link: '/classes/pollMethods/multipleAnswers'},
-                            {text: 'openPeriod', link: '/classes/pollMethods/openPeriod'},
-                            {text: 'closeDate', link: '/classes/pollMethods/closeDate'},
-                            {text: 'close', link: '/classes/pollMethods/close'},
-                            {text: 'parseMode', link: '/classes/pollMethods/parseMode'},
-
-                            // 3. Настройки викторины (Quiz)
-                            {text: 'correctAnswer', link: '/classes/pollMethods/correctAnswer'},
-                            {text: 'explanation', link: '/classes/pollMethods/explanation'},
-
-                            // 4. Отправка
-                            {text: 'send', link: '/classes/pollMethods/send'},
-                        ]
-                    },
-
-                    {
-                        text: 'Pagination',
-                        link: '/classes/pagination',
-                        collapsed: true,
-                        items: [
-                            {text: 'setItems', link: '/classes/paginationMethods/setItems'},
-                            {text: 'setPerPage', link: '/classes/paginationMethods/setPerPage'},
-                            {text: 'setPrefix', link: '/classes/paginationMethods/setPrefix'},
-                            {text: 'setPage', link: '/classes/paginationMethods/setPage'},
-                            {text: 'setColumns', link: '/classes/paginationMethods/setColumns'},
-                            {text: 'setNavigationLayout', link: '/classes/paginationMethods/setNavigationLayout'},
-                            {text: 'setMode', link: '/classes/paginationMethods/setMode'},
-                            {text: 'setSigns', link: '/classes/paginationMethods/setSigns'},
-                            {text: 'setSideSigns', link: '/classes/paginationMethods/setSideSigns'},
-                            {text: 'setMaxPageBtn', link: '/classes/paginationMethods/setMaxPageBtn'},
-                            {text: 'setNumberStyle', link: '/classes/paginationMethods/setNumberStyle'},
-                            {text: 'setActivePageFormat', link: '/classes/paginationMethods/setActivePageFormat'},
-                            {text: 'addReturnBtn', link: '/classes/paginationMethods/addReturnBtn'},
-                            {text: 'addHeaderBtn', link: '/classes/paginationMethods/addHeaderBtn'},
-                            {text: 'getTotalPage', link: '/classes/paginationMethods/getTotalPage'},
-                            {text: 'create', link: '/classes/paginationMethods/create'},
-                        ]
-                    },
-
-                    {
-                        text: 'Inline',
-                        link: '/classes/inline',
-                        collapsed: true,
-                        items: [
-                            // 1. Обязательные мета-данные
-                            {text: 'id', link: '/classes/inlineMethods/id'},
-                            {text: 'title', link: '/classes/inlineMethods/title'},
-                            {text: 'description', link: '/classes/inlineMethods/description'},
-
-                            // 2. Контент (Текст или файлы)
-                            {text: 'text', link: '/classes/inlineMethods/text'},
-                            {text: 'fileUrl', link: '/classes/inlineMethods/fileUrl'},
-                            {text: 'fileID', link: '/classes/inlineMethods/fileID'},
-                            {text: 'mimeType', link: '/classes/inlineMethods/mimeType'},
-                            {text: 'coordinates', link: '/classes/inlineMethods/coordinates'},
-                            {text: 'address', link: '/classes/inlineMethods/address'},
-
-                            // 3. Дополнительные настройки
-                            {text: 'thumb', link: '/classes/inlineMethods/thumb'},
-                            {text: 'kbd', link: '/classes/inlineMethods/kbd'},
-                            {text: 'parseMode', link: '/classes/inlineMethods/parseMode'},
-                            {text: 'params', link: '/classes/inlineMethods/params'},
-
-                            // 4. Сборка
-                            {text: 'create', link: '/classes/inlineMethods/create'},
-                        ]
-                    },
-
-                    {
                         text: 'Bot',
                         link: '/classes/bot',
                         collapsed: true,
@@ -346,6 +215,137 @@ export default defineConfig({
                                     {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                                 ]
                             },
+                        ]
+                    },
+
+                    {
+                        text: 'Message',
+                        link: '/classes/message',
+                        collapsed: true,
+                        items: [
+                            // 1. Основной контент
+                            {text: 'text', link: '/classes/messageMethods/text'},
+
+                            // 2. Медиа (группируем вместе)
+                            {text: 'img', link: '/classes/messageMethods/img'},
+                            {text: 'video', link: '/classes/messageMethods/video'},
+                            {text: 'audio', link: '/classes/messageMethods/audio'},
+                            {text: 'voice', link: '/classes/messageMethods/voice'},
+                            {text: 'doc', link: '/classes/messageMethods/doc'},
+                            {text: 'gif', link: '/classes/messageMethods/gif'},
+                            {text: 'sticker', link: '/classes/messageMethods/sticker'},
+                            {text: 'dice', link: '/classes/messageMethods/dice'},
+                            {text: 'mediaPreview', link: '/classes/messageMethods/mediaPreview'},
+
+                            // 3. Клавиатуры
+                            {text: 'kbd', link: '/classes/messageMethods/kbd'},
+                            {text: 'inlineKbd', link: '/classes/messageMethods/inlineKbd'},
+                            {text: 'removeKbd', link: '/classes/messageMethods/removeKbd'},
+
+                            // 4. Настройки сообщения
+                            {text: 'parseMode', link: '/classes/messageMethods/parseMode'},
+                            {text: 'reply', link: '/classes/messageMethods/reply'},
+                            {text: 'params', link: '/classes/messageMethods/params'},
+
+                            // 5. Финальные действия (отправка/редактирование)
+                            {text: 'send', link: '/classes/messageMethods/send'},
+                            {text: 'editText', link: '/classes/messageMethods/editText'},
+                            {text: 'editCaption', link: '/classes/messageMethods/editCaption'},
+                            {text: 'editMedia', link: '/classes/messageMethods/editMedia'},
+                        ]
+                    },
+
+                    {
+                        text: 'File',
+                        link: '/classes/file',
+                        collapsed: true,
+                        items: [
+                            // Сначала получение информации о файле
+                            {text: 'getFileId', link: '/classes/fileMethods/getFileId'},
+                            {text: 'getFileInfo', link: '/classes/fileMethods/getFileInfo'},
+                            {text: 'getFileSize', link: '/classes/fileMethods/getFileSize'},
+                            {text: 'getFilePath', link: '/classes/fileMethods/getFilePath'},
+                            // В конце действие (скачивание)
+                            {text: 'save', link: '/classes/fileMethods/save'},
+                        ]
+                    },
+
+                    {
+                        text: 'Poll',
+                        link: '/classes/poll',
+                        collapsed: true,
+                        items: [
+                            // 1. Контент
+                            {text: 'question', link: '/classes/pollMethods/question'},
+                            {text: 'addAnswers', link: '/classes/pollMethods/addAnswers'},
+
+                            // 2. Настройки поведения
+                            {text: 'isAnonymous', link: '/classes/pollMethods/isAnonymous'},
+                            {text: 'multipleAnswers', link: '/classes/pollMethods/multipleAnswers'},
+                            {text: 'openPeriod', link: '/classes/pollMethods/openPeriod'},
+                            {text: 'closeDate', link: '/classes/pollMethods/closeDate'},
+                            {text: 'close', link: '/classes/pollMethods/close'},
+                            {text: 'parseMode', link: '/classes/pollMethods/parseMode'},
+
+                            // 3. Настройки викторины (Quiz)
+                            {text: 'correctAnswer', link: '/classes/pollMethods/correctAnswer'},
+                            {text: 'explanation', link: '/classes/pollMethods/explanation'},
+
+                            // 4. Отправка
+                            {text: 'send', link: '/classes/pollMethods/send'},
+                        ]
+                    },
+
+                    {
+                        text: 'Pagination',
+                        link: '/classes/pagination',
+                        collapsed: true,
+                        items: [
+                            {text: 'setItems', link: '/classes/paginationMethods/setItems'},
+                            {text: 'setPerPage', link: '/classes/paginationMethods/setPerPage'},
+                            {text: 'setPrefix', link: '/classes/paginationMethods/setPrefix'},
+                            {text: 'setPage', link: '/classes/paginationMethods/setPage'},
+                            {text: 'setColumns', link: '/classes/paginationMethods/setColumns'},
+                            {text: 'setNavigationLayout', link: '/classes/paginationMethods/setNavigationLayout'},
+                            {text: 'setMode', link: '/classes/paginationMethods/setMode'},
+                            {text: 'setSigns', link: '/classes/paginationMethods/setSigns'},
+                            {text: 'setSideSigns', link: '/classes/paginationMethods/setSideSigns'},
+                            {text: 'setMaxPageBtn', link: '/classes/paginationMethods/setMaxPageBtn'},
+                            {text: 'setNumberStyle', link: '/classes/paginationMethods/setNumberStyle'},
+                            {text: 'setActivePageFormat', link: '/classes/paginationMethods/setActivePageFormat'},
+                            {text: 'addReturnBtn', link: '/classes/paginationMethods/addReturnBtn'},
+                            {text: 'addHeaderBtn', link: '/classes/paginationMethods/addHeaderBtn'},
+                            {text: 'getTotalPage', link: '/classes/paginationMethods/getTotalPage'},
+                            {text: 'create', link: '/classes/paginationMethods/create'},
+                        ]
+                    },
+
+                    {
+                        text: 'Inline',
+                        link: '/classes/inline',
+                        collapsed: true,
+                        items: [
+                            // 1. Обязательные мета-данные
+                            {text: 'id', link: '/classes/inlineMethods/id'},
+                            {text: 'title', link: '/classes/inlineMethods/title'},
+                            {text: 'description', link: '/classes/inlineMethods/description'},
+
+                            // 2. Контент (Текст или файлы)
+                            {text: 'text', link: '/classes/inlineMethods/text'},
+                            {text: 'fileUrl', link: '/classes/inlineMethods/fileUrl'},
+                            {text: 'fileID', link: '/classes/inlineMethods/fileID'},
+                            {text: 'mimeType', link: '/classes/inlineMethods/mimeType'},
+                            {text: 'coordinates', link: '/classes/inlineMethods/coordinates'},
+                            {text: 'address', link: '/classes/inlineMethods/address'},
+
+                            // 3. Дополнительные настройки
+                            {text: 'thumb', link: '/classes/inlineMethods/thumb'},
+                            {text: 'kbd', link: '/classes/inlineMethods/kbd'},
+                            {text: 'parseMode', link: '/classes/inlineMethods/parseMode'},
+                            {text: 'params', link: '/classes/inlineMethods/params'},
+
+                            // 4. Сборка
+                            {text: 'create', link: '/classes/inlineMethods/create'},
                         ]
                     },
 
