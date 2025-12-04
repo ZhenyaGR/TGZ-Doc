@@ -1,7 +1,59 @@
 // @ts-ignore
 import {defineConfig} from 'vitepress'
+import llmstxtPlugin from 'vitepress-plugin-llmstxt';
 
 export default defineConfig({
+
+
+
+    vite: {
+        plugins: [
+            llmstxtPlugin({
+                // Укажите ваш домен для правильных ссылок
+                hostname: 'https://zhenyagr.github.io/TGZ-Doc',
+
+                // 1. НАСТРОЙКА ИГНОРИРОВАНИЯ (Экономия токенов)
+                // Сюда переносим список файлов, которые не нужны нейросети
+                ignore: [
+                    '**/json/**',           // Игнорируем папку с примерами JSON
+                    '**/LIB/**',            // Игнорируем исходный код PHP
+                    '**/install/who_tgz.md',
+                    '**/install/site_helper.md',
+                    '**/install/create_bot.md',
+                    '**/team.md',
+                ],
+
+                // Генерируем оба файла
+                llmsFile: true,      // llms.txt (краткий)
+                llmsFullFile: true,  // llms-full.txt (полный)
+
+                // Отключаем генерацию отдельных .md файлов для каждого роута (если не нужны)
+                mdFiles: false,
+
+                // 2. ДОБАВЛЕНИЕ СИСТЕМНОГО ПРОМПТА (через transform)
+                transform: ({ page }) => {
+                    // Если генерируется полный файл контекста
+                    if (page.path === '/llms-full.txt') {
+                        const systemPrompt = `# TGZ Library Documentation Context
+I am an expert coding assistant for the PHP library "TGZ". 
+Use the documentation below to answer questions and write code.
+Prefer utilizing the "Bot" class router and method chaining over raw API calls.
+
+---
+
+`;
+                        // Добавляем промпт в начало файла
+                        page.content = systemPrompt + page.content;
+                    }
+
+                    return page;
+                },
+            })
+        ],
+    },
+
+
+
     lang: 'ru-RU',
     title: "Telegram-Z",
     description: "Документация библиотеки TGZ",
