@@ -52,7 +52,7 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
                     // Проверяем, что это один из наших llm файлов
                     if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
                         // Определяем путь: docs/public/имя_файла
-                        const publicDir = path.resolve(__dirname, '../public');
+                        const publicDir = path.resolve('../public');
 
                         // Если папки public нет - создаем
                         if (!fs.existsSync(publicDir)){
