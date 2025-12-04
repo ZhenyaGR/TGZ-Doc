@@ -41,7 +41,7 @@ $bot->onBotCommand('edit', '/edit')
         sleep(3);
         // Редактируем сообщение
         $tg->msg("Сообщение было успешно изменено!")
-            ->editСaption($messageId);
+            ->editCaption($messageId);
     });
 
 // 2. Обрабатываем нажатие на кнопку
@@ -53,7 +53,7 @@ $bot->onCallback('edit_in_chat', '/edit_in_chat')
         $messageIdToEdit = 987;
 
         $tg->msg("Редактирование сообщения в другом чате.")
-            ->editСaption($messageIdToEdit, $chatIdToEdit);
+            ->editCaption($messageIdToEdit, $chatIdToEdit);
     });
 
 $bot->run();
