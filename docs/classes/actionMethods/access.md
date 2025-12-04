@@ -1,5 +1,6 @@
 ---
 title: Action
+url: /classes/access.md
 ---
 
 # access
