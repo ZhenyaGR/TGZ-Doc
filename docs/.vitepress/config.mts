@@ -1,41 +1,30 @@
-// @ts-ignore
-import {defineConfig} from 'vitepress'
-import llmstxtPlugin from 'vitepress-plugin-llmstxt';
+import { defineConfig } from 'vitepress'
+import llmstxtPlugin from 'vitepress-plugin-llmstxt'
 import fs from 'node:fs'
 import path from 'node:path'
 
 export default defineConfig({
-
-
+    // ... ваши настройки title, description, base ...
 
     vite: {
         plugins: [
             llmstxtPlugin({
-                // Укажите ваш домен для правильных ссылок
                 hostname: 'https://zhenyagr.github.io/TGZ-Doc',
+                llmsFile: true,
+                llmsFullFile: true,
+                mdFiles: false,
 
-                // 1. НАСТРОЙКА ИГНОРИРОВАНИЯ (Экономия токенов)
-                // Сюда переносим список файлов, которые не нужны нейросети
                 ignore: [
-                    '**/json/**',           // Игнорируем папку с примерами JSON
-                    '**/LIB/**',            // Игнорируем исходный код PHP
+                    '**/json/**',
+                    '**/LIB/**',
                     '**/install/who_tgz.md',
                     '**/install/site_helper.md',
                     '**/install/create_bot.md',
                     '**/team.md',
                 ],
 
-                // Генерируем оба файла
-                llmsFile: true,      // llms.txt (краткий)
-                llmsFullFile: true,  // llms-full.txt (полный)
-
-                // Отключаем генерацию отдельных .md файлов для каждого роута (если не нужны)
-                mdFiles: false,
-
-                // МАГИЯ ЗДЕСЬ: Перехватываем контент и сохраняем в файл
                 transform: ({ page }) => {
-
-                    // 1. Добавляем системный промпт (как вы хотели)
+                    // 1. Добавляем системный промпт в full версию
                     if (page.path === '/llms-full.txt') {
                         const systemPrompt = `# TGZ Library Documentation Context
 I am an expert coding assistant for the PHP library "TGZ". 
@@ -48,29 +37,27 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
                         page.content = systemPrompt + page.content;
                     }
 
-                    // 2. СОХРАНЯЕМ ФАЙЛЫ В ПАПКУ PUBLIC
-                    // Проверяем, что это один из наших llm файлов
+                    // 2. СОХРАНЕНИЕ ФАЙЛОВ В КОРЕНЬ ПРОЕКТА
                     if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
-                        // Определяем путь: docs/public/имя_файла
-                        const publicDir = path.resolve('../public');
+                        try {
+                            // Вычисляем путь к корню проекта (поднимаемся на 2 уровня вверх из .vitepress)
+                            const projectRoot = path.resolve(__dirname, '../../');
 
-                        // Если папки public нет - создаем
-                        if (!fs.existsSync(publicDir)){
-                            fs.mkdirSync(publicDir);
+                            // Формируем полный путь (удаляем слэш в начале имени файла)
+                            const filePath = path.join(projectRoot, page.path.replace(/^\//, ''));
+
+                            // Записываем файл
+                            fs.writeFileSync(filePath, page.content);
+                            console.log(`✅ Файл успешно сохранен в корень: ${filePath}`);
+                        } catch (e) {
+                            console.error('Ошибка сохранения файла:', e);
                         }
-
-                        const filePath = path.join(publicDir, page.path.replace('/', ''));
-
-                        // Записываем файл физически на диск
-                        fs.writeFileSync(filePath, page.content);
-                        console.log(`✅ Файл сохранен в public: ${filePath}`);
                     }
 
                     return page;
                 },
-
             })
-        ],
+        ]
     },
 
 
