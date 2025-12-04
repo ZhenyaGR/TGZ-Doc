@@ -1,6 +1,8 @@
 // @ts-ignore
 import {defineConfig} from 'vitepress'
 import llmstxtPlugin from 'vitepress-plugin-llmstxt';
+import fs from 'node:fs'
+import path from 'node:path'
 
 export default defineConfig({
 
@@ -30,9 +32,10 @@ export default defineConfig({
                 // Отключаем генерацию отдельных .md файлов для каждого роута (если не нужны)
                 mdFiles: false,
 
-                // 2. ДОБАВЛЕНИЕ СИСТЕМНОГО ПРОМПТА (через transform)
+                // МАГИЯ ЗДЕСЬ: Перехватываем контент и сохраняем в файл
                 transform: ({ page }) => {
-                    // Если генерируется полный файл контекста
+
+                    // 1. Добавляем системный промпт (как вы хотели)
                     if (page.path === '/llms-full.txt') {
                         const systemPrompt = `# TGZ Library Documentation Context
 I am an expert coding assistant for the PHP library "TGZ". 
@@ -42,12 +45,30 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
 ---
 
 `;
-                        // Добавляем промпт в начало файла
                         page.content = systemPrompt + page.content;
+                    }
+
+                    // 2. СОХРАНЯЕМ ФАЙЛЫ В ПАПКУ PUBLIC
+                    // Проверяем, что это один из наших llm файлов
+                    if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
+                        // Определяем путь: docs/public/имя_файла
+                        const publicDir = path.resolve(__dirname, '../public');
+
+                        // Если папки public нет - создаем
+                        if (!fs.existsSync(publicDir)){
+                            fs.mkdirSync(publicDir);
+                        }
+
+                        const filePath = path.join(publicDir, page.path.replace('/', ''));
+
+                        // Записываем файл физически на диск
+                        fs.writeFileSync(filePath, page.content);
+                        console.log(`✅ Файл сохранен в public: ${filePath}`);
                     }
 
                     return page;
                 },
+
             })
         ],
     },
