@@ -15,7 +15,6 @@ export default defineConfig({
 
                 ignore: [
                     '**/json/**',
-                    '**/LIB/**',
                     '**/install/who_tgz.md',
                     '**/install/site_helper.md',
                     '**/install/create_bot.md',
@@ -29,9 +28,7 @@ export default defineConfig({
 I am an expert coding assistant for the PHP library "TGZ". 
 Use the documentation below to answer questions and write code.
 Prefer utilizing the "Bot" class router and method chaining over raw API calls.
-
 ---
-
 `;
                         page.content = systemPrompt + page.content;
                     }

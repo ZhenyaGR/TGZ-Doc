@@ -83,7 +83,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Нет изменений для записи"
           else
-            git commit -m "chore: update ai-context from docs [skip ci]"
+            git commit -m "Обновление после изменений в библиотеке"
             git push
             echo "✅ Успешно отправлено в TGZ/ai-context"
           fi
