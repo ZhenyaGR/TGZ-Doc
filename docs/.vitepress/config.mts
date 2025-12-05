@@ -1,54 +1,25 @@
 import { defineConfig } from 'vitepress'
-import llmstxtPlugin from 'vitepress-plugin-llmstxt'
-import fs from 'node:fs'
-import path from 'node:path'
+import llmstxt from 'vitepress-plugin-llms'
 
 export default defineConfig({
-
     vite: {
         plugins: [
-            llmstxtPlugin({
+            llmstxt({
+                // 1. Обязательно укажите ваш публичный домен
                 hostname: 'https://zhenyagr.github.io/TGZ-Doc',
-                llmsFile: true,
-                llmsFullFile: true,
-                mdFiles: false,
 
+                // 2. Игнорируем технические файлы и примеры JSON, чтобы не тратить токены LLM
                 ignore: [
                     '**/json/**',
-                    '**/install/who_tgz.md',
-                    '**/install/site_helper.md',
-                    '**/install/create_bot.md',
-                    '**/team.md',
+                    '**/404.md'
                 ],
 
-                transform: ({ page }) => {
-                    // 1. Добавляем системный промпт (только для full версии)
-                    if (page.path === '/llms-full.txt') {
-                        const systemPrompt = `# TGZ Library Documentation Context
-I am an expert coding assistant for the PHP library "TGZ". 
-Use the documentation below to answer questions and write code.
-Prefer utilizing the "Bot" class router and method chaining over raw API calls.
----
-`;
-                        page.content = systemPrompt + page.content;
-                    }
-
-                    // 2. СОХРАНЕНИЕ В КОРЕНЬ ПРОЕКТА (Сразу, без ожидания сборки)
-                    if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
-                        try {
-                            // process.cwd() — это папка, где лежит package.json
-                            // page.path.replace(/^\//, '') убирает первый слэш из имени файла
-                            const rootFilePath = path.join(process.cwd(), page.path.replace(/^\//, ''));
-
-                            fs.writeFileSync(rootFilePath, page.content);
-                            console.log(`✅ [Saved to Root]: ${rootFilePath}`);
-                        } catch (e) {
-                            console.error(`❌ Ошибка сохранения ${page.path}:`, e);
-                        }
-                    }
-
-                    return page;
+                // 3. Настройки генерации (по умолчанию true, но можно настроить)
+                llmsFile: {
+                    indexTOC: 'only-llms', // В оглавлении оставить только ссылки на .md версии (чище)
                 },
+                llmsFullFile: true, // Генерировать полный дамп
+                mdFiles: true,      // Создавать зеркала страниц в .md (guide.html -> guide.md)
             })
         ]
     },
