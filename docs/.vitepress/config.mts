@@ -4,7 +4,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 export default defineConfig({
-    // ... ваши настройки title, description, base ...
 
     vite: {
         plugins: [
@@ -24,7 +23,7 @@ export default defineConfig({
                 ],
 
                 transform: ({ page }) => {
-                    // 1. Добавляем системный промпт в full версию
+                    // 1. Добавляем системный промпт (только для full версии)
                     if (page.path === '/llms-full.txt') {
                         const systemPrompt = `# TGZ Library Documentation Context
 I am an expert coding assistant for the PHP library "TGZ". 
@@ -37,20 +36,17 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
                         page.content = systemPrompt + page.content;
                     }
 
-                    // 2. СОХРАНЕНИЕ ФАЙЛОВ В КОРЕНЬ ПРОЕКТА
+                    // 2. СОХРАНЕНИЕ В КОРЕНЬ ПРОЕКТА (Сразу, без ожидания сборки)
                     if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
                         try {
-                            // Вычисляем путь к корню проекта (поднимаемся на 2 уровня вверх из .vitepress)
-                            const projectRoot = path.resolve(__dirname, '../../');
+                            // process.cwd() — это папка, где лежит package.json
+                            // page.path.replace(/^\//, '') убирает первый слэш из имени файла
+                            const rootFilePath = path.join(process.cwd(), page.path.replace(/^\//, ''));
 
-                            // Формируем полный путь (удаляем слэш в начале имени файла)
-                            const filePath = path.join(projectRoot, page.path.replace(/^\//, ''));
-
-                            // Записываем файл
-                            fs.writeFileSync(filePath, page.content);
-                            console.log(`✅ Файл успешно сохранен в корень: ${filePath}`);
+                            fs.writeFileSync(rootFilePath, page.content);
+                            console.log(`✅ [Saved to Root]: ${rootFilePath}`);
                         } catch (e) {
-                            console.error('Ошибка сохранения файла:', e);
+                            console.error(`❌ Ошибка сохранения ${page.path}:`, e);
                         }
                     }
 
@@ -59,8 +55,6 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
             })
         ]
     },
-
-
 
     lang: 'ru-RU',
     title: "Telegram-Z",
