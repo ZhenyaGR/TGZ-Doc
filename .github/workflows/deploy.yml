@@ -54,23 +54,39 @@ jobs:
           fi
 
       # --- БЛОК 2: Отправляем файлы в ДРУГОЙ репозиторий ---
-      - name: Prepare export folder
-        run: |
-          mkdir -p llms_export
-          cp llms.txt llms_export/
-          cp llms-full.txt llms_export/
-
-      - name: Push to EXTERNAL repo
-        uses: cpina/github-action-push-to-another-repository@main
+      - name: Manual Push to TGZ repo
         env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'llms_export'
-          destination-github-username: 'ZhenyaGR'       # <--- ЗАМЕНИТЕ НА ВАШЕ
-          destination-repository-name: 'TGZ' # <--- ЗАМЕНИТЕ НА ВАШЕ
-          user-email: em167116@gmail.com           # <--- ЗАМЕНИТЕ НА ВАШЕ
-          target-branch: main,
-          target-directory: 'ai-context'
+          # Передаем токен как переменную окружения
+          TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+        run: |
+          # 1. Настраиваем Git и клонируем целевой репозиторий в папку 'temp_tgz'
+          # Используем токен прямо в URL для авторизации
+          git clone --depth 1 https://oauth2:$TOKEN@github.com/ZhenyaGR/TGZ.git temp_tgz
+          
+          # 2. Переходим в склонированный репозиторий
+          cd temp_tgz
+          
+          # 3. Создаем папку ai-context (если её нет - создастся, если есть - ок)
+          mkdir -p ai-context
+          
+          # 4. Копируем файлы из корня сборки (они лежат уровнем выше, в ..)
+          cp ../llms.txt ai-context/
+          cp ../llms-full.txt ai-context/
+          
+          # 5. Коммитим и пушим
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add ai-context/
+          
+          # Проверка на изменения
+          if git diff --staged --quiet; then
+            echo "Нет изменений для записи"
+          else
+            git commit -m "chore: update ai-context from docs [skip ci]"
+            git push
+            echo "✅ Успешно отправлено в TGZ/ai-context"
+          fi
 
       # --- БЛОК 3: Деплой сайта ---
       - name: Setup Pages
