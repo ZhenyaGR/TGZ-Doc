@@ -1,29 +1,20 @@
-# Пример рабочего процесса для создания и развёртывания сайта VitePress на GitHub Pages
-#
-name: Deploy VitePress site to Pages
+name: Deploy VitePress site
 
 on:
-  # Выполняется при пушах в ветку `main`.
   push:
     branches: [main]
-
-  # Позволяет запустить рабочий процесс вручную через вкладку «Actions».
   workflow_dispatch:
 
-# Устанавливает разрешения.
-# ВАЖНО: contents: write необходим, чтобы робот мог делать git push в ваш репозиторий
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Разрешить только одно одновременное развёртывание
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  # Сборка
   build:
     runs-on: ubuntu-latest
     steps:
@@ -35,56 +26,66 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # Можно оставить 10, если у вас 10, но 9 стабильнее для многих
+          version: 9
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 23 версия node пока experimental, лучше использовать LTS (20 или 22)
+          node-version: 20
           cache: pnpm
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      # 1. Сборка сайта (в этот момент ваш конфиг VitePress создаст файлы llms.txt в корне)
       - name: Build with VitePress
         run: pnpm docs:build
 
-      # 2. НОВЫЙ ШАГ: Отправка сгенерированных файлов обратно в репозиторий
-      - name: Commit and Push generated LLMS files
+      # --- БЛОК 1: Обновляем файлы в ТЕКУЩЕМ репозитории ---
+      - name: Commit and Push to CURRENT repo
         run: |
-          # Настройка git от имени бота
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Добавляем файлы, которые сгенерировал плагин
           git add llms.txt llms-full.txt
-          
-          # Проверяем статус: если есть изменения, делаем коммит
           if [[ -n $(git status -s) ]]; then
-            git commit -m "chore: update llms documentation [skip ci]"
+            git commit -m "chore: update llms docs [skip ci]"
             git push
-            echo "✅ LLMS файлы обновлены и отправлены в репозиторий"
           else
-            echo "Нет изменений в LLMS файлах"
+            echo "No changes"
           fi
 
+      # --- БЛОК 2: Отправляем файлы в ДРУГОЙ репозиторий ---
+      - name: Prepare export folder
+        run: |
+          mkdir -p llms_export
+          cp llms.txt llms_export/
+          cp llms-full.txt llms_export/
+
+      - name: Push to EXTERNAL repo
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'llms_export'
+          destination-github-username: 'ZhenyaGR'       # <--- ЗАМЕНИТЕ НА ВАШЕ
+          destination-repository-name: 'TGZ' # <--- ЗАМЕНИТЕ НА ВАШЕ
+          user-email: em167116@gmail.com           # <--- ЗАМЕНИТЕ НА ВАШЕ
+          target-branch: main,
+          target-directory: 'ai-context'
+
+      # --- БЛОК 3: Деплой сайта ---
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
-  # Развёртывание
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
