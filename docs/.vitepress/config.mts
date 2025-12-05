@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import llmstxt from 'vitepress-plugin-llms'
+import { copyFileSync } from 'node:fs'
+import { join, resolve } from 'node:path'
 
 export default defineConfig({
     vite: {
@@ -34,8 +36,7 @@ export default defineConfig({
                 injectLLMHint: true,
 
                 // 7. Кастомный шаблон для llms.txt (опционально, если хотите изменить порядок)
-                customLLMsTxtTemplate: `
-# {title}
+                customLLMsTxtTemplate: `# {title}
 
 {description}
 
@@ -63,6 +64,33 @@ export default defineConfig({
     head: [
         ['link', {rel: 'icon', href: '/logo.png'}]
     ],
+
+    async buildEnd(siteConfig) {
+        // outDir - папка сборки (например, .vitepress/dist)
+        const outDir = siteConfig.outDir
+        // rootDir - корень проекта
+        const rootDir = process.cwd()
+
+        const filesToCopy = ['llms.txt', 'llms-full.txt']
+
+        console.log('🔄 Starting copy process from dist to root...')
+
+        for (const fileName of filesToCopy) {
+            // Используем resolve для получения абсолютного пути к исходному файлу
+            const sourcePath = resolve(outDir, fileName)
+            // Используем join для получения абсолютного пути в корне проекта
+            const destinationPath = join(rootDir, fileName)
+
+            try {
+                copyFileSync(sourcePath, destinationPath)
+                console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
+            } catch (e) {
+                // Выводим более понятную ошибку, если файла нет
+                console.error(`❌ ERROR copying ${fileName}. Ensure the file exists in ${outDir}. Details:`, e.message)
+            }
+        }
+    },
+
 
     themeConfig: {
 
