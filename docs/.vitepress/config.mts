@@ -5,21 +5,48 @@ export default defineConfig({
     vite: {
         plugins: [
             llmstxt({
-                // 1. Обязательно укажите ваш публичный домен
-                hostname: 'https://zhenyagr.github.io/TGZ-Doc',
+                // 1. Домен сайта (обязательно для абсолютных ссылок)
+                domain: 'https://zhenyagr.github.io', //потом можно убрать, когда будет в корне
 
-                // 2. Игнорируем технические файлы и примеры JSON, чтобы не тратить токены LLM
-                ignore: [
+                // 2. Какие файлы генерировать
+                generateLLMsTxt: true,      // Создать llms.txt
+                generateLLMsFullTxt: true,  // Создать llms-full.txt
+                generateLLMFriendlyDocsForEachPage: true, // Создать .md копии страниц
+
+                // 3. Список игнорируемых файлов
+                ignoreFiles: [
                     '**/json/**',
+                    '**/install/requirements.md',
+                    '**/install/create_bot.md',
                     '**/404.md'
                 ],
 
-                // 3. Настройки генерации (по умолчанию true, но можно настроить)
-                llmsFile: {
-                    indexTOC: 'only-llms', // В оглавлении оставить только ссылки на .md версии (чище)
-                },
-                llmsFullFile: true, // Генерировать полный дамп
-                mdFiles: true,      // Создавать зеркала страниц в .md (guide.html -> guide.md)
+                // 4. Опции исключения "мусорных" страниц (экономия токенов)
+                excludeUnnecessaryFiles: true, // Включить фильтрацию
+                excludeIndexPage: false,       // Оставить главную страницу (index.md)
+                excludeBlog: true,             // Убрать блог (если есть)
+                excludeTeam: true,             // Убрать страницу команды
+
+                // 5. Очистка HTML (рекомендуется)
+                stripHTML: true,
+
+                // 6. Скрытая подсказка для LLM внутри HTML страниц
+                injectLLMHint: true,
+
+                // 7. Кастомный шаблон для llms.txt (опционально, если хотите изменить порядок)
+                customLLMsTxtTemplate: `
+# {title}
+
+{description}
+
+## Table of Contents
+
+{toc}
+`,
+                customTemplateVariables: {
+                    title: 'TGZ Library Documentation',
+                    description: 'Powerful PHP library for creating Telegram bots with Webhook & LongPoll support',
+                }
             })
         ]
     },
@@ -198,45 +225,45 @@ export default defineConfig({
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
                             {text: 'tgz', link: '/classes/botMethods/tgz'},
                             {text: 'run', link: '/classes/botMethods/run'},
+                        ]
+                    },
 
-                            {
-                                text: 'Action',
-                                link: '/classes/action',
-                                collapsed: false,
-                                items: [
-                                    // 1. Логика обработки
-                                    {text: 'func', link: '/classes/actionMethods/func'},
-                                    {text: 'access', link: '/classes/actionMethods/access'},
-                                    {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
-                                    {text: 'middleware', link: '/classes/actionMethods/middleware'},
-                                    {text: 'redirect', link: '/classes/actionMethods/redirect'},
+                    {
+                        text: 'Action',
+                        link: '/classes/action',
+                        collapsed: false,
+                        items: [
+                            // 1. Логика обработки
+                            {text: 'func', link: '/classes/actionMethods/func'},
+                            {text: 'access', link: '/classes/actionMethods/access'},
+                            {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
+                            {text: 'middleware', link: '/classes/actionMethods/middleware'},
+                            {text: 'redirect', link: '/classes/actionMethods/redirect'},
 
-                                    // 2. Простой ответ
-                                    {text: 'text', link: '/classes/actionMethods/text'},
-                                    {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
-                                    {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
+                            // 2. Простой ответ
+                            {text: 'text', link: '/classes/actionMethods/text'},
+                            {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
+                            {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
 
-                                    // 3. Медиа ответ
-                                    {text: 'img', link: '/classes/actionMethods/img'},
-                                    {text: 'video', link: '/classes/actionMethods/video'},
-                                    {text: 'audio', link: '/classes/actionMethods/audio'},
-                                    {text: 'voice', link: '/classes/actionMethods/voice'},
-                                    {text: 'doc', link: '/classes/actionMethods/doc'},
-                                    {text: 'gif', link: '/classes/actionMethods/gif'},
-                                    {text: 'sticker', link: '/classes/actionMethods/sticker'},
+                            // 3. Медиа ответ
+                            {text: 'img', link: '/classes/actionMethods/img'},
+                            {text: 'video', link: '/classes/actionMethods/video'},
+                            {text: 'audio', link: '/classes/actionMethods/audio'},
+                            {text: 'voice', link: '/classes/actionMethods/voice'},
+                            {text: 'doc', link: '/classes/actionMethods/doc'},
+                            {text: 'gif', link: '/classes/actionMethods/gif'},
+                            {text: 'sticker', link: '/classes/actionMethods/sticker'},
 
-                                    // 4. Клавиатуры
-                                    {text: 'kbd', link: '/classes/actionMethods/kbd'},
-                                    {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
-                                    {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
+                            // 4. Клавиатуры
+                            {text: 'kbd', link: '/classes/actionMethods/kbd'},
+                            {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
+                            {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
 
-                                    // 5. Дополнительно и редактирование
-                                    {text: 'reply', link: '/classes/actionMethods/reply'},
-                                    {text: 'params', link: '/classes/actionMethods/params'},
-                                    {text: 'editText', link: '/classes/actionMethods/editText'},
-                                    {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
-                                ]
-                            },
+                            // 5. Дополнительно и редактирование
+                            {text: 'reply', link: '/classes/actionMethods/reply'},
+                            {text: 'params', link: '/classes/actionMethods/params'},
+                            {text: 'editText', link: '/classes/actionMethods/editText'},
+                            {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                         ]
                     },
 

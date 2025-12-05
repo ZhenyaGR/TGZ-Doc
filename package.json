@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "vitepress": "2.0.0-alpha.4",
+    "vitepress": "2.0.0-alpha.15",
     "vitepress-plugin-llms": "^1.9.3"
   },
   "scripts": {
