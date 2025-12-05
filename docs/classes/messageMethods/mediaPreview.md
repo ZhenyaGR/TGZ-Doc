@@ -1,5 +1,6 @@
 ---
-title: Message
+title: mediaPreview
+description: "Добавляет скрытую ссылку для превью."
 ---
 
 # mediaPreview

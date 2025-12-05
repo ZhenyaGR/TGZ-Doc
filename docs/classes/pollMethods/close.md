@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: close
+description: "Отправляет опрос закрытым."
 sidebarDepth: 0
 ---
 

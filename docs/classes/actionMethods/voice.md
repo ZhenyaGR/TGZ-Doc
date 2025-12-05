@@ -1,5 +1,6 @@
 ---
-title: Action
+title: voice
+description: "Отправляет голосовое сообщение."
 ---
 
 # voice

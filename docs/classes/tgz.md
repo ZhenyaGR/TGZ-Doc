@@ -1,5 +1,6 @@
 ---
 title: TGZ
+description: "Основной класс библиотеки."
 sidebarDepth: 0
 ---
 

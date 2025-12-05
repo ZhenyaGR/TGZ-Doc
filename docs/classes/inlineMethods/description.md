@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: description
+description: "Устанавливает описание."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: File
+title: getFileId
+description: "Получает file_id из сообщения."
 sidebarDepth: 0
 ---
 

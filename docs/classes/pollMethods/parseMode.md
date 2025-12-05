@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: parseMode
+description: "Устанавливает разметку для объяснений."
 sidebarDepth: 0
 ---
 

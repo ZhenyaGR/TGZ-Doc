@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: poll
+description: "Создает экземпляр класса Poll для создания опросов."
 sidebarDepth: 0
 ---
 

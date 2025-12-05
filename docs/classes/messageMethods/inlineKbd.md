@@ -1,5 +1,6 @@
 ---
-title: Message
+title: inlineKbd
+description: "Добавляет Inline-клавиатуру."
 sidebarDepth: 0
 ---
 

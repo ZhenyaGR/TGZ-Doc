@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onStart
+description: "Обработчик команды /start."
 ---
 
 # onStart

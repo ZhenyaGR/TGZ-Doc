@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onLeftChatMember
+description: "Срабатывает при выходе участника из чата."
 ---
 
 # onLeftChatMember

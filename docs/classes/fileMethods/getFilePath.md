@@ -1,5 +1,6 @@
 ---
-title: File
+title: getFilePath
+description: "Возвращает прямую ссылку на файл (для скачивания)."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Message
+title: text
+description: "Устанавливает текст сообщения."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: pagination
+description: "Создает экземпляр класса Pagination для генерации страниц."
 sidebarDepth: 0
 ---
 

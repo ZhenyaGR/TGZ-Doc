@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: fileID
+description: "Устанавливает file_id файла."
 sidebarDepth: 0
 ---
 

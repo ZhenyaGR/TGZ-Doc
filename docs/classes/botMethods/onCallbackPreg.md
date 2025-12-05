@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onCallbackPreg
+description: "Обработчик callback_data по регулярному выражению."
 ---
 
 # onCallbackPreg

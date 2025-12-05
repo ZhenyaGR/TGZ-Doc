@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: mimeType
+description: "Устанавливает MIME-тип контента."
 sidebarDepth: 0
 ---
 

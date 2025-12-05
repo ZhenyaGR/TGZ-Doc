@@ -1,5 +1,6 @@
 ---
-title: Message
+title: sticker
+description: "Добавляет стикер."
 sidebarDepth: 0
 ---
 

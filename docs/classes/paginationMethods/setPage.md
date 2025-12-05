@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setPage
+description: "Устанавливает текущую страницу."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: LongPoll
+description: "Класс для запуска бота в режиме Long Polling."
 ---
 
 # **LongPoll**

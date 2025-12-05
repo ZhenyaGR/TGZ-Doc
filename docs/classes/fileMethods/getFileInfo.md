@@ -1,5 +1,6 @@
 ---
-title: File
+title: getFileInfo
+description: "Получает информацию о файле через API."
 sidebarDepth: 0
 ---
 

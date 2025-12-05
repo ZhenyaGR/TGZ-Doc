@@ -1,5 +1,6 @@
 ---
-title: Message
+title: reply
+description: "Устанавливает ID сообщения для ответа."
 sidebarDepth: 0
 ---
 

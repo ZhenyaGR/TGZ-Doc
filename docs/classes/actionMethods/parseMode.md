@@ -1,5 +1,6 @@
 ---
-title: Action
+title: parseMode
+description: "Устанавливает режим разметки для ответа."
 ---
 
 # parseMode

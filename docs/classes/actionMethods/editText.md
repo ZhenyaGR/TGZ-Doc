@@ -1,5 +1,6 @@
 ---
-title: Action
+title: editText
+description: "Редактирует текст исходного сообщения (для callback)."
 ---
 
 # editText

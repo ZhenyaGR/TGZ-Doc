@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: inline
+description: "Создает экземпляр класса Inline для ответов на Inline-запросы."
 sidebarDepth: 0
 ---
 

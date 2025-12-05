@@ -1,5 +1,6 @@
 ---
-title: Message
+title: kbd
+description: "Добавляет Reply-клавиатуру."
 sidebarDepth: 0
 ---
 

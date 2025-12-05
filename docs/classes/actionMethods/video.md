@@ -1,5 +1,6 @@
 ---
-title: Action
+title: video
+description: "Прикрепляет видео к ответу."
 ---
 
 # video

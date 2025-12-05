@@ -1,5 +1,6 @@
 ---
-title: Action
+title: kbd
+description: "Добавляет Reply-клавиатуру к сообщению."
 ---
 
 # kbd

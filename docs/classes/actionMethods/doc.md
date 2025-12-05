@@ -1,5 +1,6 @@
 ---
-title: Action
+title: doc
+description: "Прикрепляет документ к ответу."
 ---
 
 # doc

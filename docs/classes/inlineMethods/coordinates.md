@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: coordinates
+description: "Устанавливает координаты."
 sidebarDepth: 0
 ---
 

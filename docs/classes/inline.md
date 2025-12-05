@@ -1,5 +1,6 @@
 ---
 title: Inline
+description: "Класс для создания инлайн-ответов."
 sidebarDepth: 0
 ---
 

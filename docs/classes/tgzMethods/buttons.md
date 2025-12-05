@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: buttons
+description: "Методы для простой сборки клавиатуры."
 sidebarDepth: 0
 ---
 

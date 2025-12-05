@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: correctAnswer
+description: "Устанавливает правильный ответ (для викторин)."
 sidebarDepth: 0
 ---
 

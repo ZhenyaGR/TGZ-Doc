@@ -1,5 +1,6 @@
 ---
-title: Action
+title: params
+description: "Добавляет дополнительные параметры API к запросу."
 ---
 
 # params

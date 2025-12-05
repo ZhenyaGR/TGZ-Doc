@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onInline
+description: "Обработчик входящих Inline-запросов."
 ---
 
 # onInline

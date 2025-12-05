@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: getFileID
+description: "Загружает файл по URL и возвращает его file_id."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: delMsg
+description: "Удаляет сообщение по его ID."
 sidebarDepth: 0
 ---
 

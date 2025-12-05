@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: reply
+description: "Отправляет ответ на текущее сообщение (сокращенный метод)."
 sidebarDepth: 0
 ---
 

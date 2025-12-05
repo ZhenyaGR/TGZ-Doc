@@ -1,5 +1,6 @@
 ---
-title: Action
+title: sticker
+description: "Отправляет стикер."
 ---
 
 # sticker

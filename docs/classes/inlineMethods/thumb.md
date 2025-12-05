@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: thumb
+description: "Устанавливает миниатюру."
 sidebarDepth: 0
 ---
 

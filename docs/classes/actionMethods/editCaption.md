@@ -1,5 +1,6 @@
 ---
-title: Action
+title: editCaption
+description: "Редактирует подпись к медиа (для callback)."
 ---
 
 # editCaption

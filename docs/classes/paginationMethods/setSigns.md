@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setSigns
+description: "Настраивает символы стрелок навигации."
 sidebarDepth: 0
 ---
 

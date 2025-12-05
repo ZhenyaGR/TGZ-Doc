@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onVideoNote
+description: "Срабатывает при получении видео-сообщения ('кружочка')."
 ---
 
 # onVideoNote

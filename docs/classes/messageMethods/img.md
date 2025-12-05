@@ -1,5 +1,6 @@
 ---
-title: Message
+title: img
+description: "Добавляет изображение (или альбом)."
 sidebarDepth: 0
 ---
 

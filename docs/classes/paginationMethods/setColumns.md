@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setColumns
+description: "Задает количество колонок."
 sidebarDepth: 0
 ---
 

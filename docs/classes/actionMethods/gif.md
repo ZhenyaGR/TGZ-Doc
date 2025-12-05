@@ -1,5 +1,6 @@
 ---
-title: Action
+title: gif
+description: "Прикрепляет GIF к ответу."
 ---
 
 # gif

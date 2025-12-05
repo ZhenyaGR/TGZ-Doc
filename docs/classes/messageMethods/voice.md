@@ -1,5 +1,6 @@
 ---
-title: Message
+title: voice
+description: "Добавляет голосовое сообщение."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Message
+title: video
+description: "Добавляет видео (или альбом)."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setMaxPageBtn
+description: "Лимит кнопок страниц."
 sidebarDepth: 0
 ---
 

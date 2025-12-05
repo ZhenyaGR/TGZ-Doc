@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onMessage
+description: "Обработчик любого текстового сообщения (fallback для текста)."
 ---
 
 # onMessage

@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: title
+description: "Устанавливает заголовок."
 sidebarDepth: 0
 ---
 

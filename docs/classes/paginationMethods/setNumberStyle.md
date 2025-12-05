@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setNumberStyle
+description: "Стиль цифр (обычные/эмодзи)."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onCallback
+description: "Обработчик нажатия на Inline-кнопку."
 ---
 
 # onCallback

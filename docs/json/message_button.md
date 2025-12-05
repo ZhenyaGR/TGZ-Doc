@@ -1,5 +1,6 @@
 ---
-title: Обновления
+title: Нажатие на кнопку
+description: "JSON-структура callback_query."
 ---
 
 # Нажатие на кнопку

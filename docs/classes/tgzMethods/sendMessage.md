@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: sendMessage
+description: "Отправляет текстовое сообщение в указанный чат (прямой метод)."
 ---
 
 # sendMessage

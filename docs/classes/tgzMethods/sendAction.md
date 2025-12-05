@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: sendAction
+description: "Отправляет статус действия бота (например, 'typing')."
 ---
 
 # sendAction

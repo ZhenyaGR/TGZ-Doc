@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onVoice
+description: "Срабатывает при получении голосового сообщения."
 ---
 
 # onVoice

@@ -1,5 +1,6 @@
 ---
 title: File
+description: "Класс для работы с файлами."
 ---
 
 # **File**

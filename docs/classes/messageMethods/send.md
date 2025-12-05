@@ -1,5 +1,6 @@
 ---
-title: Message
+title: send
+description: "Отправляет сформированное сообщение."
 sidebarDepth: 0
 ---
 

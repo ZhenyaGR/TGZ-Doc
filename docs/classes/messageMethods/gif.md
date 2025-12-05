@@ -1,5 +1,6 @@
 ---
-title: Message
+title: gif
+description: "Добавляет GIF."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: get
+description: "Методы получения данных из обновления (getChatId, getText и др.)."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: id
+description: "Устанавливает ID результата."
 sidebarDepth: 0
 ---
 

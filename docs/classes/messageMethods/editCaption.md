@@ -1,5 +1,6 @@
 ---
-title: Message
+title: editCaption
+description: "Редактирует подпись медиа по ID."
 sidebarDepth: 0
 ---
 
