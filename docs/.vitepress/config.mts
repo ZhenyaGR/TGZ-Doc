@@ -19,6 +19,7 @@ export default defineConfig({
                 ignoreFiles: [
                     '**/json/**',
                     '**/main.md',
+                    '**/index.md',
                     '**/classes/tgzMethods/buttons.md',
                     '**/install/requirements.md',
                     '**/install/create_bot.md',
