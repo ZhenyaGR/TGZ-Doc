@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: fileUrl
+description: "Устанавливает URL файла."
 sidebarDepth: 0
 ---
 

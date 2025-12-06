@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: getTotalPage
+description: "Возвращает общее количество страниц."
 sidebarDepth: 0
 ---
 

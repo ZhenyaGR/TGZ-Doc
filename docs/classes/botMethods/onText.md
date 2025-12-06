@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onText
+description: "Обработчик точного совпадения текста сообщения."
 ---
 
 # onText

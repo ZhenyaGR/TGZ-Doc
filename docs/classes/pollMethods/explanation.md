@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: explanation
+description: "Добавляет пояснение к викторине."
 sidebarDepth: 0
 ---
 

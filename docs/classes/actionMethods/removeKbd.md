@@ -1,5 +1,6 @@
 ---
-title: Action
+title: removeKbd
+description: "Удаляет Reply-клавиатуру у пользователя."
 ---
 
 # removeKbd

@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setActivePageFormat
+description: "Формат отображения активной страницы."
 sidebarDepth: 0
 ---
 

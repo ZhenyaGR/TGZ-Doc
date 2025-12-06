@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: callAPI
+description: "Выполняет произвольный метод Telegram Bot API."
 sidebarDepth: 0
 ---
 

@@ -1,54 +1,53 @@
 import { defineConfig } from 'vitepress'
-import llmstxtPlugin from 'vitepress-plugin-llmstxt'
-import fs from 'node:fs'
-import path from 'node:path'
+import llmstxt from 'vitepress-plugin-llms'
+import { copyFileSync } from 'node:fs'
+import { join, resolve } from 'node:path'
 
 export default defineConfig({
-
     vite: {
         plugins: [
-            llmstxtPlugin({
-                hostname: 'https://zhenyagr.github.io/TGZ-Doc',
-                llmsFile: true,
-                llmsFullFile: true,
-                mdFiles: false,
+            llmstxt({
+                // 1. Домен сайта (обязательно для абсолютных ссылок)
+                domain: 'https://zhenyagr.github.io', //потом можно убрать, когда будет в корне
 
-                ignore: [
+                // 2. Какие файлы генерировать
+                generateLLMsTxt: true,      // Создать llms.txt
+                generateLLMsFullTxt: true,  // Создать llms-full.txt
+                generateLLMFriendlyDocsForEachPage: true, // Создать .md копии страниц
+
+                // 3. Список игнорируемых файлов
+                ignoreFiles: [
                     '**/json/**',
-                    '**/install/who_tgz.md',
-                    '**/install/site_helper.md',
+                    '**/install/requirements.md',
                     '**/install/create_bot.md',
-                    '**/team.md',
+                    '**/404.md'
                 ],
 
-                transform: ({ page }) => {
-                    // 1. Добавляем системный промпт (только для full версии)
-                    if (page.path === '/llms-full.txt') {
-                        const systemPrompt = `# TGZ Library Documentation Context
-I am an expert coding assistant for the PHP library "TGZ". 
-Use the documentation below to answer questions and write code.
-Prefer utilizing the "Bot" class router and method chaining over raw API calls.
----
-`;
-                        page.content = systemPrompt + page.content;
-                    }
+                // 4. Опции исключения "мусорных" страниц (экономия токенов)
+                excludeUnnecessaryFiles: true, // Включить фильтрацию
+                excludeIndexPage: false,       // Оставить главную страницу (index.md)
+                excludeBlog: true,             // Убрать блог (если есть)
+                excludeTeam: true,             // Убрать страницу команды
 
-                    // 2. СОХРАНЕНИЕ В КОРЕНЬ ПРОЕКТА (Сразу, без ожидания сборки)
-                    if (page.path === '/llms.txt' || page.path === '/llms-full.txt') {
-                        try {
-                            // process.cwd() — это папка, где лежит package.json
-                            // page.path.replace(/^\//, '') убирает первый слэш из имени файла
-                            const rootFilePath = path.join(process.cwd(), page.path.replace(/^\//, ''));
+                // 5. Очистка HTML (рекомендуется)
+                stripHTML: true,
 
-                            fs.writeFileSync(rootFilePath, page.content);
-                            console.log(`✅ [Saved to Root]: ${rootFilePath}`);
-                        } catch (e) {
-                            console.error(`❌ Ошибка сохранения ${page.path}:`, e);
-                        }
-                    }
+                // 6. Скрытая подсказка для LLM внутри HTML страниц
+                injectLLMHint: true,
 
-                    return page;
-                },
+                // 7. Кастомный шаблон для llms.txt (опционально, если хотите изменить порядок)
+                customLLMsTxtTemplate: `# {title}
+
+{description}
+
+## Table of Contents
+
+{toc}
+`,
+                customTemplateVariables: {
+                    title: 'TGZ Library Documentation',
+                    description: 'Powerful PHP library for creating Telegram bots with Webhook & LongPoll support',
+                }
             })
         ]
     },
@@ -65,6 +64,33 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
     head: [
         ['link', {rel: 'icon', href: '/logo.png'}]
     ],
+
+    async buildEnd(siteConfig) {
+        // outDir - папка сборки (например, .vitepress/dist)
+        const outDir = siteConfig.outDir
+        // rootDir - корень проекта
+        const rootDir = process.cwd()
+
+        const filesToCopy = ['llms.txt', 'llms-full.txt']
+
+        console.log('🔄 Starting copy process from dist to root...')
+
+        for (const fileName of filesToCopy) {
+            // Используем resolve для получения абсолютного пути к исходному файлу
+            const sourcePath = resolve(outDir, fileName)
+            // Используем join для получения абсолютного пути в корне проекта
+            const destinationPath = join(rootDir, fileName)
+
+            try {
+                copyFileSync(sourcePath, destinationPath)
+                console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
+            } catch (e) {
+                // Выводим более понятную ошибку, если файла нет
+                console.error(`❌ ERROR copying ${fileName}. Ensure the file exists in ${outDir}. Details:`, e.message)
+            }
+        }
+    },
+
 
     themeConfig: {
 
@@ -227,45 +253,45 @@ Prefer utilizing the "Bot" class router and method chaining over raw API calls.
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
                             {text: 'tgz', link: '/classes/botMethods/tgz'},
                             {text: 'run', link: '/classes/botMethods/run'},
+                        ]
+                    },
 
-                            {
-                                text: 'Action',
-                                link: '/classes/action',
-                                collapsed: false,
-                                items: [
-                                    // 1. Логика обработки
-                                    {text: 'func', link: '/classes/actionMethods/func'},
-                                    {text: 'access', link: '/classes/actionMethods/access'},
-                                    {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
-                                    {text: 'middleware', link: '/classes/actionMethods/middleware'},
-                                    {text: 'redirect', link: '/classes/actionMethods/redirect'},
+                    {
+                        text: 'Action',
+                        link: '/classes/action',
+                        collapsed: false,
+                        items: [
+                            // 1. Логика обработки
+                            {text: 'func', link: '/classes/actionMethods/func'},
+                            {text: 'access', link: '/classes/actionMethods/access'},
+                            {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
+                            {text: 'middleware', link: '/classes/actionMethods/middleware'},
+                            {text: 'redirect', link: '/classes/actionMethods/redirect'},
 
-                                    // 2. Простой ответ
-                                    {text: 'text', link: '/classes/actionMethods/text'},
-                                    {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
-                                    {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
+                            // 2. Простой ответ
+                            {text: 'text', link: '/classes/actionMethods/text'},
+                            {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
+                            {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
 
-                                    // 3. Медиа ответ
-                                    {text: 'img', link: '/classes/actionMethods/img'},
-                                    {text: 'video', link: '/classes/actionMethods/video'},
-                                    {text: 'audio', link: '/classes/actionMethods/audio'},
-                                    {text: 'voice', link: '/classes/actionMethods/voice'},
-                                    {text: 'doc', link: '/classes/actionMethods/doc'},
-                                    {text: 'gif', link: '/classes/actionMethods/gif'},
-                                    {text: 'sticker', link: '/classes/actionMethods/sticker'},
+                            // 3. Медиа ответ
+                            {text: 'img', link: '/classes/actionMethods/img'},
+                            {text: 'video', link: '/classes/actionMethods/video'},
+                            {text: 'audio', link: '/classes/actionMethods/audio'},
+                            {text: 'voice', link: '/classes/actionMethods/voice'},
+                            {text: 'doc', link: '/classes/actionMethods/doc'},
+                            {text: 'gif', link: '/classes/actionMethods/gif'},
+                            {text: 'sticker', link: '/classes/actionMethods/sticker'},
 
-                                    // 4. Клавиатуры
-                                    {text: 'kbd', link: '/classes/actionMethods/kbd'},
-                                    {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
-                                    {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
+                            // 4. Клавиатуры
+                            {text: 'kbd', link: '/classes/actionMethods/kbd'},
+                            {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
+                            {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
 
-                                    // 5. Дополнительно и редактирование
-                                    {text: 'reply', link: '/classes/actionMethods/reply'},
-                                    {text: 'params', link: '/classes/actionMethods/params'},
-                                    {text: 'editText', link: '/classes/actionMethods/editText'},
-                                    {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
-                                ]
-                            },
+                            // 5. Дополнительно и редактирование
+                            {text: 'reply', link: '/classes/actionMethods/reply'},
+                            {text: 'params', link: '/classes/actionMethods/params'},
+                            {text: 'editText', link: '/classes/actionMethods/editText'},
+                            {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                         ]
                     },
 

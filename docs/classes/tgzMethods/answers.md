@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: answers
+description: "Методы для ответа на callback (answerCallbackQuery) и inline запросы."
 sidebarDepth: 0
 ---
 

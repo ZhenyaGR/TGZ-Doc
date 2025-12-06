@@ -1,5 +1,6 @@
 ---
-title: Message
+title: editMedia
+description: "Заменяет медиа в сообщении по ID."
 sidebarDepth: 0
 ---
 

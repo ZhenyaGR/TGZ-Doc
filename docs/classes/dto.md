@@ -1,5 +1,6 @@
 ---
 title: DTO
+description: "Объекты данных UserDto и ChatDto."
 ---
 
 # DTO

@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onPhoto
+description: "Срабатывает при получении изображения."
 ---
 
 # onPhoto

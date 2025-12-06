@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onEditedMessage
+description: "Срабатывает при редактировании сообщения пользователем."
 ---
 
 # onEditedMessage

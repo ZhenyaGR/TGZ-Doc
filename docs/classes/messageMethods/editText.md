@@ -1,5 +1,6 @@
 ---
-title: Message
+title: editText
+description: "Редактирует текст сообщения по ID."
 sidebarDepth: 0
 ---
 

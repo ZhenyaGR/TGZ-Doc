@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onTextPreg
+description: "Обработчик текста сообщения по регулярному выражению."
 ---
 
 # onTextPreg

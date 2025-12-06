@@ -1,5 +1,6 @@
 ---
-title: Action
+title: noAccess
+description: "Запрещает доступ к маршруту по ID пользователя (черный список)."
 ---
 
 ## noAccess

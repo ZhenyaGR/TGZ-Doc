@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: copyMsg
+description: "Копирует сообщение из одного чата в другой."
 sidebarDepth: 0
 ---
 

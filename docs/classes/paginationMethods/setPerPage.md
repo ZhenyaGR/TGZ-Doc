@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setPerPage
+description: "Задает количество элементов на странице."
 sidebarDepth: 0
 ---
 

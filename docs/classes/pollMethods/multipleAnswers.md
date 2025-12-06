@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: multipleAnswers
+description: "Разрешает выбор нескольких вариантов."
 sidebarDepth: 0
 ---
 

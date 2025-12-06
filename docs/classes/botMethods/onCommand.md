@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onCommand
+description: "Обработчик кастомных команд с поддержкой аргументов и плейсхолдеров."
 ---
 
 # onCommand

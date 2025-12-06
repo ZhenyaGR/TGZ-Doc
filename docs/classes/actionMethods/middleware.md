@@ -1,5 +1,6 @@
 ---
-title: Action
+title: middleware
+description: "Регистрирует Middleware для конкретного маршрута."
 ---
 
 # middleware

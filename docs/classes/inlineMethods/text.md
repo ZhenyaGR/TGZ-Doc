@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: text
+description: "Устанавливает текст сообщения при выборе."
 sidebarDepth: 0
 ---
 

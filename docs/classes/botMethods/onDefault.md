@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onDefault
+description: "Глобальный fallback-обработчик для любых необработанных событий."
 ---
 
 # onDefault

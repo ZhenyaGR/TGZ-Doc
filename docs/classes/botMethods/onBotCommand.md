@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onBotCommand
+description: "Обработчик стандартных команд (начинающихся с /)."
 ---
 
 # onBotCommand

@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: defaultParseMode
+description: "Устанавливает режим разметки по умолчанию для всех сообщений."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setPrefix
+description: "Устанавливает префикс для callback_data."
 sidebarDepth: 0
 ---
 

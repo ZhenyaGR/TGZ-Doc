@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: params
+description: "Добавляет доп. параметры."
 sidebarDepth: 0
 ---
 

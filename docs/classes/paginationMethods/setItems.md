@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setItems
+description: "Устанавливает массив элементов для пагинации."
 sidebarDepth: 0
 ---
 

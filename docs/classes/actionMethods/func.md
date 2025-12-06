@@ -1,5 +1,6 @@
 ---
-title: Action
+title: func
+description: "Выполняет пользовательскую функцию-обработчик."
 ---
 
 # func

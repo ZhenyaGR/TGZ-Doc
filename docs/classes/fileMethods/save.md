@@ -1,5 +1,6 @@
 ---
-title: File
+title: save
+description: "Скачивает и сохраняет файл локально."
 sidebarDepth: 0
 ---
 

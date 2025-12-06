@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: parseMode
+description: "Устанавливает режим разметки."
 sidebarDepth: 0
 ---
 

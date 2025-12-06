@@ -1,5 +1,6 @@
 ---
-title: Action
+title: query
+description: "Показывает всплывающее уведомление (alert) на callback-запрос."
 ---
 
 # query

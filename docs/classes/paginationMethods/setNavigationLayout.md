@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setNavigationLayout
+description: "Настраивает расположение кнопок навигации."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: create
+description: "Собирает массив результата."
 sidebarDepth: 0
 ---
 

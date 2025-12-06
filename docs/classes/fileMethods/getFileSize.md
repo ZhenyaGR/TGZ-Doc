@@ -1,5 +1,6 @@
 ---
-title: File
+title: getFileSize
+description: "Возвращает размер файла."
 sidebarDepth: 0
 ---
 

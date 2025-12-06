@@ -1,5 +1,6 @@
 ---
-title: Action
+title: redirect
+description: "Перенаправляет выполнение на другой маршрут."
 ---
 
 # redirect

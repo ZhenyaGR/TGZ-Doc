@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: addAnswers
+description: "Добавляет варианты ответов."
 sidebarDepth: 0
 ---
 

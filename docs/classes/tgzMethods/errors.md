@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: errors
+description: "Настройка обработки и логирования ошибок (ErrorHandler)."
 sidebarDepth: 0
 ---
 

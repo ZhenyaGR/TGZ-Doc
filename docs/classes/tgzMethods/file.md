@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: file
+description: "Создает экземпляр класса File для работы с файлами (скачивание, инфо)."
 sidebarDepth: 0
 ---
 

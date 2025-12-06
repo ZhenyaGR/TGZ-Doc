@@ -1,5 +1,6 @@
 ---
 title: Pagination
+description: "Класс для пагинации страниц."
 sidebarDepth: 0
 ---
 

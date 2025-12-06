@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: question
+description: "Устанавливает вопрос опроса."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Action
+title: audio
+description: "Прикрепляет аудио к ответу."
 ---
 
 # audio

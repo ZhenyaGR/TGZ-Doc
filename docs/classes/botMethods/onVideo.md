@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onVideo
+description: "Срабатывает при получении видео."
 ---
 
 # onVideo

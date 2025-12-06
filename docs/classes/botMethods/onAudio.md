@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onAudio
+description: "Срабатывает при получении аудиофайла."
 ---
 
 # onAudio

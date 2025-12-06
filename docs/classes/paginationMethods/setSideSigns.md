@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setSideSigns
+description: "Включает кнопки 'В начало/В конец'."
 sidebarDepth: 0
 ---
 

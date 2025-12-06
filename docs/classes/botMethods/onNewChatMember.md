@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onNewChatMember
+description: "Срабатывает при вступлении новых участников в чат."
 ---
 
 # onNewChatMember

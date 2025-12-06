@@ -1,5 +1,6 @@
 ---
-title: Action
+title: redirect
+description: "Перенаправляет на другой маршрут (например, 'Назад')."
 ---
 
 # redirect

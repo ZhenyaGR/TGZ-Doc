@@ -1,5 +1,6 @@
 ---
-title: Action
+title: img
+description: "Прикрепляет изображение к ответу."
 ---
 
 # img

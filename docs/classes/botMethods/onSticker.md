@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onSticker
+description: "Срабатывает при получении стикера."
 ---
 
 # onSticker

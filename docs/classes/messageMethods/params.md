@@ -1,5 +1,6 @@
 ---
-title: Message
+title: params
+description: "Устанавливает дополнительные параметры."
 sidebarDepth: 0
 ---
 

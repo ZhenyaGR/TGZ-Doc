@@ -1,5 +1,6 @@
 ---
-title: Message
+title: parseMode
+description: "Устанавливает режим разметки."
 sidebarDepth: 0
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: initVars
+description: "Инициализирует основные переменные (chat_id, user_id, text) из входящего обновления."
 sidebarDepth: 0
 ---
 

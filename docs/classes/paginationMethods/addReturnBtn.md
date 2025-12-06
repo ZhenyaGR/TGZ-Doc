@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: addReturnBtn
+description: "Добавляет кнопку 'Назад' под пагинацией."
 sidebarDepth: 0
 ---
 

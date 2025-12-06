@@ -1,5 +1,6 @@
 ---
-title: Message
+title: dice
+description: "Отправляет анимированный эмодзи-кубик."
 sidebarDepth: 0
 ---
 

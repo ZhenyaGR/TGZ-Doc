@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: create
+description: "Генерирует массив кнопок для клавиатуры."
 sidebarDepth: 0
 ---
 

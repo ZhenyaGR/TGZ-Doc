@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: address
+description: "Устанавливает адрес."
 sidebarDepth: 0
 ---
 

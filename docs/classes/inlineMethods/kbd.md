@@ -1,5 +1,6 @@
 ---
-title: Inline
+title: kbd
+description: "Добавляет Inline-клавиатуру к результату."
 sidebarDepth: 0
 ---
 

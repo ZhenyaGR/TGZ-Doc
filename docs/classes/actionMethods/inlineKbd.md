@@ -1,5 +1,6 @@
 ---
-title: Action
+title: inlineKbd
+description: "Добавляет Inline-клавиатуру к сообщению."
 ---
 
 # inlineKbd

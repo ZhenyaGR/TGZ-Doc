@@ -1,5 +1,6 @@
 ---
-title: Action
+title: reply
+description: "Делает сообщение ответом (reply) на входящее."
 ---
 
 # reply

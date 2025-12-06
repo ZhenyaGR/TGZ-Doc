@@ -1,5 +1,6 @@
 ---
 title: Message
+description: "Конструктор сообщений."
 sidebarDepth: 0
 ---
 

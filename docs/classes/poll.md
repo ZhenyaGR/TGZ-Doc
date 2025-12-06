@@ -1,5 +1,6 @@
 ---
 title: Poll
+description: "Класс для создания опросов."
 sidebarDepth: 0
 ---
 

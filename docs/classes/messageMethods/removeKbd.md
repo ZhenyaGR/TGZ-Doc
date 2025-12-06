@@ -1,5 +1,6 @@
 ---
-title: Message
+title: removeKbd
+description: "Удаляет клавиатуру."
 sidebarDepth: 0
 ---
 

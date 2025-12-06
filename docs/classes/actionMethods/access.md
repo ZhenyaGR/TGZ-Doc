@@ -1,5 +1,6 @@
 ---
-title: Action
+title: access
+description: "Ограничивает доступ к маршруту по ID пользователя (белый список)."
 url: /classes/actionMethods/access.md
 ---
 

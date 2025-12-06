@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onReferral
+description: "Обработчик реферальных ссылок (параметры в /start)."
 ---
 
 # onReferral

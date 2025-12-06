@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: isAnonymous
+description: "Настраивает анонимность опроса."
 sidebarDepth: 0
 ---
 

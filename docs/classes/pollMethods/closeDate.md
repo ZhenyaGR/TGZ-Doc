@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: closeDate
+description: "Устанавливает дату закрытия опроса."
 sidebarDepth: 0
 ---
 

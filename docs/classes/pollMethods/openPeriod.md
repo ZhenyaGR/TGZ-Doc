@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: openPeriod
+description: "Устанавливает время жизни опроса."
 sidebarDepth: 0
 ---
 

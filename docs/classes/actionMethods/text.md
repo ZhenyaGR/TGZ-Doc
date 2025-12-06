@@ -1,5 +1,6 @@
 ---
-title: Action
+title: text
+description: "Отправляет текстовое сообщение в ответ на событие."
 ---
 
 # text

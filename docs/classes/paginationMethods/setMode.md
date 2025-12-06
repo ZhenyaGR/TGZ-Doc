@@ -1,5 +1,6 @@
 ---
-title: Pagination
+title: setMode
+description: "Переключает вид навигации (стрелки/цифры)."
 sidebarDepth: 0
 ---
 

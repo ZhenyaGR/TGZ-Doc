@@ -1,5 +1,6 @@
 ---
-title: Bot
+title: onDocument
+description: "Срабатывает при получении документа."
 ---
 
 # onDocument

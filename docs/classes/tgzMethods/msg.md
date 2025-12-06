@@ -1,5 +1,6 @@
 ---
-title: TGZ
+title: msg
+description: "Создает экземпляр класса Message для отправки сообщений."
 sidebarDepth: 0
 ---
 

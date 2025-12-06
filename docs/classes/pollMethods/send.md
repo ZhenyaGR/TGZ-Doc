@@ -1,5 +1,6 @@
 ---
-title: Poll
+title: send
+description: "Отправляет опрос."
 sidebarDepth: 0
 ---
 
