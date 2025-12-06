@@ -18,6 +18,8 @@ export default defineConfig({
                 // 3. Список игнорируемых файлов
                 ignoreFiles: [
                     '**/json/**',
+                    '**/main.md',
+                    '**/classes/tgzMethods/buttons.md',
                     '**/install/requirements.md',
                     '**/install/create_bot.md',
                     '**/404.md'
@@ -281,6 +283,7 @@ export default defineConfig({
                             {text: 'doc', link: '/classes/actionMethods/doc'},
                             {text: 'gif', link: '/classes/actionMethods/gif'},
                             {text: 'sticker', link: '/classes/actionMethods/sticker'},
+                            {text: 'dice', link: '/classes/actionMethods/dice'},
 
                             // 4. Клавиатуры
                             {text: 'kbd', link: '/classes/actionMethods/kbd'},
