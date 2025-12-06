@@ -1,4 +1,3 @@
-
 # TGZ Library Documentation
 
 > Powerful PHP library for creating Telegram bots with Webhook & LongPoll support
