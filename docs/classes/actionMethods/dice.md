@@ -1,5 +1,6 @@
 ---
-title: Action
+title: dice
+description: "Отправляет анимированный эмодзи."
 ---
 
 # dice
