@@ -178,7 +178,7 @@ export default defineConfig({
                 link: '/classes/main',
                 items: [
                     {
-                        text: 'ZenithGram',
+                        text: 'ZG',
                         link: '/classes/zenith',
                         collapsed: true,
                         items: [
@@ -262,7 +262,7 @@ export default defineConfig({
                     {
                         text: 'Action',
                         link: '/classes/action',
-                        collapsed: false,
+                        collapsed: true,
                         items: [
                             // 1. Логика обработки
                             {text: 'func', link: '/classes/actionMethods/func'},
