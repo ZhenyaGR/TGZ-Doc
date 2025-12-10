@@ -1,13 +1,13 @@
 ---
-title: TGZ
+title: ZG
 description: "Основной класс библиотеки."
 sidebarDepth: 0
 ---
 
-# **TGZ** 
-Основной класс библиотеки `TGZ`.
+# **ZG** 
+Основной класс библиотеки `ZG`.
 
-## Создание экземпляра `TGZ`
+## Создание экземпляра `ZG`
 Для создания экземпляра класса используется `create` – статический фабричный метод.
 
 ::: tip Токен
@@ -20,17 +20,17 @@ sidebarDepth: 0
 | 1 | **token** | `string` | Токен вашего Telegram бота, полученный от @BotFather. |
 
 ### Возвращает
-`TGZ` - экземпляр класса `TGZ`, готовый к использованию.
+`ZG` - экземпляр класса `ZG`, готовый к использованию.
 
 ### Пример использования
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
 // Замените 'ТОКЕН' на фактический токен вашего бота
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 ```
 
 ## Сценарии использования
@@ -58,13 +58,4 @@ $tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_
 // Стандартные геттеры
 $chat_id = $tg->getChatId();
 $user_id = $tg->getUserId();
-```
-
-4. Создание кнопок
-
-```php
-$keyboard = [
-    [$tg->buttonCallback('Кнопка', 'callback_data')],
-    [$tg->buttonUrl('Другая кнопка', 'google.com')],
-];
 ```

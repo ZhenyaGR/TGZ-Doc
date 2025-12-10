@@ -124,7 +124,7 @@ export default defineConfig({
         // logo: '/ico.ico',
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/zhenyagr/tgz'},
+            {icon: 'github', link: 'https://github.com/ZenithGram/php-telegram-bot-library'},
         ],
 
         search: {
@@ -153,7 +153,7 @@ export default defineConfig({
                 text: 'Начало работы',
                 collapsed: false,
                 items: [
-                    {text: 'Почему TGZ?', link: '/install/who_tgz'},
+                    {text: 'Почему ZenithGram?', link: '/install/who_zenith'},
                     {text: 'Установка и подключение', link: '/install/requirements'},
                     {text: 'Создание бота в TG', link: '/install/create_bot'},
                     {text: 'Примеры ботов', link: '/install/examples'},
@@ -178,37 +178,37 @@ export default defineConfig({
                 link: '/classes/main',
                 items: [
                     {
-                        text: 'TGZ',
-                        link: '/classes/tgz',
+                        text: 'ZenithGram',
+                        link: '/classes/zenith',
                         collapsed: true,
                         items: [
                             // 1. Фабрики (создание других объектов) - с чего начинается код
-                            {text: 'msg', link: '/classes/tgzMethods/msg'},
-                            {text: 'poll', link: '/classes/tgzMethods/poll'},
-                            {text: 'pagination', link: '/classes/tgzMethods/pagination'},
-                            {text: 'inline', link: '/classes/tgzMethods/inline'},
-                            {text: 'file', link: '/classes/tgzMethods/file'},
+                            {text: 'msg', link: '/classes/zenithMethods/msg'},
+                            {text: 'poll', link: '/classes/zenithMethods/poll'},
+                            {text: 'pagination', link: '/classes/zenithMethods/pagination'},
+                            {text: 'inline', link: '/classes/zenithMethods/inline'},
+                            {text: 'file', link: '/classes/zenithMethods/file'},
 
                             // 2. Работа с контекстом и данными (получение инфы)
-                            {text: 'initVars', link: '/classes/tgzMethods/initVars'},
-                            {text: 'get', link: '/classes/tgzMethods/get'}, // Группа геттеров
-                            {text: 'getFileID', link: '/classes/tgzMethods/getFileID'},
+                            {text: 'initVars', link: '/classes/zenithMethods/initVars'},
+                            {text: 'get', link: '/classes/zenithMethods/get'}, // Группа геттеров
+                            {text: 'getFileID', link: '/classes/zenithMethods/getFileID'},
 
                             // 3. Глобальные настройки
-                            {text: 'defaultParseMode', link: '/classes/tgzMethods/defaultParseMode'},
-                            {text: 'errors', link: '/classes/tgzMethods/errors'},
+                            {text: 'defaultParseMode', link: '/classes/zenithMethods/defaultParseMode'},
+                            {text: 'errors', link: '/classes/zenithMethods/errors'},
 
                             // 4. Простые действия (отправка/удаление без конструктора)
-                            {text: 'sendMessage', link: '/classes/tgzMethods/sendMessage'},
-                            {text: 'reply', link: '/classes/tgzMethods/reply'},
-                            {text: 'copyMsg', link: '/classes/tgzMethods/copyMsg'},
-                            {text: 'delMsg', link: '/classes/tgzMethods/delMsg'},
-                            {text: 'sendAction', link: '/classes/tgzMethods/sendAction'},
-                            {text: 'answers', link: '/classes/tgzMethods/answers'},
+                            {text: 'sendMessage', link: '/classes/zenithMethods/sendMessage'},
+                            {text: 'reply', link: '/classes/zenithMethods/reply'},
+                            {text: 'copyMsg', link: '/classes/zenithMethods/copyMsg'},
+                            {text: 'delMsg', link: '/classes/zenithMethods/delMsg'},
+                            {text: 'sendAction', link: '/classes/zenithMethods/sendAction'},
+                            {text: 'answers', link: '/classes/zenithMethods/answers'},
 
                             // 5. Хелперы и низкий уровень
                             // {text: 'buttons', link: '/classes/tgzMethods/buttons'}, Устаревшие кнопки
-                            {text: 'callAPI', link: '/classes/tgzMethods/callAPI'},
+                            {text: 'callAPI', link: '/classes/zenithMethods/callAPI'},
                         ]
                     },
 
@@ -254,7 +254,7 @@ export default defineConfig({
                             // 6. Ядро и запуск
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
-                            {text: 'tgz', link: '/classes/botMethods/tgz'},
+                            {text: 'zg', link: '/classes/botMethods/zg'},
                             {text: 'run', link: '/classes/botMethods/run'},
                         ]
                     },
