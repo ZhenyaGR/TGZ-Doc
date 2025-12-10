@@ -83,7 +83,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Нет изменений для записи"
           else
-            git commit -m "Обновление после изменений в библиотеке"
+            git commit -m "Обновление после изменений в документации"
             git push
             echo "✅ Успешно отправлено в ZenithGram/ai-context"
           fi
