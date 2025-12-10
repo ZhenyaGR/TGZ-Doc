@@ -55,4 +55,4 @@ if ($type === 'bot_command')
 ```
 
 ## Вспомогательные методы
-- [`getFileID`](/classes/tgzMethods/getFileID.md) - Получить ID файла
+- [`getFileID`](/classes/zenithMethods/getFileID.md) - Получить ID файла
