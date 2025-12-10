@@ -8,7 +8,7 @@ export default defineConfig({
         plugins: [
             llmstxt({
                 // 1. Домен сайта (обязательно для абсолютных ссылок)
-                domain: 'https://zhenyagr.github.io', //потом можно убрать, когда будет в корне
+                domain: 'https://zenithgram.github.io', //потом можно убрать, когда будет в корне
 
                 // 2. Какие файлы генерировать
                 generateLLMsTxt: true,      // Создать llms.txt
@@ -58,7 +58,7 @@ export default defineConfig({
     lang: 'ru-RU',
     title: "Telegram-Z",
     description: "Документация библиотеки TGZ",
-    base: "/TGZ-Doc/",
+    base: "/",
     cleanUrls: true,
     // srcDir: './docs',
     appearance: 'dark',
