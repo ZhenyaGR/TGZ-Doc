@@ -98,7 +98,7 @@
 - [doc](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/doc.md): Прикрепляет документ к ответу.
 - [gif](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/gif.md): Прикрепляет GIF к ответу.
 - [sticker](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/sticker.md): Отправляет стикер.
-- [Action](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/dice.md)
+- [dice](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/dice.md): Отправляет анимированный эмодзи.
 - [kbd](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/kbd.md): Добавляет Reply-клавиатуру к сообщению.
 - [inlineKbd](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/inlineKbd.md): Добавляет Inline-клавиатуру к сообщению.
 - [removeKbd](https://zhenyagr.github.io/TGZ-Doc/classes/actionMethods/removeKbd.md): Удаляет Reply-клавиатуру у пользователя.
