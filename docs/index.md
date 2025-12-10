@@ -13,7 +13,7 @@ hero:
     - theme: brand
       text: Начало работы
       link: /install/who_zenith
-    - theme: alt
+    - theme: alt 
       text: Примеры ботов
       link: /install/examples
     - theme: alt
