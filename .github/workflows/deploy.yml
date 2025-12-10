@@ -61,10 +61,10 @@ jobs:
         run: |
           # 1. Настраиваем Git и клонируем целевой репозиторий в папку 'temp_tgz'
           # Используем токен прямо в URL для авторизации
-          git clone --depth 1 https://oauth2:$TOKEN@github.com/ZhenyaGR/TGZ.git temp_tgz
+          git clone --depth 1 https://oauth2:$TOKEN@github.com/ZenithGram/php-telegram-bot-library.git temp_ai
           
           # 2. Переходим в склонированный репозиторий
-          cd temp_tgz
+          cd temp_ai
           
           # 3. Создаем папку ai-context (если её нет - создастся, если есть - ок)
           mkdir -p ai-context
@@ -85,7 +85,7 @@ jobs:
           else
             git commit -m "Обновление после изменений в библиотеке"
             git push
-            echo "✅ Успешно отправлено в TGZ/ai-context"
+            echo "✅ Успешно отправлено в ZenithGram//ai-context"
           fi
 
       # --- БЛОК 3: Деплой сайта ---
