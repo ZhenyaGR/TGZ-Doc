@@ -85,7 +85,7 @@ jobs:
           else
             git commit -m "Обновление после изменений в библиотеке"
             git push
-            echo "✅ Успешно отправлено в ZenithGram//ai-context"
+            echo "✅ Успешно отправлено в ZenithGram/ai-context"
           fi
 
       # --- БЛОК 3: Деплой сайта ---
