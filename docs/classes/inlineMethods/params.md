@@ -19,9 +19,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $query_id = $tg->getQueryId();
 
 $results = [

@@ -17,10 +17,10 @@ description: "Перенаправляет выполнение на друго�
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // 1. Действие, на которое будем ссылаться, - главное меню.

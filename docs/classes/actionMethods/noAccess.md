@@ -28,14 +28,14 @@ description: "Запрещает доступ к маршруту по ID пол
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban %w')
-    ->func(function(TGZ $tg, $arg1) {
+    ->func(function(ZG $tg, $arg1) {
         $tg->msg("✅ Пользователь `{$arg1}` забанен")->send();
         
     })
@@ -49,18 +49,18 @@ $bot->run();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban %w')
-    ->func(function(TGZ $tg, $arg1) {
+    ->func(function(ZG $tg, $arg1) {
         $tg->msg("✅ Пользователь `{$arg1}` забанен")->send();
         
     })
-    ->noAccess(123456, function(TGZ $tg) {
+    ->noAccess(123456, function(ZG $tg) {
         $tg->reply("Доступ запрещен"); 
         // Отправит сообщение, если попробует использовать пользователь с ID 123456
     });

@@ -23,11 +23,11 @@ DTO (Data Transfer Object) - простой объект, хранящий в с
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Dto\UserDto; // Импортируем класс
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Dto\UserDto; // Импортируем класс
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('/userdto')
@@ -77,11 +77,11 @@ $bot->run();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Dto\ChatDto; // Импортируем класс
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Dto\ChatDto; // Импортируем класс
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('/chatdto')

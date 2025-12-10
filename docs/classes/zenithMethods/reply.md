@@ -20,9 +20,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 $type = $tg->getType();
 
 if ($type === 'text' || $type === 'bot_command')

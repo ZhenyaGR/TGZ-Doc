@@ -19,13 +19,13 @@ description: "Регистрирует глобальное Middleware для б
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
-$bot->middleware(function(TGZ, callable $next) {
+$bot->middleware(function(ZG, callable $next) {
     $user_id = $tg->getUserId();
     if ($user_id === 123456) {
         $next();        

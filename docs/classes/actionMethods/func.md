@@ -17,11 +17,11 @@ description: "Выполняет пользовательскую функцию
 `Action` — экземпляр класса `Action` (Вспомогательный класс), на который можно навешивать дальнейшие действия (`text`, `func` и т.д.).
 
 ## Аргументы обработчика
-- `TGZ` - экземпляр класса.
+- `TGZ` - экземпляр основного класса.
 Ваша функция может принимать аргументы, извлеченные из сообщения пользователя:
 - Для `onCommand`: значения, соответствующие плейсхолдерам (`%w`, `%n`, `%s`), или все аргументы команды.
 - Для `onTextPreg`: значения совпадений из `preg_match`.
-- Для `onReferra;`: значения из реферальной ссылки.
+- Для `onReferral`: значения из реферальной ссылки.
 - Для `onLeftChatMember`: экземпляр класса `UserDto`.
 - Для `onNewChatMember`: экземпляры класса `UserDto`.
 
@@ -29,15 +29,15 @@ description: "Выполняет пользовательскую функцию
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // Пример с onCommand и аргументами
 $bot->onCommand('ban', '!ban %w %s')
-    ->func(function(TGZ $tg, string $username, string $reason) {
+    ->func(function(ZG $tg, string $username, string $reason) {
         // Здесь может быть ваша логика: запись в БД, проверка прав и т.д.
         $tg->msg("✅ Пользователь `{$username}` забанен по причине: `{$reason}`")
            ->parseMode('MarkdownV2')
@@ -46,7 +46,7 @@ $bot->onCommand('ban', '!ban %w %s')
 
 // Пример с onTextPreg для извлечения данных
 $bot->onTextPreg('order', '/заказ номер (\d+)/i')
-    ->func(function(TGZ $tg, int $orderId) {
+    ->func(function(ZG $tg, int $orderId) {
         // Логика поиска заказа в базе данных
         $status = "в пути"; // Пример
         $tg->msg("Статус вашего заказа №{$orderId}: {$status}")->send();
@@ -54,7 +54,7 @@ $bot->onTextPreg('order', '/заказ номер (\d+)/i')
 
 // Пример с onCallback, где нужна сложная логика
 $bot->btn('confirm_delete', 'Да, удалить')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         $query_id = $tg->getQueryId();
         // Логика удаления...
         $tg->msg("Запись удалена.")->editText();

@@ -26,14 +26,14 @@ url: /classes/actionMethods/access.md
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban %w')
-    ->func(function(TGZ $tg, $banned_user) {
+    ->func(function(ZG $tg, $banned_user) {
         $tg->msg("✅ Пользователь `{$banned_user}` забанен")->send();
         
     })
@@ -47,18 +47,18 @@ $bot->run();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban %w')
-    ->func(function(TGZ $tg, $banned_user) {
+    ->func(function(ZG $tg, $banned_user) {
         $tg->msg("✅ Пользователь `{$banned_user}` забанен")->send();
         
     })
-    ->access(123456, function(TGZ $tg) {
+    ->access(123456, function(ZG $tg) {
         $tg->reply("Доступ запрещен"); 
         // Отправит сообщение, если попробует использовать пользователь с ID не 123456
     });

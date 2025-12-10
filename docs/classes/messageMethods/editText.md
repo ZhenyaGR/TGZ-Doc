@@ -25,14 +25,14 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create(BOT_TOKEN);
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $bot->onBotCommand('edit', '/edit')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         // Сначала отправляем сообщение
         $response = $tg->msg("Это сообщение будет изменено")->send();
         // Получаем ID отправленного сообщения
@@ -46,7 +46,7 @@ $bot->onBotCommand('edit', '/edit')
 
 // 2. Обрабатываем нажатие на кнопку
 $bot->onCallback('edit_in_chat', '/edit_in_chat')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         // ID чата, в котором нужно отредактировать сообщение
         $chatIdToEdit = 123456789;
         // ID сообщения для редактирования (предположим, мы его уже знаем)

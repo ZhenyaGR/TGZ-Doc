@@ -26,11 +26,11 @@ description: "Добавляет Reply-клавиатуру к сообщени�
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Button;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Button;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // 1. Определяем кнопки и их текстовые представления

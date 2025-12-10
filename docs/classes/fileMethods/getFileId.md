@@ -22,10 +22,10 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\File;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\File;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 $result = $tg->msg("Вот вам картинка")
     ->img('https://example.com/img.jpg')
@@ -40,10 +40,10 @@ $tg->msg("ID картинки: $file_id")->send();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\File;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\File;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 $update = $tg->getUpdate();
 

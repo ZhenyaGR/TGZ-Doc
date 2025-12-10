@@ -20,9 +20,9 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(BOT_TOKEN);
+$tg = ZG::create(BOT_TOKEN);
 $text = $tg->getText();
 $type = $tg->getType();
 

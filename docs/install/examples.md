@@ -11,9 +11,9 @@ description: "Коллекция примеров кода: Echo-бот, LongPol
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 $tg->reply('Привет, Мир!');
 ```
@@ -25,9 +25,9 @@ $tg->reply('Привет, Мир!');
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 $type = $tg->getType(); // Получение типа из события
 
@@ -41,12 +41,12 @@ if ($type === 'text' || $type === 'bot_command') {
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\LongPoll;
+use ZhenyaGR\ZenithGram\ZG;
 
 $lp = LongPoll::create($botToken, 20);
 
-$lp->listen(function(TGZ $tg) {
+$lp->listen(function(ZG $tg) {
     
     $type = $tg->getType(); 
     
@@ -62,10 +62,10 @@ $lp->listen(function(TGZ $tg) {
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 $bot->onCommand('img', '!картинка')
@@ -81,9 +81,9 @@ $bot->run(); // Запускаем обработку события
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\LongPoll;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
 $lp = LongPoll::create(ТОКЕН);
   
@@ -94,7 +94,7 @@ $bot->onCommand('img', '!картинка')
     ->text('Вот твой кот');
     
 $lp->listen(function (TGZ $tg) {
-    $bot->tgz($tg)->run(); // Запускаем обработку события
+    $bot->zg($tg)->run(); // Запускаем обработку события
 });
 ```
 
@@ -104,10 +104,10 @@ $lp->listen(function (TGZ $tg) {
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 // Создание кнопки с её обработкой
@@ -162,10 +162,10 @@ $bot->run();
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 $bot->onDefault()->func(function () use ($bot) {
@@ -188,8 +188,8 @@ $bot->run();
 <?php
 require 'vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
 $tg = new TGZ('BOT_TOKEN');
 $bot = new Bot($tg);

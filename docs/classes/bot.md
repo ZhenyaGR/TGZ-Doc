@@ -16,11 +16,11 @@ description: "Конструктор для создания логики бот
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
 // Инициализация для работы через Webhook
-$tg = TGZ::create('ВАШ_ТОКЕН_БОТА');
+$tg = ZG::create('ВАШ_ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // ... здесь вся логика вашего бота ...
@@ -33,16 +33,16 @@ $bot->run();
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\LongPoll;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
 $lp = LongPoll::create('ВАШ_ТОКЕН_БОТА');
 $bot = new Bot(); // Сразу не передаем TGZ
 // ... здесь вся логика вашего бота ...
 
-$lp->listen(function(TGZ $tg) {
-    $bot->tgz($tg)->run();
+$lp->listen(function(ZG $tg) {
+    $bot->zg($tg)->run();
 });
 ```
 
@@ -58,10 +58,10 @@ $lp->listen(function(TGZ $tg) {
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // --- Определяем маршруты и действия ---

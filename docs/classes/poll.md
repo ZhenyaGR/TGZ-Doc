@@ -21,9 +21,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 
 $tg->poll('regular')        // Тип опроса
     ->question('Вопрос')    // Вопрос
@@ -39,7 +39,7 @@ $tg->poll('regular')        // Тип опроса
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\Poll;
+use ZhenyaGR\ZenithGram\Poll;
 
 $poll = new Poll('regular'); // Тип опроса
 

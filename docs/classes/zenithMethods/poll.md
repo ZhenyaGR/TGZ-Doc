@@ -21,8 +21,8 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-$tg = TGZ::create(ТОКЕН);
+use ZhenyaGR\ZenithGram\ZG;
+$tg = ZG::create(ТОКЕН);
 $tg->poll('regular')
     ->question('Вопрос')
     ->addAnswers('Ответ 1', 'Ответ 2', 'Ответ 3')

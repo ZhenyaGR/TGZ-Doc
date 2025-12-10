@@ -21,9 +21,9 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН_БОТА');
+$tg = ZG::create('ВАШ_ТОКЕН_БОТА');
 
 $me = $tg->callAPI('getMe');
 $name = "Имя бота: " . $me['result']['first_name'] . "\n";

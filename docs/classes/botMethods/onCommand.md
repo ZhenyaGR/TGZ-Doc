@@ -28,10 +28,10 @@ description: "Обработчик кастомных команд с подде
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // Простая команда без аргументов
@@ -41,7 +41,7 @@ $bot->onCommand('price', 'цена')
 // Команда с числовым аргументом
 // Пользователь пишет: погода 12345
 $bot->onCommand('weather', 'погода %n')
-    ->func(function(TGZ $tg, int $cityId) {
+    ->func(function(ZG $tg, int $cityId) {
         // Логика получения погоды по ID города...
         $tg->msg("Погода для города с ID {$cityId}: солнечно.")->send();
     });
@@ -49,14 +49,14 @@ $bot->onCommand('weather', 'погода %n')
 // Команда с несколькими аргументами
 // Пользователь пишет: !kick @user_nickname флуд в чате
 $bot->onCommand('kick', '!kick %w %s')
-    ->func(function(TGZ $tg, string $username, string $reason) {
+    ->func(function(ZG $tg, string $username, string $reason) {
         $tg->msg("Пользователь {$username} исключен. Причина: {$reason}.")->send();
     });
 
 // Команда без плейсхолдеров, но с аргументами (работает для простых случаев)
 // Пользователь пишет: +additem молоко 2шт
 $bot->onCommand('add_item', '+additem')
-    ->func(function(TGZ $tg, string ...$args) {
+    ->func(function(ZG $tg, string ...$args) {
         $item = implode(' ', $args);
         $tg->msg("Предмет '{$item}' добавлен в список.")->send();
     });

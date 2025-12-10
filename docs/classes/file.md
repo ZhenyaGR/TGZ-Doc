@@ -19,9 +19,9 @@ description: "Класс для работы с файлами."
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 
@@ -35,7 +35,7 @@ $File = $tg->file($img_id);
 <?php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\File;
+use ZhenyaGR\ZenithGram\File;
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 

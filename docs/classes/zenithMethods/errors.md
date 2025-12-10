@@ -23,9 +23,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 
 // 1. Отправка ошибок одному пользователю Telegram
 $adminChatId = 123456789; // Ваш Telegram ID
@@ -58,9 +58,9 @@ error_log("[$type] Ошибка: " . $message);
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН)->setUserLogError(123456789);
+$tg = ZG::create(ТОКЕН)->setUserLogError(123456789);
 
 // Фильтрация папки vendor
 $tg->setTracePathFilter('/path/to/your/project/vendor');
@@ -81,9 +81,9 @@ $tg->setTracePathFilter('/path/to/your/project/vendor');
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(ТОКЕН);
+$tg = ZG::create(ТОКЕН);
 $adminChatId = 123456789;
 $tg->setUserLogError($adminChatId);
 

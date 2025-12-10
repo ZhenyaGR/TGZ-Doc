@@ -23,18 +23,18 @@ description: "Регистрирует Middleware для конкретного 
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban %w')
-    ->func(function(TGZ $tg, string $bunned_user) {
+    ->func(function(ZG $tg, string $bunned_user) {
         $tg->msg("✅ Пользователь `{$bunned_user}` забанен")->send();
         
     })
-    ->middleware(function(TGZ $tg, callable $next) {
+    ->middleware(function(ZG $tg, callable $next) {
         $user_id = $tg->getUserID();
         if ($user_id === 123456) {
             $next();     

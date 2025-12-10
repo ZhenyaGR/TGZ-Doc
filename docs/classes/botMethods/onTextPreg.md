@@ -24,23 +24,23 @@ description: "Обработчик текста сообщения по регу
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 // Маршрут для извлечения email-адреса из текста
 // Пользователь пишет: "Моя почта my.email@example.com"
 $bot->onTextPreg('find_email', '/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/')
-    ->func(function(TGZ $tg, string $email) {
+    ->func(function(ZG $tg, string $email) {
         $tg->msg("Спасибо! Я записал ваш email: {$email}")->send();
     });
 
 // Маршрут для извлечения суммы и валюты
 // Пользователь пишет: "конвертируй 100 USD"
 $bot->onTextPreg('converter', '^!конвертация\s+(\d+)\s+(RUB|EUR|USD)$')
-    ->func(function(TGZ $tg, int $amount, string $currency) {
+    ->func(function(ZG $tg, int $amount, string $currency) {
 
         // ... логика конвертации ...
         $result = $amount * 90; // Пример

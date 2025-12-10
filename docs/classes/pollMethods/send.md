@@ -19,9 +19,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create(BOT_TOKEN);
+$tg = ZG::create(BOT_TOKEN);
 
 $tg->poll('regular')
     ->question('Вопрос')

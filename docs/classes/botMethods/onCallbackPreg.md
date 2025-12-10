@@ -22,12 +22,12 @@ description: "Обработчик callback_data по регулярному в�
 
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Button;
-use ZhenyaGR\TGZ\Pagination; // Не забудьте подключить класс констант
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Button;
+use ZhenyaGR\ZenithGram\Pagination; // Не забудьте подключить класс констант
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 function getCatalogKeyboard(TGZ $tg, int $page): array {
@@ -40,7 +40,7 @@ function getCatalogKeyboard(TGZ $tg, int $page): array {
 
 // 1. Команда вызова каталога
 $bot->onBotCommand('catalog', '/catalog')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         $keyboard = getCatalogKeyboard($tg, 1);
         $tg->msg("📂 Каталог товаров (Стр. 1):")
             ->inlineKbd($keyboard)
@@ -49,7 +49,7 @@ $bot->onBotCommand('catalog', '/catalog')
 
 // 2. Обработчик переключения страниц
 $bot->onCallbackPreg('catalog_handler', '/^catalog_page_(\d+)$/')
-    ->func(function(TGZ $tg, int $page) {
+    ->func(function(ZG $tg, int $page) {
         $query_id = $tg->getQueryId();
         $tg->answerCallbackQuery($query_id);
 

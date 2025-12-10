@@ -17,9 +17,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $update = $tg->getUpdate();
 ```
 
@@ -33,9 +33,9 @@ $update = $tg->getUpdate();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $chat_id = $tg->getChatId();
 
 ```
@@ -50,9 +50,9 @@ $chat_id = $tg->getChatId();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $user_id = $tg->getUserId();
 ```
 
@@ -66,9 +66,9 @@ $user_id = $tg->getUserId();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $text = $tg->getText();
 ```
 
@@ -82,9 +82,9 @@ $text = $tg->getText();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $message_id = $tg->getMsgId();
 ```
 
@@ -98,9 +98,9 @@ $message_id = $tg->getMsgId();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $type = $tg->getType();
 ```
 
@@ -114,9 +114,9 @@ $type = $tg->getType();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $query_id = $tg->getQueryId();
 ```
 
@@ -129,9 +129,9 @@ $query_id = $tg->getQueryId();
 ### Пример использования
 ```php
 <?phprequire_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 $callback_data = $tg->getCallbackData();
 ```
 
@@ -144,9 +144,9 @@ $callback_data = $tg->getCallbackData();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ВАШ_ТОКЕН');
+$tg = ZG::create('ВАШ_ТОКЕН');
 
 $chat_id = $tg->getChatID();
 $text = $tg->getText();

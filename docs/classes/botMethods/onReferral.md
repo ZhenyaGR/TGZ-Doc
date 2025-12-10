@@ -20,14 +20,14 @@ https://t.me/{bot_username}?start={referral_data}
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $bot->onReferral()
-    ->func(function(TGZ $tg, string $ref) {
+    ->func(function(ZG $tg, string $ref) {
         $tg->reply("Реферальная ссылка: {$ref}"); 
     });
 

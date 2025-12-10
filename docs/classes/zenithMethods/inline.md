@@ -20,8 +20,8 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-$tg = TGZ::create(ТОКЕН);
+use ZhenyaGR\ZenithGram\ZG;
+$tg = ZG::create(ТОКЕН);
 $inline_result = [
     $tg->inline('article')
         ->id('article')

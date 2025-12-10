@@ -19,9 +19,9 @@ description: "Класс для запуска бота в режиме Long Pol
 // Файл bot.php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\LongPoll;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
 // 1. Создаем экземпляр LongPoll с токеном вашего бота
 $lp = LongPoll::create('ВАШ_ТОКЕН_БОТА');
@@ -40,13 +40,13 @@ $bot->onDefault()
     ->text('Я не знаю такой команды.');
 
 // 2. Запускаем прослушивание обновлений
-$lp->listen(function(TGZ $tg) use ($bot){
+$lp->listen(function(ZG $tg) use ($bot){
     // Эта функция будет вызываться для каждого нового обновления.
     // В $tg передается готовый к работе экземпляр TGZ.
     
     // Передаем в класс Bot текущее обновление
     // Запускаем роутер для обработки текущего обновления
-    $bot->tgz($tg)->run();
+    $bot->zg($tg)->run();
 });
 ```
 

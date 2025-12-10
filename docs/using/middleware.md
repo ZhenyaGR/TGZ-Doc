@@ -26,7 +26,7 @@ public function middleware(callable $handler): void
 ```
 
 Обработчик Middleware принимает два аргумента:
-1.  `$tg` (`ZhenyaGR\TGZ\TGZ`): Экземпляр основного класса `TGZ`, предоставляющий доступ ко всему контексту и методам API.
+1.  `$tg` (`ZhenyaGR\ZenithGram\TGZ`): Экземпляр основного класса `TGZ`, предоставляющий доступ ко всему контексту и методам API.
 2.  `$next` (`Closure`): Функция обратного вызова. **Вы должны вызвать `$next()`**, чтобы передать управление дальше по цепочке (к поиску маршрута). Если `$next()` не будет вызван, обработка обновления прекратится.
 
 ### Пример: Проверка регистрации пользователя
@@ -37,7 +37,7 @@ public function middleware(callable $handler): void
 <?php
 require 'vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
 // Предположим, у нас есть функция для проверки пользователя в БД
 function isUserRegistered(int $user_id): bool {
@@ -93,7 +93,7 @@ public function middleware(callable $handler): Action
 <?php
 require 'vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
 const ADMIN_IDS = [12345, 54321]; // Список ID администраторов
 

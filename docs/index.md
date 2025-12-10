@@ -3,33 +3,33 @@
 layout: home
  
 hero:
-  name: "TGZ"
+  name: "ZenithGram"
   text: "Библиотека для создания ботов Telegram"   
-  tagline: "Главное - Z!"
+  tagline: "Главное - Просто!"
 #  image:
 #    src: /logo.png
 #    alt: TGZ
   actions:
     - theme: brand
       text: Начало работы
-      link: /install/who_tgz
+      link: /install/who_zenith
     - theme: alt
       text: Примеры ботов
       link: /install/examples
     - theme: alt
       text: "GitHub ↗"
-      link: "https://github.com/zhenyagr/tgz/"
+      link: "https://github.com/ZenithGram/php-telegram-bot-library"
  
 features:
 
   - title: 📝 Понимай с первого взгляда
     details: Подробные примеры и понятные советы — документация, которая действительно помогает.
-    link: /install/who_tgz
+    link: /install/who_zenith
     linkText: Подробнее
     
   - title: 🧠 Вайбкодинг на высоте
     details: Создавай ботов в связке с AI, не боясь галлюцинаций.
-    link: https://github.com/ZhenyaGR/TGZ/tree/main/ai-context
+    link: https://github.com/ZenithGram/php-telegram-bot-library/tree/main/ai-context
     linkText: Контекст
 
   - title: 🤖 Составляй сложных ботов легко

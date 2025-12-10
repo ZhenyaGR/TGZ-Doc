@@ -71,13 +71,13 @@ public function onCommand(string $id, array|string $command = null): Action
 **Пример использования:**
 ```php
 // Простая команда !ping
-$bot->onCommand('ping', '!ping')->func(function(TGZ $tg) {
+$bot->onCommand('ping', '!ping')->func(function(ZG $tg) {
     $tg->reply('pong!');
 });
 
 // Команда бана с числовым ID и текстовой причиной
 // Пользователь пишет: !ban 12345678 флуд в чате
-$bot->onCommand('ban', '!ban %n %s')->func(function(TGZ $tg, $userId, $reason) {
+$bot->onCommand('ban', '!ban %n %s')->func(function(ZG $tg, $userId, $reason) {
     // $userId будет '12345678'
     // $reason будет 'флуд в чате'
     $tg->reply("Пользователь {$userId} забанен по причине: {$reason}");
@@ -192,7 +192,7 @@ $results = [
 ];
 
 $bot->onInline()
-    ->func(function(TGZ $tg) use ($results) {
+    ->func(function(ZG $tg) use ($results) {
         $query_id = $tg->getQueryId();
         $tg->answerInlineQuery($query_id, $results);
     });

@@ -39,7 +39,7 @@ $bot->run();
 // bot.php
 // ... определение всех маршрутов бота ...
 $bot->onCommand('daily_report', 'make_report')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         // ... сложная логика формирования отчета ...
         $reportText = "Отчет за сегодня: ...";
         $tg->sendMessage(ADMIN_CHAT_ID, $reportText);

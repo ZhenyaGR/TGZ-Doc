@@ -24,8 +24,8 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-$tg = TGZ::create(ТОКЕН);
+use ZhenyaGR\ZenithGram\ZG;
+$tg = ZG::create(ТОКЕН);
 $tg->initVars(query_id: $query_id, type: $type);
 if ($type === 'callback_query') {
     $tg->answerCallbackQuery($query_id, ['text' => 'Вы нажали на кнопку']);
@@ -49,8 +49,8 @@ if ($type === 'callback_query') {
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\TGZ\TGZ;
-$tg = TGZ::create(ТОКЕН);
+use ZhenyaGR\ZenithGram\ZG;
+$tg = ZG::create(ТОКЕН);
 $tg->initVars(query_id: $query_id, type: $type);
 if ($type === 'inline_query') {
     $tg->answerInlineQuery($query_id, $inline_result);

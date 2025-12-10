@@ -17,7 +17,7 @@ description: "Работа с Fluent Interface для создания, форм
 Это самый базовый пример. Метод `$tg->msg()` является фабрикой, которая создает и возвращает экземпляр класса `Message`.
 
 ```php
-$bot->onCommand('start')->func(function(TGZ $tg) {
+$bot->onCommand('start')->func(function(ZG $tg) {
     $tg->msg("Привет, мир!")->send();
 });
 ```
@@ -177,7 +177,7 @@ $tg->msg("Клавиатура убрана.")
 ```php
 // Пример в обработчике callback-запроса
 $bot->onCallback('edit_text')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         $query_id = $tg->getQueryID();
         $tg->answerCallbackQuery($query_id);
         

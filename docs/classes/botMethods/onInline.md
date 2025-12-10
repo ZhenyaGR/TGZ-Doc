@@ -16,10 +16,10 @@ description: "Обработчик входящих Inline-запросов."
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 $results = [
@@ -33,7 +33,7 @@ $results = [
 
 // Отреагирует на любой пришедший inline-запрос
 $bot->onInline()
-    ->func(function(TGZ $tg) use ($results) {
+    ->func(function(ZG $tg) use ($results) {
         $query_id = $tg->getQueryId();
         $tg->answerInlineQuery($query_id, $results);
     });

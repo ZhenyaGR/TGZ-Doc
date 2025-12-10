@@ -19,11 +19,11 @@ sidebarDepth: 0
 ```php
 <?php    
 require_once __DIR__ . '/vendor/autoload.php'; 
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Button;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Button;
 
-$tg = TGZ::create(BOT_TOKEN);
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Создаем кнопку и сразу добавляем обработчик
@@ -32,7 +32,7 @@ $bot->btn('buttonBot', 'Оценить')
     ->text('Оцените бота от 1 до 5');
 
 $bot->onCommand('inlineKbd', '/inlineKbd')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         $tg->msg("Inline-клавиатура:")
             ->inlineKbd([
                 [Button::cb('Показать профиль', 'show_profile')],

@@ -37,11 +37,11 @@ require_once "tgz/autoload.php";
 ## Подключение классов
 Через конструкцию `use` подключите те классы, методы которых вы будете использовать.
 ```php
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\LongPoll;
-use ZhenyaGR\TGZ\Poll;
-use ZhenyaGR\TGZ\File;
-use ZhenyaGR\TGZ\Message;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Inline;
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\LongPoll;
+use ZhenyaGR\ZenithGram\Poll;
+use ZhenyaGR\ZenithGram\File;
+use ZhenyaGR\ZenithGram\Message;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Inline;
 ```

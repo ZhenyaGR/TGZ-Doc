@@ -22,9 +22,9 @@ description: "Инструмент для автоматической гене�
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
+use ZhenyaGR\ZenithGram\ZG;
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 
 // 1. Генерируем тестовый массив кнопок
 $items = [];
@@ -62,11 +62,11 @@ $tg->msg("Список товаров (Страница 1):")
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\TGZ\TGZ;
-use ZhenyaGR\TGZ\Bot;
-use ZhenyaGR\TGZ\Pagination; // Не забудьте подключить класс констант
+use ZhenyaGR\ZenithGram\ZG;
+use ZhenyaGR\ZenithGram\Bot;
+use ZhenyaGR\ZenithGram\Pagination; // Не забудьте подключить класс констант
 
-$tg = TGZ::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН');
 $bot = new Bot($tg);
 
 function getCatalogKeyboard(TGZ $tg, int $page): array {
@@ -90,7 +90,7 @@ function getCatalogKeyboard(TGZ $tg, int $page): array {
 
 // 1. Команда вызова каталога
 $bot->onBotCommand('catalog', '/catalog')
-    ->func(function(TGZ $tg) {
+    ->func(function(ZG $tg) {
         $keyboard = getCatalogKeyboard($tg, 1);
         $tg->msg("📂 Каталог товаров (Стр. 1):")
             ->inlineKbd($keyboard)
@@ -100,7 +100,7 @@ $bot->onBotCommand('catalog', '/catalog')
 // 2. Обработчик переключения страниц
 // Используем регулярное выражение для отлова 'catalog_page_1', 'catalog_page_2' и т.д.
 $bot->onCallbackPreg('catalog_handler', '/^catalog_page_(\d+)$/')
-    ->func(function(TGZ $tg, int $page) {
+    ->func(function(ZG $tg, int $page) {
         $query_id = $tg->getQueryId();
         $tg->answerCallbackQuery($query_id); // Убираем "часики"
 
@@ -125,7 +125,7 @@ $bot->run();
 // Обработчик переключения страниц
 // Используем плейсхолдер %n (nomber)
 $bot->onCallback('catalog_handler', 'catalog_page_%n')
-    ->func(function(TGZ $tg, int $page) {
+    ->func(function(ZG $tg, int $page) {
         $query_id = $tg->getQueryId();
         $tg->answerCallbackQuery($query_id);
 
@@ -180,7 +180,7 @@ $tg->pagination()
     Автоматический режим. Если кнопок навигации мало (<= 2), они встанут в одну строку. Если много (3 или 4) — разделятся на две строки, чтобы кнопки не были слишком узкими.
 
 ```php
-use ZhenyaGR\TGZ\Pagination;
+use ZhenyaGR\ZenithGram\Pagination;
 
 $tg->pagination()
     ->setNavigationLayout(Pagination::LAYOUT_SMART)
