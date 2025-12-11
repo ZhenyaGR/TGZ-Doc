@@ -16,10 +16,10 @@ description: "Срабатывает при выходе участника из
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // Отреагирует на вышедшего/исключенного пользователя
@@ -38,10 +38,10 @@ $bot->run();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // Отреагирует на вышедшего/исключенного пользователя

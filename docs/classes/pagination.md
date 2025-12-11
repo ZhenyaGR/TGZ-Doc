@@ -15,10 +15,10 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Button;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];
@@ -47,8 +47,8 @@ $tg->msg("Выберите товар (Страница 1):")
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Pagination;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Pagination;
 
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];
@@ -66,7 +66,7 @@ $keyboard = $pag->setItems($items)  // Передаем кнопки
     ->setPrefix('page_')            // Префикс для кнопок навигации
     ->create();                     // Собираем массив
 
-$tg = ZG::create(ТОКЕН);
+$tg = ZG::create('ТОКЕН_БОТА');
 
 // Отправляем сообщение с клавиатурой
 $tg->msg("Выберите товар (Страница 1):")

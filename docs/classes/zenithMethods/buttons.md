@@ -23,9 +23,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create(ТОКЕН);
+$tg = ZG::create('ТОКЕН_БОТА');
 
 $kbd = [[$tg->buttonText('Нажми меня')]];
 $tg->msg('Текстовая кнопка')
@@ -50,9 +50,9 @@ $tg->msg('Текстовая кнопка')
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create(ТОКЕН);
+$tg = ZG::create('ТОКЕН_БОТА');
 
 $kbd = [[$tg->buttonCallback('Нажми меня', 'callback_data')]];
 $tg->msg('Callback-кнопка')
@@ -76,9 +76,9 @@ $tg->msg('Callback-кнопка')
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create(ТОКЕН);
+$tg = ZG::create('ТОКЕН_БОТА');
 
 $kbd = [[$tg->buttonUrl('Нажми меня', 'https://google.com')]];
 $tg->msg('Url-кнопка')

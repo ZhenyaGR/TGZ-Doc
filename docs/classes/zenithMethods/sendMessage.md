@@ -20,9 +20,9 @@ description: "Отправляет текстовое сообщение в ук
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ВАШ_ТОКЕН_БОТА');
+$tg = ZG::create('ТОКЕН_БОТА');
 $chat_id = $tg->getChatId();
 
 $tg->sendMessage($chat_id, 'Привет, мир!');

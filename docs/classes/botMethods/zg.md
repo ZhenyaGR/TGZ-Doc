@@ -23,9 +23,9 @@ description: "Передает экземпляр TGZ в конструктор 
 <?php
 require_once 'vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\LongPoll;
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\LongPoll;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $lp = LongPoll::create(BOT_TOKEN);
 

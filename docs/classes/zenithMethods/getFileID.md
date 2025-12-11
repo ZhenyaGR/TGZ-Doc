@@ -22,9 +22,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create(ТОКЕН);
+$tg = ZG::create('ТОКЕН_БОТА');
 $chat_id = $tg->getChatId();
 
 $file_id = $tg->getFileID('example.com/image.jpg', $chat_id, 'photo');

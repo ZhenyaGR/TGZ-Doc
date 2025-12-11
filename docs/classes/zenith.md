@@ -27,10 +27,10 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
 // Замените 'ТОКЕН' на фактический токен вашего бота
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 ```
 
 ## Сценарии использования

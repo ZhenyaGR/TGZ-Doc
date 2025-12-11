@@ -20,7 +20,7 @@ export default defineConfig({
                     '**/json/**',
                     '**/main.md',
                     'index.md',
-                    '**/classes/tgzMethods/buttons.md',
+                    '**/classes/zenithMethods/buttons.md',
                     '**/install/requirements.md',
                     '**/install/create_bot.md',
                     '**/404.md'
@@ -48,7 +48,7 @@ export default defineConfig({
 {toc}
 `,
                 customTemplateVariables: {
-                    title: 'TGZ Library Documentation',
+                    title: 'ZenithGram Library Documentation',
                     description: 'Powerful PHP library for creating Telegram bots with Webhook & LongPoll support',
                 }
             })
@@ -56,8 +56,8 @@ export default defineConfig({
     },
 
     lang: 'ru-RU',
-    title: "Telegram-Z",
-    description: "Документация библиотеки TGZ",
+    title: "ZenithGram",
+    description: "Документация библиотеки ZenithGram",
     base: "/",
     cleanUrls: true,
     // srcDir: './docs',
@@ -98,7 +98,7 @@ export default defineConfig({
     themeConfig: {
 
         editLink: {
-            pattern: 'https://github.com/ZhenyaGR/TGZ-Doc/edit/main/docs/:path',
+            pattern: 'https://github.com/ZenithGram/zenithgram.github.io/edit/main/docs/:path',
             text: 'Редактировать страницу'
         },
 

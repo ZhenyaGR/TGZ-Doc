@@ -10,11 +10,11 @@ description: "Руководство по регистрации бота чер
 2. Отправьте команду `/newbot`.
 3. Укажите **имя бота** (отображается в интерфейсе, может быть любым):
    ```bash
-   TGZ Bot
+   ZenithGram Bot
    ```
 4. Задайте **username бота** (должен заканчиваться на `bot` или `_bot`):
    ```bash
-   TGZ_lib_Bot
+   ZenithGram_lib_Bot
    ```
 5. После успешного создания вы получите **токен доступа**
     ```bash
@@ -23,7 +23,7 @@ description: "Руководство по регистрации бота чер
 
 <figure>
   <img 
-    src="/create_bot.png"
+    src="/create_bot_example.png"
     class="img-medium"
   >
   <figcaption>Создание бота в <a href="https://t.me/BotFather">@BotFather</a></figcaption>
@@ -37,7 +37,7 @@ description: "Руководство по регистрации бота чер
 Telegram отправляет запросы к вашему серверу, а вы их обрабатываете
 
 Для подключения бота к вашему серверу используйте ссылку вида:\
-`https://api.telegram.org/bot{YOUR_TOKEN}/setWebhook?url=https://www.example.com`
+`https://api.telegram.org/bot{TOKEН_БОТА}/setWebhook?url=https://www.example.com`
 
 #### Требования:
 - Обязателен **HTTPS** (SSL-сертификат).

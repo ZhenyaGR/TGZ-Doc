@@ -18,7 +18,7 @@ description: "Системные требования (PHP 8.2+) и инстру
 ## Подключение библиотеки, используя composer
 1. Установка библиотеки
 ```bash
-composer require zhenyagr/tgz:dev-main
+composer require zenithgram/zenithgram:dev-main
 ```
 
 2. Подключить `autoload.php` напрямую внутри бота
@@ -27,21 +27,23 @@ require_once __DIR__.'/vendor/autoload.php';
 ```
 
 ## Подключение библиотеки вручную
-1. Скачать последний релиз c [github](https://github.com/ZhenyaGR/TGZ)
+1. Скачать последний релиз c [github](https://github.com/ZenithGram/php-telegram-bot-library)
 2. Подключить `autoload.php`.
-> Вот так будет происходить подключение, если ваш бот находится в той же папке, что и папка `tgz`
+> Вот так будет происходить подключение, если ваш бот находится в той же папке, что и папка `ZenithGram`
 ```php
-require_once "tgz/autoload.php";
+require_once "ZenithGram/autoload.php";
 ```
 
 ## Подключение классов
 Через конструкцию `use` подключите те классы, методы которых вы будете использовать.
 ```php
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\LongPoll;
-use ZhenyaGR\ZenithGram\Poll;
-use ZhenyaGR\ZenithGram\File;
-use ZhenyaGR\ZenithGram\Message;
-use ZhenyaGR\ZenithGram\Bot;
-use ZhenyaGR\ZenithGram\Inline;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\LongPoll;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Message;
+use ZenithGram\ZenithGram\Button;
+use ZenithGram\ZenithGram\Pagination;
+use ZenithGram\ZenithGram\Poll;
+use ZenithGram\ZenithGram\File;
+use ZenithGram\ZenithGram\Inline;
 ```

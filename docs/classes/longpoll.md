@@ -19,12 +19,12 @@ description: "Класс для запуска бота в режиме Long Pol
 // Файл bot.php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\LongPoll;
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\LongPoll;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 // 1. Создаем экземпляр LongPoll с токеном вашего бота
-$lp = LongPoll::create('ВАШ_ТОКЕН_БОТА');
+$lp = LongPoll::create('ТОКЕН_БОТА');
 
 // Для удобства используем конструктор Bot
 $bot = new Bot();
@@ -87,6 +87,6 @@ php bot.php
 Если использовать этот метод, при запуске опроса скрипт пропустит старые обновления и начнёт получать новые
 
 ```php
-$lp = LongPoll::create('ВАШ_ТОКЕН_БОТА')
+$lp = LongPoll::create('ТОКЕН_БОТА')
     ->skipOldUpdates(); // Пропускаем старые обновления
 ```

@@ -16,11 +16,11 @@ description: "Конструктор для создания логики бот
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 // Инициализация для работы через Webhook
-$tg = ZG::create('ВАШ_ТОКЕН_БОТА');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // ... здесь вся логика вашего бота ...
@@ -33,11 +33,11 @@ $bot->run();
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\LongPoll;
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\LongPoll;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
-$lp = LongPoll::create('ВАШ_ТОКЕН_БОТА');
+$lp = LongPoll::create('ТОКЕН_БОТА');
 $bot = new Bot(); // Сразу не передаем TGZ
 // ... здесь вся логика вашего бота ...
 
@@ -58,10 +58,10 @@ $lp->listen(function(ZG $tg) {
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // --- Определяем маршруты и действия ---

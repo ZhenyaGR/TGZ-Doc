@@ -22,12 +22,12 @@ description: "Обработчик callback_data по регулярному в�
 
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
-use ZhenyaGR\ZenithGram\Button;
-use ZhenyaGR\ZenithGram\Pagination; // Не забудьте подключить класс констант
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Button;
+use ZenithGram\ZenithGram\Pagination; // Не забудьте подключить класс констант
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 function getCatalogKeyboard(TGZ $tg, int $page): array {

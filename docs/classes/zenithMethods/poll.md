@@ -21,8 +21,8 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ZhenyaGR\ZenithGram\ZG;
-$tg = ZG::create(ТОКЕН);
+use ZenithGram\ZenithGram\ZG;
+$tg = ZG::create('ТОКЕН_БОТА');
 $tg->poll('regular')
     ->question('Вопрос')
     ->addAnswers('Ответ 1', 'Ответ 2', 'Ответ 3')

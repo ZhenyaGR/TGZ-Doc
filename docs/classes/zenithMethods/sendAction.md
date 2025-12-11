@@ -20,7 +20,7 @@ description: "Отправляет статус действия бота (на�
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
 $tg = ZG::create(BOT_TOKEN);
 $text = $tg->getText();

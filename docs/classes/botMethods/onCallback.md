@@ -31,11 +31,11 @@ onCallback поддерживает специальные плейсхолде�
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
-use ZhenyaGR\ZenithGram\Button;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // По команде /vote отправляем сообщение с кнопками, созданными вручную

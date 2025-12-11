@@ -22,9 +22,9 @@ description: "Инструмент для автоматической гене�
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 
 // 1. Генерируем тестовый массив кнопок
 $items = [];
@@ -62,11 +62,11 @@ $tg->msg("Список товаров (Страница 1):")
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Bot;
-use ZhenyaGR\ZenithGram\Pagination; // Не забудьте подключить класс констант
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Pagination; // Не забудьте подключить класс констант
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 function getCatalogKeyboard(TGZ $tg, int $page): array {
@@ -180,7 +180,7 @@ $tg->pagination()
     Автоматический режим. Если кнопок навигации мало (<= 2), они встанут в одну строку. Если много (3 или 4) — разделятся на две строки, чтобы кнопки не были слишком узкими.
 
 ```php
-use ZhenyaGR\ZenithGram\Pagination;
+use ZenithGram\ZenithGram\Pagination;
 
 $tg->pagination()
     ->setNavigationLayout(Pagination::LAYOUT_SMART)

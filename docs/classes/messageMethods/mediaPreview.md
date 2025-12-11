@@ -20,7 +20,7 @@ description: "Добавляет скрытую ссылку для превью
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
 $tg = ZG::create(BOT_TOKEN);
 $text = $tg->getText()

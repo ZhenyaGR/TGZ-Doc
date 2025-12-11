@@ -20,9 +20,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
+use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $query_id = $tg->getQueryId();
 
 $results = [
@@ -44,10 +44,10 @@ $tg->answerInlineQuery($query_id, $results);
 <?php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-use ZhenyaGR\ZenithGram\ZG;
-use ZhenyaGR\ZenithGram\Inline;
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Inline;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $query_id = $tg->getQueryId();
 
 $results = [
