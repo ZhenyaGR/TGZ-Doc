@@ -22,7 +22,7 @@ layout: home
 hero:
   name: "ZenithGram"
   text: "Создавай ботов на пике возможностей"   
-    tagline: "Простая, но мощная библиотека"
+  tagline: "Простая, но мощная библиотека"
 
 #  image:
 #    src: /logo.png
