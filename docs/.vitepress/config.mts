@@ -1,7 +1,7 @@
-import { defineConfig } from 'vitepress'
+import {defineConfig} from 'vitepress'
 import llmstxt from 'vitepress-plugin-llms'
-import { copyFileSync } from 'node:fs'
-import { join, resolve } from 'node:path'
+import {copyFileSync} from 'node:fs'
+import {join, resolve} from 'node:path'
 
 export default defineConfig({
     vite: {
@@ -65,7 +65,20 @@ export default defineConfig({
     lastUpdated: true,
 
     head: [
-        ['link', {rel: 'icon', href: '/logo.png'}]
+        [
+            'link',
+            {
+                rel: 'icon',
+                href: '/logo.png'
+            }
+        ],
+        [
+            'meta',
+            {
+                name: 'google-site-verification',
+                content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'
+            }
+        ]
     ],
 
     async buildEnd(siteConfig) {
