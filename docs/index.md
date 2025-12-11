@@ -1,4 +1,3 @@
----
 
 <style>
   /* Уменьшаем белый текст (который поле text) */
@@ -16,7 +15,7 @@
 }
 </style>
 
-
+---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
  
