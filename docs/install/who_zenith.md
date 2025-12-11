@@ -1,5 +1,5 @@
 ---
-title: Почему TGZ?
+title: Почему ZenithGram?
 description: "Обзор возможностей библиотеки: Webhook/LongPoll, цепочки методов, роутинг и работа с медиа."
 ---
 

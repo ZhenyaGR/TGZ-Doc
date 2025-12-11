@@ -192,7 +192,6 @@ export default defineConfig({
                             // 2. Работа с контекстом и данными (получение инфы)
                             {text: 'initVars', link: '/classes/zenithMethods/initVars'},
                             {text: 'get', link: '/classes/zenithMethods/get'}, // Группа геттеров
-                            {text: 'getFileID', link: '/classes/zenithMethods/getFileID'},
 
                             // 3. Глобальные настройки
                             {text: 'defaultParseMode', link: '/classes/zenithMethods/defaultParseMode'},
