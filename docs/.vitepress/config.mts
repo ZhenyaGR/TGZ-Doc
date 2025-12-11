@@ -60,33 +60,15 @@ export default defineConfig({
     description: "Документация библиотеки ZenithGram",
     base: "/",
     cleanUrls: true,
-    // srcDir: './docs',
     appearance: 'dark',
     lastUpdated: true,
 
     head: [
-        [
-            'link',
-            {
-                rel: 'icon',
-                href: '/logo.png'
-            }
-        ],
-        [
-            'meta',
-            {
-                name: 'google-site-verification',
-                content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'
-            }
-        ],
-        [
-            'meta',
-            {
-                name: 'yandex-verification',
-                content: '8eaa8135ce653a42'
-            }
-        ]
+        ['link', {rel: 'icon', href: '/logo.png'}],
+        ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
+        ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}]
     ],
+
     sitemap: {
         hostname: 'https://zenithgram.github.io'
     },
@@ -143,8 +125,6 @@ export default defineConfig({
         returnToTopLabel: 'Вернуться к началу',
         langMenuLabel: 'Изменить язык',
         skipToContentLabel: 'Перейти к содержимому',
-
-        // logo: '/ico.ico',
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/ZenithGram/php-telegram-bot-library'},
