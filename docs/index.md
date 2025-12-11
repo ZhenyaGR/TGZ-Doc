@@ -1,4 +1,22 @@
 ---
+
+<style>
+  /* Уменьшаем белый текст (который поле text) */
+.VPHero .text {
+  font-size: 30px !important; /* Настройте размер под себя */
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+/* На мобильных телефонах делаем ещё меньше */
+@media (max-width: 640px) {
+  .VPHero .text {
+    font-size: 24px !important;
+  }
+}
+</style>
+
+
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
  
@@ -62,19 +80,3 @@ features:
     details: Никаких зависимостей — просто скопируй, и всё работает.
 ---
 
-
-<style>
-  /* Уменьшаем белый текст (который поле text) */
-.VPHero .text {
-  font-size: 30px !important; /* Настройте размер под себя */
-  line-height: 1.2 !important;
-  font-weight: 700 !important;
-}
-
-/* На мобильных телефонах делаем ещё меньше */
-@media (max-width: 640px) {
-  .VPHero .text {
-    font-size: 24px !important;
-  }
-}
-</style>
