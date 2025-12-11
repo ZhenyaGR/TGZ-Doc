@@ -66,7 +66,13 @@ export default defineConfig({
     head: [
         ['link', {rel: 'icon', href: '/logo.png'}],
         ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
-        ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}]
+        ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:title', content: 'ZenithGram - Библиотека для Telegram' }],
+        ['meta', { property: 'og:description', content: 'Простая, но мощная библиотека на PHP для создания ботов' }],
+        // ['meta', { property: 'og:image', content: 'https://zenithgram.github.io/og-image.png' }], // Сделайте красивую картинку-баннер 1200x630
+        ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
+
     ],
 
     sitemap: {
