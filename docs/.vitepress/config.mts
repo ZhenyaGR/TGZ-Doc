@@ -87,6 +87,9 @@ export default defineConfig({
             }
         ]
     ],
+    sitemap: {
+        hostname: 'https://zenithgram.github.io'
+    },
 
     async buildEnd(siteConfig) {
         // outDir - папка сборки (например, .vitepress/dist)
