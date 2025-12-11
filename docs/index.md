@@ -24,9 +24,6 @@ hero:
   text: "Создавай ботов на пике возможностей"   
   tagline: "Простая, но мощная библиотека"
 
-#  image:
-#    src: /logo.png
-#    alt: TGZ
   actions:
     - theme: brand
       text: Начало работы
@@ -37,7 +34,7 @@ hero:
     - theme: alt
       text: "GitHub ↗"
       link: "https://github.com/ZenithGram/php-telegram-bot-library"
- 
+
 features:
 
   - title: 📝 Понимай с первого взгляда
