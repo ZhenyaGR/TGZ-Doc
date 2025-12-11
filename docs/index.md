@@ -21,8 +21,9 @@ layout: home
  
 hero:
   name: "ZenithGram"
-  text: "Библиотека для создания ботов Telegram"   
-  tagline: "Главное - Просто!"
+  text: "Создавай ботов на пике возможностей"   
+    tagline: "Простая, но мощная библиотека"
+
 #  image:
 #    src: /logo.png
 #    alt: TGZ
