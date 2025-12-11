@@ -1,27 +1,10 @@
-
-<style>
-  /* Уменьшаем белый текст (который поле text) */
-.VPHero .text {
-  font-size: 30px !important; /* Настройте размер под себя */
-  line-height: 1.2 !important;
-  font-weight: 700 !important;
-}
-
-/* На мобильных телефонах делаем ещё меньше */
-@media (max-width: 640px) {
-  .VPHero .text {
-    font-size: 24px !important;
-  }
-}
-</style>
-
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
  
 hero:
   name: "ZenithGram"
-  text: "Создавай ботов на пике возможностей"   
+  text: "Создавай ботов на пике возможностей"
   tagline: "Простая, но мощная библиотека"
 
   actions:
@@ -34,9 +17,8 @@ hero:
     - theme: alt
       text: "GitHub ↗"
       link: "https://github.com/ZenithGram/php-telegram-bot-library"
-
+ 
 features:
-
   - title: 📝 Понимай с первого взгляда
     details: Подробные примеры и понятные советы — документация, которая действительно помогает.
     link: /install/who_zenith
@@ -77,3 +59,18 @@ features:
     details: Никаких зависимостей — просто скопируй, и всё работает.
 ---
 
+<style>
+  /* Уменьшаем белый текст (который поле text) */
+.VPHero .text {
+  font-size: 30px !important; /* Настройте размер под себя */
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+/* На мобильных телефонах делаем ещё меньше */
+@media (max-width: 640px) {
+  .VPHero .text {
+    font-size: 24px !important;
+  }
+}
+</style>
