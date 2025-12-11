@@ -67,4 +67,4 @@ if ($type === 'bot_command') {
 ```
 
 ## Вспомогательные методы
-- [`getFileID`](/classes/zenithMethods/getFileID.md) - Получить ID файла
+- [`getFileId`](/classes/fileMethods/getFileId.md) - Получить ID файла
