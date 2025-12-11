@@ -64,7 +64,7 @@ export default defineConfig({
     lastUpdated: true,
 
     head: [
-        ['link', {rel: 'icon', href: '/logo.png'}],
+        ['link', {rel: 'icon', href: '/logo.ico'}],
         ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
         ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}],
         ['meta', { property: 'og:type', content: 'website' }],
