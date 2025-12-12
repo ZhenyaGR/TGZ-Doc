@@ -7,9 +7,9 @@ description: "Устанавливает режим разметки для от
 Метод устанавливает режим разметки для сообщения
 
 ## Параметры
-| # |   Название    |   Тип    | Описание                                         |
-|:-:|:-------------:|:--------:|:-------------------------------------------------|
-| 1 | **parseMode** | `string` | Режим разметки: `HTML`, `Markdown`, `MarkdownV2` |
+| # |   Название    |        Тип         | Описание                                                                        |
+|:-:|:-------------:|:------------------:|:--------------------------------------------------------------------------------|
+| 1 | **parseMode** | `MessageParseMode` | Возможные значения описаны в [MessageParseMode](/classes/enum#messageparsemode) |
 
 ## Возвращает
 `Action` — экземпляр класса `Action` (Вспомогательный класс), на который можно навешивать дальнейшие действия (`text`, `func` и т.д.).
@@ -20,13 +20,16 @@ description: "Устанавливает режим разметки для от
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\MessageParseMode;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 $bot->onBotCommand('start', '/start')
     ->text('Привет, <b>Мир!</b>')
-    ->parseMode('HTML');
+    ->parseMode(MessageParseMode::HTML); // Задаём разметку HTML
 
 $bot->run();
 ```
+
+[Подробнее о разметках на официальной документации Telegram](https://core.telegram.org/bots/api#formatting-options)

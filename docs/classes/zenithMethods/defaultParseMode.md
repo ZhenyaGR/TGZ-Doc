@@ -4,14 +4,13 @@ description: "Устанавливает режим разметки по умо
 sidebarDepth: 0
 ---
 
-
 # defaultParseMode
 Метод устанавливает режим разметки для каждого сообщения по умолчанию
 
 ## Параметры метода
-| # |    Название    |   Тип    |        Возможные значения        |
-|:-:|:--------------:|:--------:|:--------------------------------:|
-| 1 | **parse_mode** | `string` | `HTML`, `Markdown`, `MarkdownV2` |
+| # |    Название    |        Тип         |                               Возможные значения                                |
+|:-:|:--------------:|:------------------:|:-------------------------------------------------------------------------------:|
+| 1 | **parse_mode** | `MessageParseMode` | Возможные значения описаны в [MessageParseMode](/classes/enum#messageparsemode) |
 
 ## Возвращает
 `TGZ` - экземпляр класса TGZ
@@ -21,39 +20,13 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\MessageParseMode;
 
 $tg = ZG::create('ТОКЕН_БОТА');
-$tg->defaultParseMode('MarkdownV2');
+$tg->defaultParseMode(MessageParseMode::MarkdownV2);
 
 $tg->msg('*Привет!*')->send();
 // Текст будет автоматически преобразован в MarkdownV2
 ```
 
-## Примеры разметок
-
-### **MarkdownV2**
-```markdown
-*Жирный*  
-_Курсив_  
-~Зачёркнутый~
-__Подчёркнутый__  
-`Моноширинный`
-```Блок кода```
-[Ссылка](https://github.com/ZhenyaGR/TGZ)  
-||Спойлер||
-```
-
-### **HTML**
-```html
-<b>Жирный</b>
-<i>Курсив</i>
-<s>Зачёркнутый</s>
-<u>Подчёркнутый</u>
-<code>Моноширинный</code>
-<pre>Блок кода</pre>
-<a href="https://github.com/ZhenyaGR/TGZ">Ссылка</a>
-<span class="tg-spoiler">Спойлер</span>
-```
-
-## Примечание:
-Для MarkdownV2 экранируйте символы `_*[]()~>#+-=|{}.!` с помощью `\`, например: `\_некурсив\_`
+[Подробнее о разметках на официальной документации Telegram](https://core.telegram.org/bots/api#formatting-options)
