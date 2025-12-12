@@ -441,6 +441,7 @@ export default defineConfig({
                     },
 
                     {text: 'DTO', link: '/classes/dto'},
+                    {text: 'Enum', link: '/classes/enum'},
 
                 ]
             },
