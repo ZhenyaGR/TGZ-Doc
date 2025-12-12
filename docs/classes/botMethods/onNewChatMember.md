@@ -48,7 +48,7 @@ $bot = new Bot($tg);
 
 // Отреагирует на зашедших/добавленных пользователей
 $bot->onNewChatMember()
-    ->func(function (TGZ $tg, UserDto $user1) {
+    ->func(function (ZG $tg, UserDto $user1) {
         $tg->msg("Приветствую в чате, " . $user1->firstName)->send();
     });
 
@@ -68,7 +68,7 @@ $bot = new Bot($tg);
 
 // Отреагирует на зашедших/добавленных пользователей
 $bot->onNewChatMember()
-    ->func(function (TGZ $tg, UserDto $user1, UserDto $user2) {
+    ->func(function (ZG $tg, UserDto $user1, UserDto $user2) {
         $tg->msg("Приветствую в чате, " . $user1->firstName . " и $user2->firstName")->send();
     });
 

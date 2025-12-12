@@ -93,7 +93,7 @@ $bot->onCommand('img', '!картинка')
     ->img('cat.jpg')
     ->text('Вот твой кот');
     
-$lp->listen(function (TGZ $tg) {
+$lp->listen(function (ZG $tg) {
     $bot->zg($tg)->run(); // Запускаем обработку события
 });
 ```
@@ -106,6 +106,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Button;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg); // Создаем экземпляр бота
@@ -118,37 +119,37 @@ $bot->onBotCommand('img', '/img')
     ->img('cat.jpg')
     ->text('Изображение с кнопкой')
     ->inlineKbd([
-        ['callback1'], [$tg->buttonCallback('callback2', 'Кнопка 2')]
+        ['callback1'], [Button::cb('callback2', 'Кнопка 2')]
     ]);
 
 // Обработка команды с параметрами
 $bot->onCommand('sum', '!посчитай %n + %n')
-    ->func(function (TGZ $tg, $number1, $number2) {
+    ->func(function (ZG $tg, $number1, $number2) {
         $tg->msg($number1 + $number2)->send();
     });
 
 // Обработка полного совпадения текста
-$bot->onText('help', "помощь")->func(function (TGZ $tg) {
-    $tg->msg("Никто тебе не поможет")->send();
-});
+$bot->onText('help', "помощь")
+    ->func(function (ZG $tg) {
+        $tg->msg("Никто тебе не поможет")->send();
+    });
 
 // Обработка команды по регулярному выражению
 $bot->onTextPreg('more_word', "!\!напиши (.*)!")
-    ->func(function (TGZ $tg, $match) {
+    ->func(function (ZG $tg, $match) {
         $tg->msg("Ваше предложение: " . $match)->send();
     });
 
 // Обработка неизвестного текста
 $bot->onDefault()
-    ->func(function (TGZ $tg) {
+    ->func(function (ZG $tg) {
         $tg->msg("Я не понимаю твоего текста")->send();
     });
 
 // Обработка callback, если у кнопки нет обработки
 $bot->onCallback('callback2')
-    ->func(function (TGZ $tg) {
-        $query_id = $tg->getQueryId(); 
-        $tg->answerCallbackQuery($query_id);
+    ->func(function (ZG $tg) {
+        $tg->answerCallbackQuery($tg->getQueryId());
     
         $tg->msg("Вы нажали на кнопку")->editText();
     });
@@ -168,10 +169,11 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg); // Создаем экземпляр бота
 
-$bot->onDefault()->func(function () use ($bot) {
-    $bot->run('first');
-    // Запускаем команду с id 'first'
-});
+$bot->onDefault()
+    ->func(function () use ($bot) {
+        $bot->run('first');
+        // Запускаем команду с id 'first'
+    });
 
 $bot->onBotCommand('first', '/start')
     ->kbd([['fish', 'cat']])

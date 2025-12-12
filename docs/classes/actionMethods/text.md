@@ -22,6 +22,7 @@ description: "Отправляет текстовое сообщение в от
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Button;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
@@ -38,7 +39,7 @@ $bot->onText('question', 'Как дела?')
 $bot->onBotCommand('menu', '/menu')
     ->text('Выберите пункт меню:')
     ->inlineKbd([
-        [$tg->buttonUrl('Сайт''https://example.com')]
+        [Button::url('Сайт''https://example.com')]
     ]);
 
 $bot->run();

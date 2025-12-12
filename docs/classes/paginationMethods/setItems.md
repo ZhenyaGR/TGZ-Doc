@@ -18,8 +18,8 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 $items = [
-    $tg->buttonCallback('Кнопка 1', 'btn_1'),
-    $tg->buttonCallback('Кнопка 2', 'btn_2'),
+    Button::cb('Кнопка 1', 'btn_1'),
+    Button::cb('Кнопка 2', 'btn_2'),
     // ...
 ];
 

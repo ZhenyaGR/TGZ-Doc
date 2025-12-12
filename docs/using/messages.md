@@ -178,7 +178,7 @@ $tg->msg("Клавиатура убрана.")
 // Пример в обработчике callback-запроса
 $bot->onCallback('edit_text')
     ->func(function(ZG $tg) {
-        $query_id = $tg->getQueryID();
+        $query_id = $tg->getQueryId();
         $tg->answerCallbackQuery($query_id);
         
         $tg->msg("Этот текст изменён")->editText();

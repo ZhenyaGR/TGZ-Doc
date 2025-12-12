@@ -44,7 +44,7 @@ $bot->onBotCommand('start', '/start')
 $bot->onCallback('handle_dog_request', 'show_dog')
     ->func(function(ZG $tg) {
         // Обязательно отвечаем на callback, чтобы убрать "часики"
-        $tg->answerCallbackQuery($tg->getQueryID());
+        $tg->answerCallbackQuery($tg->getQueryId());
 
         // Готовим новое сообщение для редактирования
         $tg->msg("А вот и собачка!")               // Новая подпись

@@ -49,7 +49,7 @@ function isUserRegistered(int $user_id): bool {
 $bot = new TGZ('YOUR_BOT_TOKEN');
 
 // Устанавливаем глобальное Middleware
-$bot->middleware(function (TGZ $tg, Closure $next) {
+$bot->middleware(function (ZG $tg, Closure $next) {
     $user_id = $tg->getUserID();
 
     if ($user_id && !isUserRegistered($user_id)) {
@@ -103,7 +103,7 @@ $bot->onBotCommand('/start')->text('Добро пожаловать!');
 
 // Создаем маршрут для админ-панели и добавляем к нему Middleware
 $bot->onBotCommand('/admin')
-    ->middleware(function (TGZ $tg, Closure $next) {
+    ->middleware(function (ZG $tg, Closure $next) {
         $user_id = $tg->getUserID();
 
         if (!in_array($user_id, ADMIN_IDS)) {
@@ -116,7 +116,7 @@ $bot->onBotCommand('/admin')
         // Пользователь - админ, продолжаем выполнение
         $next();
     })
-    ->func(function (TGZ $tg) {
+    ->func(function (ZG $tg) {
         // Этот код выполнится только если Middleware вызовет $next()
         $tg->msg('Добро пожаловать в панель администратора!')->send();
     });

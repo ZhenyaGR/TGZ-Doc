@@ -30,7 +30,7 @@ $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 $bot->onCommand('/userdto')
-    ->func(function (TGZ $tg) {
+    ->func(function (ZG $tg) {
     
         $user = $tg->getUserDto();
     
@@ -83,7 +83,7 @@ $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 $bot->onCommand('/chatdto')
-    ->func(function (TGZ $tg) {
+    ->func(function (ZG $tg) {
     
         $chat = $tg->getChatDto();
     
