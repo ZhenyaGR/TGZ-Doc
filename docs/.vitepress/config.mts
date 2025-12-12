@@ -1,6 +1,9 @@
 import {defineConfig} from 'vitepress'
+// @ts-ignore
 import llmstxt from 'vitepress-plugin-llms'
+// @ts-ignore
 import {copyFileSync} from 'node:fs'
+// @ts-ignore
 import {join, resolve} from 'node:path'
 
 export default defineConfig({
@@ -79,10 +82,12 @@ export default defineConfig({
         hostname: 'https://zenithgram.github.io'
     },
 
+    // @ts-ignore
     async buildEnd(siteConfig) {
         // outDir - папка сборки (например, .vitepress/dist)
         const outDir = siteConfig.outDir
         // rootDir - корень проекта
+        // @ts-ignore
         const rootDir = process.cwd()
 
         const filesToCopy = ['llms.txt', 'llms-full.txt']
