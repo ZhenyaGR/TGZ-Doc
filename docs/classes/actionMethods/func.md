@@ -31,6 +31,7 @@ description: "Выполняет пользовательскую функцию
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\MessageParseMode;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
@@ -40,7 +41,7 @@ $bot->onCommand('ban', '!ban %w %s')
     ->func(function(ZG $tg, string $username, string $reason) {
         // Здесь может быть ваша логика: запись в БД, проверка прав и т.д.
         $tg->msg("✅ Пользователь `{$username}` забанен по причине: `{$reason}`")
-           ->parseMode('MarkdownV2')
+           ->parseMode(MessageParseMode::MarkdownV2)
            ->send();
     });
 
