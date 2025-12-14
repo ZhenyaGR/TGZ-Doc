@@ -5,6 +5,9 @@ import llmstxt from 'vitepress-plugin-llms'
 import {copyFileSync} from 'node:fs'
 // @ts-ignore
 import {join, resolve} from 'node:path'
+import path from 'path'
+import fs from 'fs' // Импортируем модуль для работы с файлами
+
 
 export default defineConfig({
     vite: {
@@ -66,6 +69,10 @@ export default defineConfig({
     appearance: 'dark',
     lastUpdated: true,
 
+    sitemap: {
+        hostname: 'https://zenithgram.github.io'
+    },
+
     head: [
         ['link', {rel: 'icon', href: '/favicon.svg', type: "image/image/svg+xml"}],
         ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
@@ -77,10 +84,6 @@ export default defineConfig({
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
 
     ],
-
-    sitemap: {
-        hostname: 'https://zenithgram.github.io'
-    },
 
     // @ts-ignore
     async buildEnd(siteConfig) {
@@ -106,6 +109,23 @@ export default defineConfig({
             } catch (e) {
                 // Выводим более понятную ошибку, если файла нет
                 console.error(`❌ ERROR copying ${fileName}. Ensure the file exists in ${outDir}. Details:`, e.message)
+            }
+        }
+
+        const sitemapPath = path.resolve(siteConfig.outDir, 'sitemap.xml')
+
+        // Проверяем, существует ли файл
+        if (fs.existsSync(sitemapPath)) {
+            // Читаем файл
+            const content = fs.readFileSync(sitemapPath, 'utf8')
+
+            // Удаляем пробелы/переносы строк в начале файла (trimStart)
+            if (content.startsWith('\n') || content.startsWith(' ')) {
+                const fixedContent = content.trimStart()
+
+                // Перезаписываем файл исправленной версией
+                fs.writeFileSync(sitemapPath, fixedContent)
+                console.log('✅ Sitemap.xml fixed: лишняя пустая строка удалена.')
             }
         }
     },
