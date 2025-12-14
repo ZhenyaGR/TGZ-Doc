@@ -74,13 +74,23 @@ export default defineConfig({
     },
 
     head: [
-        ['link', {rel: 'icon', href: '/favicon.svg', type: "image/image/svg+xml"}],
+        ['link', {rel: 'icon', href: '/favicon.svg', type: "image/svg+xml"}],
+        ['link', { rel: 'icon', href: '/favicon.ico', sizes: 'any' }],
+        ['link', { rel: 'icon', href: '/favicon.png', type: 'image/png' }],
+        ['link', { rel: 'apple-touch-icon', href: '/pwa-192x192.png' }], // Опционально, для мобилок
+
+
+        // --- SEO И ВЕРИФИКАЦИЯ ---
         ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
         ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}],
+
+        // --- OPEN GRAPH (для красивых ссылок в Telegram/VK/Discord) ---
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:title', content: 'ZenithGram - Библиотека для Telegram' }],
-        ['meta', { property: 'og:description', content: 'Простая, но мощная библиотека на PHP для создания ботов' }],
-        // ['meta', { property: 'og:image', content: 'https://zenithgram.github.io/og-image.png' }], // Сделайте красивую картинку-баннер 1200x630
+        ['meta', { property: 'og:site_name', content: 'ZenithGram Documentation' }],
+        ['meta', { property: 'og:description', content: 'Простая, но мощная библиотека на PHP для создания ботов. Быстрый старт и понятная документация' }],
+
+        ['meta', { property: 'og:image', content: 'https://zenithgram.github.io/og-image.png' }], // Сделайте красивую картинку-баннер 1200x630
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
 
     ],
