@@ -5,28 +5,22 @@ const props = defineProps({
   count: { type: Number, default: 100 },
   speed: { type: Number, default: 1 },
   enabled: { type: Boolean, default: true },
-  height: { type: Number, default: 100 } // Новый пропс (0 - 100%)
+  height: { type: Number, default: 100 }
 })
 
 const canvasRef = ref(null)
 let ctx = null
 let animationFrameId = null
-let particles = []
+let particles = [] // Массив частиц (теперь реактивно обновляется)
 let w = 0
 let h = 0
 
-// Вычисляем стиль маски динамически
+// Динамическая маска (без изменений)
 const maskStyle = computed(() => {
-  // Снег будет полностью виден до (height - 30%), а к (height%) исчезнет
   const fadeEnd = props.height
   const fadeStart = Math.max(0, fadeEnd - 30)
-
   const gradient = `linear-gradient(to bottom, black 0%, black ${fadeStart}%, transparent ${fadeEnd}%)`
-
-  return {
-    '-webkit-mask-image': gradient,
-    'mask-image': gradient
-  }
+  return { '-webkit-mask-image': gradient, 'mask-image': gradient }
 })
 
 const resize = () => {
@@ -35,23 +29,57 @@ const resize = () => {
   h = canvasRef.value.height = window.innerHeight
 }
 
-const createParticles = () => {
-  particles = []
-  if (!props.enabled) return
+// Функция создания ОДНОЙ снежинки
+const createParticle = () => ({
+  x: Math.random() * w,
+  y: Math.random() * h, // Появляются сразу по всему экрану
+  r: Math.random() * 3 + 1,
+  d: Math.random() * props.count, // Для смещения по X (sin)
+  s: (Math.random() * 1 + 0.5)    // Базовая скорость
+})
 
-  for (let i = 0; i < props.count; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 3 + 1,
-      d: Math.random() * props.count,
-      s: (Math.random() * 1 + 0.5)
-    })
+// Умное обновление количества без сброса
+const updateParticlesCount = () => {
+  const currentLen = particles.length
+  const targetLen = props.count
+
+  if (targetLen > currentLen) {
+    // Если нужно больше: добавляем разницу
+    const diff = targetLen - currentLen
+    for (let i = 0; i < diff; i++) {
+      particles.push(createParticle())
+    }
+  } else if (targetLen < currentLen) {
+    // Если нужно меньше: обрезаем массив (удаляем лишние с конца)
+    particles.splice(targetLen)
   }
 }
 
-watch(() => [props.count, props.enabled], () => {
-  createParticles()
+// Инициализация (полный сброс)
+const initParticles = () => {
+  particles = []
+  if (!props.enabled) return
+  for (let i = 0; i < props.count; i++) {
+    particles.push(createParticle())
+  }
+}
+
+// Следим за изменением количества — делаем плавное обновление
+watch(() => props.count, () => {
+  if (props.enabled) {
+    updateParticlesCount()
+  }
+})
+
+// Следим за включением/выключением — тут нужен полный сброс или создание
+watch(() => props.enabled, (val) => {
+  if (val) {
+    // Если включили — создаем с нуля (или можно вызвать updateParticlesCount для сохранения позиций, если массив не чистили)
+    if (particles.length === 0) initParticles()
+  } else {
+    // Если выключили — чистим массив (чтобы не грузить память)
+    particles = []
+  }
 })
 
 const draw = () => {
@@ -66,26 +94,32 @@ const draw = () => {
   ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
   ctx.beginPath()
 
+  // Рисуем
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i]
     ctx.moveTo(p.x, p.y)
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true)
   }
   ctx.fill()
+
+  // Обновляем координаты
   update()
+
   animationFrameId = requestAnimationFrame(draw)
 }
 
 const update = () => {
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i]
+    // props.speed меняется реактивно, поэтому умножаем на него прямо здесь
+    // Это дает плавное ускорение/замедление без рывков
     p.y += p.s * props.speed
     p.x += Math.sin(p.d) * 0.5
 
     if (p.y > h + 10) {
       particles[i] = {
         x: Math.random() * w,
-        y: -10,
+        y: -10, // Возвращаем наверх
         r: p.r,
         d: p.d,
         s: p.s
@@ -98,7 +132,7 @@ onMounted(() => {
   if (typeof window !== 'undefined') {
     ctx = canvasRef.value.getContext('2d')
     resize()
-    createParticles()
+    initParticles()
     draw()
     window.addEventListener('resize', resize)
   }
@@ -113,7 +147,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <!-- Применяем динамический стиль маски -->
   <canvas ref="canvasRef" class="snow-canvas" :style="maskStyle"></canvas>
 </template>
 
@@ -126,6 +159,5 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  /* Статическая маска удалена, теперь она в :style */
 }
 </style>
