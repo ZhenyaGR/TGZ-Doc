@@ -14,9 +14,9 @@ const DURATION = 3000 // Длительность одного полного о
 
 const settings = ref({
   enabled: true,
-  count: 100,
-  speed: 1,
-  height: 70
+  count: 70,
+  speed: 2,
+  height: 20
 })
 
 onMounted(() => {
@@ -84,7 +84,7 @@ watch(isOpen, (isActive) => {
 
   if (isActive) {
     // АКТИВНЫЙ РЕЖИМ: Ускоряемся (без сброса позиции!)
-    animation.playbackRate = 4 // В 4 раза быстрее
+    animation.playbackRate = 2 // В 2 раза быстрее
     animation.play()
   } else {
     // ВЫКЛЮЧИЛИ: Запускаем реверс
