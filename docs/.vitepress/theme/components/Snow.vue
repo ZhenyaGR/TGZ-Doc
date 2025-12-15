@@ -1,10 +1,11 @@
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue'
 
 const props = defineProps({
   count: { type: Number, default: 100 },
   speed: { type: Number, default: 1 },
-  enabled: { type: Boolean, default: true }
+  enabled: { type: Boolean, default: true },
+  height: { type: Number, default: 100 } // Новый пропс (0 - 100%)
 })
 
 const canvasRef = ref(null)
@@ -14,17 +15,28 @@ let particles = []
 let w = 0
 let h = 0
 
-// Изменение размера канваса
+// Вычисляем стиль маски динамически
+const maskStyle = computed(() => {
+  // Снег будет полностью виден до (height - 30%), а к (height%) исчезнет
+  const fadeEnd = props.height
+  const fadeStart = Math.max(0, fadeEnd - 30)
+
+  const gradient = `linear-gradient(to bottom, black 0%, black ${fadeStart}%, transparent ${fadeEnd}%)`
+
+  return {
+    '-webkit-mask-image': gradient,
+    'mask-image': gradient
+  }
+})
+
 const resize = () => {
   if (!canvasRef.value) return
   w = canvasRef.value.width = window.innerWidth
   h = canvasRef.value.height = window.innerHeight
 }
 
-// Создание частиц
 const createParticles = () => {
   particles = []
-  // Если выключено - не создаем частицы
   if (!props.enabled) return
 
   for (let i = 0; i < props.count; i++) {
@@ -38,7 +50,6 @@ const createParticles = () => {
   }
 }
 
-// Пересоздаем частицы, если изменилось их количество или вкл/выкл
 watch(() => [props.count, props.enabled], () => {
   createParticles()
 })
@@ -48,7 +59,6 @@ const draw = () => {
   ctx.clearRect(0, 0, w, h)
 
   if (!props.enabled) {
-    // Если выключено, но анимация запущена — просто чистим экран и ждем
     animationFrameId = requestAnimationFrame(draw)
     return
   }
@@ -69,12 +79,9 @@ const draw = () => {
 const update = () => {
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i]
-    // Используем props.speed как множитель
     p.y += p.s * props.speed
     p.x += Math.sin(p.d) * 0.5
 
-    // Если снежинка ушла вниз, возвращаем наверх
-    // h + 10 гарантирует, что она уйдет за пределы экрана перед сбросом
     if (p.y > h + 10) {
       particles[i] = {
         x: Math.random() * w,
@@ -106,7 +113,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <canvas ref="canvasRef" class="snow-canvas"></canvas>
+  <!-- Применяем динамический стиль маски -->
+  <canvas ref="canvasRef" class="snow-canvas" :style="maskStyle"></canvas>
 </template>
 
 <style scoped>
@@ -115,13 +123,9 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Канвас на весь экран, но... */
+  height: 100%;
   pointer-events: none;
   z-index: 9999;
-
-  /* ...магия CSS для эффекта "только сверху" */
-  /* Снег виден на 100% сверху, начинает исчезать на 40% высоты и полностью исчезает к 70% */
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 70%);
-  mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 70%);
+  /* Статическая маска удалена, теперь она в :style */
 }
 </style>

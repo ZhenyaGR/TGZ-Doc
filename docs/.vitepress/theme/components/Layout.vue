@@ -6,26 +6,25 @@ import { ref } from 'vue'
 
 const { Layout } = DefaultTheme
 
-// Начальные настройки (будут перезаписаны из localStorage внутри SnowControls)
 const snowSettings = ref({
   enabled: true,
   count: 100,
-  speed: 1
+  speed: 1,
+  height: 70
 })
 </script>
 
 <template>
   <Layout>
-    <!-- Ваши слоты -->
+    <!-- Здесь слоты -->
   </Layout>
 
-  <!-- Компонент снега получает настройки -->
   <Snow
       :enabled="snowSettings.enabled"
       :count="snowSettings.count"
       :speed="snowSettings.speed"
+      :height="snowSettings.height"
   />
 
-  <!-- Контролы меняют переменную snowSettings -->
   <SnowControls v-model="snowSettings" />
 </template>
