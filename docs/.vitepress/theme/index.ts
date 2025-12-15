@@ -6,6 +6,8 @@ import Card from './components/Card.vue'
 import CardGrid from './components/CardGrid.vue'
 import './style.css'
 
+import MyLayout from './components/Layout.vue' // Импортируем нашу обертку
+
 export default {
     extends: DefaultTheme,
 
@@ -13,6 +15,8 @@ export default {
         app.component('Card', Card)
         app.component('CardGrid', CardGrid)
     },
+
+    Layout: MyLayout,
 
     setup() {
         const { theme, page, site } = useData()
