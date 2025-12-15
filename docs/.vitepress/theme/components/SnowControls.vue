@@ -10,13 +10,12 @@ const settings = ref({
   enabled: true,
   count: 100,
   speed: 1,
-  height: 70 // Значение по умолчанию (70%)
+  height: 70
 })
 
 onMounted(() => {
   const saved = localStorage.getItem('snow-settings')
   if (saved) {
-    // Мержим сохраненные настройки с дефолтными (на случай, если height еще не был сохранен)
     settings.value = { ...settings.value, ...JSON.parse(saved) }
     emit('update:modelValue', settings.value)
   }
@@ -32,17 +31,16 @@ const toggleOpen = () => isOpen.value = !isOpen.value
 
 <template>
   <div class="snow-controls-wrapper">
-    <!-- Кнопка открытия -->
+    <!-- Кнопка с анимацией -->
     <button
         class="gear-btn"
         :class="{ active: isOpen }"
         @click="toggleOpen"
         title="Настройки снега"
     >
-      ❄️
+      <span class="icon-content">❄️</span>
     </button>
 
-    <!-- Панель настроек -->
     <div v-if="isOpen" class="settings-panel">
       <div class="row header">
         <span class="title">Snow Config</span>
@@ -90,75 +88,133 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   font-family: var(--vp-font-family-base, sans-serif);
 }
 
+/* --- АНИМАЦИЯ ВРАЩЕНИЯ --- */
+@keyframes snow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* Кнопка-шестеренка */
 .gear-btn {
+  /* Стекломорфизм */
+  background: rgba(var(--vp-c-bg-soft-rgb), 0.7); /* Если переменной нет, будет fallback */
   background: var(--vp-c-bg-soft);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
   border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-1);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  width: 44px; /* Чуть больше для удобства */
+  height: 44px;
+  font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  transition: all 0.2s;
+
+  /* Тени */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  /* Центрирование иконки */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
 }
 
-/* Активное состояние и ховер кнопки - используем бренд цвет */
-.gear-btn:hover, .gear-btn.active {
+/* Вращаем не саму кнопку (чтобы тень не крутилась), а спан внутри */
+.icon-content {
+  display: block;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+/* ХОВЕР: Запуск анимации */
+.gear-btn:hover .icon-content {
+  animation: snow-spin 4s linear infinite; /* Медленное красивое вращение */
+}
+
+.gear-btn:hover {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
-  box-shadow: 0 0 8px rgba(15, 200, 0, 0.3); /* Легкое свечение */
+  box-shadow: 0 6px 16px rgba(15, 200, 0, 0.25);
+  transform: translateY(-2px); /* Легкое всплытие */
 }
 
-/* Панель */
+/* АКТИВНОЕ СОСТОЯНИЕ (Меню открыто) */
+.gear-btn.active {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  color: var(--vp-c-brand-1);
+  box-shadow: 0 0 15px rgba(15, 200, 0, 0.4);
+}
+
+.gear-btn.active .icon-content {
+  /* При открытом меню крутится быстрее */
+  animation: snow-spin 2s linear infinite;
+}
+
+/* Панель настроек */
 .settings-panel {
   position: absolute;
-  bottom: 55px;
+  bottom: 60px;
   right: 0;
   width: 240px;
   background: var(--vp-c-bg);
+
+  /* Полупрозрачность панели */
+  background: rgba(30, 30, 32, 0.95); /* Пример для темной темы */
+  /* Лучше использовать системный цвет с прозрачностью, если возможно, но в CSS modules сложно.
+     Оставим просто фон темы + блюр */
+  background: var(--vp-c-bg);
+
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
+  border-radius: 16px; /* Более скругленные углы */
+  padding: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+
+  /* Анимация появления панели */
+  animation: slide-up 0.2s ease-out;
 }
 
-/* Заголовок */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Остальные стили (почти без изменений, но чуть аккуратнее) */
 .row.header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--vp-c-divider);
-  padding-bottom: 10px;
-  margin-bottom: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .title {
-  font-weight: 600;
-  color: var(--vp-c-brand-1); /* Заголовок бренд цветом */
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--vp-c-brand-1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .close-btn {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
   cursor: pointer;
   color: var(--vp-c-text-2);
   transition: color 0.2s;
 }
 .close-btn:hover {
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
 }
 
-/* Строки настроек */
 .row {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -172,7 +228,7 @@ const toggleOpen = () => isOpen.value = !isOpen.value
 .label-box {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 13px;
 }
 
@@ -184,25 +240,29 @@ label {
 .label-box span {
   color: var(--vp-c-brand-1);
   font-family: monospace;
+  font-weight: bold;
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   pointer-events: none;
   filter: grayscale(1);
+  transition: opacity 0.3s;
 }
 
-/* Стилизация инпутов с использованием бренд цвета */
+/* Инпуты */
 input[type="range"] {
   width: 100%;
-  accent-color: var(--vp-c-brand-1); /* Современный способ покрасить ползунок */
+  height: 4px;
+  border-radius: 2px;
+  accent-color: var(--vp-c-brand-1);
   cursor: pointer;
 }
 
 input[type="checkbox"] {
   accent-color: var(--vp-c-brand-1);
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 </style>
