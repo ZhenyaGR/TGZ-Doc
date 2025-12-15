@@ -1,6 +1,6 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import Snow from './components/Snow.vue'
+import Snow from './Snow.vue'
 
 const { Layout } = DefaultTheme
 </script>
