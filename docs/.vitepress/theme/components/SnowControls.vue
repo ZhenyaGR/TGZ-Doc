@@ -5,12 +5,13 @@ const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
 
 const isOpen = ref(false)
-const iconRef = ref(null) // Ссылка на иконку для JS-анимации
+const iconRef = ref(null)
+const wrapperRef = ref(null) // 1. Ссылка на весь блок контролов
 
 // Переменные для управления анимацией
 let animation = null
 let rewindCheckInterval = null
-const DURATION = 3000 // Длительность одного полного оборота (3 сек)
+const DURATION = 3000
 
 const settings = ref({
   enabled: true,
@@ -19,6 +20,17 @@ const settings = ref({
   height: 20
 })
 
+// 2. Функция обработки клика снаружи
+const handleClickOutside = (event) => {
+  // Если меню закрыто - ничего не делаем
+  if (!isOpen.value) return
+
+  // Если клик был НЕ внутри нашего компонента
+  if (wrapperRef.value && !wrapperRef.value.contains(event.target)) {
+    isOpen.value = false
+  }
+}
+
 onMounted(() => {
   const saved = localStorage.getItem('snow-settings')
   if (saved) {
@@ -26,24 +38,26 @@ onMounted(() => {
     emit('update:modelValue', settings.value)
   }
 
-  // --- ИНИЦИАЛИЗАЦИЯ WAAPI АНИМАЦИИ ---
+  // --- WAAPI АНИМАЦИИ ---
   if (iconRef.value) {
     animation = iconRef.value.animate(
         [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }],
-        {
-          duration: DURATION,
-          iterations: Infinity, // Бесконечно
-          easing: 'linear'      // Линейно (равномерно)
-        }
+        { duration: DURATION, iterations: Infinity, easing: 'linear' }
     )
-    animation.pause()     // Сразу ставим на паузу
-    animation.currentTime = 0 // В начало
+    animation.pause()
+    animation.currentTime = 0
   }
+
+  // 3. Подписываемся на клики по всей странице
+  window.addEventListener('click', handleClickOutside)
 })
 
 onUnmounted(() => {
   if (animation) animation.cancel()
   if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
+
+  // 4. Убираем слушатель при удалении компонента
+  window.removeEventListener('click', handleClickOutside)
 })
 
 watch(settings, (newVal) => {
@@ -55,61 +69,40 @@ const toggleOpen = () => isOpen.value = !isOpen.value
 
 // --- ЛОГИКА АНИМАЦИИ ---
 
-// 1. При наведении (если меню закрыто)
 const onMouseEnter = () => {
   if (!animation) return
-
-  // Останавливаем реверс, если он шел
   if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
-
-  // Если меню открыто, мы и так крутимся быстро, ничего не меняем
   if (isOpen.value) return
-
-  // Запускаем медленное вращение
   animation.playbackRate = 1
   animation.play()
 }
 
-// 2. При уходе мышки (если меню закрыто)
 const onMouseLeave = () => {
   if (!animation || isOpen.value) return
   triggerRewind()
 }
 
-// 3. Реакция на открытие/закрытие меню
 watch(isOpen, (isActive) => {
   if (!animation) return
-
   if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
 
   if (isActive) {
-    // АКТИВНЫЙ РЕЖИМ: Ускоряемся (без сброса позиции!)
-    animation.playbackRate = 2 // В 2 раза быстрее
+    animation.playbackRate = 2
     animation.play()
   } else {
-    // ВЫКЛЮЧИЛИ: Запускаем реверс
     triggerRewind()
   }
 })
 
-// Функция "Отмотки назад"
 const triggerRewind = () => {
   if (!animation) return
-
-  // 1. Нормализуем время (чтобы не отматывать часами, если крутилось долго)
-  // Мы берем остаток от деления на длительность, позиция визуально та же
   const currentTime = animation.currentTime || 0
   animation.currentTime = currentTime % DURATION
 
-  // 2. Включаем обратный ход
-  animation.playbackRate = -2 // Крутим назад в 2 раза быстрее чем обычно
+  animation.playbackRate = -2
   animation.play()
 
-  // 3. Цикл проверки: остановиться, когда дойдем до 0
   const checkZero = () => {
-    // currentTime при реверсе идет к 0.
-    // Иногда оно может проскочить через 0 и стать DURATION (из-за Infinity),
-    // поэтому проверяем, не стал ли он вдруг очень большим, либо меньше 10мс
     if (animation.currentTime <= 20 || animation.currentTime > (DURATION - 100)) {
       animation.pause()
       animation.currentTime = 0
@@ -121,12 +114,12 @@ const triggerRewind = () => {
 
   rewindCheckInterval = requestAnimationFrame(checkZero)
 }
-
 </script>
 
 <template>
-  <div class="snow-controls-wrapper">
-    <!-- Добавляем mouseenter/mouseleave и ref -->
+  <!-- 5. Привязываем ref="wrapperRef" к главному контейнеру -->
+  <div class="snow-controls-wrapper" ref="wrapperRef">
+
     <button
         class="gear-btn"
         :class="{ active: isOpen }"
@@ -135,7 +128,6 @@ const triggerRewind = () => {
         @mouseleave="onMouseLeave"
         title="Настройки снега"
     >
-      <!-- Ссылка ref для анимации -->
       <span ref="iconRef" class="icon-content">❄️</span>
     </button>
 
@@ -205,14 +197,11 @@ const triggerRewind = () => {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ВАЖНО: Убрали CSS анимации и переходы для transform */
 .icon-content {
   display: block;
   line-height: 1;
-  /* transform управляется через JS (WAAPI) */
 }
 
-/* Эффекты самой кнопки (не иконки) */
 .gear-btn:hover {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
@@ -228,7 +217,6 @@ const triggerRewind = () => {
   transform: translateY(0);
 }
 
-/* Панель настроек */
 .settings-panel {
   position: absolute;
   bottom: 60px;
