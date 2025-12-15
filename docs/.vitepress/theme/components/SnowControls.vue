@@ -1,10 +1,16 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
 
 const isOpen = ref(false)
+const iconRef = ref(null) // Ссылка на иконку для JS-анимации
+
+// Переменные для управления анимацией
+let animation = null
+let rewindCheckInterval = null
+const DURATION = 3000 // Длительность одного полного оборота (3 сек)
 
 const settings = ref({
   enabled: true,
@@ -19,6 +25,25 @@ onMounted(() => {
     settings.value = { ...settings.value, ...JSON.parse(saved) }
     emit('update:modelValue', settings.value)
   }
+
+  // --- ИНИЦИАЛИЗАЦИЯ WAAPI АНИМАЦИИ ---
+  if (iconRef.value) {
+    animation = iconRef.value.animate(
+        [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }],
+        {
+          duration: DURATION,
+          iterations: Infinity, // Бесконечно
+          easing: 'linear'      // Линейно (равномерно)
+        }
+    )
+    animation.pause()     // Сразу ставим на паузу
+    animation.currentTime = 0 // В начало
+  }
+})
+
+onUnmounted(() => {
+  if (animation) animation.cancel()
+  if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
 })
 
 watch(settings, (newVal) => {
@@ -27,18 +52,91 @@ watch(settings, (newVal) => {
 }, { deep: true })
 
 const toggleOpen = () => isOpen.value = !isOpen.value
+
+// --- ЛОГИКА АНИМАЦИИ ---
+
+// 1. При наведении (если меню закрыто)
+const onMouseEnter = () => {
+  if (!animation) return
+
+  // Останавливаем реверс, если он шел
+  if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
+
+  // Если меню открыто, мы и так крутимся быстро, ничего не меняем
+  if (isOpen.value) return
+
+  // Запускаем медленное вращение
+  animation.playbackRate = 1
+  animation.play()
+}
+
+// 2. При уходе мышки (если меню закрыто)
+const onMouseLeave = () => {
+  if (!animation || isOpen.value) return
+  triggerRewind()
+}
+
+// 3. Реакция на открытие/закрытие меню
+watch(isOpen, (isActive) => {
+  if (!animation) return
+
+  if (rewindCheckInterval) cancelAnimationFrame(rewindCheckInterval)
+
+  if (isActive) {
+    // АКТИВНЫЙ РЕЖИМ: Ускоряемся (без сброса позиции!)
+    animation.playbackRate = 4 // В 4 раза быстрее
+    animation.play()
+  } else {
+    // ВЫКЛЮЧИЛИ: Запускаем реверс
+    triggerRewind()
+  }
+})
+
+// Функция "Отмотки назад"
+const triggerRewind = () => {
+  if (!animation) return
+
+  // 1. Нормализуем время (чтобы не отматывать часами, если крутилось долго)
+  // Мы берем остаток от деления на длительность, позиция визуально та же
+  const currentTime = animation.currentTime || 0
+  animation.currentTime = currentTime % DURATION
+
+  // 2. Включаем обратный ход
+  animation.playbackRate = -2 // Крутим назад в 2 раза быстрее чем обычно
+  animation.play()
+
+  // 3. Цикл проверки: остановиться, когда дойдем до 0
+  const checkZero = () => {
+    // currentTime при реверсе идет к 0.
+    // Иногда оно может проскочить через 0 и стать DURATION (из-за Infinity),
+    // поэтому проверяем, не стал ли он вдруг очень большим, либо меньше 10мс
+    if (animation.currentTime <= 20 || animation.currentTime > (DURATION - 100)) {
+      animation.pause()
+      animation.currentTime = 0
+      rewindCheckInterval = null
+    } else {
+      rewindCheckInterval = requestAnimationFrame(checkZero)
+    }
+  }
+
+  rewindCheckInterval = requestAnimationFrame(checkZero)
+}
+
 </script>
 
 <template>
   <div class="snow-controls-wrapper">
-    <!-- Кнопка с анимацией -->
+    <!-- Добавляем mouseenter/mouseleave и ref -->
     <button
         class="gear-btn"
         :class="{ active: isOpen }"
         @click="toggleOpen"
+        @mouseenter="onMouseEnter"
+        @mouseleave="onMouseLeave"
         title="Настройки снега"
     >
-      <span class="icon-content">❄️</span>
+      <!-- Ссылка ref для анимации -->
+      <span ref="iconRef" class="icon-content">❄️</span>
     </button>
 
     <div v-if="isOpen" class="settings-panel">
@@ -78,6 +176,7 @@ const toggleOpen = () => isOpen.value = !isOpen.value
     </div>
   </div>
 </template>
+
 <style scoped>
 .snow-controls-wrapper {
   position: fixed;
@@ -87,9 +186,7 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   font-family: var(--vp-font-family-base, sans-serif);
 }
 
-/* Кнопка-шестеренка */
 .gear-btn {
-  /* Стекломорфизм */
   background: var(--vp-c-bg-soft);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -101,43 +198,21 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   height: 44px;
   font-size: 22px;
   cursor: pointer;
-
-  /* Тени */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Плавное изменение самой кнопки (цвет, тень, позиция) */
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- ЛОГИКА ВРАЩЕНИЯ --- */
+/* ВАЖНО: Убрали CSS анимации и переходы для transform */
 .icon-content {
   display: block;
   line-height: 1;
-  /*
-     Используем transition вместо animation.
-     Это обеспечивает плавный разгон и "отматывание" назад.
-     cubic-bezier дает эффект инерции (быстрый старт, плавное торможение).
-  */
-  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform: rotate(0deg); /* Начальное состояние */
+  /* transform управляется через JS (WAAPI) */
 }
 
-/* ХОВЕР: Поворот на пол-оборота */
-.gear-btn:hover .icon-content {
-  transform: rotate(180deg);
-}
-
-/* АКТИВНО (Меню открыто): Полный оборот */
-/* Когда мы уберем класс active, он плавно раскрутится обратно до 0 или 180 */
-.gear-btn.active .icon-content {
-  transform: rotate(360deg);
-}
-
-/* Эффекты кнопки при наведении */
+/* Эффекты самой кнопки (не иконки) */
 .gear-btn:hover {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
@@ -145,17 +220,15 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   transform: translateY(-2px);
 }
 
-/* Эффекты кнопки при открытии */
 .gear-btn.active {
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-bg);
   color: var(--vp-c-brand-1);
   box-shadow: 0 0 15px rgba(15, 200, 0, 0.4);
-  transform: translateY(0); /* Возвращаем на место при клике */
+  transform: translateY(0);
 }
 
-
-/* Панель настроек (без изменений) */
+/* Панель настроек */
 .settings-panel {
   position: absolute;
   bottom: 60px;
