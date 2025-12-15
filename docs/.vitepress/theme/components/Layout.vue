@@ -10,7 +10,7 @@ const snowSettings = ref({
   enabled: true,
   count: 100,
   speed: 1,
-  height: 70
+  height: 20
 })
 </script>
 
