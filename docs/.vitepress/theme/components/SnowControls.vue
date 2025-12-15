@@ -78,7 +78,6 @@ const toggleOpen = () => isOpen.value = !isOpen.value
     </div>
   </div>
 </template>
-
 <style scoped>
 .snow-controls-wrapper {
   position: fixed;
@@ -88,16 +87,9 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   font-family: var(--vp-font-family-base, sans-serif);
 }
 
-/* --- АНИМАЦИЯ ВРАЩЕНИЯ --- */
-@keyframes snow-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* Кнопка-шестеренка */
 .gear-btn {
   /* Стекломорфизм */
-  background: rgba(var(--vp-c-bg-soft-rgb), 0.7); /* Если переменной нет, будет fallback */
   background: var(--vp-c-bg-soft);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -105,7 +97,7 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-1);
   border-radius: 50%;
-  width: 44px; /* Чуть больше для удобства */
+  width: 44px;
   height: 44px;
   font-size: 22px;
   cursor: pointer;
@@ -113,68 +105,68 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   /* Тени */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 
-  /* Центрирование иконки */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
+  /* Плавное изменение самой кнопки (цвет, тень, позиция) */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Вращаем не саму кнопку (чтобы тень не крутилась), а спан внутри */
+/* --- ЛОГИКА ВРАЩЕНИЯ --- */
 .icon-content {
   display: block;
   line-height: 1;
-  transition: transform 0.3s;
+  /*
+     Используем transition вместо animation.
+     Это обеспечивает плавный разгон и "отматывание" назад.
+     cubic-bezier дает эффект инерции (быстрый старт, плавное торможение).
+  */
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: rotate(0deg); /* Начальное состояние */
 }
 
-/* ХОВЕР: Запуск анимации */
+/* ХОВЕР: Поворот на пол-оборота */
 .gear-btn:hover .icon-content {
-  animation: snow-spin 4s linear infinite; /* Медленное красивое вращение */
+  transform: rotate(180deg);
 }
 
+/* АКТИВНО (Меню открыто): Полный оборот */
+/* Когда мы уберем класс active, он плавно раскрутится обратно до 0 или 180 */
+.gear-btn.active .icon-content {
+  transform: rotate(360deg);
+}
+
+/* Эффекты кнопки при наведении */
 .gear-btn:hover {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
   box-shadow: 0 6px 16px rgba(15, 200, 0, 0.25);
-  transform: translateY(-2px); /* Легкое всплытие */
+  transform: translateY(-2px);
 }
 
-/* АКТИВНОЕ СОСТОЯНИЕ (Меню открыто) */
+/* Эффекты кнопки при открытии */
 .gear-btn.active {
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-bg);
   color: var(--vp-c-brand-1);
   box-shadow: 0 0 15px rgba(15, 200, 0, 0.4);
+  transform: translateY(0); /* Возвращаем на место при клике */
 }
 
-.gear-btn.active .icon-content {
-  /* При открытом меню крутится быстрее */
-  animation: snow-spin 2s linear infinite;
-}
 
-/* Панель настроек */
+/* Панель настроек (без изменений) */
 .settings-panel {
   position: absolute;
   bottom: 60px;
   right: 0;
   width: 240px;
   background: var(--vp-c-bg);
-
-  /* Полупрозрачность панели */
-  background: rgba(30, 30, 32, 0.95); /* Пример для темной темы */
-  /* Лучше использовать системный цвет с прозрачностью, если возможно, но в CSS modules сложно.
-     Оставим просто фон темы + блюр */
-  background: var(--vp-c-bg);
-
   border: 1px solid var(--vp-c-divider);
-  border-radius: 16px; /* Более скругленные углы */
+  border-radius: 16px;
   padding: 18px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-
-  /* Анимация появления панели */
-  animation: slide-up 0.2s ease-out;
+  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slide-up {
@@ -182,9 +174,8 @@ const toggleOpen = () => isOpen.value = !isOpen.value
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Остальные стили (почти без изменений, но чуть аккуратнее) */
 .row.header {
-  flex-direction: row;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--vp-c-divider);
@@ -250,7 +241,6 @@ label {
   transition: opacity 0.3s;
 }
 
-/* Инпуты */
 input[type="range"] {
   width: 100%;
   height: 4px;
