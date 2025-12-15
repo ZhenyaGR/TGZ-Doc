@@ -14,7 +14,7 @@ const DURATION = 3000 // Длительность одного полного о
 
 const settings = ref({
   enabled: true,
-  count: 70,
+  count: 150,
   speed: 2,
   height: 20
 })
