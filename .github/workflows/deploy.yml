@@ -17,8 +17,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Экспортируем время старта, чтобы job 'deploy' мог его увидеть
+    outputs:
+      start_time: ${{ steps.timer.outputs.start_time }}
+      formatted_start: ${{ steps.timer.outputs.formatted_start }}
     steps:
-      # --- [NEW] Уведомление о старте ---
+      # --- [NEW] 1. Засекаем время ---
+      - name: Start Timer
+        id: timer
+        run: |
+          # Сохраняем текущую секунду (epoch) для математики
+          echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
+          # Сохраняем красивое время для сообщений (Москва +3 часа)
+          # Если нужно UTC, уберите 'TZ=Europe/Moscow'
+          echo "formatted_start=$(TZ=Europe/Moscow date '+%H:%M:%S')" >> $GITHUB_OUTPUT
+
+      # --- [NEW] 2. Уведомление о старте ---
       - name: Telegram - Start
         uses: appleboy/telegram-action@master
         with:
@@ -26,7 +40,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             🚀 Началась сборка документации!
-            Коммит: ${{ github.event.head_commit.message }}
+            ⏰ Время старта: ${{ steps.timer.outputs.formatted_start }}
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,7 +98,6 @@ jobs:
             echo "✅ Успешно отправлено в ZenithGram/ai-context"
           fi
 
-      # --- БЛОК 3: Подготовка артефактов ---
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -93,7 +106,6 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-      # --- [NEW] Уведомление об ошибке сборки ---
       - name: Telegram - Build Failure
         if: failure()
         uses: appleboy/telegram-action@master
@@ -102,7 +114,8 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ❌ Ошибка на этапе сборки (Build)!
-            Проверьте логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            ⏰ Старт был в: ${{ steps.timer.outputs.formatted_start }}
+            Логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   deploy:
     environment:
@@ -115,19 +128,32 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # --- [NEW] Уведомление об УСПЕХЕ ---
+      # --- [NEW] 3. Считаем и отправляем итог ---
       - name: Telegram - Success
+        if: success()
+        id: stats
+        env:
+          # Забираем время старта из предыдущего job (build)
+          START_TIME: ${{ needs.build.outputs.start_time }}
+        run: |
+          NOW=$(date +%s)
+          DURATION=$((NOW - START_TIME))
+          # Форматируем секунды в минуты:секунды
+          echo "formatted_duration=$((DURATION / 60))м $((DURATION % 60))с" >> $GITHUB_OUTPUT
+          echo "formatted_end=$(TZ=Europe/Moscow date '+%H:%M:%S')" >> $GITHUB_OUTPUT
+
+      - name: Send Final Notification
         if: success()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ✅ Документация успешно обновлена!
-            
-            🔗 Ссылка: ${{ steps.deployment.outputs.page_url }}
+            ✅ Документация обновлена!
+            ⏰ Старт: ${{ needs.build.outputs.formatted_start }}
+            🏁 Финиш: ${{ steps.stats.outputs.formatted_end }}
+            ⏱ Время: ${{ steps.stats.outputs.formatted_duration }}
 
-      # --- [NEW] Уведомление об ошибке деплоя ---
       - name: Telegram - Deploy Failure
         if: failure()
         uses: appleboy/telegram-action@master
@@ -135,5 +161,6 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ❌ Ошибка на этапе публикации (Deploy)!
-            Проверьте логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            ❌ Ошибка на этапе деплоя!
+            ⏰ Старт был в: ${{ needs.build.outputs.formatted_start }}
+            Логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
