@@ -9,7 +9,7 @@ description: "Обзор всех классов библиотеки."
   <Card
     title="ZG"
     details="Основной класс библиотеки"
-    href="/classes/zg"
+    href="/classes/zenith"
     icon="👑"
   />
   <Card
