@@ -7,69 +7,69 @@ description: "Обзор всех классов библиотеки."
 
 <CardGrid>
   <Card
-    title="TGZ"
+    title="ZG"
     details="Основной класс библиотеки"
-    href="/TGZ-Doc/classes/tgz"
+    href="/classes/zg"
     icon="👑"
   />
   <Card
     title="LongPoll"
     details="Получение обновлений методом LongPoll"
-    href="/TGZ-Doc/classes/longpoll"
+    href="/classes/longpoll"
     icon="🛜"
   />
   <Card
     title="Bot & Action"
     details="Классы для создания маршрутов и обработчиков к ним"
-    href="/TGZ-Doc/classes/bot"
+    href="/classes/bot"
     icon="🛠️"
   />
   <Card
     title="Message"
     details="Конструктор сообщений, созданный по принципу «Цепочка методов»"
-    href="/TGZ-Doc/classes/message"
+    href="/classes/message"
     icon="✉️"
   />
   <Card
     title="Button"
     details="Вспомогательный класс со статическими методами для создания кнопок"
-    href="/TGZ-Doc/classes/button"
+    href="/classes/button"
     icon="⏺️"
   />
   <Card
     title="File"
     details="Класс для работы с файлами"
-    href="/TGZ-Doc/classes/file"
+    href="/classes/file"
     icon="📩"
   />
   <Card
     title="Poll"
     details="Класс для создания опросов"
-    href="/TGZ-Doc/classes/poll"
+    href="/classes/poll"
     icon="📊"
   />
   <Card
     title="Pagination"
     details="Класс для пагинации страниц"
-    href="/TGZ-Doc/classes/pagination"
+    href="/classes/pagination"
     icon="🗂️"
   />
   <Card
     title="Inline"
     details="Класс для создания инлайн-ответов"
-    href="/TGZ-Doc/classes/inline"
+    href="/classes/inline"
     icon="🎹"
   />
   <Card
     title="DTO"
     details="Классы для создания DTO-объектов"
-    href="/TGZ-Doc/classes/dto"
+    href="/classes/dto"
     icon="📦"
   />
   <Card
     title="Enum"
     details="Все Enum в библиотеке"
-    href="/TGZ-Doc/classes/enum"
+    href="/classes/enum"
     icon="📋"
   />
 </CardGrid>
