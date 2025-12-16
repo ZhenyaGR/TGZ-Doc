@@ -66,5 +66,11 @@ description: "Обзор всех классов библиотеки."
     href="/TGZ-Doc/classes/dto"
     icon="📦"
   />
+  <Card
+    title="Enum"
+    details="Все Enum в библиотеке"
+    href="/TGZ-Doc/classes/enum"
+    icon="📋"
+  />
 </CardGrid>
 
