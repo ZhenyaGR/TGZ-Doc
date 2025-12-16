@@ -18,6 +18,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # --- [NEW] Уведомление о старте ---
+      - name: Telegram - Start
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🚀 Началась сборка документации!
+            Коммит: ${{ github.event.head_commit.message }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -56,30 +66,16 @@ jobs:
       # --- БЛОК 2: Отправляем файлы в ДРУГОЙ репозиторий ---
       - name: Manual Push to TGZ repo
         env:
-          # Передаем токен как переменную окружения
           TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         run: |
-          # 1. Настраиваем Git и клонируем целевой репозиторий в папку 'temp_tgz'
-          # Используем токен прямо в URL для авторизации
           git clone --depth 1 https://oauth2:$TOKEN@github.com/ZenithGram/php-telegram-bot-library.git temp_ai
-          
-          # 2. Переходим в склонированный репозиторий
           cd temp_ai
-          
-          # 3. Создаем папку ai-context (если её нет - создастся, если есть - ок)
           mkdir -p ai-context
-          
-          # 4. Копируем файлы из корня сборки (они лежат уровнем выше, в ..)
           cp ../llms.txt ai-context/
           cp ../llms-full.txt ai-context/
-          
-          # 5. Коммитим и пушим
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
           git add ai-context/
-          
-          # Проверка на изменения
           if git diff --staged --quiet; then
             echo "Нет изменений для записи"
           else
@@ -88,13 +84,25 @@ jobs:
             echo "✅ Успешно отправлено в ZenithGram/ai-context"
           fi
 
-      # --- БЛОК 3: Деплой сайта ---
+      # --- БЛОК 3: Подготовка артефактов ---
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+
+      # --- [NEW] Уведомление об ошибке сборки ---
+      - name: Telegram - Build Failure
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ❌ Ошибка на этапе сборки (Build)!
+            Проверьте логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   deploy:
     environment:
@@ -106,3 +114,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # --- [NEW] Уведомление об УСПЕХЕ ---
+      - name: Telegram - Success
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ✅ Документация успешно обновлена!
+            
+            🔗 Ссылка: ${{ steps.deployment.outputs.page_url }}
+
+      # --- [NEW] Уведомление об ошибке деплоя ---
+      - name: Telegram - Deploy Failure
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ❌ Ошибка на этапе публикации (Deploy)!
+            Проверьте логи: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
