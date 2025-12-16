@@ -80,7 +80,7 @@ export default {
 
                     const parentTitle = findParentTitle(theme.value.sidebar, newPath)
                     const pageTitle = page.value.title
-                    const siteTitle = site.value.title || 'Telegram-Z'
+                    const siteTitle = site.value.title || 'ZenithGram'
 
                     // Логи для проверки (можно удалить, если заработает)
                     // console.log('Нормализованный путь:', normalize(newPath))
@@ -88,8 +88,10 @@ export default {
 
                     if (parentTitle) {
                         document.title = `${parentTitle} > ${pageTitle} | ${siteTitle}`
-                    } else {
+                    } else if (pageTitle) {
                         document.title = `${pageTitle} | ${siteTitle}`
+                    } else {
+                        document.title = `${siteTitle}`
                     }
                 })
             },
