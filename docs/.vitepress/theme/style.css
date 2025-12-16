@@ -1,38 +1,66 @@
 :root {
-    --vp-home-hero-name-color: #0fc800;
-    --vp-home-hero-action-color: #0fc800;
-    --vp-caption-text: grey;
-    --vp-nav-logo-height: 40px; /* Установите желаемую высоту. Стандартно 24px */
+  --vp-home-hero-name-color: #0fc800;
+  --vp-home-hero-action-color: #0fc800;
+  --vp-caption-text: grey;
+  --vp-nav-logo-height: 40px;
 
-    /* Ваш основной цвет */
-    --vp-c-brand-1: #0fc800;
-
-    /* Цвет для наведения курсора (чуть темнее) */
-    --vp-c-brand-2: #0db100;
-
-    /* Цвет для нажатия на кнопку (еще темнее) */
-    --vp-c-brand-3: #0a9a00;
-
-    /* На всякий случай определим и другие оттенки для консистентности */
-    --vp-c-brand-light: #0fc800;
-    --vp-c-brand-lighter: #12e800;
-    --vp-c-brand-dark: #0db100;
-    --vp-c-brand-darker: #0a9a00;
-
+  /* Ваш основной цвет */
+  --vp-c-brand-1: #0fc800;
+  --vp-c-brand-2: #0db100;
+  --vp-c-brand-3: #0a9a00;
+  --vp-c-brand-light: #0fc800;
+  --vp-c-brand-lighter: #12e800;
+  --vp-c-brand-dark: #0db100;
+  --vp-c-brand-darker: #0a9a00;
 }
 
 .img-medium {
-    width: 95%;
-    max-width: 600px;
-    display: block;
-    margin: 0 auto;
+  width: 95%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
 }
 
 figcaption {
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 0.5em;
-    color: var(--vp-caption-text);
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  color: var(--vp-caption-text);
 }
 
+/* --- СТИЛИЗАЦИЯ ПОЛОСЫ ПРОКРУТКИ (SCROLLBAR) --- */
 
+/* Для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) var(--vp-c-bg);
+}
+
+/* Для Chrome, Edge, Safari (Webkit) */
+::-webkit-scrollbar {
+  width: 10px;  /* Ширина вертикального скролла */
+  height: 10px; /* Высота горизонтального скролла */
+}
+
+/* Фон (трек) скроллбара */
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg);
+  border-radius: 4px;
+}
+
+/* Ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-divider); /* Цвет ползунка (серый) */
+  border-radius: 6px; /* Закругление */
+  border: 3px solid var(--vp-c-bg); /* Отступ внутрь, создается за счет рамки цвета фона */
+}
+
+/* Ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vp-c-text-2); /* Чуть темнее/ярче при наведении */
+}
+
+/* (Опционально) Если хотите, чтобы в активном состоянии он становился зеленым как бренд */
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--vp-c-brand-1);
+}
