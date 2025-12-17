@@ -1,9 +1,4 @@
 ---
-title: inlineKbd
-description: "Добавляет Inline-клавиатуру к сообщению."
----
-
----
 title: forceReply
 description: "Открывает интерфейс ответа."
 sidebarDepth: 0
