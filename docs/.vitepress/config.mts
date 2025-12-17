@@ -333,6 +333,7 @@ export default defineConfig({
                             {text: 'kbd', link: '/classes/actionMethods/kbd'},
                             {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
                             {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
+                            {text: 'forceReply', link: '/classes/actionMethods/forceReply'},
 
                             // 5. Дополнительно и редактирование
                             {text: 'reply', link: '/classes/actionMethods/reply'},
@@ -365,6 +366,7 @@ export default defineConfig({
                             {text: 'kbd', link: '/classes/messageMethods/kbd'},
                             {text: 'inlineKbd', link: '/classes/messageMethods/inlineKbd'},
                             {text: 'removeKbd', link: '/classes/messageMethods/removeKbd'},
+                            {text: 'forceReply', link: '/classes/messageMethods/forceReply'},
 
                             // 4. Настройки сообщения
                             {text: 'parseMode', link: '/classes/messageMethods/parseMode'},
@@ -477,7 +479,6 @@ export default defineConfig({
 
                     {text: 'DTO', link: '/classes/dto'},
                     {text: 'Enum', link: '/classes/enum'},
-
                 ]
             },
             {
