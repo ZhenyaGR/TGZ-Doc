@@ -31,11 +31,6 @@ $update = $tg->getUpdate();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $chat_id = $tg->getChatId();
 ```
 
@@ -47,11 +42,6 @@ $chat_id = $tg->getChatId();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $chat_id = $tg->getChatDto()->id;
 ```
 
@@ -63,12 +53,18 @@ $chat_id = $tg->getChatDto()->id;
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $user_id = $tg->getUserId();
+```
+
+## getReplyUserId
+Метод возвращает идентификатор пользователя, на чьё сообщение ответили (reply_to_message).
+
+### Возвращает
+`?int` - ID пользователя или `null`, если его нет в событии.
+
+### Пример использования
+```php
+$reply_user_id = $tg->getReplyUserId();
 ```
 
 ## getUserDto
@@ -79,11 +75,6 @@ $user_id = $tg->getUserId();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $user_id = $tg->getUserDto()->id;
 ```
 
@@ -95,12 +86,18 @@ $user_id = $tg->getUserDto()->id;
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $text = $tg->getText();
+```
+
+## getReplyText
+Метод возвращает текст отвеченного сообщения из пришедшего события (reply_to_message).
+
+### Возвращает
+`?string` - Текст сообщения или `null`, если это не текстовое сообщение.
+
+### Пример использования
+```php
+$reply_text = $tg->getReplyText();
 ```
 
 ## getMsgId
@@ -111,12 +108,18 @@ $text = $tg->getText();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
+$msg_id = $tg->getMsgId();
+```
 
-$tg = ZG::create('ВАШ_ТОКЕН');
-$message_id = $tg->getMsgId();
+## getReplyMsgId
+Метод возвращает идентификатор сообщения, на которое ответили (reply_to_message).
+
+### Возвращает
+`?int` - ID сообщения или `null`, если его нет в событии.
+
+### Пример использования
+```php
+$msg_id = $tg->getReplyMsgId();
 ```
 
 ## getType
@@ -127,11 +130,6 @@ $message_id = $tg->getMsgId();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $type = $tg->getType();
 ```
 
@@ -143,11 +141,6 @@ $type = $tg->getType();
 
 ### Пример использования
 ```php
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $query_id = $tg->getQueryId();
 ```
 
@@ -159,10 +152,6 @@ $query_id = $tg->getQueryId();
 
 ### Пример использования
 ```php
-<?phprequire_once __DIR__ . '/vendor/autoload.php';
-use ZenithGram\ZenithGram\ZG;
-
-$tg = ZG::create('ВАШ_ТОКЕН');
 $callback_data = $tg->getCallbackData();
 ```
 
