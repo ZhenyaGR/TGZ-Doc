@@ -6,10 +6,13 @@ description: "Системные требования (PHP 8.2+) и инстру
 # Установка и подключение библиотеки
 
 ## Требования
-* PHP: `8.2-8.4+`  
-* Модуль: `mbstring` 
-* Модуль: `curl`
-* Модуль: `json` (Обычно включён по умолчанию)
+* PHP 8.2 или выше
+* Composer
+* Расширения **PHP**: `mbstring`, `openssl`, `json`, `curl`
+
+::: tip Примечание
+Библиотека использует асинхронный движок Revolt. Для экстремальной производительности рекомендуется (но не обязательно) наличие расширения uv или ev.
+:::
 
 ## Установка PHP
 Установка PHP описана на официальном сайте [php.net](https://www.php.net/downloads.php)  
@@ -18,20 +21,12 @@ description: "Системные требования (PHP 8.2+) и инстру
 ## Подключение библиотеки, используя composer
 1. Установка библиотеки
 ```bash
-composer require zenithgram/zenithgram:dev-main
+composer require zenithgram/zenithgram
 ```
 
 2. Подключить `autoload.php` напрямую внутри бота
 ```php
-require_once __DIR__.'/vendor/autoload.php';
-```
-
-## Подключение библиотеки вручную
-1. Скачать последний релиз c [github](https://github.com/ZenithGram/php-telegram-bot-library)
-2. Подключить `autoload.php`.
-> Вот так будет происходить подключение, если ваш бот находится в той же папке, что и папка `ZenithGram`
-```php
-require_once "ZenithGram/autoload.php";
+require_once __DIR__ . '/vendor/autoload.php';
 ```
 
 ## Подключение классов
