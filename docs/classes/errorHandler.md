@@ -1,4 +1,4 @@
-_---
+---
 title: ErrorHandler
 description: "Настройка обработки и логирования ошибок (ErrorHandler)."
 sidebarDepth: 0
