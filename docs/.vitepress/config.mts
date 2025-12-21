@@ -239,7 +239,6 @@ export default defineConfig({
 
                             // 3. Глобальные настройки
                             {text: 'defaultParseMode', link: '/classes/zenithMethods/defaultParseMode'},
-                            {text: 'errors', link: '/classes/zenithMethods/errors'},
 
                             // 4. Простые действия (отправка/удаление без конструктора)
                             {text: 'sendMessage', link: '/classes/zenithMethods/sendMessage'},
@@ -477,6 +476,7 @@ export default defineConfig({
                         ]
                     },
 
+                    {text: 'errorHandler', link: '/classes/errorHandler'},
                     {text: 'DTO', link: '/classes/dto'},
                     {text: 'Enum', link: '/classes/enum'},
                 ]
