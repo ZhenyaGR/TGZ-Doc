@@ -476,7 +476,7 @@ export default defineConfig({
                         ]
                     },
 
-                    {text: 'errorHandler', link: '/classes/errorHandler'},
+                    {text: 'ErrorHandler', link: '/classes/errorhandler'},
                     {text: 'DTO', link: '/classes/dto'},
                     {text: 'Enum', link: '/classes/enum'},
                 ]
