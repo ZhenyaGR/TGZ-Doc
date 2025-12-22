@@ -307,38 +307,13 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                             // 1. Логика обработки
+                            {text: 'MessageBuilder', link: '/classes/actionMethods/messageBuilder'},
                             {text: 'func', link: '/classes/actionMethods/func'},
                             {text: 'access', link: '/classes/actionMethods/access'},
                             {text: 'noAccess', link: '/classes/actionMethods/noAccess'},
                             {text: 'middleware', link: '/classes/actionMethods/middleware'},
                             {text: 'redirect', link: '/classes/actionMethods/redirect'},
-
-                            // 2. Простой ответ
-                            {text: 'text', link: '/classes/actionMethods/text'},
-                            {text: 'parseMode', link: '/classes/actionMethods/parseMode'},
                             {text: 'query', link: '/classes/actionMethods/query'}, // Всплывашка
-
-                            // 3. Медиа ответ
-                            {text: 'img', link: '/classes/actionMethods/img'},
-                            {text: 'video', link: '/classes/actionMethods/video'},
-                            {text: 'audio', link: '/classes/actionMethods/audio'},
-                            {text: 'voice', link: '/classes/actionMethods/voice'},
-                            {text: 'doc', link: '/classes/actionMethods/doc'},
-                            {text: 'gif', link: '/classes/actionMethods/gif'},
-                            {text: 'sticker', link: '/classes/actionMethods/sticker'},
-                            {text: 'dice', link: '/classes/actionMethods/dice'},
-
-                            // 4. Клавиатуры
-                            {text: 'kbd', link: '/classes/actionMethods/kbd'},
-                            {text: 'inlineKbd', link: '/classes/actionMethods/inlineKbd'},
-                            {text: 'removeKbd', link: '/classes/actionMethods/removeKbd'},
-                            {text: 'forceReply', link: '/classes/actionMethods/forceReply'},
-
-                            // 5. Дополнительно и редактирование
-                            {text: 'reply', link: '/classes/actionMethods/reply'},
-                            {text: 'params', link: '/classes/actionMethods/params'},
-                            {text: 'editText', link: '/classes/actionMethods/editText'},
-                            {text: 'editCaption', link: '/classes/actionMethods/editCaption'},
                         ]
                     },
 
