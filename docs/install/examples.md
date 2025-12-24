@@ -255,7 +255,7 @@ $bot->onCallbackPreg('buy_item', '/^buy_item_(\d+)$/')
         $tg->answerCallbackQuery(
             $tg->getQueryId(), 
             ['text' => "Товар #$itemId добавлен в корзину! ✅"]
-        )
+        );
     });
 
 // 4. Закрытие меню
