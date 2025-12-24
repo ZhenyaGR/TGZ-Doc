@@ -142,4 +142,14 @@ $lp->listen(function (ZG $tg) use ($bot) {
     $bot->zg($tg)->run();
 });
 ```
+
+## Примеры вывода
+
+### Сообщение в Telegram
+
+![telegram.png](/errorsScreenShot/telegram.png)
+
 ---
+
+### Терминал
+![terminal.png](/errorsScreenShot/terminal.png)
