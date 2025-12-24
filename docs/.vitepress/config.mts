@@ -26,6 +26,8 @@ export default defineConfig({
                     '**/json/**',
                     '**/main.md',
                     'index.md',
+                    '**index.md',
+                    '**/index.md',
                     '**/classes/zenithMethods/buttons.md',
                     '**/install/requirements.md',
                     '**/install/create_bot.md',
