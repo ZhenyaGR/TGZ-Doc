@@ -23,7 +23,7 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
-use ZenithGram\ZenithGram\Enum\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
 
 $tg = ZG::create(BOT_TOKEN);
 
@@ -42,7 +42,7 @@ $tg->poll('regular')
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
-use ZenithGram\ZenithGram\Enum\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
 
 $tg = ZG::create(BOT_TOKEN);
 
@@ -61,7 +61,7 @@ $tg->poll('regular')
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
-use ZenithGram\ZenithGram\Enum\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
 
 $tg = ZG::create(BOT_TOKEN);
 

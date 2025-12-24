@@ -26,7 +26,7 @@ Callable — функция, принимающая номер страницы 
 
 ## Пример использования
 ```php
-use ZenithGram\ZenithGram\Enum\PaginationNumberStyle;
+use ZenithGram\ZenithGram\Enums\PaginationNumberStyle;
 // Цифры
 $tg->pagination()->setNumberStyle(PaginationNumberStyle::CLASSIC);
 

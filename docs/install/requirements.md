@@ -44,9 +44,9 @@ use ZenithGram\ZenithGram\File;
 use ZenithGram\ZenithGram\Inline;
 
 // Enum
-use ZenithGram\ZenithGram\Enum\MessageParseMode;
-use ZenithGram\ZenithGram\Enum\PaginationMode;
-use ZenithGram\ZenithGram\Enum\PaginationLayout;
-use ZenithGram\ZenithGram\Enum\PaginationNumberStyle;
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\PaginationMode;
+use ZenithGram\ZenithGram\Enums\PaginationLayout;
+use ZenithGram\ZenithGram\Enums\PaginationNumberStyle;
 ```
 
