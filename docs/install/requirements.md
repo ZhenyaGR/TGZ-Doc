@@ -32,6 +32,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 ## Подключение классов
 Через конструкцию `use` подключите те классы, методы которых вы будете использовать.
 ```php
+// Классы
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\Bot;
@@ -41,4 +42,11 @@ use ZenithGram\ZenithGram\Pagination;
 use ZenithGram\ZenithGram\Poll;
 use ZenithGram\ZenithGram\File;
 use ZenithGram\ZenithGram\Inline;
+
+// Enum
+use ZenithGram\ZenithGram\Enum\MessageParseMode;
+use ZenithGram\ZenithGram\Enum\PaginationMode;
+use ZenithGram\ZenithGram\Enum\PaginationLayout;
+use ZenithGram\ZenithGram\Enum\PaginationNumberStyle;
 ```
+

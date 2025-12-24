@@ -20,7 +20,7 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
-use ZenithGram\ZenithGram\MessageParseMode;
+use ZenithGram\ZenithGram\Enum\MessageParseMode;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 

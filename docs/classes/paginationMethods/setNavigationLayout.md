@@ -27,7 +27,7 @@ PaginationLayout — перечисление `(Enum)`. Содержит 3 ко�
 
 ## Пример использования
 ```php
-use ZenithGram\ZenithGram\Pagination;
+use ZenithGram\ZenithGram\Enum\PaginationLayout;
 
 // Пример 1: Разделить на две строки
 $tg->pagination()->setNavigationLayout(PaginationLayout::SPLIT);

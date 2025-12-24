@@ -31,8 +31,7 @@ PaginationMode — перечисление `(Enum)`. Содержит 2 кон�
 
 ## Пример использования
 ```php
-use ZenithGram\ZenithGram\Pagination;
-
+use ZenithGram\ZenithGram\Enum\PaginationMode;
 // Пример 1: Кнопки-стрелки
 $tg->pagination()->setMode(PaginationMode::ARROWS);
 

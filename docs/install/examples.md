@@ -30,6 +30,7 @@ $bot = new Bot($tg); // Создаем экземпляр бота
 $bot->onMessage()->func(function(ZG $tg) {
     $tg->copyMsg();
 });
+
 $bot->run(); // Запускаем обработку события
 ```
 
@@ -153,7 +154,7 @@ $bot->btn('fish', 'Рыбка')->text('Вы выбрали Рыбку!')->img('f
 $bot->btn('cat', 'Котик')->text('Вы выбрали Котика!')->img('cat.jpg');
 
 // Создаем кнопки вручную с помощью класса Button
-$bot->onBotCommand('/help')->
+$bot->onBotCommand('/help')
     ->text('Выбери, чья помощь тебе нужна')
     ->kbd([[
         Button::text('Человека'),
@@ -252,7 +253,7 @@ $bot->onCallbackPreg('shop_nav', '/^catalog_page_(\d+)$/')
 $bot->onCallbackPreg('buy_item', '/^buy_item_(\d+)$/')
     ->func(function(ZG $tg, $itemId) {
         $tg->answerCallbackQuery(
-            $tg->getQueryId, 
+            $tg->getQueryId(), 
             ['text' => "Товар #$itemId добавлен в корзину! ✅"]
         )
     });

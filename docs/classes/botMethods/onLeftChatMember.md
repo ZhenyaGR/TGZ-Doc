@@ -32,7 +32,7 @@ $bot->run();
 ## Пример использования с обработчиком
 
 ### Аргументы обработчика
-- `TGZ $tg` - экземпляр класса TGZ.
+- `ZG $tg` - экземпляр класса `ZG`.
 - `UserDto $user` - данные пользователя в формате UserDto.
 
 ```php
@@ -40,6 +40,7 @@ $bot->run();
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Dto\UserDto;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);

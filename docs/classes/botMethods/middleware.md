@@ -12,7 +12,7 @@ description: "Регистрирует глобальное Middleware для б
 | 1 | **handler** | `callable` | Анонимная функция-обработчик |
 
 ## Аргументы обработчика
-- `TGZ $tg` - экземпляр класса TGZ.
+- `ZG $tg` - экземпляр класса ZG.
 - `callable $next` - ссылка на следующий обработчик в цепочке.
 
 ## Пример использования
@@ -25,7 +25,7 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->middleware(function(ZG, callable $next) {
+$bot->middleware(function(ZG $tg, callable $next) {
     $user_id = $tg->getUserId();
     if ($user_id === 123456) {
         $next();        

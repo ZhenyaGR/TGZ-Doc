@@ -19,10 +19,9 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
-
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
-use ZenithGram\ZenithGram\MessageParseMode;
+use ZenithGram\ZenithGram\Enum\MessageParseMode;
 
 $tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);

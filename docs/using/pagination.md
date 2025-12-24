@@ -171,15 +171,14 @@ $tg->pagination()->setActivePageFormat('- %s -');
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
-use ZenithGram\ZenithGram\Enums\PaginationMode;
-use ZenithGram\ZenithGram\Enums\PaginationNumberStyle;
-use ZenithGram\ZenithGram\Enums\PaginationLayout;
+use ZenithGram\ZenithGram\Enum\PaginationMode;
+use ZenithGram\ZenithGram\Enum\PaginationNumberStyle;
+use ZenithGram\ZenithGram\Enum\PaginationLayout;
 
-$tg = ZG::create('ТОКЕН');
+$tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
 // Функция-помощник для создания клавиатуры

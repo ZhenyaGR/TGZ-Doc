@@ -20,7 +20,6 @@ Middleware (промежуточное ПО) — это мощный механ�
 Глобальное Middleware устанавливается на весь экземпляр бота с помощью метода `$bot->middleware()` и выполняется для **каждого** входящего обновления, прежде чем библиотека начнёт поиск подходящего маршрута.
 
 ### Сигнатура
-
 ```php
 public function middleware(callable $handler): void
 ```
@@ -35,9 +34,9 @@ public function middleware(callable $handler): void
 
 ```php
 <?php
-require 'vendor/autoload.php';
-
+require __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 // Предположим, у нас есть функция для проверки пользователя в БД
 function isUserRegistered(int $user_id): bool {
@@ -46,11 +45,14 @@ function isUserRegistered(int $user_id): bool {
     return $user_id === 12345;
 }
 
-$bot = new TGZ('YOUR_BOT_TOKEN');
+const ADMIN_IDS = [12345, 54321]; // Список ID администраторов
+
+$tg = ZG::create('ТОКЕН_БОТА');
+$bot = new Bot($tg);
 
 // Устанавливаем глобальное Middleware
 $bot->middleware(function (ZG $tg, Closure $next) {
-    $user_id = $tg->getUserID();
+    $user_id = $tg->getUserId();
 
     if ($user_id && !isUserRegistered($user_id)) {
         // Если пользователь не зарегистрирован, отправляем ему сообщение
@@ -91,20 +93,21 @@ public function middleware(callable $handler): Action
 
 ```php
 <?php
-require 'vendor/autoload.php';
-
+require __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 const ADMIN_IDS = [12345, 54321]; // Список ID администраторов
 
-$bot = new TGZ('YOUR_BOT_TOKEN');
+$tg = ZG::create('ТОКЕН_БОТА');
+$bot = new Bot($tg);
 
 $bot->onBotCommand('/start')->text('Добро пожаловать!');
 
 // Создаем маршрут для админ-панели и добавляем к нему Middleware
 $bot->onBotCommand('/admin')
     ->middleware(function (ZG $tg, Closure $next) {
-        $user_id = $tg->getUserID();
+        $user_id = $tg->getUserId();
 
         if (!in_array($user_id, ADMIN_IDS)) {
             // Если пользователь не админ, отправляем сообщение
@@ -116,11 +119,7 @@ $bot->onBotCommand('/admin')
         // Пользователь - админ, продолжаем выполнение
         $next();
     })
-    ->func(function (ZG $tg) {
-        // Этот код выполнится только если Middleware вызовет $next()
-        $tg->msg('Добро пожаловать в панель администратора!')->send();
-    });
-
+    ->text('Добро пожаловать в панель администратора!');
 
 $bot->run();
 ```
