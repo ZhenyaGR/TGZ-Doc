@@ -30,7 +30,7 @@ use ZenithGram\ZenithGram\Pagination; // Не забудьте подключи�
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-function getCatalogKeyboard(TGZ $tg, int $page): array {
+function getCatalogKeyboard(ZG $tg, int $page): array {
     $items = [];
     for ($i = 1; $i <= 30; $i++) {
         $items[] = Button::cb("📦 Товар $i", "item_$i");

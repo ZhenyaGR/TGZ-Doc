@@ -12,37 +12,37 @@ description: "Примеры JSON-структур для различных т�
   <Card
     title="Новое сообщение"
     details="Данные о новом сообщении"
-    href="/TGZ-Doc/json/message"
+    href="/ZG-Doc/json/message"
     icon="✉️"
   />
   <Card
     title="Новое сообщение с медиа"
     details="Данные о новом сообщении с прикреплённым медиа"
-    href="/TGZ-Doc/json/message_media"
+    href="/ZG-Doc/json/message_media"
     icon="📂"
   />
   <Card
     title="Новое голосовое сообщение или видео-сообщение"
     details="Данные о новом голосовом и видео-сообщении"
-    href="/TGZ-Doc/json/message_voice&videoNote"
+    href="/ZG-Doc/json/message_voice&videoNote"
     icon="🎤"
   />
   <Card
     title="Редактирование сообщения"
     details="Данные о редактировании сообщения"
-    href="/TGZ-Doc/json/message_edit"
+    href="/ZG-Doc/json/message_edit"
     icon="✏️"
   />
   <Card
     title="Обновления с чатом"
     details="Данные о приглашении и исключении пользователя и смене названия чата"
-    href="/TGZ-Doc/json/message_chats"
+    href="/ZG-Doc/json/message_chats"
     icon="📝"
   />
   <Card
     title="Нажатие на кнопку"
     details="Данные о нажатии inline-кнопки"
-    href="/TGZ-Doc/json/message_button"
+    href="/ZG-Doc/json/message_button"
     icon="👇"
   />
 

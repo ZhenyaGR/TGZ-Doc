@@ -1,6 +1,6 @@
 ---
-title: tgz
-description: "Передает экземпляр TGZ в конструктор Bot."
+title: ZG
+description: "Передает экземпляр ZG в конструктор Bot."
 ---
 
 # zg

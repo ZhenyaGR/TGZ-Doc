@@ -13,7 +13,7 @@ sidebarDepth: 0
 | 1 | **parse_mode** | `MessageParseMode` | Возможные значения описаны в [MessageParseMode](/classes/enum#messageparsemode) |
 
 ## Возвращает
-`TGZ` - экземпляр класса TGZ
+`ZG` - экземпляр класса ZG
 
 ## Пример использования
 ```php

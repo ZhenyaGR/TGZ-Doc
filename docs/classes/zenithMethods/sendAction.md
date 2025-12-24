@@ -12,7 +12,7 @@ description: "Отправляет статус действия бота (на�
 | 1 | **action** | `string` | Принимает значения: `typing`, `upload_photo`, `upload_video`, `record_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note` |
 
 ## Возвращает
-`TGZ` - экземпляр класса TGZ
+`ZG` - экземпляр класса ZG
 
 ## Пример использования
 

@@ -28,11 +28,11 @@ export default {
 
             let cleanPath = decodeURIComponent(path)
 
-            // Получаем базовый URL из конфига (например, '/TGZ-Doc/')
+            // Получаем базовый URL из конфига (например, '/ZG-Doc/')
             const base = site.value.base || '/'
 
             // Если текущий путь начинается с base, отрезаем его
-            // (чтобы /TGZ-Doc/foo/bar превратилось в /foo/bar)
+            // (чтобы /ZG-Doc/foo/bar превратилось в /foo/bar)
             if (base !== '/' && cleanPath.startsWith(base)) {
                 cleanPath = cleanPath.slice(base.length)
             }

@@ -38,7 +38,7 @@ $lp = LongPoll::create('ТОКЕН_БОТА');
 $bot = new Bot();
 
 // Создаём простые команды
-$bot->onStart()->text('Привет! Я бот, работающий на TGZ через Long Polling.');
+$bot->onStart()->text('Привет! Я бот, работающий на ZG через Long Polling.');
 $bot->onBotCommand('/time')->text('Точное время: ' . date('H:i:s'));
 
 // Добавляем вывод в консоль, чтобы знать, что всё запушено
