@@ -1,5 +1,6 @@
 ---
-url: 'https://zenithgram.github.io/using/errorHandler.md'
+title: Обработка ошибок
+sidebarDepth: 0
 description: 'Руководство по настройке и использованию встроенного обработчика ошибок (ErrorHandler).'
 ---
 
@@ -77,8 +78,10 @@ $tg->enableDebug()->shortTrace(true);
 Позволяет скрыть часть пути к файлам в отчете, чтобы сообщения были компактнее. Обычно туда передают путь к корню проекта.
 
 ```php
-// Вместо "/var/www/html/my-bot/src/Bot.php" будет "src/Bot.php"
-$tg->enableDebug()->setTracePathFilter(__DIR__);
+// Вместо "/var/www/html/my-bot/bot.php" будет "bot.php"
+$tg->enableDebug()->setTracePathFilter('/var/www/html/my-bot/');
+// Или для Windows. Вместо "C:\my-bot\bot.php" будет "bot.php"
+$tg->enableDebug()->setTracePathFilter('C:\my-bot\\');
 ```
 
 ## Примеры использования
@@ -89,15 +92,13 @@ $tg->enableDebug()->setTracePathFilter(__DIR__);
 
 ```php
 <?php
-require 'vendor/autoload.php';
-
+require_once __DIR__  . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-// 1. Создаем экземпляр
 $tg = ZG::create('BOT_TOKEN');
 
-// 2. Включаем отладку
+// Включаем отладку
 $tg->enableDebug()
     ->setSendIds(123456789) // ID админа
     ->shortTrace(true);     // Только мой код
@@ -117,26 +118,23 @@ $bot->run();
 
 ```php
 <?php
-require 'vendor/autoload.php';
-
+require_once __DIR__  . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-// 1. Создаем LongPoll
 $lp = LongPoll::create('BOT_TOKEN');
 
-// 2. Включаем отладку для LongPoll
+// Включаем отладку для LongPoll
 $lp->enableDebug()
    ->setSendIds([123456789])
-   ->shortTrace(true)
-   ->setHandler(function($tg, $e) {
-       echo "Ошибка поймана: " . $e->getMessage() . PHP_EOL;
-   });
+   ->shortTrace(true);
 
 $bot = new Bot();
 
-$bot->onStart()->text('Бот работает!');
+// ... логика бота ...
+// Допустим, здесь ошибка:
+$bot->onCommand('error')->func(fn() => 10 / 0); 
 
 // Запускаем
 echo "Бот запущен...";
@@ -144,5 +142,4 @@ $lp->listen(function (ZG $tg) use ($bot) {
     $bot->zg($tg)->run();
 });
 ```
-
 ---
