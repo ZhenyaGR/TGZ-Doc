@@ -212,12 +212,12 @@ export default defineConfig({
                 items: [
                     {text: 'Получение обновлений', link: '/using/getting-updates'},
                     {text: 'Конструктор сообщений', link: '/using/messages'},
-                    {text: 'Конструктор опросов', link: '/using/poll'},
-                    {text: 'Диалоги FSM', link: '/using/fsm'},
                     {text: 'Обработчики', link: '/using/handlers'},
+                    {text: 'Диалоги FSM', link: '/using/fsm'},
                     {text: 'Middleware', link: '/using/middleware'},
                     {text: 'Пагинация страниц', link: '/using/pagination'},
                     {text: 'Обработка ошибок', link: '/using/errorHandler'},
+                    {text: 'Конструктор опросов', link: '/using/poll'},
                 ]
             },
             {
