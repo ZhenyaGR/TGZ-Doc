@@ -248,6 +248,12 @@ export default defineConfig({
                             {text: 'answers', link: '/classes/zenithMethods/answers'},
 
                             {text: 'callAPI', link: '/classes/zenithMethods/callAPI'},
+
+                            {text: 'setStorage', link: '/classes/zenithMethods/setStorage'},
+                            {text: 'getStorage', link: '/classes/zenithMethods/getStorage'},
+                            {text: 'step', link: '/classes/zenithMethods/step'},
+                            {text: 'endStep', link: '/classes/zenithMethods/endStep'},
+                            {text: 'session', link: '/classes/zenithMethods/session'},
                         ]
                     },
 
@@ -284,9 +290,11 @@ export default defineConfig({
 
                             {text: 'onMessage', link: '/classes/botMethods/onMessage'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
+                            {text: 'onState', link: '/classes/botMethods/onState'},
 
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
+                            {text: 'setStorage', link: '/classes/botMethods/setStorage'},
                             {text: 'zg', link: '/classes/botMethods/zg'},
                             {text: 'run', link: '/classes/botMethods/run'},
                         ]
@@ -354,6 +362,8 @@ export default defineConfig({
                             {text: 'save', link: '/classes/fileMethods/save'},
                         ]
                     },
+
+                    {text: 'Storage', link: '/classes/storage'},
 
                     {
                         text: 'Poll',
