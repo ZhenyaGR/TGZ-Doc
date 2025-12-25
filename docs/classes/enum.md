@@ -15,6 +15,17 @@ description: "Все Enum и их значения"
 * `MessageParseMode::MarkdownV2` — Разметка MarkdownV2.
 * `MessageParseMode::None` — Отсутствие разметки.
 
+## MessageDice
+Содержит данные обо всех анимированных эмодзи Telegram.
+
+### Возможные значения
+* `MessageDice::Dice` — Кубик 🎲.
+* `MessageDice::Darts` — Дартс 🎯.
+* `MessageDice::Basketball` — Баскетбол 🏀.
+* `MessageDice::Football` — Футбол ⚽.
+* `MessageDice::Bowling` — Боулинг 🎳.
+* `MessageDice::Casino` — Казино 🎰.
+
 ## PaginationMode
 Определяет, какого типа будут использоваться кнопки навигации для метода `setMode()` (Класс **[Pagination](/classes/pagination)**.
 
