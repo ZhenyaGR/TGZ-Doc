@@ -213,6 +213,7 @@ export default defineConfig({
                     {text: 'Получение обновлений', link: '/using/getting-updates'},
                     {text: 'Конструктор сообщений', link: '/using/messages'},
                     {text: 'Конструктор опросов', link: '/using/poll'},
+                    {text: 'Диалоги FSM', link: '/using/fsm'},
                     {text: 'Обработчики', link: '/using/handlers'},
                     {text: 'Middleware', link: '/using/middleware'},
                     {text: 'Пагинация страниц', link: '/using/pagination'},
