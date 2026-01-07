@@ -214,6 +214,7 @@ export default defineConfig({
                     {text: 'Конструктор сообщений', link: '/using/messages'},
                     {text: 'Обработчики', link: '/using/handlers'},
                     {text: 'Диалоги FSM', link: '/using/fsm'},
+                    {text: 'Внедрение зависимостей', link: '/using/reflection'},
                     {text: 'Middleware', link: '/using/middleware'},
                     {text: 'Пагинация страниц', link: '/using/pagination'},
                     {text: 'Обработка ошибок', link: '/using/errorHandler'},
@@ -292,6 +293,10 @@ export default defineConfig({
                             {text: 'onMessage', link: '/classes/botMethods/onMessage'},
                             {text: 'onDefault', link: '/classes/botMethods/onDefault'},
                             {text: 'onState', link: '/classes/botMethods/onState'},
+
+                            {text: 'reflection', link: '/classes/botMethods/reflection'},
+                            {text: 'setCache', link: '/classes/botMethods/setCache'},
+                            {text: 'setContainer', link: '/classes/botMethods/setContainer'},
 
                             {text: 'redirect', link: '/classes/botMethods/redirect'},
                             {text: 'middleware', link: '/classes/botMethods/middleware'},
