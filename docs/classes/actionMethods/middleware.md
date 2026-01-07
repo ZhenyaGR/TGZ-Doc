@@ -29,13 +29,13 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban %w')
-    ->func(function(ZG $tg, string $bunned_user) {
+$bot->onCommand('ban', '/ban {username}')
+    ->func(function(ZG $tg, string $username) {
         $tg->msg("✅ Пользователь `{$bunned_user}` забанен")->send();
         
     })
     ->middleware(function(ZG $tg, callable $next) {
-        $user_id = $tg->getUserID();
+        $user_id = $tg->getUserId();
         if ($user_id === 123456) {
             $next();     
         } else {

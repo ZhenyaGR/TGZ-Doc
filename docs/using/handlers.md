@@ -57,11 +57,11 @@ public function onCommand(string $id, array|string $command = null): Action
 $bot->onCommand('ping', '!ping')->text('Pong!');
 
 // Команда бана: !ban 12345 причина
-$bot->onCommand('ban', '!ban %n %s')
-    ->func(function(ZG $tg, $userId, $reason) {
-        // $userId = 12345 (int)
+$bot->onCommand('ban', '!ban {user_id} {reason}')
+    ->func(function(ZG $tg, $user_id, $reason) {
+        // $user_id = 12345 (int)
         // $reason = "причина" (string)
-        $tg->reply("Пользователь {$userId} забанен. Причина: {$reason}");
+        $tg->reply("Пользователь {$user_id} забанен. Причина: {$reason}");
     });
 ```
 
@@ -177,11 +177,11 @@ $bot->onBotCommand('actions', '/actions')
     ]);
 
 // Ловим паттерн: слово_число_слово
-$bot->onCallback('ban_handler', 'ban_%n_%w')
-    ->func(function (ZG $tg, $userId, $reason) {
+$bot->onCallback('ban_handler', 'ban_{user_id}_{reason}')
+    ->func(function (ZG $tg, string $user_id, string $reason) {
         // Аргументы автоматически попадают в функцию в нужном порядке
-        // $userId = 55 (int)
-        // $reason = "spam" (string)
+        // $user_id = 55
+        // $reason = "spam"
         
         $tg->answerCallbackQuery($tg->getQueryId(), ['text' => "Забанен!"]);
         $tg->reply("Пользователь #{$userId} заблокирован за {$reason}.");

@@ -41,7 +41,7 @@ use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$lp = LongPoll::create('ТОКЕН_БОТА', 20);
+$lp = LongPoll::create('ТОКЕН_БОТА');
 $bot = new Bot(); // Создаем экземпляр бота без основного класса
 
 $bot->onMessage()->func(function(ZG $tg) {
@@ -109,7 +109,7 @@ $bot->onBotCommand('img', '/img')
     ->text('Изображение с котиком');
     
 // Обработка команды с параметрами
-$bot->onCommand('sum', '!посчитай %n + %n')
+$bot->onCommand('sum', '!посчитай {number1} + {number2}')
     ->func(function (ZG $tg, $number1, $number2) {
         $tg->msg($number1 + $number2)->send();
     });

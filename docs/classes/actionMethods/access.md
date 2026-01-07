@@ -32,8 +32,8 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban %w')
-    ->func(function(ZG $tg, $banned_user) {
+$bot->onCommand('ban', '/ban {user}')
+    ->func(function(ZG $tg, string $user) {
         $tg->msg("✅ Пользователь `{$banned_user}` забанен")->send();
         
     })
@@ -53,9 +53,9 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban %w')
-    ->func(function(ZG $tg, $banned_user) {
-        $tg->msg("✅ Пользователь `{$banned_user}` забанен")->send();
+$bot->onCommand('ban', '/ban {user}')
+    ->func(function(ZG $tg, $user) {
+        $tg->msg("✅ Пользователь `{$user}` забанен")->send();
         
     })
     ->access(123456, function(ZG $tg) {

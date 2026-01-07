@@ -34,9 +34,9 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban %w')
-    ->func(function(ZG $tg, $arg1) {
-        $tg->msg("✅ Пользователь `{$arg1}` забанен")->send();
+$bot->onCommand('ban', '/ban {username}')
+    ->func(function(ZG $tg, $username) {
+        $tg->msg("✅ Пользователь `{$username}` забанен")->send();
         
     })
     ->noAccess(123456); // Только пользователь с ID 123456 не может использовать команду
@@ -55,9 +55,9 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban %w')
-    ->func(function(ZG $tg, $arg1) {
-        $tg->msg("✅ Пользователь `{$arg1}` забанен")->send();
+$bot->onCommand('ban', '/ban {username}')
+    ->func(function(ZG $tg, $username) {
+        $tg->msg("✅ Пользователь `{$username}` забанен")->send();
         
     })
     ->noAccess(123456, function(ZG $tg) {
