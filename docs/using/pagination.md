@@ -50,13 +50,13 @@ $tg->msg("Список товаров (Страница 1):")
 Самое важное в пагинации — заставить кнопки навигации работать.
 Кнопки навигации генерируют `callback_data` в формате: `{prefix}{номер_страницы}`.
 
-Для обработки удобно использовать плейсхолдер `%n` (число) в методе `onCallback`.
+Для обработки удобно использовать плейсхолдер в методе `onCallback`.
 
 ```php
 // Обработчик переключения страниц
 // Ловим паттерн "page_" + число
-$bot->onCallback('pagination_handler', 'page_%n')
-    ->func(function(ZG $tg, int $page) use ($items) {
+$bot->onCallback('pagination_handler', 'page_{page}')
+    ->func(function(ZG $tg, $page) use ($items) {
         $query_id = $tg->getQueryId();
         $tg->answerCallbackQuery($query_id); // Убираем "часики"
 
@@ -216,8 +216,8 @@ $bot->onBotCommand('shop', '/shop')
     });
 
 // 2. Обработчик навигации (shop_page_1, shop_page_2...)
-$bot->onCallback('shop_nav', 'shop_page_%n')
-    ->func(function(ZG $tg, int $page) {
+$bot->onCallback('shop_nav', 'shop_page_{page}')
+    ->func(function(ZG $tg, $page) {
         $tg->answerCallbackQuery($tg->getQueryId());
         
         $kbd = getShopKeyboard($tg, $page);

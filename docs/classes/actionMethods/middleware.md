@@ -31,7 +31,7 @@ $bot = new Bot($tg);
 
 $bot->onCommand('ban', '/ban {username}')
     ->func(function(ZG $tg, string $username) {
-        $tg->msg("✅ Пользователь `{$bunned_user}` забанен")->send();
+        $tg->msg("✅ Пользователь `{$username}` забанен")->send();
         
     })
     ->middleware(function(ZG $tg, callable $next) {

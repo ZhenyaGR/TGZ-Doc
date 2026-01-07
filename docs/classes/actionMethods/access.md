@@ -32,9 +32,9 @@ use ZenithGram\ZenithGram\Bot;
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
 
-$bot->onCommand('ban', '/ban {user}')
-    ->func(function(ZG $tg, string $user) {
-        $tg->msg("✅ Пользователь `{$banned_user}` забанен")->send();
+$bot->onCommand('ban', '/ban {username}')
+    ->func(function(ZG $tg, string $username) {
+        $tg->msg("✅ Пользователь `{$username}` забанен")->send();
         
     })
     ->access(123456); // Только пользователь с ID 123456 может использовать команду

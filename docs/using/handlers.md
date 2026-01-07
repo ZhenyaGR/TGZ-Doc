@@ -184,7 +184,7 @@ $bot->onCallback('ban_handler', 'ban_{user_id}_{reason}')
         // $reason = "spam"
         
         $tg->answerCallbackQuery($tg->getQueryId(), ['text' => "Забанен!"]);
-        $tg->reply("Пользователь #{$userId} заблокирован за {$reason}.");
+        $tg->reply("Пользователь #{$user_id} заблокирован за {$reason}.");
     });
 ```
 
