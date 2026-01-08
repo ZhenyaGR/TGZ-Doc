@@ -49,5 +49,10 @@ use ZenithGram\ZenithGram\Enums\MessageDice;
 use ZenithGram\ZenithGram\Enums\PaginationMode;
 use ZenithGram\ZenithGram\Enums\PaginationLayout;
 use ZenithGram\ZenithGram\Enums\PaginationNumberStyle;
+
+// DTO
+use ZenithGram\ZenithGram\Dto\ChatDto
+use ZenithGram\ZenithGram\Dto\UserDto
+use ZenithGram\ZenithGram\Dto\MessageDto
 ```
 

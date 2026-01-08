@@ -71,14 +71,12 @@ features:
   font-size: 30px !important; /* Настройте размер под себя */
   line-height: 1.2 !important;
   font-weight: 700 !important;
-    text-align: center;
 }
 
 /* На мобильных телефонах делаем ещё меньше */
 @media (max-width: 640px) {
   .VPHero .text {
     font-size: 24px !important;
-    text-align: center;
   }
 }
 </style>
