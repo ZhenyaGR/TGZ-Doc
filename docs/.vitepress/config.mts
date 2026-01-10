@@ -245,7 +245,10 @@ export default defineConfig({
                             {text: 'sendMessage', link: '/classes/zenithMethods/sendMessage'},
                             {text: 'reply', link: '/classes/zenithMethods/reply'},
                             {text: 'copyMsg', link: '/classes/zenithMethods/copyMsg'},
+                            {text: 'fwdMsg', link: '/classes/zenithMethods/fwdMsg'},
                             {text: 'delMsg', link: '/classes/zenithMethods/delMsg'},
+                            {text: 'pinMsg', link: '/classes/zenithMethods/pinMsg'},
+                            {text: 'unpinMsg', link: '/classes/zenithMethods/unpinMsg'},
                             {text: 'sendAction', link: '/classes/zenithMethods/sendAction'},
                             {text: 'answers', link: '/classes/zenithMethods/answers'},
 
