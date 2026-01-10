@@ -99,6 +99,8 @@ $bot->onInline()->func(function(ZG $tg) {
     $result = [
         $tg->inline()->title('Пример')->text('Привет!')->create()
     ];
+    
+    $query_id = $tg->getQueryId();
 
     $tg->answerInlineQuery(
         $query_id, 
