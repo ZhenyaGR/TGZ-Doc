@@ -23,7 +23,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Enums\ChatAction;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $bot->onBotCommand('/action')->func(function(ZG $tg) {

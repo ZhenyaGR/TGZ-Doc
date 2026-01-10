@@ -8,7 +8,7 @@ Trait, который используется в классах `Message` и `A
 
 Он включает в себя все методы для сборки сообщений, например: `text()`, `parseMode()`, `reply()`.
 
-## Подробнее про класс Message и доступных мметодах [здесь](/classes/message.md)
+## Подробнее про класс Message и доступных методах [здесь](/classes/message.md)
 
 ## Примеры использования
 ```php
@@ -17,7 +17,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
-use ZenithGram\ZenithGram\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
+use ZenithGram\ZenithGram\Enums\MessageDice;
 
 $tg = ZG::create('ТОКЕН_БОТА');
 $bot = new Bot($tg);
@@ -54,7 +55,7 @@ $bot->onBotCommand('rules', '/rules')
 // 5. Развлекательные методы (Кубик)
 // dice() отправляет анимированный эмодзи
 $bot->onText('dice', 'кинь кубик')
-    ->dice('🎲');
+    ->dice(MessageDice::Dice);
     
 // 6. Сложная цепочка (Fluent Interface во всей красе)
 $bot->onBotCommand('promo', '/promo')

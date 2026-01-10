@@ -178,8 +178,7 @@ $tg->msg("Клавиатура убрана.")
 // Пример в обработчике callback-запроса
 $bot->onCallback('edit_text')
     ->func(function(ZG $tg) {
-        $query_id = $tg->getQueryId();
-        $tg->answerCallbackQuery($query_id);
+        $tg->answerCallbackQuery();
         
         $tg->msg("Этот текст изменён")->editText();
     });
@@ -219,7 +218,6 @@ $tg->msg("Новая подпись к новому фото")
 | `entities`     | Устанавливает массив [сущностей](https://core.telegram.org/bots/api#messageentity) для форматирования. |
 | `mediaPreview` | Добавляет "невидимый" предпросмотр ссылки.                                                             |
 | `params`       | Добавляет любые дополнительные параметры в запрос к API.                                               |
-| `action`       | Отправляет действие в чат (`typing`, `upload_photo` и др.).                                            |
 | `send`         | **Завершающий метод.** Отправляет собранное сообщение.                                                 |
 | `editText`     | **Завершающий метод.** Редактирует текст существующего сообщения.                                      |
 | `editCaption`  | **Завершающий метод.** Редактирует подпись к медиа в существующем сообщении.                           |

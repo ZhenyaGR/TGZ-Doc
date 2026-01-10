@@ -21,19 +21,19 @@ description: "Добавляет скрытую ссылку для превью
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText()
-$type = $tg->getType();
+$bot = new Bot($tg);
 
+$bot->onBotCommand('/mediaPreview')->func(function(ZG $tg) {
 $img_url = "https://example.com/img.jpg";
-
-if ($text === '/mediaPreview') {
     $tg->msg("Текст сообщения")
         ->mediaPreview($img_url) // Поддерживает только ссылки
         ->send();
-}
+});
 
+$bot->run();
 ```
 
 ## Пример, как будет выглядеть сообщение
