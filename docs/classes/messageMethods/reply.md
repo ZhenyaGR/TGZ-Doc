@@ -20,25 +20,23 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {    
-    switch ($text) {
-        case '/reply':
-            $tg->msg("Ответ на отправленное сообщение")
-                ->reply()
-                ->send();
-            break;
-           
-        case '/replyToID':
-            $msg_id = 1234;
-            $tg->msg("Ответ на сообщение по его id")
-                ->reply($msg_id)
-                ->send();
-            break;
-    }
-}
+$bot->onBotCommand('/reply')->func(function(ZG $tg) {
+    $tg->msg("Ответ на отправленное сообщение")
+        ->reply()
+        ->send();
+});
+
+$bot->onBotCommand('/replyToId')->func(function(ZG $tg) {
+    $msg_id = 1234;
+    $tg->msg("Ответ на сообщение по его id")
+        ->reply($msg_id)
+        ->send();
+});
+
+$bot->run();
 ```

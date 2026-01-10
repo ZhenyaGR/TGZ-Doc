@@ -20,50 +20,48 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/imgUrl')->func(function(ZG $tg) {
     $img_url = "https://example.com/img.jpg";
+    $tg->msg("Отправка сообщения с фото по ссылке")
+        ->img($img_url)
+        ->send();
+});
+
+$bot->onBotCommand('/imgId')->func(function(ZG $tg) {
     $img_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg("Отправка сообщения с фото по ID") 
+        ->img($img_id)
+        ->send();
+});
+
+$bot->onBotCommand('/imgPath')->func(function(ZG $tg) {
     $img_path = "media/img.jpg";
-    
-    switch ($text) {
-        case '/imgUrl':
-            $tg->msg("Отправка сообщения с фото по ссылке")
-                ->img($img_url)
-                ->send();
-            break;
-           
-        case '/imgId':
-            $tg->msg("Отправка сообщения с фото по ID") 
-                ->img($img_id)
-                ->send();
-            break;
-           
-        case '/imgPath':
-            $tg->msg("Отправка сообщения с фото по локальному пути") 
-                ->img($img_path)
-                ->send();
-            break;
+    $tg->msg("Отправка сообщения с фото по локальному пути") 
+        ->img($img_path)
+        ->send();
+});
 
-        case '/imgArray':
-            $tg->msg('Отправка сообщения с массивом фотографий')
-                ->img([$img_url1, $img_url2])
-                ->send();
-            break;
+$bot->onBotCommand('/imgArray')->func(function(ZG $tg) {
+    $img_url1 = $img_url2 = "https://example.com/img.jpg";
+    $tg->msg('Отправка сообщения с массивом фотографий')
+        ->img([$img_url1, $img_url2])
+        ->send();
+});
 
-        case '/imgLot':
-            $tg->msg('Отправка сообщения с несколькими вызовами img()')
-                ->img($img_url1)
-                ->img($img_url2)
-                ->send();
-            break;
-    }
-}
+$bot->onBotCommand('/imgLot')->func(function(ZG $tg) {
+    $img_url1 = $img_url2 = "https://example.com/img.jpg";
+    $tg->msg('Отправка сообщения с несколькими вызовами img()')
+        ->img($img_url1)
+        ->img($img_url2)
+        ->send();
+});
+
+$bot->run();
 ```
 
 ## Вспомогательные методы

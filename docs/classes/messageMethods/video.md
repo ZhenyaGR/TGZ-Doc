@@ -20,50 +20,48 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/videoUrl')->func(function(ZG $tg) {
     $video_url = "https://example.com/video.mp4";
+    $tg->msg("Отправка сообщения с видео по ссылке")
+        ->video($video_url)
+        ->send();
+});
+
+$bot->onBotCommand('/videoId')->func(function(ZG $tg) {
     $video_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg("Отправка сообщения с видео по ID") 
+        ->video($video_id)
+        ->send();
+});
+
+$bot->onBotCommand('/videoPath')->func(function(ZG $tg) {
     $video_path = "media/video.mp4";
+    $tg->msg("Отправка сообщения с видео по локальному пути") 
+        ->video($video_path)
+        ->send();
+});
 
-    switch ($text) {
-        case '/videoUrl':
-            $tg->msg("Отправка сообщения с видео по ссылке")
-                ->video($video_url)
-                ->send();
-            break;
-           
-        case '/videoId':
-            $tg->msg("Отправка сообщения с видео по ID") 
-                ->video($video_id)
-                ->send();
-            break;
-           
-        case '/videoPath':
-            $tg->msg("Отправка сообщения с видео по локальному пути") 
-                ->video($video_path)
-                ->send();
-            break;
+$bot->onBotCommand('/videoArray')->func(function(ZG $tg) {
+    $video_url1 = $video_url2 = "https://example.com/video.mp4";
+    $tg->msg('Отправка сообщения с массивом видео-файлов')
+        ->video([$video_url1, $video_url2])
+        ->send();
+});
 
-        case '/videoArray':
-            $tg->msg('Отправка сообщения с массивом видео-файлов')
-                ->video([$video_url1, $video_url2])
-                ->send();
-            break;
+$bot->onBotCommand('/videoLot')->func(function(ZG $tg) {
+    $video_url1 = $video_url2 = "https://example.com/video.mp4";
+    $tg->msg('Отправка сообщения с несколькими вызовами video()')
+        ->video($video_url1)
+        ->video($video_url2)
+        ->send();
+});
 
-        case '/videoLot':
-            $tg->msg('Отправка сообщения с несколькими вызовами video()')
-                ->video($video_url1)
-                ->video($video_url2)
-                ->send();
-            break;
-    }
-}
+$bot->run();
 ```
 
 ## Вспомогательные методы

@@ -22,7 +22,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $query_id = $tg->getQueryId();
 
 $buttons = [

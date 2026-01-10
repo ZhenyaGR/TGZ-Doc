@@ -19,12 +19,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Отреагирует на вышедшего/исключенного пользователя
-$bot->onLeftChatMember()
-    ->text("Ну и пока!");
+$bot->onLeftChatMember()->text("Ну и пока!");
 
 $bot->run();
 ```
@@ -42,13 +41,13 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Dto\UserDto;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Отреагирует на вышедшего/исключенного пользователя
 $bot->onLeftChatMember()
     ->func(function (ZG $tg, UserDto $user) {
-        $tg->msg("Из чата вышел . " $user->firstName)->send();
+        $tg->reply("Из чата вышел " . $user->firstName);
     });
 
 $bot->run();

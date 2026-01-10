@@ -20,24 +20,19 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/sticker')->func(function(ZG $tg) {
     $sticker_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg() // Телеграм проигнорирует текст
+        ->sticker($sticker_id)
+        ->send();
+});
 
-    switch ($text) {
-           
-        case '/sticker':
-            $tg->msg() // Телеграм проигнорирует текст
-                ->sticker($sticker_id)
-                ->send();
-            break;
-    }
-}
+$bot->run();
 ```
 
 ## Вспомогательные методы

@@ -104,7 +104,7 @@ $builder->addDefinitions([
 $container = $builder->build();
 
 // 2. Передаем контейнер в бота
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 $bot->setContainer($container); // Это также включает reflection()
 

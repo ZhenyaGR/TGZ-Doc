@@ -12,7 +12,7 @@ description: "Коллекция примеров кода: Echo-бот, LongPol
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $tg->reply('Привет, Мир!');
 ```
 
@@ -24,7 +24,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 $bot->onMessage()->func(function(ZG $tg) {
@@ -41,7 +41,7 @@ use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$lp = LongPoll::create('ТОКЕН_БОТА');
+$lp = LongPoll::create(BOT_TOKEN);
 $bot = new Bot(); // Создаем экземпляр бота без основного класса
 
 $bot->onMessage()->func(function(ZG $tg) {
@@ -60,7 +60,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 $bot->onCommand('img', '!картинка')
@@ -79,7 +79,7 @@ use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$lp = LongPoll::create('ТОКЕН_БОТА');
+$lp = LongPoll::create(BOT_TOKEN);
   
 $bot = new Bot(); // Создаем экземпляр бота без основного класса
 
@@ -100,7 +100,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 // Обработка команды бота
@@ -142,7 +142,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg); // Создаем экземпляр бота
 
 $bot->onStart()
@@ -176,7 +176,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $bot->onBotCommand('/vote')
@@ -210,7 +210,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Функция для генерации клавиатуры
@@ -273,7 +273,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $admins = [123456789, 987654321]; // ID администраторов
@@ -318,7 +318,7 @@ use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Storage\FileStorage;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // 1. Подключаем хранилище (обязательно для FSM)

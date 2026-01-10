@@ -24,7 +24,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
 // 1. Создаем экземпляр LongPoll с токеном вашего бота
-$lp = LongPoll::create('ТОКЕН_БОТА');
+$lp = LongPoll::create(BOT_TOKEN);
 
 // Для удобства используем конструктор Bot
 $bot = new Bot();
@@ -87,6 +87,6 @@ php bot.php
 Если использовать этот метод, при запуске опроса скрипт пропустит старые обновления и начнёт получать новые
 
 ```php
-$lp = LongPoll::create('ТОКЕН_БОТА')
+$lp = LongPoll::create(BOT_TOKEN)
     ->skipOldUpdates(); // Пропускаем старые обновления
 ```

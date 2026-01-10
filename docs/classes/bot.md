@@ -20,7 +20,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
 // Инициализация для работы через Webhook
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // ... здесь вся логика вашего бота ...
@@ -37,7 +37,7 @@ use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$lp = LongPoll::create('ТОКЕН_БОТА');
+$lp = LongPoll::create(BOT_TOKEN);
 $bot = new Bot(); // Сразу не передаем ZG
 // ... здесь вся логика вашего бота ...
 
@@ -61,7 +61,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // --- Определяем маршруты и действия ---

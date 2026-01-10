@@ -34,7 +34,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\MessageParseMode;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Пример с onCommand и аргументами

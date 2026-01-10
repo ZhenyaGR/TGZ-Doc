@@ -20,7 +20,7 @@ use ZenithGram\ZenithGram\Button;
 use ZenithGram\ZenithGram\Enums\MessageParseMode;
 use ZenithGram\ZenithGram\Enums\MessageDice;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // 1. Текст с форматированием

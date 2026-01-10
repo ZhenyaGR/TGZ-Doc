@@ -27,7 +27,7 @@ use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 use ZenithGram\ZenithGram\Pagination; // Не забудьте подключить класс констант
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 function getCatalogKeyboard(ZG $tg, int $page): array {

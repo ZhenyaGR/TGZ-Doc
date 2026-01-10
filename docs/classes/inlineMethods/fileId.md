@@ -4,7 +4,7 @@ description: "Устанавливает file_id файла."
 sidebarDepth: 0
 ---
 
-# fileID
+# fileId
 Метод устанавливает id-файла, который отправит бот.
 
 ## Параметры метода
@@ -21,7 +21,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $query_id = $tg->getQueryId();
 
 $results = [
@@ -29,7 +29,7 @@ $results = [
         ->id('photo')
         ->title('Команда')
         ->description('Описание команды')
-        ->fileID('id')  // id фото или прочего файла
+        ->fileId('id')  // id фото или прочего файла
         ->create(),
 ];
 

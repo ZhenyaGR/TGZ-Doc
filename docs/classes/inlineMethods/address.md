@@ -4,8 +4,8 @@ description: "Устанавливает адрес."
 sidebarDepth: 0
 ---
 
-# coordinates
-Метод устанавливает координаты для inline-запроса.
+# address
+Метод устанавливает адрес для inline-запроса.
 
 ## Параметры метода
 | # |  Название   |   Тип    |  Описание   |
@@ -21,7 +21,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $query_id = $tg->getQueryId();
 
 $results = [

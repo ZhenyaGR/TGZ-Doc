@@ -22,7 +22,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Enums\MessageParseMode;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $tg->defaultParseMode(MessageParseMode::MarkdownV2);
 
 $tg->msg('*Привет!*')->send();

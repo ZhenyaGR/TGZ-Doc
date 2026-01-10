@@ -18,52 +18,57 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 <?php
-require_once __DIR__ . '/vendor/autoload.php'; 
+require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/audioUrl')->func(function(ZG $tg) {
     $audio_url = "https://example.com/audio.mp3";
+    $tg->msg("Отправка сообщения с аудио по ссылке")
+        ->audio($audio_url)
+        ->send();
+});
+
+$bot->onBotCommand('/audioId')->func(function(ZG $tg) {
     $audio_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg("Отправка сообщения с аудио по ID") 
+        ->audio($audio_id)
+        ->send();
+});
+
+$bot->onBotCommand('/audioPath')->func(function(ZG $tg) {
     $audio_path = "media/audio.mp3";
-    
-    switch ($text) {
-        case '/audioUrl':
-            $tg->msg("Отправка сообщения с аудио по ссылке")
-                ->audio($audio_url)
-                ->send();
-            break;
-           
-        case '/audioId':
-            $tg->msg("Отправка сообщения с аудио по ID") 
-                ->audio($audio_id)
-                ->send();
-            break;
-           
-        case '/audioPath':
-            $tg->msg("Отправка сообщения с аудио по локальному пути") 
-                ->audio($audio_path)
-                ->send();
-            break;
+    $tg->msg("Отправка сообщения с аудио по локальному пути") 
+        ->audio($audio_path)
+        ->send();
+});
 
-        case '/audioArray':
-            $tg->msg('Отправка сообщения с массивом аудио-файлов')
-                ->audio([$audio_url1, $audio_url2])
-                ->send();
-            break;
+$bot->onBotCommand('/audioPath')->func(function(ZG $tg) {
+    $audio_path = "media/audio.mp3";
+    $tg->msg("Отправка сообщения с аудио по локальному пути") 
+        ->audio($audio_path)
+        ->send();
+});
 
-        case '/audioLot':
-            $tg->msg('Отправка сообщения с несколькими вызовами audio()')
-                ->audio($audio_url1)
-                ->audio($audio_url2)
-                ->send();
-            break;
-    }
-}
+$bot->onBotCommand('/audioArray')->func(function(ZG $tg) {
+    $audio_url1 = $audio_url2 = "https://example.com/audio.mp3";
+    $tg->msg('Отправка сообщения с массивом аудио-файлов')
+        ->audio([$audio_url1, $audio_url2])
+        ->send();
+});
+
+$bot->onBotCommand('/audioLot')->func(function(ZG $tg) {
+    $audio_url1 = $audio_url2 = "https://example.com/audio.mp3";
+    $tg->msg('Отправка сообщения с несколькими вызовами audio()')
+        ->audio($audio_url1)
+        ->audio($audio_url2)
+        ->send();
+});
+
+$bot->run();
 ```
 
 ## Вспомогательные методы

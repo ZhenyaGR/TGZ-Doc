@@ -19,7 +19,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $update = $tg->getUpdate();
 ```
 
@@ -177,9 +177,9 @@ $callback_data = $tg->getCallbackData();
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
-$chat_id = $tg->getChatID();
+$chat_id = $tg->getChatId();
 $text = $tg->getText();
 $type = $tg->getType();
 

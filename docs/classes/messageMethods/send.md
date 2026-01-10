@@ -8,9 +8,9 @@ sidebarDepth: 0
 Метод отправляет сообщение
 
 ## Параметры метода
-| # |             Название             |      Тип      |
-|:-:|:--------------------------------:|:-------------:|
-| 1 |            **chatID**            | `int`\|`null` |
+| # |  Название   |           Тип           |
+|:-:|:-----------:|:-----------------------:|
+| 1 | **chat_id** | `int`\|`string`\|`null` |
 
 ## Возвращает
 `array` - ответ от Телеграма, содержащий информацию о сообщении
@@ -19,24 +19,21 @@ sidebarDepth: 0
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
-
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-    switch ($text) {
-        case '/send':
-            $tg->msg("Отправка сообщения")
-                ->send();
-            break;
-            
-        case '/sendChatID':   
-            $tg->msg("Отправка сообщения в чат с id = 123")
-                ->send(123);
-            break;
-    }    
-}
+$bot->onBotCommand('/send')->func(function(ZG $tg) {
+    $tg->msg("Отправка сообщения")
+        ->send();
+});
+
+$bot->onBotCommand('/sendChatID')->func(function(ZG $tg) {
+    $tg->msg("Отправка сообщения в чат с id = 123")
+        ->send(123);
+});
+
+$bot->run();
 ```

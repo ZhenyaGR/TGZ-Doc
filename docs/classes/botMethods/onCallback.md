@@ -31,7 +31,7 @@ use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // По команде /vote отправляем сообщение с кнопками, созданными вручную

@@ -22,7 +22,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $query_id = $tg->getQueryId();
 
 $results = [

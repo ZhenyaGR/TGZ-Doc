@@ -33,7 +33,7 @@ use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\ZG;
 
 // Создаем экземпляр LongPoll с помощью удобного статического метода
-$lp = LongPoll::create('ТОКЕН_БОТА');
+$lp = LongPoll::create(BOT_TOKEN);
 // Создаем экземпляр класса-конструктора
 $bot = new Bot();
 
@@ -103,7 +103,7 @@ use ZenithGram\ZenithGram\Bot;
 // 2. Декодирует JSON-данные.
 // 3. Создает и настраивает объект ZG, готовый к работе.
 // 4. Автоматически отправляет ответ "ok" и HTTP-код 200, чтобы Telegram знал, что обновление получено.
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 // Создаем экземпляр класса-конструктора. В отличие от предыдущего примера, сразу передаем готовый класс ZG
 $bot = new Bot($tg);
 

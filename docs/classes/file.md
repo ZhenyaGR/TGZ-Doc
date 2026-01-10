@@ -21,7 +21,7 @@ description: "Класс для работы с файлами."
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 
@@ -32,7 +32,6 @@ $File = $tg->file($img_id);
 Для создания экземпляра класса потребуется его импорт и стандартный синтаксис:
 
 ```php
-<?php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\File;

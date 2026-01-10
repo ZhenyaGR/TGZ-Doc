@@ -20,24 +20,22 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {    
-    switch ($text) {
-        case '/text':
-            $tg->msg()   // Задаём текст сообщения не при создании сообщения, а в промежуточной функции
-                ->text("Текст сообщения")
-                ->send();
-            break;
-           
-        case '/textChange':
-            $send = $tg->msg("Изначальное сообщение"); 
-            // Какой-то код...
-            $send->text("Изменяем существующий текст")->send();
-            break;
-    }
-}
+$bot->onBotCommand('/text')->func(function(ZG $tg) {
+    $tg->msg()   // Задаём текст сообщения не при создании сообщения, а в промежуточной функции
+        ->text("Текст сообщения")
+        ->send();
+});
+
+$bot->onBotCommand('/textChange')->func(function(ZG $tg) {
+    $send = $tg->msg("Изначальное сообщение"); 
+    // Какой-то код...
+    $send->text("Изменяем существующий текст")->send();
+});
+
+$bot->run();
 ```

@@ -3,7 +3,6 @@ title: doc
 description: "Добавляет документ."
 sidebarDepth: 0
 ---
-
 # doc
 Метод добавляет к сообщению одно или несколько файлов
 
@@ -20,51 +19,48 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/docUrl')->func(function(ZG $tg) {
     $doc_url = "https://example.com/doc.txt";
+    $tg->msg("Отправка сообщения с файлом по ссылке")
+        ->doc($doc_url)
+        ->send();
+});
+
+$bot->onBotCommand('/docId')->func(function(ZG $tg) {
     $doc_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg("Отправка сообщения с файлом по ID") 
+        ->doc($doc_id)
+        ->send();
+});
+
+$bot->onBotCommand('/docPath')->func(function(ZG $tg) {
     $doc_path = "media/doc.txt";
+    $tg->msg("Отправка сообщения с файлом по локальному пути") 
+        ->doc($doc_path)
+        ->send();
+});
 
-    switch ($text) {
-        case '/docUrl':
-            $tg->msg("Отправка сообщения с файл по ссылке")
-                ->doc($doc_url)
-                ->send();
-            break;
-           
-        case '/docId':
-            $tg->msg("Отправка сообщения с файлом по ID") 
-                ->doc($doc_id)
-                ->send();
-            break;
-           
-        case '/docPath':
-            $tg->msg("Отправка сообщения с файлом по локальному пути") 
-                ->doc($doc_path)
-                ->send();
-            break;
+$bot->onBotCommand('/docArray')->func(function(ZG $tg) {
+    $doc_url1 = $doc_url2 = "https://example.com/doc.txt";
+    $tg->msg('Отправка сообщения с массивом файлов')
+        ->doc([$doc_url1, $doc_url2])
+        ->send();
+});
 
-        case '/docArray':
-            $tg->msg('Отправка сообщения с массивом файлов')
-                ->doc([$doc_url1, $doc_url2])
-                ->send();
-            break;
+$bot->onBotCommand('/docLot')->func(function(ZG $tg) {
+    $doc_url1 = $doc_url2 = "https://example.com/doc.txt";
+    $tg->msg('Отправка сообщения с несколькими вызовами doc()')
+        ->doc($doc_url1)
+        ->doc($doc_url2)
+        ->send();
+});
 
-        case '/docLot':
-            $tg->msg('Отправка сообщения с несколькими вызовами doc()')
-                ->doc($doc_url1)
-                ->doc($doc_url2)
-                ->send();
-            break;
-    }
-}
+$bot->run();
 ```
-
 ## Вспомогательные методы
 - [`getFileId`](/classes/fileMethods/getFileId.md) - Получить ID файла

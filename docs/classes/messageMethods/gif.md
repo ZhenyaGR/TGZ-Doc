@@ -20,50 +20,48 @@ sidebarDepth: 0
 <?php
 require_once __DIR__ . '/vendor/autoload.php'; 
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {
-
+$bot->onBotCommand('/gifUrl')->func(function(ZG $tg) {
     $gif_url = "https://example.com/gif.gif";
+    $tg->msg("Отправка сообщения с гиф по ссылке")
+        ->gif($gif_url)
+        ->send();
+});
+
+$bot->onBotCommand('/gifId')->func(function(ZG $tg) {
     $gif_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg("Отправка сообщения с гиф по ID") 
+        ->gif($gif_id)
+        ->send();
+});
+
+$bot->onBotCommand('/gifPath')->func(function(ZG $tg) {
     $gif_path = "media/gif.gif";
+    $tg->msg("Отправка сообщения с гиф по локальному пути") 
+        ->gif($gif_path)
+        ->send();
+});
 
-    switch ($text) {
-        case '/gifUrl':
-            $tg->msg("Отправка сообщения с гиф по ссылке")
-                ->gif($gif_url)
-                ->send();
-            break;
-           
-        case '/gifId':
-            $tg->msg("Отправка сообщения с гиф по ID") 
-                ->gif($gif_id)
-                ->send();
-            break;
-           
-        case '/gifPath':
-            $tg->msg("Отправка сообщения с гиф по локальному пути") 
-                ->gif($gif_path)
-                ->send();
-            break;
+$bot->onBotCommand('/gifArray')->func(function(ZG $tg) {
+    $gif_url1 = $gif_url2 = "https://example.com/gif.gif";
+    $tg->msg('Отправка сообщения с массивом гифок')
+        ->gif([$gif_url1, $gif_url2])
+        ->send();
+});
 
-        case '/gifArray':
-            $tg->msg('Отправка сообщения с массивом гифок')
-                ->gif([$gif_url1, $gif_url2])
-                ->send();
-            break;
+$bot->onBotCommand('/gifLot')->func(function(ZG $tg) {
+    $gif_url1 = $gif_url2 = "https://example.com/gif.gif";
+    $tg->msg('Отправка сообщения с несколькими вызовами gif()')
+        ->gif($gif_url1)
+        ->gif($gif_url2)
+        ->send();
+});
 
-        case '/gifLot':
-            $tg->msg('Отправка сообщения с несколькими вызовами gif()')
-                ->gif($gif_url1)
-                ->gif($gif_url2)
-                ->send();
-            break;
-    }
-}
+$bot->run();
 ```
 
 ## Вспомогательные методы

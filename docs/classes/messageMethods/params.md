@@ -18,26 +18,24 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 <?php
-require_once __DIR__ . '/vendor/autoload.php'; 
+require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText()
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') {    
-    switch ($text) {
-        case '/paramsNotification':
-            $tg->msg("Сообщение без звука уведомлений")
-                ->params(['disable_notification' => true])
-                ->send();
-            break;
-           
-        case '/paramsPreview':
-            $tg->msg("Сообщение без превью ссылки")
-                ->params(['disable_web_page_preview' => true]) 
-                ->send();
-            break;
-    }
-}
+$bot->onBotCommand('/paramsNotification')->func(function(ZG $tg) {
+    $tg->msg("Сообщение без звука уведомлений")
+        ->params(['disable_notification' => true])
+        ->send();
+});
+
+$bot->onBotCommand('/paramsPreview')->func(function(ZG $tg) {
+    $tg->msg("Сообщение без превью ссылки")
+        ->params(['disable_web_page_preview' => true]) 
+        ->send();
+});
+
+$bot->run();
 ```

@@ -4,7 +4,6 @@ description: "Настройка обработки и логирования о
 sidebarDepth: 0
 ---
 
-
 # Обработка Ошибок (Error Handling)
 В библиотеке реализован трейт `ErrorHandler`, который предоставляет мощные механизмы для перехвата, форматирования и отправки информации об ошибках и исключениях.
 
@@ -25,8 +24,8 @@ WebHook:
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
-$tg->enableDebug;
+$tg = ZG::create(BOT_TOKEN);
+$tg->enableDebug();
 ```
 
 Longpoll:
@@ -35,8 +34,8 @@ Longpoll:
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\LongPoll;
 
-$lp = LongPoll::create('ТОКЕН_БОТА');
-$lp->enableDebug;
+$lp = LongPoll::create(BOT_TOKEN);
+$lp->enableDebug();
 ```
 
 ## setSendIds
@@ -57,11 +56,11 @@ WebHook:
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
-$tg->enableDebug
+$tg = ZG::create(BOT_TOKEN);
+$tg->enableDebug()
     ->setSendIds(123456789); // Один пользователь
 
-$tg->enableDebug
+$tg->enableDebug()
     ->setSendIds([123456789, 987654321]); // Два пользователя
 ```
 
@@ -71,11 +70,11 @@ Longpoll:
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\LongPoll;
 
-$lp = LongPoll::create('ТОКЕН_БОТА');
-$lp->enableDebug
+$lp = LongPoll::create(BOT_TOKEN);
+$lp->enableDebug()
     ->setSendIds(123456789); // Один пользователь
 
-$lp->enableDebug
+$lp->enableDebug()
     ->setSendIds([123456789, 987654321]); // Два пользователя
 ```
 
@@ -103,8 +102,8 @@ $lp->enableDebug
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
-$tg->enableDebug
+$tg = ZG::create(BOT_TOKEN);
+$tg->enableDebug()
     ->setHandler(function(ZG $tg, Throwable $e) {
         $tg->reply("В боте возникла неизвестная ошибка!\n" . $e->getMessage());
     });
@@ -131,7 +130,7 @@ $tg->enableDebug
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА')
+$tg = ZG::create(BOT_TOKEN)
     ->enableDebug()
     ->setSendIds(123456789)
     ->setTracePathFilter('/path/to/your/project');
@@ -155,7 +154,7 @@ $tg = ZG::create('ТОКЕН_БОТА')
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА')
+$tg = ZG::create(BOT_TOKEN)
     ->enableDebug()
     ->setSendIds(123456789)
     ->shortTrace(true); 

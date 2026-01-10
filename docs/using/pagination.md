@@ -20,7 +20,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Button; // Используем современный класс кнопок
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 // 1. Генерируем тестовый массив кнопок
 $items = [];
@@ -178,7 +178,7 @@ use ZenithGram\ZenithGram\Enums\PaginationMode;
 use ZenithGram\ZenithGram\Enums\PaginationNumberStyle;
 use ZenithGram\ZenithGram\Enums\PaginationLayout;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Функция-помощник для создания клавиатуры

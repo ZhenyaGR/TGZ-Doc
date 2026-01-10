@@ -30,7 +30,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
 // Замените 'ТОКЕН' на фактический токен вашего бота
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 ```
 
 ## Сценарии использования

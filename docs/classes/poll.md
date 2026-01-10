@@ -23,7 +23,7 @@ sidebarDepth: 0
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 $tg->poll('regular')        // Тип опроса
     ->question('Вопрос')    // Вопрос

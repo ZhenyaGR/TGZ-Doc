@@ -18,40 +18,35 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 <?php
-require_once __DIR__ . '/vendor/autoload.php'; 
-
+require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
 
 $tg = ZG::create(BOT_TOKEN);
-$text = $tg->getText();
-$type = $tg->getType();
+$bot = new Bot($tg);
 
-if ($type === 'bot_command') 
-
+$bot->onBotCommand('/voiceUrl')->func(function(ZG $tg) {
     $voice_url = "https://example.com/voice.mp3";
-    $voice_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
-    $voice_path = "media/voice.mp3";
+    $tg->msg() // Телеграм проигнорирует текст
+        ->voice($voice_url)
+        ->send();
+});
 
-    switch ($text) {
-        case '/voiceUrl':
-            $tg->msg() // Телеграм проигнорирует текст
-                ->voice($voice_url)
-                ->send();
-            break;
-           
-        case '/voiceId':
-            $tg->msg() 
-                ->voice($voice_id)
-                ->send();
-            break;
-           
-        case '/voicePath':
-            $tg->msg() 
-                ->voice($voice_path)
-                ->send();
-            break;
-    }
-}
+$bot->onBotCommand('/voiceId')->func(function(ZG $tg) {
+    $voice_id = "AgACAgIAAxkDAAICUmfbEudQY2SXKgsMr00_b_ZAcYErAALP9TEbJsnZSlufCaTwR76hAQADAgADeQADNgQ";
+    $tg->msg() 
+        ->voice($voice_id)
+        ->send();
+});
+
+$bot->onBotCommand('/voicePath')->func(function(ZG $tg) {
+    $voice_path = "media/voice.mp3";
+    $tg->msg() 
+        ->voice($voice_path)
+        ->send();
+});
+
+$bot->run();
 ```
 
 ## Вспомогательные методы

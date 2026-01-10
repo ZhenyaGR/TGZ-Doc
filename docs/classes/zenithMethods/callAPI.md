@@ -23,7 +23,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use ZenithGram\ZenithGram\ZG;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 $me = $tg->callAPI('getMe');
 $name = "Имя бота: " . $me['result']['first_name'] . "\n";

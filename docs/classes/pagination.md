@@ -18,7 +18,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Button;
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];
@@ -66,7 +66,7 @@ $keyboard = $pag->setItems($items)  // Передаем кнопки
     ->setPrefix('page_')            // Префикс для кнопок навигации
     ->create();                     // Собираем массив
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 
 // Отправляем сообщение с клавиатурой
 $tg->msg("Выберите товар (Страница 1):")

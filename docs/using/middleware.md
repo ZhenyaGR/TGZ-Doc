@@ -47,7 +47,7 @@ function isUserRegistered(int $user_id): bool {
 
 const ADMIN_IDS = [12345, 54321]; // Список ID администраторов
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 // Устанавливаем глобальное Middleware
@@ -99,7 +99,7 @@ use ZenithGram\ZenithGram\Bot;
 
 const ADMIN_IDS = [12345, 54321]; // Список ID администраторов
 
-$tg = ZG::create('ТОКЕН_БОТА');
+$tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $bot->onBotCommand('/start')->text('Добро пожаловать!');
