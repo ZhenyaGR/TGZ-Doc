@@ -3,7 +3,7 @@ title: middleware
 description: "Регистрирует Middleware для конкретного маршрута."
 ---
 
-# middleware
+# Action::middleware
 Метод регистрирует единый обработчик, который будет выполняться перед выполнением маршрута (onCommand, onText и т.д.)
 
 :::tip Action::middleware

@@ -29,7 +29,7 @@ export default defineConfig({
                     '**index.md',
                     '**/index.md',
                     '**/classes/zenithMethods/buttons.md',
-                    '**/install/requirements.md',
+                    '**/classes/zenithMethods/initVars.md',
                     '**/install/create_bot.md',
                     '**/404.md'
                 ],

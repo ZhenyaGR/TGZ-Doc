@@ -26,6 +26,19 @@ description: "Выполняет пользовательскую функцию
 - Для `onLeftChatMember`: экземпляр класса `UserDto`.
 - Для `onNewChatMember`: экземпляры класса `UserDto`.
 
+:::warning Dependency Injection 
+Строгие аргументы, описанные выше, будут работать только в случае, когда у вас не задана рефлексия.</br>
+При использовании Reflection API аргументы изменяются, их можно передавать в произвольном порядке, а также внедрять свои классы. 
+:::
+
+## Аргументы обработчика с Reflection API
+- `ZG`: Экземпляр основного класса.
+- `ChatDto`: DTO с описанием чата.
+- `UserDto`: DTO с описанием пользователя.
+- `MessageDto`: DTO с описанием сообщения.
+- `Containers`: Все кастомные контейнеры пользователя
+- `Все аргументы выше`: Все остальные значения из обработчиков (Плейсхолдеры, Matches и т.д.)
+
 ## Пример использования
 ```php
 <?php
@@ -63,6 +76,38 @@ $bot->btn('confirm_delete', 'Да, удалить')
         $tg->answerCallbackQuery($query_id);
     });
 
+$bot->run();
+```
+
+## Пример использования с Reflection API
+В примере показан очень простой функционал без кеша и контейнеров.</br>
+В продакшене необходимо использовать кеш, т.к. Reflection API очень долгая операция.</br>
+Подробнее можно узнать в [Внедрение зависимостей](/using/reflection)
+
+```php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\MessageParseMode;
+
+$tg = ZG::create(BOT_TOKEN);
+$bot = new Bot($tg);
+
+$bot->reflection(); // Запускаем рефлексию
+
+// Полное совпадение с вызовами UserDto, ChatDto, ZG
+$bot->onText('hello', 'Привет')
+    ->func(function (UserDto $user, ChatDto $chat, ZG $tg) {
+        $tg->reply("Привет, {$user->firstName}!");
+    });
+
+// Именные плейсхолдеры можно вызывать в произвольном порядке
+$bot->onCommand('gift', '/gift {username} {amount}')
+    ->func(function (ZG $tg, $amount, string $username) {
+        // $username и $amount будут автоматически заполнены из текста команды
+        $tg->reply("Отправлено $amount монет пользователю $username");
+    });
 
 $bot->run();
 ```
