@@ -15,7 +15,6 @@ description: "Конструктор для создания логики бот
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
@@ -32,16 +31,16 @@ $bot->run();
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
 use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
 $lp = LongPoll::create(BOT_TOKEN);
 $bot = new Bot(); // Сразу не передаем ZG
+
 // ... здесь вся логика вашего бота ...
 
-$lp->listen(function(ZG $tg) {
+$lp->listen(function(ZG $tg) use ($bot) {
     $bot->zg($tg)->run();
 });
 ```
@@ -57,7 +56,6 @@ $lp->listen(function(ZG $tg) {
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 

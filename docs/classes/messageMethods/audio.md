@@ -46,13 +46,6 @@ $bot->onBotCommand('/audioPath')->func(function(ZG $tg) {
         ->send();
 });
 
-$bot->onBotCommand('/audioPath')->func(function(ZG $tg) {
-    $audio_path = "media/audio.mp3";
-    $tg->msg("Отправка сообщения с аудио по локальному пути") 
-        ->audio($audio_path)
-        ->send();
-});
-
 $bot->onBotCommand('/audioArray')->func(function(ZG $tg) {
     $audio_url1 = $audio_url2 = "https://example.com/audio.mp3";
     $tg->msg('Отправка сообщения с массивом аудио-файлов')

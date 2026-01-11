@@ -48,12 +48,45 @@ $bot->onBotCommand('vote', '/vote')
 // Обработчик для callback_data 'vote_yes'
 $bot->onCallback('handle_vote_yes', 'vote_yes')
     ->query('Спасибо за ваш голос!') // Всплывающее уведомление
-    ->edit('Вы проголосовали "Да". Отлично!'); // Редактируем исходное сообщение
+    ->editText('Вы проголосовали "Да". Отлично!'); // Редактируем исходное сообщение
 
 // Обработчик для callback_data 'vote_no'
 $bot->onCallback('handle_vote_no', 'vote_no')
     ->query('Спасибо за ваш голос!')
     ->editText('Вы проголосовали "Нет". Жаль!');
+
+$bot->run();
+```
+
+## Пример с плейсхолдером 
+```php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+use ZenithGram\ZenithGram\ZG;
+use ZenithGram\ZenithGram\Bot;
+use ZenithGram\ZenithGram\Button;
+
+$tg = ZG::create(BOT_TOKEN);
+$bot = new Bot($tg);
+
+$bot->onBotCommand('vote', '/vote')
+    ->text('Вам нравится эта библиотека?')
+    ->inlineKbd([
+        [
+            Button::cb('Да 👍', 'vote_yes'),
+            Button::cb('Нет 👎', 'vote_no'),
+        ],
+    ]);
+
+$bot->onCallback('handle_vote', 'vote_{voted}')
+    ->func(function(ZG $tg, string $voted) {
+        $tg->answerCallbackQuery(['text' => 'Спасибо за ваш голос!']);
+        if ($voted === 'yes') {
+            $tg->msg('Вы проголосовали "Да". Отлично!')->editText();
+        } else {
+            $tg->msg('Вы проголосовали "Нет". Жаль!')->editText();
+        }
+    });
 
 $bot->run();
 ```
