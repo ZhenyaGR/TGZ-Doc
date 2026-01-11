@@ -120,7 +120,7 @@ $bot->onText('help', "помощь")->func(function (ZG $tg) {
 });
 
 // Обработка команды по регулярному выражению
-$bot->onTextPreg('more_word', "!\!напиши (.*)!")
+$bot->onTextPreg('more_word', '/^!напиши\s+(.*)/iu')
     ->func(function (ZG $tg, $match) {
         $tg->msg("Ваше предложение: " . $match)->send();
     });

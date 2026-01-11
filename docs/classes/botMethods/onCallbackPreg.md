@@ -17,15 +17,20 @@ description: "Обработчик callback_data по регулярному в�
 ## Возвращает
 `Action` — экземпляр класса `Action` (Вспомогательный класс), на который можно навешивать дальнейшие действия (`text`, `func` и т.д.).
 
+## Обработка совпадений
+Массив совпадений, полученный из функции `preg_match`, передается в качестве аргумента в обработчик `func()`.</br>
+При этом массив разворачивается с помощью оператора `...`
+
 ## Пример использования
 В этом примере мы создаем inline-кнопки через пагинацию и обрабатываем навигацию.
 
 ```php
+<?php
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
-use ZenithGram\ZenithGram\Pagination; // Не забудьте подключить класс констант
+use ZenithGram\ZenithGram\Pagination;
 
 $tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
@@ -50,8 +55,7 @@ $bot->onBotCommand('catalog', '/catalog')
 // 2. Обработчик переключения страниц
 $bot->onCallbackPreg('catalog_handler', '/^catalog_page_(\d+)$/')
     ->func(function(ZG $tg, int $page) {
-        $query_id = $tg->getQueryId();
-        $tg->answerCallbackQuery($query_id);
+        $tg->answerCallbackQuery();
 
         $keyboard = getCatalogKeyboard($tg, $page);
 
