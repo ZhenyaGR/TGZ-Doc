@@ -17,6 +17,8 @@ sidebarDepth: 0
 
 ## Пример использования
 ```php
+use ZenithGram\ZenithGram\Button;
+
 $items = [
     Button::cb('Кнопка 1', 'btn_1'),
     Button::cb('Кнопка 2', 'btn_2'),

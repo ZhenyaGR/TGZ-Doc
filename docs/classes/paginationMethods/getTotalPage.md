@@ -16,7 +16,7 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 $pag = $tg->pagination()    
-    ->setItems($items)  // Кнопки
+    ->setItems($items)  // Кнопки. Предполагаем, что они определены ранее
     ->setPerPage(5)     // Количество кнопок на одной странице
     ->setColumns(1)     // Колонки 
     ->setPage(1)        // Текущая страница

@@ -4,7 +4,7 @@ description: "Передает экземпляр ZG в конструктор B
 ---
 
 # zg
-Метод прокидывает основной класс `ZG` в класс `Bot`.
+Метод zg() устанавливает контекст выполнения (класс `ZG`) для роутера в класс `Bot`. Принцип Dependency Injection
 
 Создан для удобного использования с методом получения обновления `LongPoll`.
 
@@ -22,26 +22,19 @@ description: "Передает экземпляр ZG в конструктор B
 ```php
 <?php
 require_once 'vendor/autoload.php';
-
 use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
 $lp = LongPoll::create(BOT_TOKEN);
-
 $bot = new Bot(); // Не передаём основной класс сразу
 
 // Инициализация всех команд происходит до начала опроса. Это повышает производительность бота
 $bot->onStart()->text('Привет!');
 
 $lp->listen(function(ZG $tg) use ($bot) {
-
     $bot->zg($tg)->run();
     // Добавляем объект основного класса в Bot до вызова run
     // Чтобы бот имел доступ к актуальному обновлению и доступ
-
 });
-
-
-
 ```

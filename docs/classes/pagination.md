@@ -9,7 +9,7 @@ sidebarDepth: 0
 
 Конструктор класса не принимает значений 
 
-##  Создание экземпляра `pagination` через **ZG**
+## Создание экземпляра `pagination` через **ZG**
 Для создания экземпляра класса используется `pagination` – метод из класса _ZG_. Этот метод является «синтаксическим сахаром».
 
 ```php
@@ -49,6 +49,7 @@ $tg->msg("Выберите товар (Страница 1):")
 require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Pagination;
+use ZenithGram\ZenithGram\Button;
 
 // Генерируем массив кнопок (например, 20 штук)
 $items = [];

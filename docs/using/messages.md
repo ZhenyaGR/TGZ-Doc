@@ -47,9 +47,10 @@ $tg->msg("Начальный текст.")
 Устанавливает режим форматирования текста.
 
 **Доступные режимы** описаны в [MessageParseMode](/classes/enum#messageparsemode)
-.
 
 ```php
+use ZenithGram\ZenithGram\Enums\MessageParseMode;
+
 // Использование HTML
 $tg->msg("<b>Жирный текст</b> и <i>курсив</i>.")
    ->parseMode(MessageParseMode::HTML)
@@ -119,7 +120,6 @@ $tg->msg("Вот альбом из трех фото")
 
 ### `mediaPreview(string $url)`
 Этот метод позволяет добавить к сообщению предпросмотр ссылки (rich preview), не отображая саму ссылку в тексте. Это достигается за счет добавления невидимой ссылки в начало текста.
-
 ```php
 $tg->msg("Эта статья очень полезна.")
    ->mediaPreview('https://example.com/some-article')
@@ -127,12 +127,12 @@ $tg->msg("Эта статья очень полезна.")
 ```
 
 ## Клавиатуры
-
 Для управления клавиатурами существует 3 метода: `kbd()`, `inlineKbd()` и `removeKbd()` для **reply**, **inline** и удаления соответственно.
 
 ### Reply-клавиатура
-
 ```php
+use ZenithGram\ZenithGram\Button;
+
 $buttons = [
     [
         Button::text('Кнопка 1'), 
@@ -146,8 +146,9 @@ $tg->msg("Выберите кнопку:")
 ```
 
 ### Inline-клавиатура
-
 ```php
+use ZenithGram\ZenithGram\Button;
+
 $buttons = [
     [Button::url('Google', 'https://google.com')],
     [Button::cb('Нажми меня', 'button_pressed')]
@@ -159,16 +160,13 @@ $tg->msg("Это inline-клавиатура:")
 ```
 
 ### Удаление клавиатуры
-
 ```php
 $tg->msg("Клавиатура убрана.")
    ->removeKbd()
    ->send();
 ```
 
-
 ## Редактирование сообщений
-
 Вы можете редактировать уже отправленные сообщения.
 
 ### `editText(?string $messageID = null, ?int $chatID = null)`
