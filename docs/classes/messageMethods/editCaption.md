@@ -46,7 +46,7 @@ $bot->onBotCommand('edit', '/edit')
     });
 
 // 2. Обрабатываем нажатие на кнопку
-$bot->onCallback('edit_in_chat', '/edit_in_chat')
+$bot->onCallback('edit_in_chat', 'edit_in_chat')
     ->func(function(ZG $tg) {
         // ID чата, в котором нужно отредактировать сообщение
         $chatIdToEdit = 123456789;
