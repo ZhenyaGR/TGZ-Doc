@@ -35,7 +35,6 @@ $bot = new Bot($tg);
 $bot->onCommand('ban', '/ban {username}')
     ->func(function(ZG $tg, string $username) {
         $tg->msg("✅ Пользователь `{$username}` забанен")->send();
-        
     })
     ->access(123456); // Только пользователь с ID 123456 может использовать команду
 

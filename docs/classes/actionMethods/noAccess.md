@@ -53,7 +53,6 @@ $bot = new Bot($tg);
 $bot->onCommand('ban', '/ban {username}')
     ->func(function(ZG $tg, $username) {
         $tg->msg("✅ Пользователь `{$username}` забанен")->send();
-        
     })
     ->noAccess(123456, function(ZG $tg) {
         $tg->reply("Доступ запрещен"); 

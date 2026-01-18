@@ -25,7 +25,7 @@ $tg = ZG::create(BOT_TOKEN);
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 
-$File = $tg->file($img_id);
+$file = $tg->file($img_id);
 ```
 
 ##  Создание экземпляра `File` через `new`
@@ -38,7 +38,7 @@ use ZenithGram\ZenithGram\File;
 
 $img_id = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef...";
 
-$File = new File($img_id);
+$file = new File($img_id);
 ```
 
 Оба примера равнозначны

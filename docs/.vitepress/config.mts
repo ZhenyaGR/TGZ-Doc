@@ -8,6 +8,7 @@ import {join, resolve} from 'node:path'
 import path from 'path'
 import fs from 'fs' // Импортируем модуль для работы с файлами
 
+import { optimizeLlmsFile } from './scripts/optimize-llms.mjs'
 
 export default defineConfig({
     vite: {
@@ -28,6 +29,10 @@ export default defineConfig({
                     'index.md',
                     '**index.md',
                     '**/index.md',
+                    '**/install/who_zenith.md',
+                    '**/install/who_zenith.md',
+                    '**/install/requirements.md',
+                    '**/classes/inlineMethods/fileId.md',
                     '**/classes/zenithMethods/buttons.md',
                     '**/classes/zenithMethods/initVars.md',
                     '**/install/create_bot.md',
@@ -81,7 +86,6 @@ export default defineConfig({
         ['link', { rel: 'icon', href: '/favicon.png', type: 'image/png' }],
         ['link', { rel: 'apple-touch-icon', href: '/pwa-192x192.png' }], // Опционально, для мобилок
 
-
         // --- SEO И ВЕРИФИКАЦИЯ ---
         ['meta', {name: 'google-site-verification', content: 'fto1NgMl4Hv1cWWwLcif8VREaTyVJ7wWlAcG807mlCs'}],
         ['meta', {name: 'yandex-verification', content: '8eaa8135ce653a42'}],
@@ -118,6 +122,11 @@ export default defineConfig({
             try {
                 copyFileSync(sourcePath, destinationPath)
                 console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
+
+                if (fileName === 'llms-full.txt') {
+                    console.log('🛠️ Optimizing llms-full.txt...')
+                    optimizeLlmsFile(destinationPath);
+                }
             } catch (e) {
                 // Выводим более понятную ошибку, если файла нет
                 console.error(`❌ ERROR copying ${fileName}. Ensure the file exists in ${outDir}. Details:`, e.message)

@@ -3,7 +3,7 @@ title: middleware
 description: "Регистрирует Middleware для конкретного маршрута."
 ---
 
-# Action::middleware
+# middleware
 Метод регистрирует единый обработчик, который будет выполняться перед выполнением маршрута (onCommand, onText и т.д.)
 
 :::tip Action::middleware
@@ -36,7 +36,6 @@ $bot = new Bot($tg);
 $bot->onCommand('ban', '/ban {username}')
     ->func(function(ZG $tg, string $username) {
         $tg->msg("✅ Пользователь `{$username}` забанен")->send();
-        
     })
     ->middleware(function(ZG $tg, callable $next) {
         $user_id = $tg->getUserId();

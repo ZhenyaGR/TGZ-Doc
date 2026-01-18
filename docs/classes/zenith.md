@@ -52,10 +52,8 @@ $tg->answerCallbackQuery($query_id, ['text' => "Вы нажали кнопку!"
 3. Работа с контекстом
 
 ```php
-// Устаревший метод
-$tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_id, $is_bot, $is_command);
-
-// Стандартные геттеры
 $chat_id = $tg->getChatId();
 $user_id = $tg->getUserId();
+$update = $tg->getUpdate();
+$user_id_dto = $tg->getUser()->id();
 ```

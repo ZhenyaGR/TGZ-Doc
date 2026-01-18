@@ -171,7 +171,7 @@ $bot->run();
 ## Бот с обработкой Inline-Кнопок на конструкторе (Callback)
 ```php
 <?php
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\Button;
