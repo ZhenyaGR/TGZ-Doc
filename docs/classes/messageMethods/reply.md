@@ -4,7 +4,7 @@ description: "Устанавливает ID сообщения для ответ
 sidebarDepth: 0
 ---
 
-# Message|Action::reply
+# reply
 Метод добавляет ответ на сообщение по его id
 
 :::tip Message|Action::reply
