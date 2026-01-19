@@ -105,31 +105,30 @@ export default defineConfig({
     async buildEnd(siteConfig) {
         // outDir - папка сборки (например, .vitepress/dist)
         const outDir = siteConfig.outDir
-        // rootDir - корень проекта
         // @ts-ignore
         const rootDir = process.cwd()
-
         const filesToCopy = ['llms.txt', 'llms-full.txt']
 
-        console.log('🔄 Starting copy process from dist to root...')
+        console.log('🔄 Starting post-processing...')
 
         for (const fileName of filesToCopy) {
-            // Используем resolve для получения абсолютного пути к исходному файлу
-            const sourcePath = resolve(outDir, fileName)
-            // Используем join для получения абсолютного пути в корне проекта
-            const destinationPath = join(rootDir, fileName)
+            const sourcePath = resolve(outDir, fileName)    // Файл в dist
+            const destinationPath = join(rootDir, fileName) // Файл в корне
 
             try {
+                // СНАЧАЛА проверяем и оптимизируем файл прямо в папке сборки (dist)
+                if (fileName === 'llms-full.txt') {
+                    console.log(`🛠️ Optimizing ${fileName} in dist...`)
+                    // Оптимизируем sourcePath (dist), чтобы на сайте был хороший файл
+                    optimizeLlmsFile(sourcePath);
+                }
+
+                // ПОТОМ копируем уже (возможно) оптимизированный файл в корень
                 copyFileSync(sourcePath, destinationPath)
                 console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
 
-                if (fileName === 'llms-full.txt') {
-                    console.log('🛠️ Optimizing llms-full.txt...')
-                    optimizeLlmsFile(destinationPath);
-                }
             } catch (e) {
-                // Выводим более понятную ошибку, если файла нет
-                console.error(`❌ ERROR copying ${fileName}. Ensure the file exists in ${outDir}. Details:`, e.message)
+                console.error(`❌ ERROR processing ${fileName}:`, e.message)
             }
         }
 
