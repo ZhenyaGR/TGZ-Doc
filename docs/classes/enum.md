@@ -42,6 +42,28 @@ description: "Все Enum и их значения"
 * `ChatAction::RecordVideoNote` — Статус "записывает видеосообщение...".
 * `ChatAction::UploadVideoNote` — Статус "отправляет видеосообщение...".
 
+## UpdateType
+Содержит перечисление типов входящих обновлений (событий), поступающих от Telegram. Позволяет определить, какое именно действие произошло: отправка сообщения, нажатие кнопки, изменение статуса участника и так далее.
+
+### Возможные значения
+* `UpdateType::Message` — Новое входящее сообщение любого типа (текст, фото, стикер и т.д.).
+* `UpdateType::EditedMessage` — Новая версия сообщения, которое было отредактировано.
+* `UpdateType::ChannelPost` — Новый пост в канале любого типа.
+* `UpdateType::EditedChannelPost` — Новая версия поста в канале, который был отредактирован.
+* `UpdateType::InlineQuery` — Новый входящий inline-запрос.
+* `UpdateType::ChosenInlineResult` — Результат inline-запроса, который был выбран пользователем.
+* `UpdateType::CallbackQuery` — Новый входящий callback-запрос (нажатие на inline-кнопку).
+* `UpdateType::ShippingQuery` — Новый запрос на доставку (только для счетов с гибкой ценой).
+* `UpdateType::PreCheckoutQuery` — Запрос на предварительную проверку заказа (содержит полную информацию).
+* `UpdateType::Poll` — Новое состояние опроса (обновления об остановке опроса и т.д.).
+* `UpdateType::PollAnswer` — Пользователь изменил свой ответ в опросе.
+* `UpdateType::MyChatMember` — Обновлен статус участия самого бота в чате (блокировка/разблокировка, добавление в группу).
+* `UpdateType::ChatMember` — Обновлен статус участия другого участника чата.
+* `UpdateType::ChatJoinRequest` — Отправлен запрос на вступление в чат.
+* `UpdateType::ChatBoost` — В чат добавлен буст (Chat Boost).
+* `UpdateType::RemovedChatBoost` — Из чата удален буст.
+
+
 ## PaginationMode
 Определяет, какого типа будут использоваться кнопки навигации для метода `setMode()` (Класс **[Pagination](/classes/pagination)**.
 
