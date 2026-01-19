@@ -28,7 +28,7 @@ $bot = new Bot($tg);
 
 $bot->onReferral()
     ->func(function(ZG $tg, string $ref) {
-        $tg->reply("Реферальная ссылка: {$ref}"); 
+        $tg->msg("Реферальная ссылка: {$ref}")->send(); 
     });
 
 $bot->run();

@@ -105,7 +105,7 @@ use ZenithGram\ZenithGram\ZG;
 $tg = ZG::create(BOT_TOKEN);
 $tg->enableDebug()
     ->setHandler(function(ZG $tg, Throwable $e) {
-        $tg->reply("В боте возникла неизвестная ошибка!\n" . $e->getMessage());
+        $tg->msg("В боте возникла неизвестная ошибка!\n" . $e->getMessage())->send();
     });
 ```
 

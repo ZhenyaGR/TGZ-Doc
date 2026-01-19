@@ -38,14 +38,14 @@ $bot->setStorage(new FileStorage());
 
 // 1. Вход в диалог
 $bot->onBotCommand('reg', '/reg')->func(function(ZG $tg) {
-    $tg->reply('Введите ваше имя:');
+    $tg->msg('Введите ваше имя:')->send();
     $tg->step('wait_name');
 });
 
 // 2. Обработка состояния
 $bot->onState('wait_name')
     ->func(function(ZG $tg, string $name) {
-        $tg->reply("Приятно познакомиться, $name! Диалог завершен.");
+        $tg->msg("Приятно познакомиться, $name! Диалог завершен.")->send();
         $tg->endStep(); // Выход
     });
 

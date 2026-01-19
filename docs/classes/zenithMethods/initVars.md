@@ -40,6 +40,6 @@ $tg = ZG::create(BOT_TOKEN);
 $update = $tg->initVars($chat_id, $user_id, $text, $type, $callback_data, $query_id, $msg_id, $is_bot, $is_command);
 
 if ($type === 'text') { // Проверяем тип события
-    $tg->reply("Твой user_id - " . $user_id);
+    $tg->msg("Твой user_id - " . $user_id)->send();
 }
 ```

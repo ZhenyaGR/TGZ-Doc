@@ -27,8 +27,8 @@ $tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
 
 $bot->onBotCommand('/action')->func(function(ZG $tg) {
-    $tg->sendAction(); // Без параметров
-    $tg->reply('Отображение действий бота с помощью sendChatAction');
+    $tg->sendAction(); // Без параметров будет простое "Печатает..."
+    $tg->msg('Отображение действий бота с помощью sendChatAction')->send();
 });
 
 $bot->onBotCommand('/img')->func(function(ZG $tg) {

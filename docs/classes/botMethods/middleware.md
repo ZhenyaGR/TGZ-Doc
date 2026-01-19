@@ -34,7 +34,7 @@ $bot->middleware(function(ZG $tg, callable $next) {
     if ($user_id === 123456) {
         $next();        
     } else {
-        $tg->reply("Доступ запрещен.");
+        $tg->msg("Доступ запрещен.")->send();
     }
     // Код начнёт искать маршруты, если у пользователя ID 123456, иначе - нет
 });

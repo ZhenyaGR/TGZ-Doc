@@ -28,13 +28,13 @@ public function onBotCommand(string $id, array|string $command = null): Action
 ```php
 // Обработка команды /start
 $bot->onBotCommand('start', '/start')->func(function (ZG $tg) {
-    $tg->reply('Привет! Я бот');
+    $tg->msg('Привет! Я бот')->send();
 });
 
 // Обработка команды с аргументом (например: /gift user123)
 // Аргументы автоматически парсятся и передаются в функцию
 $bot->onBotCommand('gift', '/gift')->func(function (ZG $tg, $username) {
-    $tg->reply("Подарок отправлен пользователю {$username}!");
+    $tg->msg("Подарок отправлен пользователю {$username}!")->send();
 });
 ```
 
@@ -58,10 +58,10 @@ $bot->onCommand('ping', '!ping')->text('Pong!');
 
 // Команда бана: !ban 12345 причина
 $bot->onCommand('ban', '!ban {user_id} {reason}')
-    ->func(function(ZG $tg, $user_id, $reason) {
-        // $user_id = 12345 (int)
+    ->func(function(ZG $tg, $user_id, string $reason) {
+        // $user_id = 12345 (int|string)
         // $reason = "причина" (string)
-        $tg->reply("Пользователь {$user_id} забанен. Причина: {$reason}");
+        $tg->msg("Пользователь {$user_id} забанен. Причина: {$reason}")->send();
     });
 ```
 
@@ -80,10 +80,9 @@ $bot->onStart()->text('Добро пожаловать в бота!');
 
 **Пример использования:**
 ```php
-$bot->onReferral()
-    ->func(function (ZG $tg, $refCode) {
-        $tg->reply("Вы приглашены пользователем с кодом: {$refCode}");
-    });
+$bot->onReferral()->func(function (ZG $tg, $refCode) {
+    $tg->msg("Вы приглашены пользователем с кодом: {$refCode}")->send();
+});
 ```
 
 ---
@@ -120,7 +119,7 @@ $bot->onText('about', 'ℹ️ О нас')
 $bot->onTextPreg('email', '/[\w\.]+@[\w\.]+/')
     ->func(function (ZG $tg, $matches) {
         $email = $matches[0];
-        $tg->reply("Email принят: {$email}");
+        $tg->msg("Email принят: {$email}")->send();
     });
 ```
 
@@ -155,8 +154,8 @@ $bot->onBotCommand('test', '/test')
 // Обрабатываем нажатие
 $bot->onCallback('profile_handler', 'profile_btn')
     ->func(function (ZG $tg) {
-        $tg->answerCallbackQuery($tg->getQueryId());
-        $tg->reply("Это ваш профиль!");
+        $tg->answerCallbackQuery();
+        $tg->msg("Это ваш профиль!")->send();
     });
 ```
 
@@ -182,9 +181,8 @@ $bot->onCallback('ban_handler', 'ban_{user_id}_{reason}')
         // Аргументы автоматически попадают в функцию в нужном порядке
         // $user_id = 55
         // $reason = "spam"
-        
         $tg->answerCallbackQuery($tg->getQueryId(), ['text' => "Забанен!"]);
-        $tg->reply("Пользователь #{$user_id} заблокирован за {$reason}.");
+        $tg->msg("Пользователь #{$user_id} заблокирован за {$reason}.")->send();
     });
 ```
 
@@ -209,7 +207,7 @@ $bot->onBotCommand('shop', '/shop')
 $bot->onCallbackPreg('buy_handler', '/^buy_(\d+)$/')
     ->func(function (ZG $tg, $itemId) {
         // $itemId будет содержать ID товара (1 или 2)
-        $tg->answerCallbackQuery($tg->getQueryId(), ['text' => "Товар #{$itemId} добавлен в корзину"]);
+        $tg->answerCallbackQuery(['text' => "Товар #{$itemId} добавлен в корзину"]);
     });
 ```
 
@@ -237,7 +235,7 @@ $bot->onInline()
                 ->create(),
         ];
         
-        $tg->answerInlineQuery($tg->getQueryId(), $results);
+        $tg->answerInlineQuery($results);
     });
 ```
 
@@ -264,7 +262,7 @@ $bot->onInline()
 // Сохраняем все фото, которые присылает юзер
 $bot->onPhoto('photo_saver')->func(function (ZG $tg) {
     $fileId = File::getFileId($tg->getUpdate());
-    $tg->reply("Фото получено! ID: {$fileId}");
+    $tg->msg("Фото получено! ID: {$fileId}")->send();
 });
 
 // Реакция на кружочек
@@ -283,14 +281,14 @@ $bot->onNewChatMember()
     ->func(function (ZG $tg, UserDto ...$users) {
         foreach ($users as $user) {
             $name = $user->firstName;
-            $tg->reply("Добро пожаловать, {$name}!");
+            $tg->msg("Добро пожаловать, {$name}!")->send();
         }
     });
 
 // Прощание
 $bot->onLeftChatMember()
     ->func(function (ZG $tg, UserDto $user) {
-        $tg->reply("Пользователь {$user->firstName} покинул чат.");
+        $tg->msg("Пользователь {$user->firstName} покинул чат.")->send();
     });
 ```
 

@@ -42,7 +42,7 @@ $bot->onCommand('ban', '/ban {username}')
         if ($user_id === 123456) {
             $next();     
         } else {
-            $tg->reply("Доступ запрещен.");
+            $tg->msg("Доступ запрещен.")->send();
         }
     });
 

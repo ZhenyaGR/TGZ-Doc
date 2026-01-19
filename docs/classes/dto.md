@@ -41,7 +41,7 @@ $bot->onCommand('/userdto')
         $username = $user->username;
         $languageCode = $user->languageCode;
     
-        $tg->reply(
+        $tg->msg(
             "Вся информация о пользователе:\n" .
             "ID: $id\n" .
             "Является ботом: " . ($isBot ? 'да' : 'нет') . "\n" .
@@ -49,7 +49,7 @@ $bot->onCommand('/userdto')
             "Фамилия: " . ($lastName ?? 'отсутствует') . "\n" .
             "Username: " . $username . "\n" .
             "Код языка: " . ($languageCode ?? 'не указан'),
-        );
+        )->send();
         
 });
 
@@ -97,7 +97,7 @@ $bot->onCommand('/chatdto')
         $inviteLink = $chat->inviteLink;
         $isForum = $chat->isForum;
     
-        $tg->reply(
+        $tg->msg(
             "Вся информация о чате:\n" .
             "ID: $id\n" .
             "Тип: $type\n" .
@@ -108,7 +108,7 @@ $bot->onCommand('/chatdto')
             "Описание: " . ($description ?? 'отсутствует') . "\n" .
             "Ссылка-приглашение: " . ($inviteLink ?? 'отсутствует') . "\n" .
             "Является форумом: " . $isForum,
-        );
+        )->send();
         
     });
 
@@ -179,7 +179,7 @@ $bot->onCommand('/msginfo')
             ? "Это ответ на сообщение ID: " . $msg->replyToMessage->messageId 
             : "Это не ответ";
 
-        $tg->reply(
+        $tg->msg(
             "📨 <b>Инфо о сообщении:</b>\n" .
             "🆔 ID: $id\n" .
             "📅 Дата: " . date('d.m.Y H:i', $msg->date) . "\n" .
@@ -187,7 +187,7 @@ $bot->onCommand('/msginfo')
             "👤 От: $senderName\n" .
             "📄 Контент: $content\n" .
             "🔗 $replyStatus"
-        );
+        )->send();
     });
 
 $bot->run();

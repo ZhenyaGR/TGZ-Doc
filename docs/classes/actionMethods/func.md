@@ -99,14 +99,14 @@ $bot->reflection(); // Запускаем рефлексию
 // Полное совпадение с вызовами UserDto, ChatDto, ZG
 $bot->onText('hello', 'Привет')
     ->func(function (UserDto $user, ChatDto $chat, ZG $tg) {
-        $tg->reply("Привет, {$user->firstName}!");
+        $tg->msg("Привет, {$user->firstName}!")->send();
     });
 
 // Именные плейсхолдеры можно вызывать в произвольном порядке
 $bot->onCommand('gift', '/gift {username} {amount}')
     ->func(function (ZG $tg, $amount, string $username) {
         // $username и $amount будут автоматически заполнены из текста команды
-        $tg->reply("Отправлено $amount монет пользователю $username");
+        $tg->msg("Отправлено $amount монет пользователю $username")->send();
     });
 
 $bot->run();

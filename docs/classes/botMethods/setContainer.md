@@ -28,7 +28,7 @@ $bot->onCommand('profile', '/profile')
         // $db будет автоматически взят из контейнера
         // $user будет автоматически создан из обновления
         $balance = $db->getUserBalance($user->id);
-        $tg->reply("Ваш баланс: $balance");
+        $tg->msg("Ваш баланс: $balance")->send();
     });
 ```
 

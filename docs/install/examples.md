@@ -13,7 +13,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 
 $tg = ZG::create(BOT_TOKEN);
-$tg->reply('Привет, Мир!');
+$tg->msg('Привет, Мир!')->send();
 ```
 
 ## Простой Callback – (Эхо-бот)
@@ -287,7 +287,7 @@ $bot->onBotCommand('admin', '/admin')
         if (in_array($tg->getUserId(), $admins)) {
             $next(); // Пропускаем дальше, если админ
         } else {
-            $tg->reply("⛔ Доступ запрещен!");
+            $tg->msg("⛔ Доступ запрещен!")->send();
         }
     })
     ->func(function(ZG $tg) {
@@ -328,7 +328,7 @@ $bot->setStorage(new FileStorage());
 // Если пользователь в состоянии диалога, это выведет его оттуда
 $bot->onBotCommand('cancel', '/cancel')
     ->func(function(ZG $tg) {
-        $tg->reply("Диалог отменен.");
+        $tg->msg("Диалог отменен.")->send();
         $tg->endStep(); // Сброс состояния
     });
 
@@ -355,7 +355,7 @@ $bot->onState('wait_rating')
 
         // Проверяем ввод
         if (!in_array($input, ['1', '2', '3', '4', '5'])) {
-            $tg->reply("Пожалуйста, нажмите на кнопку от 1 до 5.");
+            $tg->msg("Пожалуйста, нажмите на кнопку от 1 до 5.")->send();
             return;
         }
 

@@ -33,7 +33,7 @@ $bot->reflection();
 // Теперь мы можем указывать UserDto в аргументах, и библиотека сама его создаст и передаст
 $bot->onCommand('start', '/start')
     ->func(function (UserDto $user, ZG $tg) {
-        $tg->reply("Привет, {$user->firstName}!");
+        $tg->msg("Привет, {$user->firstName}!")->send();
     });
 
 $bot->run();

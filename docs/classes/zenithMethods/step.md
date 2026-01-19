@@ -18,7 +18,7 @@ sidebarDepth: 0
 ## Пример использования
 ```php
 $bot->onCommand('start', '/start')->func(function(ZG $tg) {
-    $tg->reply('Как вас зовут?');
+    $tg->msg('Как вас зовут?')->send();
     $tg->step('wait_name'); // Переход в состояние ожидания имени
 });
 ```

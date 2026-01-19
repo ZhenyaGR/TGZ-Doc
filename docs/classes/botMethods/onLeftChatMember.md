@@ -47,7 +47,7 @@ $bot = new Bot($tg);
 // Отреагирует на вышедшего/исключенного пользователя
 $bot->onLeftChatMember()
     ->func(function (ZG $tg, UserDto $user) {
-        $tg->reply("Из чата вышел " . $user->firstName);
+        $tg->msg("Из чата вышел " . $user->firstName)->send();
     });
 
 $bot->run();

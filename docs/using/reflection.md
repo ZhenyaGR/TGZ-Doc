@@ -22,7 +22,7 @@ $bot->onCommand('start', '/start')->func(function(ZG $tg) {
     $user = $tg->getUser(); 
     $chat = $tg->getChat();
     
-    $tg->reply("Привет, {$user->firstName}!");
+    $tg->msg("Привет, {$user->firstName}!")->send();
 });
 ```
 
@@ -39,7 +39,7 @@ $bot->onCommand('start', '/start')
     ->func(function(UserDto $user, ChatDto $chat, ZG $tg) {
         // $user и $chat уже заполнены данными!
         // Порядок аргументов не важен.
-        $tg->reply("Привет, {$user->firstName}!");
+        $tg->msg("Привет, {$user->firstName}!")->send();
     });
 ```
 
@@ -70,7 +70,7 @@ $bot->onCommand('gift', '/gift {username} {amount}')
     ->func(function (ZG $tg, string $username, int $amount) {
         // Библиотека распарсит текст команды
         // и передаст значения в переменные $username и $amount
-        $tg->reply("Отправлено $amount монет для $username");
+        $tg->msg("Отправлено $amount монет для $username")->send();
     });
 ```
 
@@ -81,7 +81,7 @@ $bot->onCallback('del_prod', 'product_{id}_delete')
     ->func(function (ZG $tg, int $id, UserDto $user) {
         // Мы получили ID товара из кнопки
         // И данные пользователя через DTO
-        $tg->reply("Пользователь {$user->firstName} удалил товар #$id");
+        $tg->msg("Пользователь {$user->firstName} удалил товар #$id")->send();
     });
 ```
 
@@ -107,7 +107,7 @@ $bot->onCommand('balance', '/balance')
     ->func(function (ZG $tg, UserDto $user, DatabaseService $db) {
         // DatabaseService будет автоматически взят из вашего контейнера
         $balance = $db->getUserBalance($user->id);
-        $tg->reply("Ваш баланс: $balance");
+        $tg->msg("Ваш баланс: $balance")->send();
     });
 ```
 
@@ -148,7 +148,7 @@ $bot->middleware(function (UserDto $user, callable $next, ZG $tg) {
     if ($user->id === 12345) {
         $next();
     } else {
-        $tg->reply('Доступ запрещен');
+        $tg->msg('Доступ запрещен')->send();
     }
 });
 ```
