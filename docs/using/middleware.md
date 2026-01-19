@@ -34,7 +34,7 @@ public function middleware(callable $handler): void
 
 ```php
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 
@@ -92,7 +92,7 @@ public function middleware(callable $handler): Action
 
 ```php
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 

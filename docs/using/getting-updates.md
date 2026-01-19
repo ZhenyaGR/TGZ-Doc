@@ -27,7 +27,7 @@ description: "Настройка методов получения обновл�
 
 ```php
 <?php
-require __DIR__ . '/vendor/autoload.php'; // Убедитесь, что подключили автозагрузчик Composer
+require_once __DIR__ . '/vendor/autoload.php'; // Убедитесь, что подключили автозагрузчик Composer
 use ZenithGram\ZenithGram\LongPoll;
 use ZenithGram\ZenithGram\Bot;
 use ZenithGram\ZenithGram\ZG;
@@ -92,9 +92,7 @@ $lp->listen(function (ZG $tg) use ($bot) {
 
 ```php
 <?php
-
-require __DIR__ . '/vendor/autoload.php'; // Подключаем автозагрузчик
-
+require_once __DIR__ . '/vendor/autoload.php'; // Подключаем автозагрузчик
 use ZenithGram\ZenithGram\ZG;
 use ZenithGram\ZenithGram\Bot;
 

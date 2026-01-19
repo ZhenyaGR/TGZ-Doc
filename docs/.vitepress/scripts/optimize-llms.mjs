@@ -2,8 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // 1. ГЛОБАЛЬНЫЙ КОНТЕКСТ
-const GLOBAL_CONTEXT = `
-=== LIBRARY CONTEXT ===
+const GLOBAL_CONTEXT = `=== LIBRARY CONTEXT ===
 Library: ZenithGram (PHP 8.2+)
 Namespace: ZenithGram\\ZenithGram
 
@@ -13,9 +12,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // Core
 use ZenithGram\\ZenithGram\\ZG;
-use ZenithGram\\ZenithGram\\Bot;
 use ZenithGram\\ZenithGram\\LongPoll;
+use ZenithGram\\ZenithGram\\Bot;
+use ZenithGram\\ZenithGram\\Message;
+use ZenithGram\\ZenithGram\\Button;
+use ZenithGram\\ZenithGram\\Pagination;
+use ZenithGram\\ZenithGram\\Poll;
 use ZenithGram\\ZenithGram\\File;
+use ZenithGram\\ZenithGram\\Inline;
 
 // DTOs
 use ZenithGram\\ZenithGram\\Dto\\UserDto;
@@ -24,19 +28,49 @@ use ZenithGram\\ZenithGram\\Dto\\MessageDto;
 
 // Enums
 use ZenithGram\\ZenithGram\\Enums\\MessageParseMode;
-use ZenithGram\\ZenithGram\\Enums\\ChatAction;
 use ZenithGram\\ZenithGram\\Enums\\MessageDice;
+use ZenithGram\\ZenithGram\\Enums\\ChatAction;
 use ZenithGram\\ZenithGram\\Enums\\PaginationMode;
-
-// Tools
-use ZenithGram\\ZenithGram\\Utils\\Button;
+use ZenithGram\\ZenithGram\\Enums\\PaginationLayout;
+use ZenithGram\\ZenithGram\\Enums\\PaginationNumberStyle;
 
 // Initialization
 $tg = ZG::create(BOT_TOKEN);
 $bot = new Bot($tg);
-=======================
 
-`;
+=== EXECUTION MODES ===
+
+1. Webhook Mode (Standard HTTP)
+Used for standard script execution via web server (e.g., index.php).
+Pattern: Create ZG -> Create Bot with ZG -> Define Routes -> Run.
+
+<?php
+$tg = ZG::create(BOT_TOKEN);
+$bot = new Bot($tg);
+
+// Define handlers
+$bot->onStart()->text('Bot Work For Webhook');
+
+// Process request
+$bot->run();
+
+2. LongPoll Mode (CLI Daemon)
+Used for running a daemon script in CLI.
+Pattern: Create LongPoll -> Create Empty Bot -> Define Routes -> Listen Loop -> Inject ZG into Bot.
+
+<?php
+$lp = LongPoll::create(BOT_TOKEN);
+$bot = new Bot(); // Note: Instantiated without $tg
+
+// Define handlers outside the loop
+$bot->onStart()->text('Bot Work For LongPoll');
+
+// Start listening loop
+$lp->listen(function (ZG $tg) use ($bot) {
+    // Inject the received ZG instance into the bot and run routing
+    $bot->zg($tg)->run();
+});
+===`;
 
 const CLASS_MAP = {
   'zenithMethods': 'ZG', 'zenith': 'ZG',
