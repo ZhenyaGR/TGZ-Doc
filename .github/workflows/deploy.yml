@@ -87,6 +87,7 @@ jobs:
           mkdir -p ai-context
           cp ../llms.txt ai-context/
           cp ../llms-full.txt ai-context/
+          cp ../llms-full-raw.txt ai-context/
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add ai-context/
