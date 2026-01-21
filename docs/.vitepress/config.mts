@@ -116,17 +116,20 @@ export default defineConfig({
             const destinationPath = join(rootDir, fileName) // Файл в корне
 
             try {
-                // СНАЧАЛА проверяем и оптимизируем файл прямо в папке сборки (dist)
                 if (fileName === 'llms-full.txt') {
+                    // 1. Сначала сохраняем RAW версию (до оптимизации)
+                    const rawDestinationPath = join(rootDir, 'llms-full-raw.txt')
+                    copyFileSync(sourcePath, rawDestinationPath)
+                    console.log(`✅ Copied: llms-full-raw.txt (unoptimized) to ${rawDestinationPath}`)
+
+                    // 2. Теперь оптимизируем исходный файл в dist
                     console.log(`🛠️ Optimizing ${fileName} in dist...`)
-                    // Оптимизируем sourcePath (dist), чтобы на сайте был хороший файл
                     optimizeLlmsFile(sourcePath);
                 }
 
-                // ПОТОМ копируем уже (возможно) оптимизированный файл в корень
+                // 3. Копируем файл (если это llms-full.txt, то он уже оптимизирован на шаге 2)
                 copyFileSync(sourcePath, destinationPath)
                 console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
-
             } catch (e) {
                 console.error(`❌ ERROR processing ${fileName}:`, e.message)
             }
