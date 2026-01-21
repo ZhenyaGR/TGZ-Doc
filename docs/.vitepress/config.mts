@@ -103,7 +103,6 @@ export default defineConfig({
 
     // @ts-ignore
     async buildEnd(siteConfig) {
-        // outDir - папка сборки (например, .vitepress/dist)
         const outDir = siteConfig.outDir
         // @ts-ignore
         const rootDir = process.cwd()
@@ -112,22 +111,23 @@ export default defineConfig({
         console.log('🔄 Starting post-processing...')
 
         for (const fileName of filesToCopy) {
-            const sourcePath = resolve(outDir, fileName)    // Файл в dist
-            const destinationPath = join(rootDir, fileName) // Файл в корне
+            const sourcePath = resolve(outDir, fileName)
+            const destinationPath = join(rootDir, fileName)
 
             try {
                 if (fileName === 'llms-full.txt') {
-                    // 1. Сначала сохраняем RAW версию (до оптимизации)
-                    const rawDestinationPath = join(rootDir, 'llms-full-raw.txt')
-                    copyFileSync(sourcePath, rawDestinationPath)
-                    console.log(`✅ Copied: llms-full-raw.txt (unoptimized) to ${rawDestinationPath}`)
+                    const rawRootPath = join(rootDir, 'llms-full-raw.txt')
+                    copyFileSync(sourcePath, rawRootPath)
+                    console.log(`✅ Created ROOT raw file: ${rawRootPath}`)
 
-                    // 2. Теперь оптимизируем исходный файл в dist
+                    const rawDistPath = join(outDir, 'llms-full-raw.txt')
+                    copyFileSync(sourcePath, rawDistPath)
+                    console.log(`✅ Created DIST raw file: ${rawDistPath}`)
+
                     console.log(`🛠️ Optimizing ${fileName} in dist...`)
                     optimizeLlmsFile(sourcePath);
                 }
 
-                // 3. Копируем файл (если это llms-full.txt, то он уже оптимизирован на шаге 2)
                 copyFileSync(sourcePath, destinationPath)
                 console.log(`✅ Copied: ${fileName} to ${destinationPath}`)
             } catch (e) {
@@ -136,17 +136,10 @@ export default defineConfig({
         }
 
         const sitemapPath = path.resolve(siteConfig.outDir, 'sitemap.xml')
-
-        // Проверяем, существует ли файл
         if (fs.existsSync(sitemapPath)) {
-            // Читаем файл
             const content = fs.readFileSync(sitemapPath, 'utf8')
-
-            // Удаляем пробелы/переносы строк в начале файла (trimStart)
             if (content.startsWith('\n') || content.startsWith(' ')) {
                 const fixedContent = content.trimStart()
-
-                // Перезаписываем файл исправленной версией
                 fs.writeFileSync(sitemapPath, fixedContent)
                 console.log('✅ Sitemap.xml fixed: лишняя пустая строка удалена.')
             }
