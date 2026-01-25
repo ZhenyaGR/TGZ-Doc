@@ -16,7 +16,51 @@ GOOD:
 use ZenithGram\\ZenithGram\\Enums\\MessageParseMode;
 ->parseMode(MessageParseMode::HTML)
 
-Implicit Setup & Imports for all code examples:
+=== CRITICAL: CHAINING & RETURN TYPES ===
+To prevent hallucinations, you must strictly distinguish between "Builders" and "API Wrappers".
+
+TYPE A: FLUENT BUILDERS (Chainable)
+These methods return an object (\`Message\`, \`Action\`, \`Poll\`, \`Inline\`).
+YOU MUST use chaining \`->method()->method()->send()\` with these.
+
+Factories (Start of chain):
+- $tg->msg(...)      -> Returns \`Message\`
+- $tg->poll(...)     -> Returns \`Poll\`
+- $tg->pagination()  -> Returns \`Pagination\`
+- $tg->file(...)     -> Returns \`File\`
+- $bot->on...(...)   -> Returns \`Action\` (e.g., onCommand, onText, btn)
+
+TYPE B: API WRAPPERS / TERMINAL METHODS (NOT Chainable)
+These methods execute immediately and return \`array\` (Telegram response) or \`void\`.
+YOU MUST NOT chain methods like \`parseMode\`, \`send\`, \`kbd\` after these.
+
+Terminals (End of execution, NO CHAINING ALLOWED):
+- $tg->reply(...)               -> Returns \`array\`
+- $tg->sendMessage(...)         -> Returns \`array\`
+- $tg->answerCallbackQuery(...) -> Returns \`array\`
+- $tg->answerInlineQuery(...)   -> Returns \`array\`
+- $tg->copyMsg(...)             -> Returns \`array\`
+- $tg->fwdMsg(...)              -> Returns \`array\`
+- $tg->delMsg(...)              -> Returns \`array\`
+
+=== ANTI-HALLUCINATION EXAMPLES ===
+
+BAD (Attempting to chain on Array/Terminal):
+$tg->reply('Hello')->parseMode(MessageParseMode::HTML); // ERROR: reply() returns array
+$tg->answerCallbackQuery($id)->editText('New text');    // ERROR: answerCallbackQuery() returns array
+
+GOOD (Using Builders or Separate Calls):
+// Option 1: Use the Message builder for advanced features
+$tg->msg('Hello')->reply()->parseMode(MessageParseMode::HTML)->send();
+
+// Option 2: Separate calls
+$tg->answerCallbackQuery($id);
+$tg->msg('New text')->editText();
+
+// Option 3: Simple reply (no formatting needed)
+$tg->reply('Hello');
+
+=== Implicit Setup & Imports ===
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -43,6 +87,10 @@ use ZenithGram\\ZenithGram\\Enums\\ChatAction;
 use ZenithGram\\ZenithGram\\Enums\\PaginationMode;
 use ZenithGram\\ZenithGram\\Enums\\PaginationLayout;
 use ZenithGram\\ZenithGram\\Enums\\PaginationNumberStyle;
+
+// Storage
+use ZenithGram\\ZenithGram\\Storage\\RedisStorage;
+use ZenithGram\\ZenithGram\\Storage\\FileStorage;
 
 // Initialization
 $tg = ZG::create(BOT_TOKEN);
